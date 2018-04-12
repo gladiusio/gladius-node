@@ -1,8 +1,8 @@
 package main
 
 import (
-	"gladius-node/init/service-manager"
-	"gladius-node/internal/network-daemon"
+	"github.com/gladiusio/gladius-node/init/service-manager"
+	"github.com/gladiusio/gladius-node/internal/network-daemon"
 )
 
 // Main entry-point for the service

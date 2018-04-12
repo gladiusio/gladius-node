@@ -3,7 +3,6 @@ package networkd
 import (
 	"errors"
 	"fmt"
-	"gladius-node/internal/rpc-manager"
 	"io/ioutil"
 	"log"
 	"net"
@@ -13,6 +12,8 @@ import (
 	"path"
 	"runtime"
 	"strings"
+
+	"github.com/gladiusio/gladius-node/internal/rpc-manager"
 
 	"github.com/powerman/rpc-codec/jsonrpc2"
 	"github.com/valyala/fasthttp"
