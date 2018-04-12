@@ -44,7 +44,7 @@ var myNode = node{}
 
 func main() {
 
-	myNode.Data.Name = "name"
+	myNode.Data.Name = "celo-test-1"
 	myNode.Data.Email = "celo@gladius.io"
 	myNode.Data.IPAddress = "1.1.1.1"
 	myNode.Data.Status = "active"
@@ -219,6 +219,6 @@ func setNodeData(nodeAddress string) {
 	fmt.Println(string(body)) //tx
 }
 
-func applyToPool() {
+func applyToPool(poolAddress string) {
 
 }
