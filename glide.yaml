@@ -1,0 +1,7 @@
+package: github.com/gladiusio/gladius-node
+import:
+- package: github.com/kardianos/service
+- package: github.com/powerman/rpc-codec
+  subpackages:
+  - jsonrpc2
+- package: github.com/valyala/fasthttp
