@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Create a build folder if it doesn't exist
+mkdir -p ./build
+
+PLATFORMS="darwin/amd64"
+PLATFORMS="$PLATFORMS windows/amd64 windows/386"
+PLATFORMS="$PLATFORMS linux/amd64 linux/386"
+
+FILENAMES="gladius-cli"
+FILENAMES="$FILENAMES gladius-networkd"
+
+for NAME in $FILENAMES; do
+  for PLATFORM in $PLATFORMS; do
+    GOOS=${PLATFORM%/*}
+    GOARCH=${PLATFORM#*/}
+    BIN_FILENAME="${NAME}-${GOOS}-${GOARCH}"
+    if [[ "${GOOS}" == "windows" ]]; then BIN_FILENAME="${BIN_FILENAME}.exe"; fi
+    CMD="GOOS=${GOOS} GOARCH=${GOARCH} go build -o ./build/${BIN_FILENAME} $@ ./cmd/${NAME}"
+    echo "Executing: ${CMD}"
+    eval $CMD
+  done
+done
