@@ -49,15 +49,15 @@ func main() {
 	myNode.Data.IPAddress = "1.1.1.1"
 	myNode.Data.Status = "active"
 
-	setSettings("local")
-	postSettings()
-	createNode()
+	// setSettings("ropsten")
+	// postSettings()
+	// createNode()
 	// // test()
 	// // getSettings()
 	// fmt.Println(getNodeAddress())
 
 	// res := createNode()
-	// checkTx("0x162e7bb557a02beb061487d106cf5f053c65efa2e6634becd876902a04db3845")
+	// checkTx("0xa092ea33d1dff86961180f61f0bfa2edcf64ef2f62bbbdb3d87efe2aacf0c8b1")
 	// applyToPool("0x4C1eD749ea857A49F70bF86e7320CF02F01b5D3d", "0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4")
 }
 
@@ -101,7 +101,7 @@ func postSettings() {
 		log.Fatal("POST-postSettings(): ", err)
 	}
 
-	fmt.Println("Settings Posted")
+	fmt.Println("Settings Posted!")
 }
 
 // get settings from API
@@ -190,7 +190,7 @@ func checkTx(tx string) bool {
 
 	json.Unmarshal([]byte(in), &data)
 
-	fmt.Println(data["receipt"]) // <nil>
+	fmt.Println(data["receipt"]) // <nil> or not
 
 	return true // tx hash
 }
@@ -233,3 +233,5 @@ func sendRequest(requestType, url string, data interface{}) (string, error) {
 
 	return string(body), nil //tx
 }
+
+// Basically fuck infura cause TX are taking hella long but all my functions seem to be working
