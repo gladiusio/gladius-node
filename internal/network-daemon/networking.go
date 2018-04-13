@@ -8,12 +8,11 @@ import (
 	"net"
 	"net/http"
 	"net/rpc"
-	"os"
 	"path"
-	"runtime"
 	"strings"
 
 	"github.com/gladiusio/gladius-node/internal/rpc-manager"
+	"github.com/spf13/viper"
 
 	"github.com/powerman/rpc-codec/jsonrpc2"
 	"github.com/valyala/fasthttp"
@@ -79,16 +78,11 @@ func Run() {
 func getContentDir() (string, error) {
 	// TODO: Actually get correct filepath
 	// TODO: Add configurable values from a config file
-	switch runtime.GOOS {
-	case "windows":
-		return "/var/lib/gladius/gladius-networkd", nil
-	case "linux":
-		return os.Getenv("HOME") + "/.config/gladius/gladius-networkd", nil
-	case "darwin":
-		return "/var/lib/gladius/gladius-networkd", nil
-	default:
-		return "", errors.New("Could not detect operating system")
+	contentDir := viper.GetString("ContentDirectory")
+	if contentDir == "" {
+		return contentDir, errors.New("No content directory specified")
 	}
+	return contentDir, nil
 }
 
 // Return a map of the json bundles on disk
