@@ -6,7 +6,7 @@ The full suite of binaries for running a Gladius Node
 Install [go](https://golang.org/doc/install)
 
 Build executables for all platforms with `./build-all` and move the appropriate
-executables to your preferred install path, and add them to your path. An
+executables to your preferred install path, and add them to your PATH. An
 install folder structure could look like this
 ```
 your/install/path/gladius/
