@@ -156,4 +156,5 @@ Percentage of the requests served within a certain time (ms)
 
 Right now files are loaded from `~/.config/gladius/gladius-networkd/` and take
 the format of `example.com.json`. This functionality only works on linux right
-now, and serving is not backwards compatible with the previous release.
+now, and serving is not backwards compatible with the previous release. Content
+can then be accessed at `http://<host>:8080/content?website=example.com`
