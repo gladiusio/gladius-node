@@ -3,6 +3,7 @@
 # Create a build folder if it doesn't exist
 mkdir -p ./build
 
+# Build for mac (66), linux (32, 64), and windows (32, 64)
 PLATFORMS="darwin/amd64"
 PLATFORMS="$PLATFORMS windows/amd64 windows/386"
 PLATFORMS="$PLATFORMS linux/amd64 linux/386"
