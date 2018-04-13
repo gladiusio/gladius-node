@@ -152,7 +152,9 @@ Percentage of the requests served within a certain time (ms)
  100%   7604 (longest request)
 ```
 As you can see above, the Go version handles high concurrent request loads
-significantly better than the Node.js version of the network daemon.
+significantly better than the Node.js version of the network daemon. The Go
+version also saturates the Gigabit link, which likely means it can provide even
+more performance.
 
 ### Set up content delivery
 
