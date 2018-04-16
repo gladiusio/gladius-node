@@ -8,6 +8,7 @@ To test and build the gladius binaries you need go, glide and the make on your m
 
 - Install [go](https://golang.org/doc/install)
 - Install [glide](https://github.com/Masterminds/glide)
+- *Mac Users:* Install xcode for make `xcode-select --install`
 - *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
 ### Build 
