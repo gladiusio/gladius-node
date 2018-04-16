@@ -2,6 +2,10 @@ package: github.com/gladiusio/gladius-node
 import:
 - package: github.com/kardianos/service
 - package: github.com/powerman/rpc-codec
+  version: ~1.0.0
   subpackages:
   - jsonrpc2
 - package: github.com/valyala/fasthttp
+  version: ~20160617.0.0
+- package: github.com/spf13/viper
+  version: ~1.0.2
