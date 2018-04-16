@@ -64,10 +64,11 @@ test-networkd: dependencies $(NET_SRC)
 networkd: test-networkd
 	$(GOBUILD) -o $(NET_DEST) $(NET_SRC)
 
-test-controld: dependencies $(CTL_SRC)
-	echo "tests not implemented yet"
-
-controld: test-controld
-	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
+# Uncomment when controld is implemented
+# test-controld: dependencies $(CTL_SRC)
+# 	echo "tests not implemented yet"
+#
+# controld: test-controld
+# 	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
 
 build-all: dependencies cli networkd controld
