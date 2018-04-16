@@ -36,6 +36,9 @@ NET_DEST=$(DST_DIR)/gladius-networkd$(BINARY_SUFFIX)
 # control daemon source is not yet available
 CTL_DEST=$(DST_DIR)/gladius-controld$(BINARY_SUFFIX)
 
+# commands for go
+GOBUILD=GOPATH=$(GOPATH) go build
+
 ##
 # MAKE TARGETS
 ##
@@ -63,18 +66,18 @@ test-cli: dependencies $(CLI_SRC)
 	echo "tests not implemented yet"
 
 cli: test-cli
-	go build -o $(CLI_DEST) $(CLI_SRC)
+	$(GOBUILD) -o $(CLI_DEST) $(CLI_SRC)
 
 test-networkd: dependencies $(NET_SRC)
 	echo "tests not implemented yet"
 
 networkd: test-networkd
-	GOPATH=$(GOPATH) go build -o $(NET_DEST) $(NET_SRC)
+	$(GOBUILD) -o $(NET_DEST) $(NET_SRC)
 
 test-controld: dependencies $(CTL_SRC)
 	echo "tests not implemented yet"
 
 controld: test-controld
-	go build -o $(CTL_DEST) $(CTL_SRC)
+	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
 
 build-all: dependencies cli networkd controld
