@@ -11,7 +11,7 @@ To test and build the gladius binaries you need go, glide and the make on your m
 - *Mac Users:* Install xcode for make `xcode-select --install`
 - *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
-### Build 
+### Build
 To build all binaries for your current os and architecture simply execute `make`.
 After the build process you will find all binaries in *./build/*.
 
@@ -43,7 +43,7 @@ GOOS=linux GOARCH=386 make
 ### Run the binaries as a process
 Run the executable created by the above step with `gladius-<executable-name>`
 
-### Run networkd or controld as a service
+### Run networkd or controld as a service
 You can also install networkd and controld as a service.
 *Attention:* The service implementation is not tested.
 ```shell
