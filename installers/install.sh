@@ -1,7 +1,7 @@
 #!/bin/sh
 
-$PROJECT_NAME="gladius-node"
-$INSTALL_BIN="/usr/bin/"
+PROJECT_NAME="gladius-node"
+INSTALL_BIN="/usr/bin/"
 
 fail() {
   echo "$1"
@@ -73,11 +73,10 @@ downloadFile() {
   # Build URL
   GLADIUS_DIST="gladius-$TAG-$OS-$ARCH.tar.gz"
   echo "GLADIUS_DIST=$GLADIUS_DIST"
-  DOWNLOAD_URL="https://github.com/gladiusio/$PROJECT_NAME/releases/download/$TAG/$GLADIUS_DIST"
+  DOWNLOAD_URL="https://github.com/gladiusio/gladius-node/releases/download/$TAG/$GLADIUS_DIST"
 
-  # Create some temporary files
   GLADIUS_TMP_FILE="/tmp/$GLADIUS_DIST"
-  echo "Downloading $DOWNLOAD_URL"
+  echo "Attempting to download $DOWNLOAD_URL to $GLADIUS_DIST"
   httpStatusCode=$(getFile "$DOWNLOAD_URL" "$GLADIUS_TMP_FILE")
   if [ "$httpStatusCode" -ne 200 ]; then
     echo "Did not find a release for your system: $OS $ARCH"
@@ -92,8 +91,8 @@ installFile() {
 	GLADIUS_TEMP="/tmp/$PROJECT_NAME"
 	mkdir -p "$GLADIUS_TEMP"
 	tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
-	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$OS-$ARCH/$PROJECT_NAME"
-	sudo cp "$GLIDE_TMP_BIN" "$INSTALL_BIN"
+	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/*"
+	echo sudo cp "$GLADIUS_TMP_BIN" "$INSTALL_BIN"
 	rm -rf $GLADIUS_TEMP
 	rm -f $GLADIUS_TMP_FILE
 }
