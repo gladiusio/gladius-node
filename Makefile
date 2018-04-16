@@ -68,7 +68,7 @@ cli: test-cli
 test-networkd: dependencies $(NET_SRC)
 	echo "tests not implemented yet"
 
-networkd: #test-networkd
+networkd: test-networkd
 	GOPATH=$(GOPATH) go build -o $(NET_DEST) $(NET_SRC)
 
 test-controld: dependencies $(CTL_SRC)
