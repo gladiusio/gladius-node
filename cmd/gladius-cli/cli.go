@@ -50,16 +50,28 @@ func main() {
 	myNode.Data.IPAddress = "1.1.1.1"
 	myNode.Data.Status = "active"
 
+	// always post settings
 	setSettings("ropsten")
 	postSettings()
-	// createNode()
+
+	// create a node contract and wait for tx to finish
+	tx := createNode()
+	waitForTx(tx)
+
+	// get the address of new node, set its data, and wait
+	nodeAddress := getNodeAddress()
+	tx = setNodeData(nodeAddress)
+	waitForTx(tx)
+
+	// apply to pool
+	tx = applyToPool(nodeAddress, "0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4")
+	waitForTx(tx)
+
 	// test()
 	// getSettings()
 	// fmt.Println(getNodeAddress())
 	// res := createNode()
-	checkTx("0xa93314b5e03654bb65b6abf2609489d73e7555482b19a51b85ec715c37e2e576")
-	// waitForTx(res)
-	// applyToPool("0x4C1eD749ea857A49F70bF86e7320CF02F01b5D3d", "0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4")
+	// checkTx("0x3e1514aa08b0dcf9058893fef05c15aae6986ec64eddcbf0f5b30b9694233e73")
 }
 
 func test() {
@@ -142,7 +154,11 @@ func getNodeAddress() string {
 		log.Fatal("GET-getNodeAddress(): ", err)
 	}
 
-	return res // node address
+	var data map[string]interface{}
+
+	json.Unmarshal([]byte(res), &data)
+
+	return data["address"].(string) // tx hash
 }
 
 // set data for a Node contract
@@ -171,7 +187,11 @@ func applyToPool(nodeAddress, poolAddress string) string {
 		log.Fatal("POST-postSettings(): ", err)
 	}
 
-	return res // tx hash
+	var data map[string]interface{}
+
+	json.Unmarshal([]byte(res), &data)
+
+	return data["tx"].(string) // tx hash
 }
 
 // check status of tx hash
@@ -191,27 +211,46 @@ func checkTx(tx string) (bool, error) {
 
 	// fmt.Println(data["transaction"]) // <nil> or not
 	// transaction := data["transaction"]
+
 	receipt := data["receipt"]
 
-	if receipt != nil {
+	if len(receipt) == 0 {
 		return false, errors.New("")
 	}
 
 	return true, errors.New("") // tx hash
 }
 
+// wait for the tx to complete
 func waitForTx(tx string) bool {
-	fmt.Println(tx)
-
 	status, _ := checkTx(tx)
 
 	for status == false {
 		status, _ = checkTx(tx)
-		fmt.Println("NOT DONE YET")
+		fmt.Printf("Tx: %s\t Status: Pending\r", tx)
 	}
 
+	fmt.Printf("\nTx: %s\t Status: Successful\n", tx)
 	return true
 }
+
+// // start edge node server
+// func startEdgeNode() {
+// 	client, err := rpc.DialHTTP("tcp", "http//localhost:5000")
+//
+// 	if err != nil {
+// 		log.Fatal("dialing:", err)
+// 	}
+// 	// Synchronous call
+// 	args := &rpcmanager.GladiusEdge{}
+//
+// 	err = client.Call("GladiusEdge.Start", nil, &reply)
+// 	if err != nil {
+// 		log.Fatal("arith error:", err)
+// 	}
+// 	fmt.Printf("Arith: %d*%d=%d", args.A, args.B, reply)
+//
+// }
 
 // send requests
 func sendRequest(requestType, url string, data interface{}) (string, error) {
@@ -251,5 +290,3 @@ func sendRequest(requestType, url string, data interface{}) (string, error) {
 
 	return string(body), nil //tx
 }
-
-// Basically fuck infura cause TX are taking hella long but all my functions seem to be working
