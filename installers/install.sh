@@ -92,10 +92,15 @@ installFile() {
 	mkdir -p "$GLADIUS_TEMP"
 	tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
 	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/"
-  echo "Can we move the Gladius executables to your /usr/bin/ folder?"
-	sudo cp -a /tmp/gladius-node/gladius-node/* /usr/bin/
-	rm -rf $GLADIUS_TEMP
-	rm -f $GLADIUS_TMP_FILE
+  echo "Can I move the Gladius executables to your /usr/bin/ folder? (y/n)"
+  read ANSWER
+  if [ "$ANSWER" = "y" ]; then
+	 sudo cp -a /tmp/gladius-node/gladius-node/* /usr/bin/
+   rm -rf $GLADIUS_TEMP
+  else
+   echo "Ok, you can find the executables in $GLADIUS_TEMP"
+  fi
+   rm -f $GLADIUS_TMP_FILE
 }
 
 
