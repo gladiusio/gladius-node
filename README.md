@@ -38,16 +38,30 @@ GOOS=linux GOARCH=386 make
 ```
 
 
-### Run
+## Usage
+### Run the binaries as a process
 Run the executable created by the above step with `gladius-<executable-name>`
-(Or use the steps above and make it a service)
 
-## CLI
+### Run networkd or controld as a service
+You can also install networkd and controld as a service.
+*Attention:* The service implementation is not tested.
+```shell
+# install networkd as a service
+gladius-networkd install
+
+# start the networkd service
+gladius-networkd start
+
+# stop the networkd service
+gladius-networkd stop
+```
+
+### CLI
 TODO
 
-## Network Daemon
+### Network Daemon
 
-### Test the RPC server (Only Start and Stop work now)
+#### Test the RPC server (Only Start and Stop work now)
 ```bash
 $ HDR1='Content-type: application/json'
 $ HDR2='Accept: application/json'
@@ -65,11 +79,20 @@ $ curl -H $HDR1 -H $HDR2 -d $MSG http://localhost:5000/rpc
 {"jsonrpc":"2.0","result":"Not implemented","id":1}
 ```
 
-### Some benchmarks compared to the previous version
+#### Set up content delivery
+
+Right now files are loaded from `~/.config/gladius/gladius-networkd/` and take
+the format of `example.com.json`. This functionality only works on linux right
+now, and serving is not backwards compatible with the previous release. Content
+can then be accessed at `http://<host>:8080/content?website=example.com`
+
+---
+
+## Some benchmarks compared to the previous version
 Done over a gigabit link between two machines with the same bundle file being
 served.
 
-#### Node version (with express routing)
+### Node version (with express routing)
 ```
 ab -n 5000 -c 1000 http://<remote IP>:8080/content_bundle
 
@@ -117,7 +140,7 @@ Percentage of the requests served within a certain time (ms)
   99%  31110
  100%  32070 (longest request)
 ```
-#### Go version
+### Go version
 ```
 ab -n 5000 -c 1000 http://<remote IP>:8080/content\?website\=test.com
 
@@ -170,10 +193,3 @@ As you can see above, the Go version handles high concurrent request loads
 significantly better than the Node.js version of the network daemon. The Go
 version also saturates the Gigabit link, which likely means it can provide even
 more performance.
-
-### Set up content delivery
-
-Right now files are loaded from `~/.config/gladius/gladius-networkd/` and take
-the format of `example.com.json`. This functionality only works on linux right
-now, and serving is not backwards compatible with the previous release. Content
-can then be accessed at `http://<host>:8080/content?website=example.com`
