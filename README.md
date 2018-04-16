@@ -11,6 +11,15 @@ To test and build the gladius binaries you need go, glide and the make on your m
 - *Mac Users:* Install xcode for make `xcode-select --install`
 - *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
+### Install dependencies
+We use [glide](https://github.com/Masterminds/glide) to manage the go dependencies.
+To install the dependencies you need to executethe `dependencies` target.
+
+```shell
+# install depdencies for the project with glide
+make dependencies
+``` 
+
 ### Build
 To build all binaries for your current os and architecture simply execute `make`.
 After the build process you will find all binaries in *./build/*.
