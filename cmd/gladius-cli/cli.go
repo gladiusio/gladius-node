@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -49,15 +50,15 @@ func main() {
 	myNode.Data.IPAddress = "1.1.1.1"
 	myNode.Data.Status = "active"
 
-	// setSettings("ropsten")
-	// postSettings()
+	setSettings("ropsten")
+	postSettings()
 	// createNode()
-	// // test()
-	// // getSettings()
+	// test()
+	// getSettings()
 	// fmt.Println(getNodeAddress())
-
 	// res := createNode()
-	// checkTx("0xa092ea33d1dff86961180f61f0bfa2edcf64ef2f62bbbdb3d87efe2aacf0c8b1")
+	checkTx("0xa93314b5e03654bb65b6abf2609489d73e7555482b19a51b85ec715c37e2e576")
+	// waitForTx(res)
 	// applyToPool("0x4C1eD749ea857A49F70bF86e7320CF02F01b5D3d", "0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4")
 }
 
@@ -129,8 +130,6 @@ func createNode() string {
 
 	json.Unmarshal([]byte(res), &data)
 
-	println(data["txHash"].(string))
-
 	return data["txHash"].(string) // tx hash
 }
 
@@ -176,7 +175,7 @@ func applyToPool(nodeAddress, poolAddress string) string {
 }
 
 // check status of tx hash
-func checkTx(tx string) bool {
+func checkTx(tx string) (bool, error) {
 	url := fmt.Sprintf("http://localhost:3000/api/status/tx/%s", tx)
 
 	res, err := sendRequest("GET", url, nil)
@@ -186,13 +185,32 @@ func checkTx(tx string) bool {
 
 	in := res
 
-	var data map[string]interface{}
+	var data map[string]map[string]interface{} //wtf golang this is gross
 
 	json.Unmarshal([]byte(in), &data)
 
-	fmt.Println(data["receipt"]) // <nil> or not
+	// fmt.Println(data["transaction"]) // <nil> or not
+	// transaction := data["transaction"]
+	receipt := data["receipt"]
 
-	return true // tx hash
+	if receipt != nil {
+		return false, errors.New("")
+	}
+
+	return true, errors.New("") // tx hash
+}
+
+func waitForTx(tx string) bool {
+	fmt.Println(tx)
+
+	status, _ := checkTx(tx)
+
+	for status == false {
+		status, _ = checkTx(tx)
+		fmt.Println("NOT DONE YET")
+	}
+
+	return true
 }
 
 // send requests
