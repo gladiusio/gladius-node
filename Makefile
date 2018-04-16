@@ -33,7 +33,7 @@ NET_DEST=$(DST_DIR)/gladius-networkd$(BINARY_SUFFIX)
 CTL_DEST=$(DST_DIR)/gladius-controld$(BINARY_SUFFIX)
 
 # commands for go
-GOBUILD=GOPATH=$(GOPATH) go build
+GOBUILD=go build
 
 ##
 # MAKE TARGETS
