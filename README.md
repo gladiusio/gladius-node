@@ -2,25 +2,40 @@
 
 The full suite of binaries for running a Gladius Node
 
-### Build yourself
-Install [go](https://golang.org/doc/install)
+## Development
+### Dependencies
+To test and build the gladius binaries you need go, glide and the make on your machine.
 
-Build executables for all platforms with `./build-all` and move the appropriate
-executables to your preferred install path, and add them to your PATH. An
-install folder structure could look like this
-```
-your/install/path/gladius/
-│   gladius-cli
-│   gladius-networkd
-│   gladius-control-daemon (not yet included in this repo)
+- Install [go](https://golang.org/doc/install)
+- Install [glide](https://github.com/Masterminds/glide)
+- *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+### Build 
+To build all binaries for your current os and architecture simply execute `make`.
+After the build process you will find all binaries in *./build/*.
+
+#### Build specific binary
+The Makefile can build single binaries too.
+```shell
+# build only the cli
+make cli
+
+# build the network daemon
+make networkd
+
+# build the control daemon (not implemented yet)
+make controld
 ```
 
-##### Some untested stuff with services
-Setup the networking daemon (or control-daemon when implemented) service on your
- machine with:
-`gladius-networkd install`
-Start with: `gladius-networkd start`
-Stop with: `gladius-networkd stop`
+#### Build for a different platform
+To build for a different platform specify toe GOOS and GOARCH variable.
+```shell
+# build for windows 64bit
+GOOS=windows GOARCH=amd64 make
+
+# build for linux 32bit
+GOOS=linux GOARCH=386 make
+```
 
 
 ### Run
