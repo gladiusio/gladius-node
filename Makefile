@@ -3,12 +3,8 @@
 ##
 
 ##
-# GLOBAL VARIABLES 
+# GLOBAL VARIABLES
 ##
-
-# golang requirements
-# thanks to: https://gist.github.com/azer/7c83d0b59de8328355ad
-GOPATH=$(CURDIR)/vendor:$(CURDIR)
 
 # if we are running on a windows machine
 # we need to append a .exe to the
@@ -20,7 +16,7 @@ endif
 
 ifeq ($(GOOS),windows)
 	BINARY_SUFFIX=.exe
-endif 
+endif
 
 # code source and build directories
 SRC_DIR=./cmd
@@ -54,12 +50,6 @@ clean:
 dependencies:
 	# install go packages
 	glide install
-	# creae a softlink referencing the current directory in
-	# vendor/github.com. this is needed so we can compile
-	# networkd 
-	# @TODO: implement proper dpendency paths
-	mkdir -p vendor/src/github.com/gladiusio/
-	ln -s $(CURDIR) vendor/src/github.com/gladiusio/gladius-node
 
 # build steps
 test-cli: dependencies $(CLI_SRC)
