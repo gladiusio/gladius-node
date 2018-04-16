@@ -34,7 +34,7 @@ CTL_DEST=$(DST_DIR)/gladius-controld$(BINARY_SUFFIX)
 
 # commands for go
 GOBUILD=go build
-
+GOTEST=go test
 ##
 # MAKE TARGETS
 ##
@@ -52,23 +52,23 @@ dependencies:
 	glide install
 
 # build steps
-test-cli: dependencies $(CLI_SRC)
-	echo "tests not implemented yet"
+test-cli: $(CLI_SRC)
+	$(GOTEST) $(CLI_SRC)
 
 cli: test-cli
 	$(GOBUILD) -o $(CLI_DEST) $(CLI_SRC)
 
-test-networkd: dependencies $(NET_SRC)
-	echo "tests not implemented yet"
+test-networkd: $(NET_SRC)
+	$(GOTEST) $(NET_SRC)
 
 networkd: test-networkd
 	$(GOBUILD) -o $(NET_DEST) $(NET_SRC)
 
 # Uncomment when controld is implemented
 # test-controld: dependencies $(CTL_SRC)
-# 	echo "tests not implemented yet"
+# 	$(GOTEST) $(CTL_SRC)
 #
 # controld: test-controld
 # 	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
 
-build-all: dependencies cli networkd #controld
+build-all: cli networkd #controld
