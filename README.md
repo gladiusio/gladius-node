@@ -2,37 +2,67 @@
 
 The full suite of binaries for running a Gladius Node
 
-### Build yourself
-Install [go](https://golang.org/doc/install)
+## Development
+### Dependencies
+To test and build the gladius binaries you need go, glide and the make on your machine.
 
-Build executables for all platforms with `./build-all` and move the appropriate
-executables to your preferred install path, and add them to your PATH. An
-install folder structure could look like this
+- Install [go](https://golang.org/doc/install)
+- Install [glide](https://github.com/Masterminds/glide)
+- *Mac Users:* Install xcode for make `xcode-select --install`
+- *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+### Build 
+To build all binaries for your current os and architecture simply execute `make`.
+After the build process you will find all binaries in *./build/*.
+
+#### Build specific binary
+The Makefile can build single binaries too.
+```shell
+# build only the cli
+make cli
+
+# build the network daemon
+make networkd
+
+# build the control daemon (not implemented yet)
+make controld
 ```
-your/install/path/gladius/
-│   gladius-cli
-│   gladius-networkd
-│   gladius-control-daemon (not yet included in this repo)
+
+#### Build for a different platform
+To build for a different platform specify toe GOOS and GOARCH variable.
+```shell
+# build for windows 64bit
+GOOS=windows GOARCH=amd64 make
+
+# build for linux 32bit
+GOOS=linux GOARCH=386 make
 ```
 
-##### Some untested stuff with services
-Setup the networking daemon (or control-daemon when implemented) service on your
- machine with:
-`gladius-networkd install`
-Start with: `gladius-networkd start`
-Stop with: `gladius-networkd stop`
 
-
-### Run
+## Usage
+### Run the binaries as a process
 Run the executable created by the above step with `gladius-<executable-name>`
-(Or use the steps above and make it a service)
 
-## CLI
+### Run networkd or controld as a service
+You can also install networkd and controld as a service.
+*Attention:* The service implementation is not tested.
+```shell
+# install networkd as a service
+gladius-networkd install
+
+# start the networkd service
+gladius-networkd start
+
+# stop the networkd service
+gladius-networkd stop
+```
+
+### CLI
 TODO
 
-## Network Daemon
+### Network Daemon
 
-### Test the RPC server (Only Start and Stop work now)
+#### Test the RPC server (Only Start and Stop work now)
 ```bash
 $ HDR1='Content-type: application/json'
 $ HDR2='Accept: application/json'
@@ -50,11 +80,20 @@ $ curl -H $HDR1 -H $HDR2 -d $MSG http://localhost:5000/rpc
 {"jsonrpc":"2.0","result":"Not implemented","id":1}
 ```
 
-### Some benchmarks compared to the previous version
+#### Set up content delivery
+
+Right now files are loaded from `~/.config/gladius/gladius-networkd/` and take
+the format of `example.com.json`. This functionality only works on linux right
+now, and serving is not backwards compatible with the previous release. Content
+can then be accessed at `http://<host>:8080/content?website=example.com`
+
+---
+
+## Some benchmarks compared to the previous version
 Done over a gigabit link between two machines with the same bundle file being
 served.
 
-#### Node version (with express routing)
+### Node version (with express routing)
 ```
 ab -n 5000 -c 1000 http://<remote IP>:8080/content_bundle
 
@@ -102,7 +141,7 @@ Percentage of the requests served within a certain time (ms)
   99%  31110
  100%  32070 (longest request)
 ```
-#### Go version
+### Go version
 ```
 ab -n 5000 -c 1000 http://<remote IP>:8080/content\?website\=test.com
 
@@ -155,10 +194,3 @@ As you can see above, the Go version handles high concurrent request loads
 significantly better than the Node.js version of the network daemon. The Go
 version also saturates the Gigabit link, which likely means it can provide even
 more performance.
-
-### Set up content delivery
-
-Right now files are loaded from `~/.config/gladius/gladius-networkd/` and take
-the format of `example.com.json`. This functionality only works on linux right
-now, and serving is not backwards compatible with the previous release. Content
-can then be accessed at `http://<host>:8080/content?website=example.com`
