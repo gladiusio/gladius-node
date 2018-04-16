@@ -22,7 +22,7 @@ initArch() {
     i686) ARCH="386" ;;
     i386) ARCH="386" ;;
   esac
-  echo "ARCH=$ARCH"
+  echo "Detected architecture: $ARCH"
 }
 
 # OS Detection
@@ -34,7 +34,7 @@ initOS() {
     mingw*) OS='windows' ;;
     msys*) OS='windows' ;;
   esac
-  echo "OS=$OS"
+  echo "Detected OS: $OS"
 }
 
 # Pick wget or curl
@@ -72,7 +72,7 @@ getFile() {
 downloadFile() {
   # Build URL
   GLADIUS_DIST="gladius-$TAG-$OS-$ARCH.tar.gz"
-  echo "GLADIUS_DIST=$GLADIUS_DIST"
+  echo "Expected tarball is: $GLADIUS_DIST"
   DOWNLOAD_URL="https://github.com/gladiusio/gladius-node/releases/download/$TAG/$GLADIUS_DIST"
 
   GLADIUS_TMP_FILE="/tmp/$GLADIUS_DIST"
@@ -82,7 +82,7 @@ downloadFile() {
     echo "Did not find a release for your system: $OS $ARCH"
     fail "You can build one for your system with the instructions here: https://github.com/gladiusio/gladius-node"
   else
-    echo "Downloading $DOWNLOAD_URL"
+    echo "Downloading $DOWNLOAD_URL..."
     getFile "$DOWNLOAD_URL" "$GLIDE_TMP_FILE"
   fi
 }
@@ -91,8 +91,9 @@ installFile() {
 	GLADIUS_TEMP="/tmp/$PROJECT_NAME"
 	mkdir -p "$GLADIUS_TEMP"
 	tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
-	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/*"
-	echo sudo cp "$GLADIUS_TMP_BIN" "$INSTALL_BIN"
+	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/"
+  echo "Can we move the Gladius executables to your /usr/bin/ folder?"
+	sudo cp -a /tmp/gladius-node/gladius-node/* /usr/bin/
 	rm -rf $GLADIUS_TEMP
 	rm -f $GLADIUS_TMP_FILE
 }
@@ -100,7 +101,9 @@ installFile() {
 
 initArch
 initOS
+echo "\nGathering version information..."
 getLatest
 initDownloadTool
 downloadFile
+echo "\nInstalling"
 installFile
