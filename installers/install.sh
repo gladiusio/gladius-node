@@ -51,7 +51,7 @@ initDownloadTool() {
 
 getLatest(){
   # Get the latest release of the gladius-node
-  TAG=$(curl --silent "$RepoLink" | # Get latest release from GitHub api
+  TAG=$(curl --silent "https://api.github.com/repos/gladiusio/gladius-node/releases/latest" | # Get latest release from GitHub api
     grep '"tag_name":' |               # Get tag line
     sed -E 's/.*"([^"]+)".*/\1/'       # Pluck JSON value
   )
