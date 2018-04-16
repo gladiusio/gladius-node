@@ -71,4 +71,4 @@ networkd: test-networkd
 # controld: test-controld
 # 	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
 
-build-all: dependencies cli networkd
+build-all: dependencies cli networkd #controld
