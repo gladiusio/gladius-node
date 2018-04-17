@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT_NAME="gladius-node"
-INSTALL_BIN="/usr/local/bin/"
+INSTALL_BIN="$HOME/.local/bin/"
 
 fail() {
   echo "$1"
@@ -94,7 +94,10 @@ setupConfig(){
   mkdir -p "$CONFIG_DIR"
   mkdir -p "$CONTENT_DIR"
 
-  touch "$CONFIG_DIR/gladius-networkd.toml"
+  CONFIG_FILE="$CONFIG_DIR/gladius-networkd.toml"
+  touch $CONFIG_FILE
+
+  echo "# See the configurable values at github.com/gladiusio/gladius-node" >> $CONFIG_FILE
 }
 
 installFile() {
@@ -102,14 +105,25 @@ installFile() {
   mkdir -p "$GLADIUS_TEMP"
   tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
   GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME"
-  read -p "Can I move the Gladius binaries to your $INSTALL_BIN folder? (y/n)" -n 1 REPLY
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    cp -a $GLADIUS_TMP_BIN/* $INSTALL_BIN
-    DELETE_TEMPS=true
+
+  # Check if the install bin exists, then copy the files to it.
+  mkdir -p $INSTALL_BIN
+  cp -a $GLADIUS_TMP_BIN/* $INSTALL_BIN
+
+  if [[ ":$PATH:" == *":$INSTALL_BIN:"* ]]; then
+    echo "Perfect, $INSTALL_BIN is in your PATH already!"
   else
-    echo "Ok, I won't clean up the executables. You can find them in $GLADIUS_TEMP"
+    # Ask to add it to the PATH
+    read -p "Can I add $INSTALL_BIN (where the gladius executables are) to your path? (y/n)" -n 1 REPLY
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      echo "export PATH=\"\$PATH:$INSTALL_BIN\"" >> $HOME/.profile
+      echo "Added to PATH"
+    else
+      echo "Ok, I won't add $INSTALL_BIN to your PATH"
+    fi
   fi
+
 
   setupConfig
 
