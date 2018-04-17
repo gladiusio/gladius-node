@@ -89,19 +89,23 @@ downloadFile() {
 
 setupConfig(){
   echo -e "\nCreating config files"
-  CONFIG_DIR="~/.config/gladius/gladius-content/"
+  CONFIG_DIR="$HOME/.config/gladius"
+  CONTENT_DIR="$CONFIG_DIR/gladius-content/"
   mkdir -p "$CONFIG_DIR"
+  mkdir -p "$CONTENT_DIR"
+
+  touch "$CONFIG_DIR/gladius-networkd.toml"
 }
 
 installFile() {
   GLADIUS_TEMP="/tmp/$PROJECT_NAME"
   mkdir -p "$GLADIUS_TEMP"
   tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
-  GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/"
+  GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME"
   read -p "Can I move the Gladius binaries to your $INSTALL_BIN folder? (y/n)" -n 1 REPLY
   echo
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo cp -a $GLADIUS_TMP_BIN/* $INSTALL_BIN
+    cp -a $GLADIUS_TMP_BIN/* $INSTALL_BIN
     DELETE_TEMPS=true
   else
     echo "Ok, I won't clean up the executables. You can find them in $GLADIUS_TEMP"
