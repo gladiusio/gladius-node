@@ -94,24 +94,27 @@ setupConfig(){
 }
 
 installFile() {
-	GLADIUS_TEMP="/tmp/$PROJECT_NAME"
-	mkdir -p "$GLADIUS_TEMP"
-	tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
-	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/"
+  GLADIUS_TEMP="/tmp/$PROJECT_NAME"
+  mkdir -p "$GLADIUS_TEMP"
+  tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
+  GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/"
   read -p "Can I move the Gladius binaries to your $INSTALL_BIN folder? (y/n)" -n 1 REPLY
   echo
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-	 sudo cp -a $GLADIUS_TMP_BIN/* /usr/bin/
-   DELETE_TEMPS=true
+    sudo cp -a $GLADIUS_TMP_BIN/* /usr/bin/
+    DELETE_TEMPS=true
   else
-   echo "Ok, you can find the executables in $GLADIUS_TEMP"
+    echo "Ok, you can find the executables in $GLADIUS_TEMP"
   fi
 
   setupConfig
 
+  echo -e "\nCleaning up temp files..."
   if $DELETE_TEMPS; then
-    echo -e "\nCleaning up temp files..."
+    echo -e "Deleting binaries"
     rm -rf $GLADIUS_TEMP
+  else
+    echo -e "Leaving binaries intact"
   fi
   rm -f $GLADIUS_TMP_FILE
 }
