@@ -1,7 +1,7 @@
 #!/bin/sh
 
-$PROJECT_NAME="gladius-node"
-$INSTALL_BIN="/usr/bin/"
+PROJECT_NAME="gladius-node"
+INSTALL_BIN="/usr/bin/"
 
 fail() {
   echo "$1"
@@ -22,7 +22,7 @@ initArch() {
     i686) ARCH="386" ;;
     i386) ARCH="386" ;;
   esac
-  echo "ARCH=$ARCH"
+  echo "Detected architecture: $ARCH"
 }
 
 # OS Detection
@@ -34,7 +34,7 @@ initOS() {
     mingw*) OS='windows' ;;
     msys*) OS='windows' ;;
   esac
-  echo "OS=$OS"
+  echo "Detected OS: $OS"
 }
 
 # Pick wget or curl
@@ -51,7 +51,7 @@ initDownloadTool() {
 
 getLatest(){
   # Get the latest release of the gladius-node
-  TAG=$(curl --silent "$RepoLink" | # Get latest release from GitHub api
+  TAG=$(curl --silent "https://api.github.com/repos/gladiusio/gladius-node/releases/latest" | # Get latest release from GitHub api
     grep '"tag_name":' |               # Get tag line
     sed -E 's/.*"([^"]+)".*/\1/'       # Pluck JSON value
   )
@@ -72,18 +72,17 @@ getFile() {
 downloadFile() {
   # Build URL
   GLADIUS_DIST="gladius-$TAG-$OS-$ARCH.tar.gz"
-  echo "GLADIUS_DIST=$GLADIUS_DIST"
-  DOWNLOAD_URL="https://github.com/gladiusio/$PROJECT_NAME/releases/download/$TAG/$GLADIUS_DIST"
+  echo "Expected tarball is: $GLADIUS_DIST"
+  DOWNLOAD_URL="https://github.com/gladiusio/gladius-node/releases/download/$TAG/$GLADIUS_DIST"
 
-  # Create some temporary files
   GLADIUS_TMP_FILE="/tmp/$GLADIUS_DIST"
-  echo "Downloading $DOWNLOAD_URL"
+  echo "Attempting to download $DOWNLOAD_URL to $GLADIUS_DIST"
   httpStatusCode=$(getFile "$DOWNLOAD_URL" "$GLADIUS_TMP_FILE")
   if [ "$httpStatusCode" -ne 200 ]; then
     echo "Did not find a release for your system: $OS $ARCH"
     fail "You can build one for your system with the instructions here: https://github.com/gladiusio/gladius-node"
   else
-    echo "Downloading $DOWNLOAD_URL"
+    echo "Downloading $DOWNLOAD_URL..."
     getFile "$DOWNLOAD_URL" "$GLIDE_TMP_FILE"
   fi
 }
@@ -92,16 +91,24 @@ installFile() {
 	GLADIUS_TEMP="/tmp/$PROJECT_NAME"
 	mkdir -p "$GLADIUS_TEMP"
 	tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
-	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$OS-$ARCH/$PROJECT_NAME"
-	sudo cp "$GLIDE_TMP_BIN" "$INSTALL_BIN"
-	rm -rf $GLADIUS_TEMP
-	rm -f $GLADIUS_TMP_FILE
+	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/"
+  echo "Can I move the Gladius binaries to your $INSTALL_BIN folder? (y/n)"
+  read ANSWER
+  if [ "$ANSWER" = "y" ]; then
+	 sudo cp -a /tmp/gladius-node/gladius-node/* /usr/bin/
+   rm -rf $GLADIUS_TEMP
+  else
+   echo "Ok, you can find the executables in $GLADIUS_TEMP"
+  fi
+   rm -f $GLADIUS_TMP_FILE
 }
 
 
 initArch
 initOS
+echo "\nGathering version information..."
 getLatest
 initDownloadTool
 downloadFile
+echo "\nInstalling"
 installFile

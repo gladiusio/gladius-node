@@ -18,7 +18,7 @@ To install the dependencies you need to executethe `dependencies` target.
 ```shell
 # install depdencies for the project with glide
 make dependencies
-``` 
+```
 
 ### Build
 To build all binaries for your current os and architecture simply execute `make`.
@@ -49,6 +49,9 @@ GOOS=linux GOARCH=386 make
 
 
 ## Usage
+### Install
+Execute the script found in the installers folder
+
 ### Run the binaries as a process
 Run the executable created by the above step with `gladius-<executable-name>`
 
