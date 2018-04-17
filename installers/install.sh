@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 PROJECT_NAME="gladius-node"
-INSTALL_BIN="/usr/bin/"
+INSTALL_BIN="$HOME/.local/bin/"
 
 fail() {
   echo "$1"
@@ -87,28 +87,62 @@ downloadFile() {
   fi
 }
 
+setupConfig(){
+  echo -e "\nCreating config files"
+  CONFIG_DIR="$HOME/.config/gladius"
+  CONTENT_DIR="$CONFIG_DIR/gladius-content/"
+  mkdir -p "$CONFIG_DIR"
+  mkdir -p "$CONTENT_DIR"
+
+  CONFIG_FILE="$CONFIG_DIR/gladius-networkd.toml"
+  touch $CONFIG_FILE
+
+  echo "# See the configurable values at github.com/gladiusio/gladius-node" >> $CONFIG_FILE
+}
+
 installFile() {
-	GLADIUS_TEMP="/tmp/$PROJECT_NAME"
-	mkdir -p "$GLADIUS_TEMP"
-	tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
-	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/"
-  echo "Can I move the Gladius binaries to your $INSTALL_BIN folder? (y/n)"
-  read ANSWER
-  if [ "$ANSWER" = "y" ]; then
-	 sudo cp -a /tmp/gladius-node/gladius-node/* /usr/bin/
-   rm -rf $GLADIUS_TEMP
+  GLADIUS_TEMP="/tmp/$PROJECT_NAME"
+  mkdir -p "$GLADIUS_TEMP"
+  tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
+  GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME"
+
+  # Check if the install bin exists, then copy the files to it.
+  mkdir -p $INSTALL_BIN
+  cp -a $GLADIUS_TMP_BIN/* $INSTALL_BIN
+
+  if [[ ":$PATH:" == *":$INSTALL_BIN:"* ]]; then
+    echo "Perfect, $INSTALL_BIN is in your PATH already!"
   else
-   echo "Ok, you can find the executables in $GLADIUS_TEMP"
+    # Ask to add it to the PATH
+    read -p "Can I add $INSTALL_BIN (where the gladius executables are) to your PATH in ~/.profile? (y/n)" -n 1 REPLY
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      echo "export PATH=\"\$PATH:$INSTALL_BIN\"" >> $HOME/.profile
+      echo "Added to PATH"
+    else
+      echo "Ok, I won't add $INSTALL_BIN to your PATH"
+    fi
   fi
-   rm -f $GLADIUS_TMP_FILE
+
+
+  setupConfig
+
+  echo -e "\nCleaning up temp files..."
+  if $DELETE_TEMPS; then
+    echo -e "Deleting binaries"
+    rm -rf $GLADIUS_TEMP
+  else
+    echo -e "Leaving binaries intact"
+  fi
+  rm -f $GLADIUS_TMP_FILE
 }
 
 
 initArch
 initOS
-echo "\nGathering version information..."
+echo -e "\nGathering version information..."
 getLatest
 initDownloadTool
 downloadFile
-echo "\nInstalling"
+echo -e "\nInstalling"
 installFile
