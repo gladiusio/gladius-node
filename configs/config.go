@@ -44,8 +44,7 @@ func getOSPaths() (map[string]string, error) {
 		case "linux":
 			m["config"] = os.Getenv("HOME") + "/.config/gladius/"
 		case "darwin":
-			m["config"] = ""
-			err = errors.New("macOS not supported yet")
+			m["config"] = os.Getenv("HOME") + "/.config/gladius/"
 		default:
 			m["config"] = ""
 			err = errors.New("Unknown operating system")
