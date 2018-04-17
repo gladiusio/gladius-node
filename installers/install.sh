@@ -114,7 +114,7 @@ installFile() {
     echo "Perfect, $INSTALL_BIN is in your PATH already!"
   else
     # Ask to add it to the PATH
-    read -p "Can I add $INSTALL_BIN (where the gladius executables are) to your path? (y/n)" -n 1 REPLY
+    read -p "Can I add $INSTALL_BIN (where the gladius executables are) to your PATH in ~/.profile? (y/n)" -n 1 REPLY
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       echo "export PATH=\"\$PATH:$INSTALL_BIN\"" >> $HOME/.profile
