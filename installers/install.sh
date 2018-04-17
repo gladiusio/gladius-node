@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 PROJECT_NAME="gladius-node"
 INSTALL_BIN="/usr/bin/"
@@ -87,28 +87,41 @@ downloadFile() {
   fi
 }
 
+setupConfig(){
+  echo -e "\nCreating config files"
+  CONFIG_DIR="~/.config/gladius/gladius-content/"
+  mkdir -p "$CONFIG_DIR"
+}
+
 installFile() {
 	GLADIUS_TEMP="/tmp/$PROJECT_NAME"
 	mkdir -p "$GLADIUS_TEMP"
 	tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
 	GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME/"
-  echo "Can I move the Gladius binaries to your $INSTALL_BIN folder? (y/n)"
-  read ANSWER
-  if [ "$ANSWER" = "y" ]; then
-	 sudo cp -a /tmp/gladius-node/gladius-node/* /usr/bin/
-   rm -rf $GLADIUS_TEMP
+  read -p "Can I move the Gladius binaries to your $INSTALL_BIN folder? (y/n)" -n 1 REPLY
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+	 sudo cp -a $GLADIUS_TMP_BIN/* /usr/bin/
+   DELETE_TEMPS=true
   else
    echo "Ok, you can find the executables in $GLADIUS_TEMP"
   fi
-   rm -f $GLADIUS_TMP_FILE
+
+  setupConfig
+
+  if $DELETE_TEMPS; then
+    echo -e "\nCleaning up temp files..."
+    rm -rf $GLADIUS_TEMP
+  fi
+  rm -f $GLADIUS_TMP_FILE
 }
 
 
 initArch
 initOS
-echo "\nGathering version information..."
+echo -e "\nGathering version information..."
 getLatest
 initDownloadTool
 downloadFile
-echo "\nInstalling"
+echo -e "\nInstalling"
 installFile
