@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT_NAME="gladius-node"
-INSTALL_BIN="/usr/bin/"
+INSTALL_BIN="/usr/local/bin/"
 
 fail() {
   echo "$1"
@@ -101,7 +101,7 @@ installFile() {
   read -p "Can I move the Gladius binaries to your $INSTALL_BIN folder? (y/n)" -n 1 REPLY
   echo
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-    sudo cp -a $GLADIUS_TMP_BIN/* /usr/bin/
+    echo cp -a $GLADIUS_TMP_BIN/* $INSTALL_BIN
     DELETE_TEMPS=true
   else
     echo "Ok, I won't clean up the executables. You can find them in $GLADIUS_TEMP"
