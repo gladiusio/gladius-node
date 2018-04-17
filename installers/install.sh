@@ -104,7 +104,7 @@ installFile() {
     sudo cp -a $GLADIUS_TMP_BIN/* /usr/bin/
     DELETE_TEMPS=true
   else
-    echo "Ok, you can find the executables in $GLADIUS_TEMP"
+    echo "Ok, I won't clean up the executables. You can find them in $GLADIUS_TEMP"
   fi
 
   setupConfig
