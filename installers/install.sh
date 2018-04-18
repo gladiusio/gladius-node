@@ -32,12 +32,12 @@ initOS() {
   echo "Detected OS: $OS"
 }
 
-# Pick wget or curl
+# Check if curl is installed
 initDownloadTool() {
   if type "curl" > /dev/null; then
     DOWNLOAD_TOOL="curl"
   else
-    fail "You need curl or wget as download tool. Please install it first before continue"
+    fail "You need curl as a download tool. Please install it first before continue"
   fi
   echo "Using $DOWNLOAD_TOOL as download tool"
 }
