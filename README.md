@@ -2,52 +2,6 @@
 
 The full suite of binaries for running a Gladius Node
 
-## Development
-### Dependencies
-To test and build the gladius binaries you need go, glide and the make on your machine.
-
-- Install [go](https://golang.org/doc/install)
-- Install [glide](https://github.com/Masterminds/glide)
-- *Mac Users:* Install xcode for make `xcode-select --install`
-- *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-
-### Install dependencies
-We use [glide](https://github.com/Masterminds/glide) to manage the go dependencies.
-To install the dependencies you need to executethe `dependencies` target.
-
-```shell
-# install depdencies for the project with glide
-make dependencies
-```
-
-### Build
-To build all binaries for your current os and architecture simply execute `make`.
-After the build process you will find all binaries in *./build/*.
-
-#### Build specific binary
-The Makefile can build single binaries too.
-```shell
-# build only the cli
-make cli
-
-# build the network daemon
-make networkd
-
-# build the control daemon (not implemented yet)
-make controld
-```
-
-#### Build for a different platform
-To build for a different platform specify toe GOOS and GOARCH variable.
-```shell
-# build for windows 64bit
-GOOS=windows GOARCH=amd64 make
-
-# build for linux 32bit
-GOOS=linux GOARCH=386 make
-```
-
-
 ## Usage
 ### Install
 Execute the script found in the installers folder
@@ -98,6 +52,52 @@ Right now files are loaded from `~/.config/gladius/gladius-networkd/` and take
 the format of `example.com.json`. This functionality only works on linux right
 now, and serving is not backwards compatible with the previous release. Content
 can then be accessed at `http://<host>:8080/content?website=example.com`
+
+## Development
+### Dependencies
+To test and build the gladius binaries you need go, glide and the make on your machine.
+
+- Install [go](https://golang.org/doc/install)
+- Install [glide](https://github.com/Masterminds/glide)
+- *Mac Users:* Install xcode for make `xcode-select --install`
+- *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+### Install dependencies
+We use [glide](https://github.com/Masterminds/glide) to manage the go dependencies.
+To install the dependencies you need to executethe `dependencies` target.
+
+```shell
+# install depdencies for the project with glide
+make dependencies
+```
+
+### Build
+To build all binaries for your current os and architecture simply execute `make`.
+After the build process you will find all binaries in *./build/*.
+
+#### Build specific binary
+The Makefile can build single binaries too.
+```shell
+# build only the cli
+make cli
+
+# build the network daemon
+make networkd
+
+# build the control daemon (not implemented yet)
+make controld
+```
+
+#### Build for a different platform
+To build for a different platform specify toe GOOS and GOARCH variable.
+```shell
+# build for windows 64bit
+GOOS=windows GOARCH=amd64 make
+
+# build for linux 32bit
+GOOS=linux GOARCH=386 make
+```
+
 
 ---
 
