@@ -11,7 +11,7 @@ Run the executable created by the above step with `gladius-<executable-name>`
 
 ### Run networkd or controld as a service
 You can also install networkd and controld as a service.
-*Attention:* The service implementation is not thoroughly tested, and may require root privileges. 
+*Attention:* The service implementation is not thoroughly tested, and may require root privileges.
 ```shell
 # install networkd as a service
 gladius-networkd install
@@ -64,7 +64,7 @@ To test and build the gladius binaries you need go, glide and the make on your m
 
 ### Install dependencies
 We use [glide](https://github.com/Masterminds/glide) to manage the go dependencies.
-To install the dependencies you need to executethe `dependencies` target.
+To install the dependencies you need to execute the `dependencies` target.
 
 ```shell
 # install depdencies for the project with glide
