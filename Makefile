@@ -51,6 +51,9 @@ dependencies:
 	# install go packages
 	glide install
 
+release:
+	sh build-all.sh
+
 # build steps
 test-cli: $(CLI_SRC)
 	$(GOTEST) $(CLI_SRC)
