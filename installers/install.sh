@@ -27,8 +27,12 @@ initArch() {
 
 # OS Detection
 initOS() {
-  OS=$(echo `uname`)
-  OS=${OS,,}
+  OS=$(echo `uname`|tr '[:upper:]' '[:lower:]')
+  case "$OS" in
+      # Minimalist GNU for Windows
+    mingw*) OS='windows' ;;
+    msys*) OS='windows' ;;
+  esac
   echo "Detected OS: $OS"
 }
 
