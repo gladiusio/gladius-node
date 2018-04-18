@@ -115,7 +115,6 @@ installFile() {
     fi
   fi
 
-
   setupConfig
 
   echo -e "\nCleaning up temp files..."
