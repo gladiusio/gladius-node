@@ -27,13 +27,8 @@ initArch() {
 
 # OS Detection
 initOS() {
-  OS=$(echo `uname`|tr '[:upper:]' '[:lower:]')
-
-  case "$OS" in
-      # Minimalist GNU for Windows
-    mingw*) OS='windows' ;;
-    msys*) OS='windows' ;;
-  esac
+  OS=$(echo `uname`)
+  OS=${OS,,}
   echo "Detected OS: $OS"
 }
 
@@ -41,8 +36,6 @@ initOS() {
 initDownloadTool() {
   if type "curl" > /dev/null; then
     DOWNLOAD_TOOL="curl"
-  elif type "wget" > /dev/null; then
-    DOWNLOAD_TOOL="wget"
   else
     fail "You need curl or wget as download tool. Please install it first before continue"
   fi
@@ -66,7 +59,6 @@ getFile() {
     body=$(wget --server-response --content-on-error -q -O "$filePath" "$url")
     httpStatusCode=$(cat $tmpFile | awk '/^  HTTP/{print $2}')
   fi
-  echo "$httpStatusCode"
 }
 
 downloadFile() {
