@@ -55,10 +55,8 @@ getFile() {
   local filePath="$2"
   if [ "$DOWNLOAD_TOOL" = "curl" ]; then
     httpStatusCode=$(curl -s -w '%{http_code}' -L "$url" -o "$filePath")
-  elif [ "$DOWNLOAD_TOOL" = "wget" ]; then
-    body=$(wget --server-response --content-on-error -q -O "$filePath" "$url")
-    httpStatusCode=$(cat $tmpFile | awk '/^  HTTP/{print $2}')
   fi
+  echo $httpStatusCode
 }
 
 downloadFile() {
@@ -70,6 +68,7 @@ downloadFile() {
   GLADIUS_TMP_FILE="/tmp/$GLADIUS_DIST"
   echo "Attempting to download $DOWNLOAD_URL to $GLADIUS_DIST"
   httpStatusCode=$(getFile "$DOWNLOAD_URL" "$GLADIUS_TMP_FILE")
+  echo "HTTPCode: $httpStatusCode"
   if [ "$httpStatusCode" -ne 200 ]; then
     echo "Did not find a release for your system: $OS $ARCH"
     fail "You can build one for your system with the instructions here: https://github.com/gladiusio/gladius-node"
