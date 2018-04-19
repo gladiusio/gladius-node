@@ -100,19 +100,24 @@ func GetSettings() {
 }
 
 // CreateNode - create a Node contract
-func CreateNode() string {
+func CreateNode() (string, error) {
 	url := "http://localhost:3000/api/node/create/"
 
 	res, err := sendRequest("POST", url, nil)
 	if err != nil {
 		log.Fatal("POST-createNode(): ", err)
+		return "", err
 	}
 
 	var data map[string]interface{}
 
 	json.Unmarshal([]byte(res), &data)
 
-	return data["txHash"].(string) // tx hash
+	if data["txHash"] == nil {
+		return "", errors.New("ERROR CREATING NODE")
+	}
+
+	return data["txHash"].(string), nil // tx hash
 }
 
 // GetNodeAddress - get node address from owner lookup
@@ -132,7 +137,7 @@ func GetNodeAddress() string {
 }
 
 // SetNodeData - set data for a Node contract
-func SetNodeData(nodeAddress string, myNode Node) string {
+func SetNodeData(nodeAddress string, myNode Node) (string, error) {
 	url := fmt.Sprintf("http://localhost:3000/api/node/%s/data", nodeAddress)
 
 	res, err := sendRequest("POST", url, myNode.Data)
@@ -144,11 +149,15 @@ func SetNodeData(nodeAddress string, myNode Node) string {
 
 	json.Unmarshal([]byte(res), &data)
 
-	return data["txHash"].(string) // tx hash
+	if data["txHash"] == nil {
+		return "", errors.New("ERROR CREATING NODE")
+	}
+
+	return data["txHash"].(string), nil // tx hash
 }
 
 // ApplyToPool - apply to a pool
-func ApplyToPool(nodeAddress, poolAddress string) string {
+func ApplyToPool(nodeAddress, poolAddress string) (string, error) {
 	url := fmt.Sprintf("http://localhost:3000/api/node/%s/apply/%s", nodeAddress, poolAddress)
 
 	res, err := sendRequest("POST", url, nil)
@@ -160,7 +169,11 @@ func ApplyToPool(nodeAddress, poolAddress string) string {
 
 	json.Unmarshal([]byte(res), &data)
 
-	return data["tx"].(string) // tx hash
+	if data["txHash"] == nil {
+		return "", errors.New("ERROR CREATING NODE")
+	}
+
+	return data["txHash"].(string), nil // tx hash
 }
 
 // CheckPoolApplication - check the status of your pool application
@@ -180,7 +193,7 @@ func CheckPoolApplication(nodeAddress, poolAddress string) string {
 }
 
 // CheckTx - check status of tx hash
-func CheckTx(tx string) (bool, error) {
+func CheckTx(tx string) bool {
 	url := fmt.Sprintf("http://localhost:3000/api/status/tx/%s", tx)
 
 	res, err := sendRequest("GET", url, nil)
@@ -190,34 +203,33 @@ func CheckTx(tx string) (bool, error) {
 
 	in := res
 
-	var data map[string]map[string]interface{} //wtf golang this is gross
+	var data map[string]map[string]interface{} // wtf golang this is gross
 
 	json.Unmarshal([]byte(in), &data)
-
-	// fmt.Println(data["transaction"]) // <nil> or not
-	// transaction := data["transaction"]
 
 	receipt := data["receipt"]
 
 	if len(receipt) == 0 {
-		return false, errors.New("")
+		return false // tx pending
 	}
 
-	return true, errors.New("") // tx hash
+	return true // tx complete
 }
 
 // WaitForTx - wait for the tx to complete
 func WaitForTx(tx string) bool {
-	status, _ := CheckTx(tx)
+	status := CheckTx(tx)
 
 	for status == false {
-		status, _ = CheckTx(tx)
+		status = CheckTx(tx)
 		fmt.Printf("Tx: %s\t Status: Pending\r", tx)
 	}
 
 	fmt.Printf("\nTx: %s\t Status: Successful\n", tx)
 	return true
 }
+
+// Should add errors for the edge node functions below
 
 // StartEdgeNode - start edge node server
 func StartEdgeNode() {
