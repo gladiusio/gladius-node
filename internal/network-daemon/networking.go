@@ -132,6 +132,8 @@ func requestHandler(httpOut *rpcmanager.HTTPOut, bundleMap map[string]string) fu
 func contentHandler(ctx *fasthttp.RequestCtx, bundleMap map[string]string) {
 	// URL format like /content?website=REQUESTED_SITE
 	website := string(ctx.QueryArgs().Peek("website"))
+	// TODO: Route handling like: route := string(ctx.QueryArgs().Peek("route"))
+
 	ctx.SetContentType("application/json")
 	ctx.SetStatusCode(fasthttp.StatusOK)
 	// TODO: Verify the website exists on the filesystem
