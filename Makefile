@@ -52,7 +52,7 @@ dependencies:
 	glide install
 
 release:
-	sh build-all.sh
+	sh release-all.sh
 
 # build steps
 test-cli: $(CLI_SRC)
