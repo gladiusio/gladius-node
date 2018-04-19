@@ -13,7 +13,7 @@ func main() {
 
 	// Define some variables
 	name, displayName, description :=
-		"GladiusEdgeDaemon",
+		"GladiusNetworkDaemon",
 		"Gladius Network (Edge) Daemon",
 		"Gladius Network (Edge) Daemon"
 
