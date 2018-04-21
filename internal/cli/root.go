@@ -10,9 +10,7 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "gladius-cli",
 	Short: "CLI for Gladius Node",
-	Long: `CLI for Gladius Node Software.
-					Everything you need to run a node
-					can be done from this CLI`,
+	Long:  "CLI for Gladius Node Software. Everything you need to run a node can be done from this CLI",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Hello world :)")
 	},

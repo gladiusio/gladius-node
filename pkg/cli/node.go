@@ -72,7 +72,6 @@ func SetSettings(network string, localSettings *Settings) {
 		localSettings.MarketAddress = "0x85d52839cb69302b4a654ae4193e32f7c65827d7"
 		localSettings.NodeFactoryAddress = "0xac9f90dbc228ca09074cb13fb7986175bc799cc3"
 	}
-	fmt.Println("Settings Set!")
 }
 
 // PostSettings - does this ...
@@ -170,7 +169,7 @@ func ApplyToPool(nodeAddress, poolAddress string) (string, error) {
 	json.Unmarshal([]byte(res), &data)
 
 	if data["txHash"] == nil {
-		return "", errors.New("ERROR CREATING NODE")
+		return "", errors.New("ERROR APPLYING TO POOL")
 	}
 
 	return data["txHash"].(string), nil // tx hash
