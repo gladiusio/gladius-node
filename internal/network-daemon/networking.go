@@ -86,7 +86,7 @@ func getContentDir() (string, error) {
 }
 
 // Return a map of the json bundles on disk
-func loadContentFromDisk() map[string]string {
+func loadContentFromDisk() map[string]map[string]string {
 	filePath, err := getContentDir()
 	if err != nil {
 		panic(err)
@@ -97,18 +97,33 @@ func loadContentFromDisk() map[string]string {
 		log.Fatal("Error when reading content dir: ", err)
 	}
 
-	m := make(map[string]string)
+	m := make(map[string]map[string]string)
 
 	for _, f := range files {
-		name := f.Name()
-		if strings.HasSuffix(name, ".json") {
-			b, err := ioutil.ReadFile(path.Join(filePath, name))
-			website := strings.Replace(name, ".json", "", 1)
-			fmt.Println("Loaded content bundle for: " + website)
+		website := f.Name()
+		if f.IsDir() {
+			contentFiles, err := ioutil.ReadDir(path.Join(filePath, website))
 			if err != nil {
-				log.Fatal(err)
+				log.Fatal("Error when reading content dir: ", err)
 			}
-			m[website] = string(b)
+			fmt.Println("Loading website: " + website)
+			m[website] = make(map[string]string)
+			for _, contentFile := range contentFiles {
+				// Replace "%2f" with "/" and ".json" with ""
+				replacer := strings.NewReplacer("%2f", "/", "%2F", "/", ".json", "")
+				contentName := contentFile.Name()
+
+				// Create a route name for the mapping
+				routeName := replacer.Replace(contentName)
+
+				// Pull the file
+				b, err := ioutil.ReadFile(path.Join(filePath, website, contentName))
+				if err != nil {
+					log.Fatal(err)
+				}
+				fmt.Println("Loaded route: " + routeName)
+				m[website][routeName] = string(b)
+			}
 		}
 	}
 
@@ -116,7 +131,7 @@ func loadContentFromDisk() map[string]string {
 }
 
 // Return a function like the one fasthttp is expecting
-func requestHandler(httpOut *rpcmanager.HTTPOut, bundleMap map[string]string) func(ctx *fasthttp.RequestCtx) {
+func requestHandler(httpOut *rpcmanager.HTTPOut, bundleMap map[string]map[string]string) func(ctx *fasthttp.RequestCtx) {
 	// The actual serving function
 	return func(ctx *fasthttp.RequestCtx) {
 		switch string(ctx.Path()) {
@@ -129,13 +144,12 @@ func requestHandler(httpOut *rpcmanager.HTTPOut, bundleMap map[string]string) fu
 	}
 }
 
-func contentHandler(ctx *fasthttp.RequestCtx, bundleMap map[string]string) {
-	// URL format like /content?website=REQUESTED_SITE
+func contentHandler(ctx *fasthttp.RequestCtx, bundleMap map[string]map[string]string) {
+	// URL format like /content?website=REQUESTED_SITE?route=test%2Ftest
 	website := string(ctx.QueryArgs().Peek("website"))
-	// TODO: Route handling like: route := string(ctx.QueryArgs().Peek("route"))
+	route := string(ctx.QueryArgs().Peek("route"))
 
 	ctx.SetContentType("application/json")
 	ctx.SetStatusCode(fasthttp.StatusOK)
-	// TODO: Verify the website exists on the filesystem
-	fmt.Fprintf(ctx, bundleMap[website])
+	fmt.Fprintf(ctx, bundleMap[website][route])
 }
