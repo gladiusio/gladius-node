@@ -19,14 +19,14 @@ build() {
   echo "Built for $1-$2"
 }
 
-for dist in "linux" "darwin" "windows"; do
+# Create some arm packages
+build linux arm64
+build linux arm
+
+for dist in "linux" "darwin" "windows" "freebsd"; do
   for arch in "amd64" "386"; do
     build $dist $arch
   done
 done
-
-# Create some arm packages
-build linux arm64
-build linux arm
 
 rm -rf $RELEASE_DIR
