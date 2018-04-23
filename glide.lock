@@ -1,5 +1,5 @@
-hash: 67214953304413df980206296aef37651d164fb281876b93cdbcd3d4002643ee
-updated: 2018-04-19T14:33:21.706921216-04:00
+hash: 54af81c2f6072099047301008bfa595e9b4001d3f41cda31fefea3dd3933794a
+updated: 2018-04-23T13:57:22.143163738-04:00
 imports:
 - name: github.com/fsnotify/fsnotify
   version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
@@ -15,6 +15,8 @@ imports:
   - json/parser
   - json/scanner
   - json/token
+- name: github.com/inconshreveable/mousetrap
+  version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
 - name: github.com/kardianos/osext
   version: ae77be60afb1dcacde03767a8c37337fad28ac14
 - name: github.com/kardianos/service
@@ -69,6 +71,8 @@ imports:
   subpackages:
   - transform
   - unicode/norm
+- name: gopkg.in/AlecAivazis/survey.v1
+  version: e752db451e07e09c7d7dc8cada807a44bdb0fd47
 - name: gopkg.in/yaml.v2
   version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
 testImports: []

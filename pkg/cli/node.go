@@ -75,15 +75,17 @@ func SetSettings(network string, localSettings *Settings) {
 }
 
 // PostSettings - does this ...
-func PostSettings(localSettings *Settings) {
+func PostSettings(localSettings *Settings) bool {
 	url := "http://localhost:3000/api/settings/start"
 
 	_, err := sendRequest("POST", url, localSettings)
 	if err != nil {
 		log.Fatal("POST-postSettings(): ", err)
+		return false
 	}
 
-	fmt.Println("Settings Posted!")
+	return true
+
 }
 
 // GetSettings -get settings from API
@@ -168,11 +170,11 @@ func ApplyToPool(nodeAddress, poolAddress string) (string, error) {
 
 	json.Unmarshal([]byte(res), &data)
 
-	if data["txHash"] == nil {
-		return "", errors.New("ERROR APPLYING TO POOL")
+	if data["tx"] == nil {
+		return "", errors.New("ERROR APPLYING TO POOL: " + res)
 	}
 
-	return data["txHash"].(string), nil // tx hash
+	return data["tx"].(string), nil // tx hash
 }
 
 // CheckPoolApplication - check the status of your pool application
@@ -231,7 +233,7 @@ func WaitForTx(tx string) bool {
 // Should add errors for the edge node functions below
 
 // StartEdgeNode - start edge node server
-func StartEdgeNode() {
+func StartEdgeNode() string {
 	// Client use HTTP transport.
 	clientHTTP := jsonrpc2.NewHTTPClient("http://localhost:5000/rpc")
 	defer clientHTTP.Close()
@@ -240,11 +242,12 @@ func StartEdgeNode() {
 
 	// Synchronous call using positional params and TCP.
 	clientHTTP.Call("GladiusEdge.Start", nil, &reply)
-	fmt.Printf("Reply %s", reply)
+
+	return reply
 }
 
 // StopEdgeNode - stop edge node server
-func StopEdgeNode() {
+func StopEdgeNode() string {
 	// Client use HTTP transport.
 	clientHTTP := jsonrpc2.NewHTTPClient("http://localhost:5000/rpc")
 	defer clientHTTP.Close()
@@ -253,11 +256,12 @@ func StopEdgeNode() {
 
 	// Synchronous call using positional params and TCP.
 	clientHTTP.Call("GladiusEdge.Stop", nil, &reply)
-	fmt.Printf("Reply %s", reply)
+
+	return reply
 }
 
 // StatusEdgeNode - status of edge node server
-func StatusEdgeNode() {
+func StatusEdgeNode() string {
 	// Client use HTTP transport.
 	clientHTTP := jsonrpc2.NewHTTPClient("http://localhost:5000/rpc")
 	defer clientHTTP.Close()
@@ -266,7 +270,8 @@ func StatusEdgeNode() {
 
 	// Synchronous call using positional params and TCP.
 	clientHTTP.Call("GladiusEdge.Status", nil, &reply)
-	fmt.Printf("Reply %s", reply)
+
+	return reply
 }
 
 // send requests
