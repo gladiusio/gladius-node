@@ -1,5 +1,5 @@
 hash: 54af81c2f6072099047301008bfa595e9b4001d3f41cda31fefea3dd3933794a
-updated: 2018-04-23T13:57:22.143163738-04:00
+updated: 2018-04-24T10:02:24.981651324-04:00
 imports:
 - name: github.com/fsnotify/fsnotify
   version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
@@ -31,6 +31,12 @@ imports:
   version: e7e905edc00ea8827e58662220139109efea09db
 - name: github.com/magiconair/properties
   version: 2c9e9502788518c97fe44e8955cd069417ee89df
+- name: github.com/mattn/go-colorable
+  version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
+- name: github.com/mattn/go-isatty
+  version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
+- name: github.com/mgutz/ansi
+  version: 9520e82c474b0a04dd04f8a40959027271bab992
 - name: github.com/mitchellh/mapstructure
   version: 00c29f56e2386353d58c599509e8dc3801b0d716
 - name: github.com/pelletier/go-toml
@@ -73,6 +79,9 @@ imports:
   - unicode/norm
 - name: gopkg.in/AlecAivazis/survey.v1
   version: e752db451e07e09c7d7dc8cada807a44bdb0fd47
+  subpackages:
+  - core
+  - terminal
 - name: gopkg.in/yaml.v2
   version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
 testImports: []

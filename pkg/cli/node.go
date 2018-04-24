@@ -204,7 +204,7 @@ func CheckTx(tx string) bool {
 
 	in := res
 
-	var data map[string]map[string]interface{} // wtf golang this is gross
+	var data map[string]map[string]map[string]interface{} // wtf golang this is gross
 
 	json.Unmarshal([]byte(in), &data)
 
