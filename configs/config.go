@@ -26,6 +26,11 @@ func SetupConfig(configName string, defaults map[string]string) {
 		viper.SetDefault(key, value)
 	}
 
+	err = viper.ReadInConfig() // Find and read the config file
+	if err != nil {            // Handle errors reading the config file
+		panic(fmt.Errorf("Fatal error config file: %s", err))
+	}
+
 	viper.WatchConfig()
 	viper.OnConfigChange(func(e fsnotify.Event) {
 		fmt.Println("Config file changed:", e.Name)
@@ -44,8 +49,7 @@ func getOSPaths() (map[string]string, error) {
 		case "linux":
 			m["config"] = os.Getenv("HOME") + "/.config/gladius/"
 		case "darwin":
-			m["config"] = ""
-			err = errors.New("macOS not supported yet")
+			m["config"] = os.Getenv("HOME") + "/.config/gladius/"
 		default:
 			m["config"] = ""
 			err = errors.New("Unknown operating system")
