@@ -1,9 +1,10 @@
 package main
 
 import (
-	config "github.com/gladiusio/gladius-node/configs"
-	"github.com/gladiusio/gladius-node/init/service-manager"
-	"github.com/gladiusio/gladius-node/internal/network-daemon"
+	"github.com/gladiusio/gladius-networkd/networkd"
+	"github.com/gladiusio/gladius-utils/init/manager"
+
+	"github.com/gladiusio/gladius-utils/config"
 )
 
 // Main entry-point for the service
