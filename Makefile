@@ -49,7 +49,7 @@ clean:
 # dependency management
 dependencies:
 	# install go packages
-	glide install
+	dep ensure
 
 release:
 	sh release-all.sh
