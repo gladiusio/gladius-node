@@ -8,6 +8,15 @@
   version = "v1.4.7"
 
 [[projects]]
+  branch = "go"
+  name = "github.com/gladiusio/gladius-cli"
+  packages = [
+    "commands",
+    "node"
+  ]
+  revision = "4b4a7c5cb45f8a5e5198afd29a84643ba280e41b"
+
+[[projects]]
   branch = "master"
   name = "github.com/gladiusio/gladius-networkd"
   packages = [
@@ -211,6 +220,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ec0cf518bc42a88c1a6914bdb6b4a1b497a1af47e8f2851b27e86272cd371b10"
+  inputs-digest = "7226135fdc9a9546e9be6fa1a2d9e757abb43889b2c1afc2ef4d2847c92cb002"
   solver-name = "gps-cdcl"
   solver-version = 1

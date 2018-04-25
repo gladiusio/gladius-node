@@ -30,20 +30,12 @@
   name = "github.com/gladiusio/gladius-networkd"
 
 [[constraint]]
+  branch = "go"
+  name = "github.com/gladiusio/gladius-cli"
+
+[[constraint]]
   branch = "master"
   name = "github.com/gladiusio/gladius-utils"
-
-[[constraint]]
-  name = "github.com/powerman/rpc-codec"
-  version = "~1.0.0"
-
-[[constraint]]
-  name = "github.com/spf13/cobra"
-  version = "0.0.2"
-
-[[constraint]]
-  name = "gopkg.in/AlecAivazis/survey.v1"
-  version = "1.5.3"
 
 [prune]
   go-tests = true
