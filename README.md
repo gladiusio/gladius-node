@@ -55,19 +55,19 @@ can then be accessed at `http://<host>:8080/content?website=example.com`
 
 ## Development
 ### Dependencies
-To test and build the gladius binaries you need go, glide and the make on your machine.
+To test and build the gladius binaries you need go, go-dep and the make on your machine.
 
 - Install [go](https://golang.org/doc/install)
-- Install [glide](https://github.com/Masterminds/glide)
+- Install [go-dep](https://golang.github.io/dep/docs/installation.html)
 - *Mac Users:* Install xcode for make `xcode-select --install`
 - *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
 ### Install dependencies
-We use [glide](https://github.com/Masterminds/glide) to manage the go dependencies.
+We use [go-dep](https://golang.github.io/dep/docs/installation.html) to manage the go dependencies.
 To install the dependencies you need to execute the `dependencies` target.
 
 ```shell
-# install depdencies for the project with glide
+# install depdencies for the project with go-dep
 make dependencies
 ```
 
