@@ -9,3 +9,7 @@ import:
   version: ~20160617.0.0
 - package: github.com/spf13/viper
   version: ~1.0.2
+- package: github.com/spf13/cobra
+  version: v0.0.2
+- package: gopkg.in/AlecAivazis/survey.v1
+  version: v1.5.3
