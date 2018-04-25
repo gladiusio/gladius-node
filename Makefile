@@ -52,7 +52,7 @@ dependencies:
 	dep ensure
 
 release:
-	sh release-all.sh
+	sh ./ops/release-all.sh
 
 # build steps
 test-cli: $(CLI_SRC)
