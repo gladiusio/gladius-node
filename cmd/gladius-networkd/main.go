@@ -1,15 +1,20 @@
 package main
 
 import (
-	"github.com/gladiusio/gladius-node/init/service-manager"
-	"github.com/gladiusio/gladius-node/internal/network-daemon"
+	"github.com/gladiusio/gladius-networkd/networkd"
+	"github.com/gladiusio/gladius-utils/init/manager"
+
+	"github.com/gladiusio/gladius-utils/config"
 )
 
 // Main entry-point for the service
 func main() {
+	// Setup config handling
+	config.SetupConfig("gladius-networkd", config.NetworkDaemonDefaults())
+
 	// Define some variables
 	name, displayName, description :=
-		"GladiusEdgeDaemon",
+		"GladiusNetworkDaemon",
 		"Gladius Network (Edge) Daemon",
 		"Gladius Network (Edge) Daemon"
 
