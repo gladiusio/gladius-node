@@ -8,13 +8,13 @@
   version = "v1.4.7"
 
 [[projects]]
-  branch = "go"
+  branch = "master"
   name = "github.com/gladiusio/gladius-cli"
   packages = [
     "commands",
     "node"
   ]
-  revision = "4b4a7c5cb45f8a5e5198afd29a84643ba280e41b"
+  revision = "c198cd9960294ec4c51ce8f0088ca3ec77cfa474"
 
 [[projects]]
   branch = "master"
@@ -23,7 +23,7 @@
     "networkd",
     "rpc-manager"
   ]
-  revision = "4c8e4779ff5e1f1c3f20e28e4d5a6f6a89b4c51f"
+  revision = "801f18775a6bb6d18445deab050aceda264b42b2"
 
 [[projects]]
   branch = "master"
@@ -32,7 +32,7 @@
     "config",
     "init/manager"
   ]
-  revision = "6a70f207854741fe7181a23d290fc5af08682fd7"
+  revision = "336fe4bcf5b6cdffa399bd2ed49c7a51de0aa5cb"
 
 [[projects]]
   branch = "master"
@@ -70,38 +70,44 @@
   revision = "615a14ed75099c9eaac6949e22ac2341bf9d3197"
 
 [[projects]]
-  branch = "master"
   name = "github.com/klauspost/compress"
   packages = [
     "flate",
     "gzip",
     "zlib"
   ]
-  revision = "5fb1f31b0a61e9858f12f39266e059848a5f1cea"
+  revision = "6c8db69c4b49dd4df1fff66996cf556176d0b9bf"
+  version = "v1.2.1"
 
 [[projects]]
-  branch = "master"
   name = "github.com/klauspost/cpuid"
   packages = ["."]
-  revision = "e7e905edc00ea8827e58662220139109efea09db"
+  revision = "ae7887de9fa5d2db4eaa8174a7eff2c1ac00f2da"
+  version = "v1.1"
 
 [[projects]]
-  branch = "master"
+  name = "github.com/klauspost/crc32"
+  packages = ["."]
+  revision = "cb6bfca970f6908083f26f39a79009d608efd5cd"
+  version = "v1.1"
+
+[[projects]]
   name = "github.com/magiconair/properties"
   packages = ["."]
-  revision = "2c9e9502788518c97fe44e8955cd069417ee89df"
+  revision = "c3beff4c2358b44d0493c7dda585e7db7ff28ae6"
+  version = "v1.7.6"
 
 [[projects]]
-  branch = "master"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
-  revision = "efa589957cd060542a26d2dd7832fd6a6c6c3ade"
+  revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
+  version = "v0.0.9"
 
 [[projects]]
-  branch = "master"
   name = "github.com/mattn/go-isatty"
   packages = ["."]
-  revision = "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
+  revision = "0360b2af4f38e8d38c7fce2a9f4e702702d73a39"
+  version = "v0.0.3"
 
 [[projects]]
   branch = "master"
@@ -116,10 +122,10 @@
   revision = "00c29f56e2386353d58c599509e8dc3801b0d716"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pelletier/go-toml"
   packages = ["."]
-  revision = "66540cf1fcd2c3aee6f6787dfa32a6ae9a870f12"
+  revision = "acdc4509485b587f5e675510c4f2c63e90ff68a8"
+  version = "v1.1.0"
 
 [[projects]]
   name = "github.com/powerman/rpc-codec"
@@ -186,10 +192,9 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "79b0c6888797020a994db17c8510466c72fe75d9"
+  revision = "78d5f264b493f125018180c204871ecf58a2dce1"
 
 [[projects]]
-  branch = "master"
   name = "golang.org/x/text"
   packages = [
     "internal/gen",
@@ -199,7 +204,8 @@
     "unicode/cldr",
     "unicode/norm"
   ]
-  revision = "7922cc490dd5a7dbaa7fd5d6196b49db59ac042f"
+  revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
+  version = "v0.3.0"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
@@ -220,6 +226,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7226135fdc9a9546e9be6fa1a2d9e757abb43889b2c1afc2ef4d2847c92cb002"
+  inputs-digest = "cb32caf34f75e5c734ec2710e27a4ca4df09e6e344db22538d23b78026d13dea"
   solver-name = "gps-cdcl"
   solver-version = 1
