@@ -23,7 +23,7 @@
     "networkd",
     "rpc-manager"
   ]
-  revision = "801f18775a6bb6d18445deab050aceda264b42b2"
+  revision = "d925cf4110f97a0b8a3156c0d15be6e8698a9f02"
 
 [[projects]]
   branch = "master"
@@ -32,7 +32,7 @@
     "config",
     "init/manager"
   ]
-  revision = "336fe4bcf5b6cdffa399bd2ed49c7a51de0aa5cb"
+  revision = "179cbb64fdc6ef04f8624c4605fa838cc68b85e2"
 
 [[projects]]
   branch = "master"
