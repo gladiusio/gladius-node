@@ -2,6 +2,55 @@
 
 
 [[projects]]
+  name = "github.com/BurntSushi/toml"
+  packages = ["."]
+  revision = "b26d9c308763d68093482582cea63d69be07a0f0"
+  version = "v0.3.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/aristanetworks/goarista"
+  packages = ["monotime"]
+  revision = "70dca2f27708bcf7323c078bad4af7e71eb0fc24"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/btcsuite/btcd"
+  packages = ["btcec"]
+  revision = "675abc5df3c5531bc741b56a765e35623459da6d"
+
+[[projects]]
+  name = "github.com/ethereum/go-ethereum"
+  packages = [
+    ".",
+    "accounts",
+    "accounts/abi",
+    "accounts/abi/bind",
+    "accounts/keystore",
+    "common",
+    "common/hexutil",
+    "common/math",
+    "common/mclock",
+    "core/types",
+    "crypto",
+    "crypto/randentropy",
+    "crypto/secp256k1",
+    "crypto/sha3",
+    "ethclient",
+    "ethdb",
+    "event",
+    "log",
+    "metrics",
+    "p2p/netutil",
+    "params",
+    "rlp",
+    "rpc",
+    "trie"
+  ]
+  revision = "66432f3821badf24d526f2d9205f36c0543219de"
+  version = "v1.8.7"
+
+[[projects]]
   name = "github.com/fsnotify/fsnotify"
   packages = ["."]
   revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
@@ -12,9 +61,22 @@
   name = "github.com/gladiusio/gladius-cli"
   packages = [
     "commands",
+    "internal",
     "node"
   ]
-  revision = "c198cd9960294ec4c51ce8f0088ca3ec77cfa474"
+  revision = "2a2ef44c86c5cdac975d3050baed451117d2922f"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/gladiusio/gladius-controld"
+  packages = [
+    "pkg/blockchain",
+    "pkg/blockchain/generated",
+    "pkg/crypto",
+    "pkg/routing",
+    "pkg/routing/handlers"
+  ]
+  revision = "f39e8a9099b54c305abe2733d60874d5e4cafeee"
 
 [[projects]]
   branch = "master"
@@ -23,7 +85,7 @@
     "networkd",
     "rpc-manager"
   ]
-  revision = "d925cf4110f97a0b8a3156c0d15be6e8698a9f02"
+  revision = "e76219bb3fab518e26ff294dfddc44f5efa160b1"
 
 [[projects]]
   branch = "master"
@@ -32,7 +94,37 @@
     "config",
     "init/manager"
   ]
-  revision = "179cbb64fdc6ef04f8624c4605fa838cc68b85e2"
+  revision = "f8b99a247e7fc125a0fe3e18aaa653017b167f07"
+
+[[projects]]
+  name = "github.com/go-stack/stack"
+  packages = ["."]
+  revision = "259ab82a6cad3992b4e21ff5cac294ccb06474bc"
+  version = "v1.7.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/golang/snappy"
+  packages = ["."]
+  revision = "553a641470496b2327abcac10b36396bd98e45c9"
+
+[[projects]]
+  name = "github.com/gorilla/context"
+  packages = ["."]
+  revision = "1ea25387ff6f684839d82767c1733ff4d4d15d0a"
+  version = "v1.1"
+
+[[projects]]
+  name = "github.com/gorilla/handlers"
+  packages = ["."]
+  revision = "90663712d74cb411cbef281bc1e08c19d1a76145"
+  version = "v1.3.0"
+
+[[projects]]
+  name = "github.com/gorilla/mux"
+  packages = ["."]
+  revision = "53c1911da2b537f792e7cafcb446b05ffe33b996"
+  version = "v1.6.1"
 
 [[projects]]
   branch = "master"
@@ -122,6 +214,12 @@
   revision = "00c29f56e2386353d58c599509e8dc3801b0d716"
 
 [[projects]]
+  name = "github.com/pborman/uuid"
+  packages = ["."]
+  revision = "e790cca94e6cc75c7064b1332e63811d4aae1a53"
+  version = "v1.1"
+
+[[projects]]
   name = "github.com/pelletier/go-toml"
   packages = ["."]
   revision = "acdc4509485b587f5e675510c4f2c63e90ff68a8"
@@ -132,6 +230,18 @@
   packages = ["jsonrpc2"]
   revision = "3e1ab3b635b7b0d5f771028cd45aa9a827fd9f31"
   version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/rjeczalik/notify"
+  packages = ["."]
+  revision = "d152f3ce359a5464dc41e84a8919fc67e55bbbf0"
+
+[[projects]]
+  name = "github.com/rs/cors"
+  packages = ["."]
+  revision = "feef513b9575b32f84bafa580aad89b011259019"
+  version = "v1.3.0"
 
 [[projects]]
   name = "github.com/spf13/afero"
@@ -173,6 +283,25 @@
   version = "v1.0.2"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/syndtr/goleveldb"
+  packages = [
+    "leveldb",
+    "leveldb/cache",
+    "leveldb/comparer",
+    "leveldb/errors",
+    "leveldb/filter",
+    "leveldb/iterator",
+    "leveldb/journal",
+    "leveldb/memdb",
+    "leveldb/opt",
+    "leveldb/storage",
+    "leveldb/table",
+    "leveldb/util"
+  ]
+  revision = "ae970a0732be3a1f5311da86118d37b9f4bd2a5a"
+
+[[projects]]
   name = "github.com/valyala/fasthttp"
   packages = [
     ".",
@@ -180,6 +309,28 @@
   ]
   revision = "d42167fd04f636e20b005e9934159e95454233c7"
   version = "v20160617"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/crypto"
+  packages = [
+    "cast5",
+    "openpgp",
+    "openpgp/armor",
+    "openpgp/elgamal",
+    "openpgp/errors",
+    "openpgp/packet",
+    "openpgp/s2k",
+    "pbkdf2",
+    "scrypt"
+  ]
+  revision = "2d027ae1dddd4694d54f7a8b6cbe78dca8720226"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = ["websocket"]
+  revision = "f73e4c9ed3b7ebdd5f699a16a880c2b1994e50dd"
 
 [[projects]]
   branch = "master"
@@ -192,7 +343,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "78d5f264b493f125018180c204871ecf58a2dce1"
+  revision = "7dfd1290c7917b7ba22824b9d24954ab3002fe24"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -208,6 +359,16 @@
   version = "v0.3.0"
 
 [[projects]]
+  branch = "master"
+  name = "golang.org/x/tools"
+  packages = [
+    "go/ast/astutil",
+    "imports",
+    "internal/fastwalk"
+  ]
+  revision = "48418e5732e1b1e2a10207c8007a5f959e422f20"
+
+[[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
   packages = [
     ".",
@@ -218,6 +379,24 @@
   version = "v1.5.3"
 
 [[projects]]
+  name = "gopkg.in/fatih/set.v0"
+  packages = ["."]
+  revision = "57907de300222151a123d29255ed17f5ed43fad3"
+  version = "v0.1.0"
+
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/karalabe/cookiejar.v2"
+  packages = ["collections/prque"]
+  revision = "8dcd6a7f4951f6ff3ee9cbb919a06d8925822e57"
+
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/natefinch/npipe.v2"
+  packages = ["."]
+  revision = "c1b8fa8bdccecb0b8db834ee0b92fdbcfa606dd6"
+
+[[projects]]
   name = "gopkg.in/yaml.v2"
   packages = ["."]
   revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
@@ -226,6 +405,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "cb32caf34f75e5c734ec2710e27a4ca4df09e6e344db22538d23b78026d13dea"
+  inputs-digest = "570d5bd17dbf14975834e4be5b7edceef8b11a6ee979487f1e767dbfbe034305"
   solver-name = "gps-cdcl"
   solver-version = 1
