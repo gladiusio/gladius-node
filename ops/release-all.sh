@@ -11,19 +11,19 @@ build() {
 
   Suffix=
 
-  if [ $1 != "windows" ]
+  if [ $1 = "windows" ]
   then
     Suffix=".exe"
   fi
 
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-networkd" "./cmd/gladius-networkd$Suffix"
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-cli" "./cmd/gladius$Suffix"
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-conrold" "./cmd/gladius-controld$Suffix"
+  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-networkd$Suffix" "./cmd/gladius-networkd"
+  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius$Suffix" "./cmd/gladius-cli"
+  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-conrold$Suffix" "./cmd/gladius-controld"
 
 
   tar -czf "./build/gladius-$TAG-$1-$2.tar.gz" -C $RELEASE_DIR .
 
-  rm -rf $NODE_DIR
+  rm -rf $RELEASE_DIR
 
   echo "Built for $1-$2"
 }
