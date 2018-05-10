@@ -8,10 +8,13 @@
 
 # if we are running on a windows machine
 # we need to append a .exe to the
-# compiled binary
-BINARY_SUFFIX=
+# compiled binary and also use some different commands then on *nix
 ifeq ($(OS),Windows_NT)
 	BINARY_SUFFIX=.exe
+	RM=del /Q
+else
+	BINARY_SUFFIX=
+	RM=rm -rf
 endif
 
 ifeq ($(GOOS),windows)
@@ -41,13 +44,13 @@ GOTEST=go test
 all: build-all
 
 clean:
-	rm -rf ./build/*
+	$(RM) ./build/*
 	go clean
 
 # dependency management
 dependencies:
 	# install go packages
-	dep ensure
+	$(DEP) ensure
 
 	# Deal with the ethereum cgo bindings
 	go get github.com/ethereum/go-ethereum
