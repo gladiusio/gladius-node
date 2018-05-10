@@ -50,7 +50,7 @@ clean:
 # dependency management
 dependencies:
 	# install go packages
-	$(DEP) ensure
+	dep ensure
 
 	# Deal with the ethereum cgo bindings
 	go get github.com/ethereum/go-ethereum
