@@ -83,9 +83,11 @@ downloadFile() {
 }
 
 setupConfig(){
-  echo -e "\nCreating config files"
-  CONFIG_DIR="~/.config/gladius"
+  CONFIG_DIR="$HOME/.config/gladius"
   CONTENT_DIR="$CONFIG_DIR/content/"
+
+  echo -e "\nCreating files in: $CONFIG_DIR"
+
   mkdir -p "$CONFIG_DIR"
   mkdir -p "$CONTENT_DIR"
 
@@ -95,7 +97,9 @@ setupConfig(){
   touch $CONFIG_FILE1
   touch $CONFIG_FILE2
 
-  echo "# See the configurable values at github.com/gladiusio/gladius-node" >> $CONFIG_FILE
+  echo "# See the configurable values at github.com/gladiusio/gladius-node" >> $CONFIG_FILE1
+  echo "# See the configurable values at github.com/gladiusio/gladius-node" >> $CONFIG_FILE2
+
 }
 
 installFile() {
