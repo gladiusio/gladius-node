@@ -52,7 +52,7 @@ clean:
 # dependency management
 dependencies:
 	# install go packages
-	$(DEP) ensure
+	dep ensure
 
 release:
 	sh ./ops/release-all.sh
