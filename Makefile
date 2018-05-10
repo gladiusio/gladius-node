@@ -74,7 +74,7 @@ test-networkd: $(NET_SRC)
 networkd: test-networkd
 	$(GOBUILD) -o $(NET_DEST) $(NET_SRC)
 
-test-controld: dependencies $(CTL_SRC)
+test-controld: $(CTL_SRC)
 	$(GOTEST) $(CTL_SRC)
 
 controld: test-controld
