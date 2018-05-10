@@ -84,7 +84,7 @@ downloadFile() {
 
 setupConfig(){
   echo -e "\nCreating config files"
-  CONFIG_DIR="/etc/gladius"
+  CONFIG_DIR="~/.config/gladius"
   CONTENT_DIR="$CONFIG_DIR/content/"
   mkdir -p "$CONFIG_DIR"
   mkdir -p "$CONTENT_DIR"
