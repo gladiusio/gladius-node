@@ -8,6 +8,7 @@
 
 # if we are running on a windows machine
 # we need to append a .exe to the
+# compiled binary
 BINARY_SUFFIX=
 ifeq ($(OS),Windows_NT)
 	BINARY_SUFFIX=.exe
@@ -25,7 +26,7 @@ CLI_SRC=$(SRC_DIR)/gladius-cli
 NET_SRC=$(SRC_DIR)/gladius-networkd
 CTL_SRC=$(SRC_DIR)/gladius-controld
 
-CLI_DEST=$(DST_DIR)/gladius-cli$(BINARY_SUFFIX)
+CLI_DEST=$(DST_DIR)/gladius$(BINARY_SUFFIX)
 NET_DEST=$(DST_DIR)/gladius-networkd$(BINARY_SUFFIX)
 CTL_DEST=$(DST_DIR)/gladius-controld$(BINARY_SUFFIX)
 
@@ -39,27 +40,23 @@ GOTEST=go test
 # general make targets
 all: build-all
 
-# define cleanup target for windows and *nix
-ifeq ($(OS),Windows_NT)
 clean:
-	del /Q /F .\\build\\*
+	rm -rf ./build/*
 	go clean
-
-else
-clean:
-	$(RM) ./build/*
-	go clean
-endif 
-
-# the release target is only available on *nix like systems
-ifneq ($(OS),Windows_NT)
-release:
-	sh ./ops/release-all.sh
-endif
 
 # dependency management
 dependencies:
+	# install go packages
 	dep ensure
+
+	# Deal with the ethereum cgo bindings
+	go get github.com/ethereum/go-ethereum
+	cp -r \
+  "${GOPATH}/src/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1" \
+  "vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/"
+
+release:
+	sh ./ops/release-all.sh
 
 # build steps
 test-cli: $(CLI_SRC)
