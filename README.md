@@ -55,12 +55,13 @@ can then be accessed at `http://<host>:8080/content?website=test.com&route=%2Fro
 
 ## Development
 ### Dependencies
-To test and build the gladius binaries you need go, go-dep and the make on your machine.
+To test and build the gladius binaries you need go, go-dep and gnu make on your machine.
 
 - Install [go](https://golang.org/doc/install)
 - Install [go-dep](https://golang.github.io/dep/docs/installation.html)
 - *Mac Users:* Install xcode for make `xcode-select --install`
-- *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+- *Windows Users:* Install [make for windows](http://gnuwin32.sourceforge.net/packages/make.htm)
+- *Linux Users*: `yum install -y make` or `apt-get install -y build-essential` (depending on your distribution...) 
 
 ### Install dependencies
 We use [go-dep](https://golang.github.io/dep/docs/installation.html) to manage the go dependencies.
