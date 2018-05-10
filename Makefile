@@ -23,12 +23,10 @@ DST_DIR=./build
 
 CLI_SRC=$(SRC_DIR)/gladius-cli
 NET_SRC=$(SRC_DIR)/gladius-networkd
-# control daemon source is not yet available
 CTL_SRC=$(SRC_DIR)/gladius-controld
 
 CLI_DEST=$(DST_DIR)/gladius-cli$(BINARY_SUFFIX)
 NET_DEST=$(DST_DIR)/gladius-networkd$(BINARY_SUFFIX)
-# control daemon source is not yet available
 CTL_DEST=$(DST_DIR)/gladius-controld$(BINARY_SUFFIX)
 
 # commands for go
@@ -76,11 +74,10 @@ test-networkd: $(NET_SRC)
 networkd: test-networkd
 	$(GOBUILD) -o $(NET_DEST) $(NET_SRC)
 
-# Uncomment when controld is implemented
-# test-controld: dependencies $(CTL_SRC)
-# 	$(GOTEST) $(CTL_SRC)
-#
-# controld: test-controld
-# 	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
+test-controld: dependencies $(CTL_SRC)
+	$(GOTEST) $(CTL_SRC)
 
-build-all: cli networkd #controld
+controld: test-controld
+	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
+
+build-all: cli networkd controld
