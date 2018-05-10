@@ -49,6 +49,12 @@ dependencies:
 	# install go packages
 	dep ensure
 
+	# Deal with the ethereum cgo bindings
+	go get github.com/ethereum/go-ethereum
+	cp -r \
+  "${GOPATH}/src/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1" \
+  "vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/"
+
 release:
 	sh ./ops/release-all.sh
 
