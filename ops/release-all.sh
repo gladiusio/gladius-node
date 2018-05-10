@@ -9,8 +9,17 @@ build() {
   node_dir=$RELEASE_DIR/gladius-node
   mkdir -p $node_dir
 
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-networkd" "./cmd/gladius-networkd"
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-cli" "./cmd/gladius-cli"
+  Suffix=
+
+  if [ $1 != "windows" ]
+  then
+    Suffix=".exe"
+  fi
+
+  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-networkd" "./cmd/gladius-networkd$Suffix"
+  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-cli" "./cmd/gladius$Suffix"
+  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-conrold" "./cmd/gladius-controld$Suffix"
+
 
   tar -czf "./build/gladius-$TAG-$1-$2.tar.gz" -C $RELEASE_DIR .
 
