@@ -89,8 +89,11 @@ setupConfig(){
   mkdir -p "$CONFIG_DIR"
   mkdir -p "$CONTENT_DIR"
 
-  CONFIG_FILE="$CONFIG_DIR/gladius-networkd.toml"
-  touch $CONFIG_FILE
+  CONFIG_FILE1="$CONFIG_DIR/gladius-networkd.toml"
+  CONFIG_FILE2="$CONFIG_DIR/gladius-controld.toml"
+
+  touch $CONFIG_FILE1
+  touch $CONFIG_FILE2
 
   echo "# See the configurable values at github.com/gladiusio/gladius-node" >> $CONFIG_FILE
 }
