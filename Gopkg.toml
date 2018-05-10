@@ -30,12 +30,8 @@
   name = "github.com/gladiusio/gladius-networkd"
 
 [[constraint]]
-  branch = "go"
-  name = "github.com/gladiusio/gladius-cli"
-
-[[constraint]]
   branch = "master"
-  name = "github.com/gladiusio/gladius-utils"
+  name = "github.com/gladiusio/gladius-cli"
 
 [prune]
   go-tests = true

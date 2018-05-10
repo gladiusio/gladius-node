@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT_NAME="gladius-node"
-INSTALL_BIN="$HOME/.local/bin/"
+INSTALL_BIN="/usr/local/bin"
 
 fail() {
   echo "$1"
@@ -84,8 +84,8 @@ downloadFile() {
 
 setupConfig(){
   echo -e "\nCreating config files"
-  CONFIG_DIR="$HOME/.config/gladius"
-  CONTENT_DIR="$CONFIG_DIR/gladius-content/"
+  CONFIG_DIR="/etc/gladius"
+  CONTENT_DIR="$CONFIG_DIR/content/"
   mkdir -p "$CONFIG_DIR"
   mkdir -p "$CONTENT_DIR"
 
