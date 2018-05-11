@@ -46,7 +46,6 @@ clean:
 
 # dependency management
 dependencies:
-	# install go packages
 	dep ensure
 
 	# Deal with the ethereum cgo bindings
