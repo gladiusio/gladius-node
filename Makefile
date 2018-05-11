@@ -8,7 +8,6 @@
 
 # if we are running on a windows machine
 # we need to append a .exe to the
-# compiled binary
 BINARY_SUFFIX=
 ifeq ($(OS),Windows_NT)
 	BINARY_SUFFIX=.exe
@@ -42,17 +41,27 @@ GOTEST=go test
 # general make targets
 all: build-all
 
+# define cleanup target for windows and *nix
+ifeq ($(OS),Windows_NT)
 clean:
-	rm -rf ./build/*
+	del /Q /F .\\build\\*
 	go clean
+
+else
+clean:
+	$(RM) ./build/*
+	go clean
+endif 
+
+# the release target is only available on *nix like systems
+ifneq ($(OS),Windows_NT)
+release:
+	sh ./ops/release-all.sh
+endif
 
 # dependency management
 dependencies:
-	# install go packages
 	dep ensure
-
-release:
-	sh ./ops/release-all.sh
 
 # build steps
 test-cli: $(CLI_SRC)
