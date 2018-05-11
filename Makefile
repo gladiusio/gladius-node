@@ -24,12 +24,10 @@ DST_DIR=./build
 
 CLI_SRC=$(SRC_DIR)/gladius-cli
 NET_SRC=$(SRC_DIR)/gladius-networkd
-# control daemon source is not yet available
 CTL_SRC=$(SRC_DIR)/gladius-controld
 
 CLI_DEST=$(DST_DIR)/gladius-cli$(BINARY_SUFFIX)
 NET_DEST=$(DST_DIR)/gladius-networkd$(BINARY_SUFFIX)
-# control daemon source is not yet available
 CTL_DEST=$(DST_DIR)/gladius-controld$(BINARY_SUFFIX)
 
 # commands for go
@@ -51,6 +49,12 @@ dependencies:
 	# install go packages
 	dep ensure
 
+	# Deal with the ethereum cgo bindings
+	go get github.com/ethereum/go-ethereum
+	cp -r \
+  "${GOPATH}/src/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1" \
+  "vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/"
+
 release:
 	sh ./ops/release-all.sh
 
@@ -67,11 +71,10 @@ test-networkd: $(NET_SRC)
 networkd: test-networkd
 	$(GOBUILD) -o $(NET_DEST) $(NET_SRC)
 
-# Uncomment when controld is implemented
-# test-controld: dependencies $(CTL_SRC)
-# 	$(GOTEST) $(CTL_SRC)
-#
-# controld: test-controld
-# 	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
+test-controld: $(CTL_SRC)
+	$(GOTEST) $(CTL_SRC)
 
-build-all: cli networkd #controld
+controld: test-controld
+	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
+
+build-all: cli networkd controld
