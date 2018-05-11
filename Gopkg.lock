@@ -76,7 +76,7 @@
     "pkg/routing",
     "pkg/routing/handlers"
   ]
-  revision = "f39e8a9099b54c305abe2733d60874d5e4cafeee"
+  revision = "7d3aec7f1c5cececf79138a89c8a1f15da794ce3"
 
 [[projects]]
   branch = "master"
@@ -85,7 +85,7 @@
     "networkd",
     "rpc-manager"
   ]
-  revision = "e76219bb3fab518e26ff294dfddc44f5efa160b1"
+  revision = "41feac1446a1a690d44c569a6b95d0a228020ffc"
 
 [[projects]]
   branch = "master"
@@ -94,7 +94,7 @@
     "config",
     "init/manager"
   ]
-  revision = "f8b99a247e7fc125a0fe3e18aaa653017b167f07"
+  revision = "d5cf0c0b1e5775e35da98d705f094cfe62244640"
 
 [[projects]]
   name = "github.com/go-stack/stack"
@@ -211,7 +211,7 @@
   branch = "master"
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
-  revision = "00c29f56e2386353d58c599509e8dc3801b0d716"
+  revision = "bb74f1db0675b241733089d5a1faa5dd8b0ef57b"
 
 [[projects]]
   name = "github.com/pborman/uuid"
@@ -343,7 +343,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "7dfd1290c7917b7ba22824b9d24954ab3002fe24"
+  revision = "d0faeb539838e250bd0a9db4182d48d4a1915181"
 
 [[projects]]
   name = "golang.org/x/text"
