@@ -8,13 +8,9 @@
 
 # if we are running on a windows machine
 # we need to append a .exe to the
-# compiled binary and also use some different commands then on *nix
+BINARY_SUFFIX=
 ifeq ($(OS),Windows_NT)
 	BINARY_SUFFIX=.exe
-	RM=del /Q
-else
-	BINARY_SUFFIX=
-	RM=rm -rf
 endif
 
 ifeq ($(GOOS),windows)
@@ -45,9 +41,18 @@ GOTEST=go test
 # general make targets
 all: build-all
 
+# define cleanup target for windows and *nix
+ifeq ($(OS),Windows_NT)
+clean:
+	del /Q /F .\\build\\*
+	go clean
+
+else
 clean:
 	$(RM) ./build/*
 	go clean
+endif 
+
 
 # dependency management
 dependencies:
