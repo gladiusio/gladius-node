@@ -61,7 +61,6 @@ endif
 
 # dependency management
 dependencies:
-	# install go packages
 	dep ensure
 
 # build steps
