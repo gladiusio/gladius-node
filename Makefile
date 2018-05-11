@@ -53,14 +53,16 @@ clean:
 	go clean
 endif 
 
+# the release target is only available on *nix like systems
+ifneq ($(OS),Windows_NT)
+release:
+	sh ./ops/release-all.sh
+endif
 
 # dependency management
 dependencies:
 	# install go packages
 	dep ensure
-
-release:
-	sh ./ops/release-all.sh
 
 # build steps
 test-cli: $(CLI_SRC)
