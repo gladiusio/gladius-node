@@ -26,16 +26,16 @@
 
 
 [[constraint]]
-  branch = "master"
+  version = "~0.2.0"
   name = "github.com/gladiusio/gladius-networkd"
 
 [[constraint]]
-  branch = "master"
+  version = "~0.2.0"
   name = "github.com/gladiusio/gladius-cli"
 
-  [[constraint]]
-    branch = "master"
-    name = "github.com/gladiusio/gladius-controld"
+[[constraint]]
+  version = "~0.2.0"
+  name = "github.com/gladiusio/gladius-controld"
 
 [prune]
   go-tests = true
