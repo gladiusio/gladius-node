@@ -77,7 +77,7 @@
     "pkg/routing",
     "pkg/routing/handlers"
   ]
-  revision = "7d3aec7f1c5cececf79138a89c8a1f15da794ce3"
+  revision = "006943a2c45156fc5bf0fae20054de624ffaa5bc"
 
 [[projects]]
   branch = "master"
