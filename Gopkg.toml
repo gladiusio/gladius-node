@@ -33,6 +33,10 @@
   branch = "master"
   name = "github.com/gladiusio/gladius-cli"
 
+  [[constraint]]
+    branch = "master"
+    name = "github.com/gladiusio/gladius-controld"
+
 [prune]
   go-tests = true
   unused-packages = true
