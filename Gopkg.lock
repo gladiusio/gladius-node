@@ -61,10 +61,11 @@
   name = "github.com/gladiusio/gladius-cli"
   packages = [
     "commands",
-    "internal",
-    "node"
+    "keystore",
+    "node",
+    "utils"
   ]
-  revision = "2a2ef44c86c5cdac975d3050baed451117d2922f"
+  revision = "64c7e4fae1a038eed6df5cab56115f2b68cd55da"
 
 [[projects]]
   branch = "master"
