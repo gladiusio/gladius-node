@@ -57,7 +57,6 @@
   version = "v1.4.7"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gladiusio/gladius-cli"
   packages = [
     "commands",
@@ -65,10 +64,10 @@
     "node",
     "utils"
   ]
-  revision = "64c7e4fae1a038eed6df5cab56115f2b68cd55da"
+  revision = "342140de16a2a0f7e62207f1b9d9c08f469616be"
+  version = "0.2.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gladiusio/gladius-controld"
   packages = [
     "pkg/blockchain",
@@ -77,16 +76,17 @@
     "pkg/routing",
     "pkg/routing/handlers"
   ]
-  revision = "7d3aec7f1c5cececf79138a89c8a1f15da794ce3"
+  revision = "006943a2c45156fc5bf0fae20054de624ffaa5bc"
+  version = "0.2.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gladiusio/gladius-networkd"
   packages = [
     "networkd",
     "rpc-manager"
   ]
-  revision = "41feac1446a1a690d44c569a6b95d0a228020ffc"
+  revision = "a73dbcf8c24882f6fddfed25cea078268b7f6582"
+  version = "0.2.0"
 
 [[projects]]
   branch = "master"
@@ -406,6 +406,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d7ff3f511c7ee3d569b0a9ea1a4c4c1481976f950f5ed93b3a8f75e918fe8c78"
+  inputs-digest = "a935e2eca01d612507ba87da05fe56bd5e540aec09e04acb7726c69bade0ebbc"
   solver-name = "gps-cdcl"
   solver-version = 1
