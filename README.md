@@ -4,7 +4,13 @@ The full suite of Gladius Binaries ([controld](https://github.com/gladiusio/glad
 
 ## Usage
 ### Install
-Execute the script found in the installers folder (for unix systems)
+#### Linux/Mac
+`curl https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash
+` to install the latest release.
+
+#### Windows
+Installer will come soon
+
 
 ### Run the binaries as a process
 Run the executable created by the above step with `gladius-<executable-name>`
