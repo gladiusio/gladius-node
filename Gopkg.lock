@@ -47,8 +47,8 @@
     "rpc",
     "trie"
   ]
-  revision = "66432f3821badf24d526f2d9205f36c0543219de"
-  version = "v1.8.7"
+  revision = "2688dab48c9b8ae71b8d95c7678817eaa17f2b53"
+  version = "v1.8.8"
 
 [[projects]]
   name = "github.com/fsnotify/fsnotify"
@@ -76,8 +76,8 @@
     "pkg/routing",
     "pkg/routing/handlers"
   ]
-  revision = "006943a2c45156fc5bf0fae20054de624ffaa5bc"
-  version = "0.2.0"
+  revision = "62034fdaed775307264c658c220588c9f7576090"
+  version = "0.2.1"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-networkd"
@@ -95,7 +95,7 @@
     "config",
     "init/manager"
   ]
-  revision = "d5cf0c0b1e5775e35da98d705f094cfe62244640"
+  revision = "a8964a4a23da9aa519ca9e1f7f295b91656fc33c"
 
 [[projects]]
   name = "github.com/go-stack/stack"
@@ -112,8 +112,8 @@
 [[projects]]
   name = "github.com/gorilla/context"
   packages = ["."]
-  revision = "1ea25387ff6f684839d82767c1733ff4d4d15d0a"
-  version = "v1.1"
+  revision = "08b5f424b9271eedf6f9f0ce86cb9396ed337a42"
+  version = "v1.1.1"
 
 [[projects]]
   name = "github.com/gorilla/handlers"
@@ -124,8 +124,8 @@
 [[projects]]
   name = "github.com/gorilla/mux"
   packages = ["."]
-  revision = "53c1911da2b537f792e7cafcb446b05ffe33b996"
-  version = "v1.6.1"
+  revision = "e3702bed27f0d39777b0b37b664b6280e8ef8fbf"
+  version = "v1.6.2"
 
 [[projects]]
   branch = "master"
@@ -262,8 +262,8 @@
 [[projects]]
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "a1f051bc3eba734da4772d60e2d677f47cf93ef4"
-  version = "v0.0.2"
+  revision = "ef82de70bb3f60c65fb8eebacbb2d122ef517385"
+  version = "v0.0.3"
 
 [[projects]]
   branch = "master"
@@ -300,7 +300,7 @@
     "leveldb/table",
     "leveldb/util"
   ]
-  revision = "ae970a0732be3a1f5311da86118d37b9f4bd2a5a"
+  revision = "9637fa0b2f0db13c99d899b91007edb7df4610b7"
 
 [[projects]]
   name = "github.com/valyala/fasthttp"
@@ -325,13 +325,13 @@
     "pbkdf2",
     "scrypt"
   ]
-  revision = "2d027ae1dddd4694d54f7a8b6cbe78dca8720226"
+  revision = "1a580b3eff7814fc9b40602fd35256c63b50f491"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
   packages = ["websocket"]
-  revision = "f73e4c9ed3b7ebdd5f699a16a880c2b1994e50dd"
+  revision = "2491c5de3490fced2f6cff376127c667efeed857"
 
 [[projects]]
   branch = "master"
@@ -344,7 +344,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "d0faeb539838e250bd0a9db4182d48d4a1915181"
+  revision = "7c87d13f8e835d2fb3a70a2912c811ed0c1d241b"
 
 [[projects]]
   name = "golang.org/x/text"
