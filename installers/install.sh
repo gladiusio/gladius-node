@@ -60,6 +60,7 @@ getFile() {
   if [ "$DOWNLOAD_TOOL" = "curl" ]; then
     httpStatusCode=$(curl -s -w '%{http_code}' -L "$url" -o "$filePath")
   fi
+  echo $httpStatusCode
 }
 
 downloadFile() {
