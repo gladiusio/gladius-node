@@ -4,10 +4,17 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 ## Install
 
 ### Linux/Mac
-`curl https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash
-`
 
 (latest release)
+
+- Run this in the terminal
+
+  `curl https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
+
+- Download Profile UI (Optional)
+  - [macOS](https://github.com/gladiusio/gladius-node/releases/download/0.2.0/Gladius-darwin-x64.zip)
+  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.2.0/Gladius_Manager_1.0.0_amd64.deb)
+
 
 ### Windows
 Native installer will come soon (you can use the step above with the Linux subsystem for Windows)
