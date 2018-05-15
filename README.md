@@ -136,8 +136,8 @@ Edge Daemon:	 Stopped the server
 Use gladius edge start to start the edge node software
 ```
 
-### Beta Web Interface
-After you are done creating a Node you can check the status of it on `http://localhost:3002`. This displays your node information from the blockchain and is what's sent to the pool manager.
+### Beta Node Manager
+After you are done creating a Node you can check the status of it with our manager app. This displays your node information from the blockchain and is what's sent to the pool manager. You can find a link to install it in the install section.
 
 
 
