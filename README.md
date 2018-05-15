@@ -141,7 +141,7 @@ After you are done creating a Node you can check the status of it on `http://loc
 
 
 
-![](https://i.imgur.com/jTR8qvQ.png)
+![](https://i.imgur.com/cKl4vZ1.png)
 
 ### Run networkd or controld as a service (optional)
 You can also install networkd and controld as a service.
