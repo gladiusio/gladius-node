@@ -18,7 +18,7 @@ build() {
 
   GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-networkd$Suffix" "./cmd/gladius-networkd"
   GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius$Suffix" "./cmd/gladius-cli"
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-conrold$Suffix" "./cmd/gladius-controld"
+  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-controld$Suffix" "./cmd/gladius-controld"
 
 
   tar -czf "./build/gladius-$TAG-$1-$2.tar.gz" -C $RELEASE_DIR .
