@@ -57,17 +57,17 @@
   version = "v1.4.7"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gladiusio/gladius-cli"
   packages = [
     "commands",
-    "internal",
-    "node"
+    "keystore",
+    "node",
+    "utils"
   ]
-  revision = "2a2ef44c86c5cdac975d3050baed451117d2922f"
+  revision = "e5631021129df3eeb862daa60a541a0ed8fdfcf8"
+  version = "0.2.2"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gladiusio/gladius-controld"
   packages = [
     "pkg/blockchain",
@@ -76,16 +76,17 @@
     "pkg/routing",
     "pkg/routing/handlers"
   ]
-  revision = "f39e8a9099b54c305abe2733d60874d5e4cafeee"
+  revision = "006943a2c45156fc5bf0fae20054de624ffaa5bc"
+  version = "0.2.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gladiusio/gladius-networkd"
   packages = [
     "networkd",
     "rpc-manager"
   ]
-  revision = "e76219bb3fab518e26ff294dfddc44f5efa160b1"
+  revision = "a73dbcf8c24882f6fddfed25cea078268b7f6582"
+  version = "0.2.0"
 
 [[projects]]
   branch = "master"
@@ -94,7 +95,7 @@
     "config",
     "init/manager"
   ]
-  revision = "f8b99a247e7fc125a0fe3e18aaa653017b167f07"
+  revision = "d5cf0c0b1e5775e35da98d705f094cfe62244640"
 
 [[projects]]
   name = "github.com/go-stack/stack"
@@ -211,7 +212,7 @@
   branch = "master"
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
-  revision = "00c29f56e2386353d58c599509e8dc3801b0d716"
+  revision = "bb74f1db0675b241733089d5a1faa5dd8b0ef57b"
 
 [[projects]]
   name = "github.com/pborman/uuid"
@@ -343,7 +344,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "7dfd1290c7917b7ba22824b9d24954ab3002fe24"
+  revision = "d0faeb539838e250bd0a9db4182d48d4a1915181"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -405,6 +406,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d7ff3f511c7ee3d569b0a9ea1a4c4c1481976f950f5ed93b3a8f75e918fe8c78"
+  inputs-digest = "a935e2eca01d612507ba87da05fe56bd5e540aec09e04acb7726c69bade0ebbc"
   solver-name = "gps-cdcl"
   solver-version = 1
