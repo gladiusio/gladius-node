@@ -177,6 +177,7 @@ To install the dependencies you need to execute the `dependencies` target.
 # install depdencies for the project with go-dep
 make dependencies
 ```
+This will also configure the Ethereum bindings to work with go-dep.
 
 ### Build
 To build all binaries for your current os and architecture simply execute `make`.
@@ -191,12 +192,12 @@ make cli
 # build the network daemon
 make networkd
 
-# build the control daemon (not implemented yet)
+# build the control daemon
 make controld
 ```
 
 #### Build for a different platform
-*Attention: There will be issues compiling the controld for other systems due to the go-ethereum CGO bindings*
+*Attention: There will be issues cross compiling the controld for other systems due to the go-ethereum CGO bindings, you can try using [xgo](https://github.com/karalabe/xgo) to work around the issues though*
 To build for a different platform specify toe GOOS and GOARCH variable.
 ```shell
 # build for windows 64bit
