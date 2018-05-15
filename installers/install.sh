@@ -60,7 +60,6 @@ getFile() {
   if [ "$DOWNLOAD_TOOL" = "curl" ]; then
     httpStatusCode=$(curl -s -w '%{http_code}' -L "$url" -o "$filePath")
   fi
-  echo $httpStatusCode
 }
 
 downloadFile() {
@@ -69,7 +68,11 @@ downloadFile() {
   echo "Expected tarball is: $GLADIUS_DIST"
   DOWNLOAD_URL="https://github.com/gladiusio/gladius-node/releases/download/$TAG/$GLADIUS_DIST"
 
+  CONTENT_URL="https://github.com/gladiusio/gladius-node/releases/download/$TAG/content.tar.gz"
+
   GLADIUS_TMP_FILE="/tmp/$GLADIUS_DIST"
+  GLADIUS_TMP_CONTENT_FILE="/tmp/content.tar.gz"
+
   echo "Attempting to download $DOWNLOAD_URL to $GLADIUS_DIST"
   httpStatusCode=$(getFile "$DOWNLOAD_URL" "$GLADIUS_TMP_FILE")
   echo "HTTPCode: $httpStatusCode"
@@ -78,7 +81,10 @@ downloadFile() {
     fail "You can build one for your system with the instructions here: https://github.com/gladiusio/gladius-node"
   else
     echo "Downloading $DOWNLOAD_URL..."
+    echo "Downloading content..."
+
     getFile "$DOWNLOAD_URL" "$GLIDE_TMP_FILE"
+    getFile "$CONTENT_URL" "$GLADIUS_TMP_CONTENT_FILE"
   fi
 }
 
@@ -90,6 +96,8 @@ setupConfig(){
 
   mkdir -p "$CONFIG_DIR"
   mkdir -p "$CONTENT_DIR"
+
+  cp -a $GLADIUS_TMP_CONTENT/* $CONTENT_DIR
 
   CONFIG_FILE1="$CONFIG_DIR/gladius-networkd.toml"
   CONFIG_FILE2="$CONFIG_DIR/gladius-controld.toml"
@@ -106,11 +114,14 @@ installFile() {
   GLADIUS_TEMP="/tmp/$PROJECT_NAME"
   mkdir -p "$GLADIUS_TEMP"
   tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
+  tar xf "$GLADIUS_TMP_CONTENT_FILE" -C "$GLADIUS_TEMP"
   GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME"
+  GLADIUS_TMP_CONTENT="$GLADIUS_TEMP/content"
 
   # Check if the install bin exists, then copy the files to it.
   mkdir -p $INSTALL_BIN
   cp -a $GLADIUS_TMP_BIN/* $INSTALL_BIN
+
 
   if [[ ":$PATH:" == *":$INSTALL_BIN:"* ]]; then
     echo "Perfect, $INSTALL_BIN is in your PATH already!"
