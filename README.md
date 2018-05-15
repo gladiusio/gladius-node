@@ -26,7 +26,7 @@ Starting server at http://localhost:3001
 
 ### Gladius Networking Daemon
 ```
-$ gladius-controld
+$ gladius-networkd
 
 Loading config
 Starting...
@@ -189,6 +189,7 @@ make controld
 ```
 
 #### Build for a different platform
+*Attention: There will be issues compiling the controld for other systems due to the go-ethereum CGO bindings*
 To build for a different platform specify toe GOOS and GOARCH variable.
 ```shell
 # build for windows 64bit
