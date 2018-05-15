@@ -64,8 +64,8 @@
     "node",
     "utils"
   ]
-  revision = "342140de16a2a0f7e62207f1b9d9c08f469616be"
-  version = "0.2.0"
+  revision = "e5631021129df3eeb862daa60a541a0ed8fdfcf8"
+  version = "0.2.2"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-controld"
