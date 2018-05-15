@@ -1,17 +1,144 @@
 # Gladius Node (Golang version)
 
-The full suite of Gladius Binaries ([controld](https://github.com/gladiusio/gladius-control-daemon), [networkd](https://github.com/gladiusio/gladius-networkd), [cli](https://github.com/gladiusio/gladius-cli)) to run a node.
+The full suite of Gladius binaries ([controld](https://github.com/gladiusio/gladius-control-daemon), [networkd](https://github.com/gladiusio/gladius-networkd), [cli](https://github.com/gladiusio/gladius-cli)) to run a node.
+## Install
+
+### Linux/Mac
+`curl https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash
+`
+
+(latest release)
+
+### Windows
+Native installer will come soon (you can use the step above with the Linux subsystem for Windows)
 
 ## Usage
-### Install
-Execute the script found in the installers folder (for unix systems)
 
-### Run the binaries as a process
-Run the executable created by the above step with `gladius-<executable-name>`
+You need to run both the Gladius Control and Gladius Network daemons and then you can interact with them through the Gladius CLI
 
-### Run networkd or controld as a service
+
+### Gladius Control Daemon
+```
+$ gladius-controld
+
+Starting server at http://localhost:3001
+```
+
+### Gladius Networking Daemon
+```
+$ gladius-controld
+
+Loading config
+Starting...
+Started RPC server and HTTP server.
+```
+
+### Gladius CLI
+
+Use `--help` on the base command to see the help menu. Use `--help` any other command for a description of that command
+
+#### Full list of commands (in order of usage)
+
+**base**
+```
+$ gladius
+
+Welcome to the Gladius CLI!
+
+Here are the commands to create a node and apply to a pool in order:
+
+$ gladius create
+$ gladius apply
+$ gladius check
+
+After you are accepted into a pool, you can become an edge node:
+
+$ gladius edge start
+
+Use the -h flag to see the help menu
+```
+
+**create**
+
+Deploys a new Gladius Node smart contract containing the encrypted version of the data you submitted. If you enter in the wrong information you can just run the command again to make a new node.
+```
+$ gladius create
+
+[Gladius] What is your name? Marcelo Test
+[Gladius] What is your email? email@test.com
+[Gladius] Please type your password:  ********
+
+Tx: 0xb37a017d2877ab7350e0c7199326bc97bda32e4d8ae46c6aaecc2f9b0cd3b133	 Status: Pending...
+Tx: 0xb37a017d2877ab7350e0c7199326bc97bda32e4d8ae46c6aaecc2f9b0cd3b133	 Status: Successful
+Node created!
+
+Tx: 0x6931f0394684ebef6c0fa9c83ccf1ae7fa2811b93b4480fcf0ba163e8eb03ff6	 Status: Pending...
+Tx: 0x6931f0394684ebef6c0fa9c83ccf1ae7fa2811b93b4480fcf0ba163e8eb03ff6	 Status: Successful
+Node data set!
+
+Node Address: 0xb04578990b1cbb515b8764ca8778e5ba7f6eb8e5
+
+Use gladius apply to apply to a pool
+```
+
+**apply**
+
+Submits the data to a specific pool, allowing them to accept or reject you to become a part of the pool
+```
+$ gladius apply
+
+[Gladius] Pool Address:  0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4
+[Gladius] Please type your password:  ********
+
+Tx: 0x14e796ce7939c035586ff2b6f26e1ad9db71be7a760715debbad68b4cb9d9496	 Status: Pending
+Tx: 0x14e796ce7939c035586ff2b6f26e1ad9db71be7a760715debbad68b4cb9d9496	 Status: Successful
+
+Application sent to pool!
+Use gladius check to check your application status
+```
+
+**check**
+
+Check your application status to a specific pool
+```
+
+$ gladius check
+
+[Gladius] Pool Address:  0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4
+Pool: 0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4	 Status: Pending
+
+Use gladius edge start to start the edge node software
+```
+
+**edge [start | stop]**
+
+Start or stop the edge node software
+```
+
+$ gladius edge start
+Edge Daemon:	 Started the server
+
+Use gladius edge stop to stop the edge node software
+```
+
+```
+
+$ gladius edge stop
+Edge Daemon:	 Stopped the server
+
+Use gladius edge start to start the edge node software
+```
+
+### Beta Web Interface
+After you are done creating a Node you can check the status of it on `http://localhost:3002`. This displays your node information from the blockchain and is what's sent to the pool manager.
+
+
+
+![](https://i.imgur.com/jTR8qvQ.png)
+
+### Run networkd or controld as a service (optional)
 You can also install networkd and controld as a service.
-*Attention:* The service implementation is not thoroughly tested, and may require root privileges.
+*Attention:* **The service implementation is not thoroughly tested, and may require root privileges.**
 ```shell
 # install networkd as a service
 gladius-networkd install
@@ -23,37 +150,10 @@ gladius-networkd start
 gladius-networkd stop
 ```
 
-### CLI
-TODO
-
-### Network Daemon
-
-#### Test the RPC server (Only Start and Stop work now)
-```bash
-$ HDR1='Content-type: application/json'
-$ HDR2='Accept: application/json'
-
-$ MSG='{"jsonrpc": "2.0", "method": "GladiusEdge.Start", "id": 1}'
-$ curl -H $HDR1 -H $HDR2 -d $MSG http://localhost:5000/rpc
-{"jsonrpc":"2.0","result":"Started server","id":1}
-
-$ MSG='{"jsonrpc": "2.0", "method": "GladiusEdge.Stop", "id": 1}'
-$ curl -H $HDR1 -H $HDR2 -d $MSG http://localhost:5000/rpc
-{"jsonrpc":"2.0","result":"Stopped server","id":1}
-
-$ MSG='{"jsonrpc": "2.0", "method": "GladiusEdge.Status", "id": 1}'
-$ curl -H $HDR1 -H $HDR2 -d $MSG http://localhost:5000/rpc
-{"jsonrpc":"2.0","result":"Not implemented","id":1}
-```
-
-#### Set up content delivery
-
-Right now files are loaded from `~/.config/gladius/content/<site_name>` and take
-the format of `%2froute%2fname`. This functionality only works on linux right
-now, and serving is not backwards compatible with the previous release. Content
-can then be accessed at `http://<host>:8080/content?website=test.com&route=%2Froute%2Fhere`
+---
 
 ## Development
+If you want to contribute to the project, please clone, modify, and make a pull request to the respective [controld](https://github.com/gladiusio/gladius-control-daemon), [networkd](https://github.com/gladiusio/gladius-networkd), [cli](https://github.com/gladiusio/gladius-cli) repositories
 ### Dependencies
 To test and build the gladius binaries you need go, go-dep and the make on your machine.
 
