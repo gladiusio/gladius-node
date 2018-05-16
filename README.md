@@ -9,7 +9,7 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
 - Run this in the terminal
 
-  `curl https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
+  `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
 
 - Download Profile UI (Optional)
   - [macOS](https://github.com/gladiusio/gladius-node/releases/download/0.2.0/Gladius-darwin-x64.zip)
