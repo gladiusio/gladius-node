@@ -98,7 +98,7 @@ setupConfig(){
   mkdir -p "$CONFIG_DIR"
   mkdir -p "$CONTENT_DIR"
 
-  chmod -R 777 "$CONFIG_DIR"
+  chmod -R 775 "$CONFIG_DIR"
 
   cp -a $GLADIUS_TMP_CONTENT/* $CONTENT_DIR
 
