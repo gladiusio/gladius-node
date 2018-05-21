@@ -1,7 +1,7 @@
 #!/bin/sh
 
 RELEASE_DIR="./build/release"
-TAG=0.1.0-beta
+TAG=0.2.1
 
 mkdir -p $RELEASE_DIR
 
