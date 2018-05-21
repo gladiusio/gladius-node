@@ -11,13 +11,13 @@
   branch = "master"
   name = "github.com/aristanetworks/goarista"
   packages = ["monotime"]
-  revision = "70dca2f27708bcf7323c078bad4af7e71eb0fc24"
+  revision = "b9cf994f4e477e9851834c5a9f05dd96df7439d8"
 
 [[projects]]
   branch = "master"
   name = "github.com/btcsuite/btcd"
   packages = ["btcec"]
-  revision = "675abc5df3c5531bc741b56a765e35623459da6d"
+  revision = "1432d294a5b055c297457c25434efbf13384cc46"
 
 [[projects]]
   name = "github.com/ethereum/go-ethereum"
@@ -64,8 +64,8 @@
     "node",
     "utils"
   ]
-  revision = "e5631021129df3eeb862daa60a541a0ed8fdfcf8"
-  version = "0.2.2"
+  revision = "20fd1cea5b978667882deee44cbbc981777bff54"
+  version = "0.2.4"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-controld"
@@ -76,8 +76,8 @@
     "pkg/routing",
     "pkg/routing/handlers"
   ]
-  revision = "62034fdaed775307264c658c220588c9f7576090"
-  version = "0.2.1"
+  revision = "86751db24a98e81190c9ca1e497023c6174c11c9"
+  version = "0.2.3"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-networkd"
@@ -85,17 +85,17 @@
     "networkd",
     "rpc-manager"
   ]
-  revision = "a73dbcf8c24882f6fddfed25cea078268b7f6582"
-  version = "0.2.0"
+  revision = "6a33984b24f444b99117ae90c599603435009016"
+  version = "0.2.1"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gladiusio/gladius-utils"
   packages = [
     "config",
     "init/manager"
   ]
-  revision = "a8964a4a23da9aa519ca9e1f7f295b91656fc33c"
+  revision = "486e8052c24340c8b461ef7e407eaaf6b496d708"
+  version = "0.2.5"
 
 [[projects]]
   name = "github.com/go-stack/stack"
@@ -107,7 +107,7 @@
   branch = "master"
   name = "github.com/golang/snappy"
   packages = ["."]
-  revision = "553a641470496b2327abcac10b36396bd98e45c9"
+  revision = "2e65f85255dbc3072edf28d6b5b8efc472979f5a"
 
 [[projects]]
   name = "github.com/gorilla/context"
@@ -187,8 +187,8 @@
 [[projects]]
   name = "github.com/magiconair/properties"
   packages = ["."]
-  revision = "c3beff4c2358b44d0493c7dda585e7db7ff28ae6"
-  version = "v1.7.6"
+  revision = "c2353362d570a7bfa228149c62842019201cfb71"
+  version = "v1.8.0"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -300,7 +300,7 @@
     "leveldb/table",
     "leveldb/util"
   ]
-  revision = "9637fa0b2f0db13c99d899b91007edb7df4610b7"
+  revision = "5d6fca44a948d2be89a9702de7717f0168403d3d"
 
 [[projects]]
   name = "github.com/valyala/fasthttp"
@@ -331,7 +331,7 @@
   branch = "master"
   name = "golang.org/x/net"
   packages = ["websocket"]
-  revision = "2491c5de3490fced2f6cff376127c667efeed857"
+  revision = "57065200b4b034a1c8ad54ff77069408c2218ae6"
 
 [[projects]]
   branch = "master"
@@ -367,7 +367,7 @@
     "imports",
     "internal/fastwalk"
   ]
-  revision = "48418e5732e1b1e2a10207c8007a5f959e422f20"
+  revision = "28aef64757f4d432485ab970b094e1af8b301e84"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 RELEASE_DIR="./build/release"
-TAG=0.1.0-beta
+TAG=0.2.1
 
 mkdir -p $RELEASE_DIR
 
@@ -13,13 +13,14 @@ build() {
 
   if [ $1 = "windows" ]
   then
-    Suffix=".exe"
+    suffix=".exe"
   fi
 
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-networkd$Suffix" "./cmd/gladius-networkd"
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius$Suffix" "./cmd/gladius-cli"
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-controld$Suffix" "./cmd/gladius-controld"
+  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-networkd$suffix" "./cmd/gladius-networkd"
+  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius$suffix" "./cmd/gladius-cli"
+  xgo --targets="$1/$2" --out="gladius-controld" --dest="$node_dir" "./cmd/gladius-controld"
 
+  mv $node_dir/gladius-controld-* $node_dir/gladius-controld$suffix
 
   tar -czf "./build/gladius-$TAG-$1-$2.tar.gz" -C $RELEASE_DIR .
 
@@ -32,7 +33,7 @@ build() {
 build linux arm64
 build linux arm
 
-for dist in "linux" "darwin" "windows" "freebsd"; do
+for dist in "linux" "darwin" "windows"; do
   for arch in "amd64" "386"; do
     build $dist $arch
   done

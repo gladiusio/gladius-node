@@ -98,8 +98,6 @@ setupConfig(){
   mkdir -p "$CONFIG_DIR"
   mkdir -p "$CONTENT_DIR"
 
-  chmod -R 775 "$CONFIG_DIR"
-
   cp -a $GLADIUS_TMP_CONTENT/* $CONTENT_DIR
 
   CONFIG_FILE1="$CONFIG_DIR/gladius-networkd.toml"
@@ -150,6 +148,8 @@ installFile() {
     echo -e "Leaving binaries intact"
   fi
   rm -f $GLADIUS_TMP_FILE
+
+  chmod -R 777 "$CONFIG_DIR"
 }
 
 
