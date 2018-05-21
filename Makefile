@@ -8,7 +8,6 @@
 
 # if we are running on a windows machine
 # we need to append a .exe to the
-# compiled binary
 BINARY_SUFFIX=
 ifeq ($(OS),Windows_NT)
 	BINARY_SUFFIX=.exe
@@ -40,23 +39,43 @@ GOTEST=go test
 # general make targets
 all: build-all
 
+# define cleanup target for windows and *nix
+ifeq ($(OS),Windows_NT)
+clean:
+	del /Q /F .\\build\\*
+	go clean
+
+else
 clean:
 	rm -rf ./build/*
 	go clean
+endif 
 
-# dependency management
-dependencies:
-	# install go packages
-	dep ensure
-
-	# Deal with the ethereum cgo bindings
-	go get github.com/ethereum/go-ethereum
-	cp -r \
-  "${GOPATH}/src/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1" \
-  "vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/"
-
+# the release target is only available on *nix like systems
+ifneq ($(OS),Windows_NT)
 release:
 	sh ./ops/release-all.sh
+endif
+
+
+# dependency management
+ifeq ($(OS),Windows_NT)
+dependencies:
+	dep ensure
+	go get github.com/ethereum/go-ethereum
+	xcopy ^
+		"%GOPATH%\\src\\github.com\\ethereum\\go-ethereum\\crypto\\secp256k1\\libsecp256k1" ^
+		"vendor\\github.com\\ethereum\\go-ethereum\\crypto\\secp256k1\\"
+
+else
+dependencies:
+	dep ensure
+	go get github.com/ethereum/go-ethereum
+	cp -r \
+		"${GOPATH}/src/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1" \
+		"vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/"
+endif 
+
 
 # build steps
 test-cli: $(CLI_SRC)
