@@ -1,0 +1,23 @@
+{
+  "name": "Gladius",
+  "version": "1.0.0",
+  "description": "Gladius Node Manager UI",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^2.0.0",
+    "electron-packager": "^12.0.2"
+  }
+}
