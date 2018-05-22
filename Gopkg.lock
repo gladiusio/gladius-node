@@ -64,8 +64,8 @@
     "node",
     "utils"
   ]
-  revision = "20fd1cea5b978667882deee44cbbc981777bff54"
-  version = "0.2.4"
+  revision = "136f24a5e97844aedb8de0888885cd03e813c184"
+  version = "0.2.5"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-controld"
@@ -331,7 +331,7 @@
   branch = "master"
   name = "golang.org/x/net"
   packages = ["websocket"]
-  revision = "57065200b4b034a1c8ad54ff77069408c2218ae6"
+  revision = "8e0cdda24ed423affc8f35c241e5e9b16180338e"
 
 [[projects]]
   branch = "master"
