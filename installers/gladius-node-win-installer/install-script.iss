@@ -51,6 +51,7 @@ Source: "C:\Users\gladius\Developer\gladius-node-installer\gladius-installer-ico
 Source: "C:\Users\gladius\Developer\gladius-node-installer\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\gladius\Developer\gladius-node-installer\Gladius-win32-x64\*"; DestDir: "{app}\Gladius-win32-x64"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\Users\gladius\Developer\gladius-node-installer\AfterText.rtf"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\gladius\Developer\gladius-node-installer\README.md"; DestDir: "{app}"; Flags: ignoreversion
 ; Source: "C:\Users\gladius\Developer\gladius-node-installer\BeforeInfo.txt"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
@@ -61,7 +62,7 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\Gladius-win32-x64\{#MyApp
 [Registry]
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
     ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}"; \
-    Check: NeedsAddPath(ExpandConstant('{app}'))     
+    Check: NeedsAddPath(ExpandConstant('{app}'))
 ; This adds the App to the PATH
 
 [Code]
@@ -81,7 +82,7 @@ begin
   { Pos() returns 0 if not found }
   Result :=
     (Pos(';' + UpperCase(Param) + ';', ';' + UpperCase(OrigPath) + ';') = 0) and
-    (Pos(';' + UpperCase(Param) + '\;', ';' + UpperCase(OrigPath) + ';') = 0); 
+    (Pos(';' + UpperCase(Param) + '\;', ';' + UpperCase(OrigPath) + ';') = 0);
 end;
 
 {Delete the folder from the PATH on uninstall}
@@ -132,7 +133,7 @@ begin
   end;
 end;
 
-  
+
 
 [Run]
 Filename: "{app}\gladius-networkd.exe"; Parameters:"install"; StatusMsg:"Installing GladiusNetworkDaemon as a service"; Flags: runascurrentuser runhidden
@@ -140,7 +141,7 @@ Filename: "{app}\gladius-networkd.exe"; Parameters:"start"; Flags: runascurrentu
 Filename: "{app}\gladius-controld.exe"; Parameters:"install"; StatusMsg:"Installing GladiusControlDaemon as a service"; Flags: runascurrentuser runhidden
 Filename: "{app}\gladius-controld.exe"; Parameters:"start"; Flags: runascurrentuser runhidden
 Filename: "{app}\Gladius-win32-x64\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
-; Install and start gladius-networkd and gladius-controld as services 
+; Install and start gladius-networkd and gladius-controld as services
 
 [UninstallRun]
 Filename: "{app}\gladius-networkd.exe"; Parameters:"stop"; Flags: runascurrentuser runhidden
