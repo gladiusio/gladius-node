@@ -90,13 +90,13 @@ DOCKER_RELEASE ?= $(shell git describe --abbrev=0 --tags)
 ifeq ($(OS),Windows_NT)
 	DOCKER_OS ?= windows
 	ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
-		DOCKER_ARCH = amd64
+		DOCKER_ARCH ?= amd64
 	else
 		ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
-			DOCKER_ARCH = amd64	
+			DOCKER_ARCH ?= amd64	
 		endif
 		ifeq ($(PROCESSOR_ARCHITECTURE),x86)
-			DOCKER_ARCH = 386
+			DOCKER_ARCH ?= 386
 		endif
 	endif
 else
@@ -104,20 +104,20 @@ else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Darwin)
 		DOCKER_OS ?= linux
-		DOCKER_ARCH = amd64
+		DOCKER_ARCH ?= amd64
 	endif
 	# if we run linux we need to check which processor arch we run on
 	ifeq ($(UNAME_S),Linux)
 		DOCKER_OS ?= linux
 		UNAME_R := $(shell uname -r)
 		ifneq (,$(findstring amd64,$(UNAME_R)))
-    		DOCKER_ARCH = amd64
+    		DOCKER_ARCH ?= amd64
     	endif
     	ifneq (,$(findstring i386,$(UNAME_R)))
-    		DOCKER_ARCH = 386
+    		DOCKER_ARCH ?= 386
     	endif
     	ifneq (,$(findstring arm,$(UNAME_R)))
-    		DOCKER_ARCH = arm
+    		DOCKER_ARCH ?= arm
     	endif
     endif
 endif
