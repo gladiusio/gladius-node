@@ -62,11 +62,10 @@ endif
 ifeq ($(OS),Windows_NT)
 dependencies:
 	dep ensure
-	dep ensure
 	rem the go-etherum installation on windows fails atm
 	rem go get github.com/ethereum/go-ethereum
-	rem xcopy ^
-		"%GOPATH%\\src\\github.com\\ethereum\\go-ethereum\\crypto\\secp256k1\\libsecp256k1" ^
+	rem xcopy \
+		"%GOPATH%\\src\\github.com\\ethereum\\go-ethereum\\crypto\\secp256k1\\libsecp256k1" \
 		"vendor\\github.com\\ethereum\\go-ethereum\\crypto\\secp256k1\\"
 
 else
