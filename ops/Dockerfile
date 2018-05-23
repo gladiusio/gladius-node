@@ -44,7 +44,7 @@ VOLUME ${GLADIUSBASE}/keys
 # controld
 EXPOSE 3001 
 # networkd
-EXPOSE 3000
+EXPOSE 5000
 EXPOSE 8080
 
 USER gladius

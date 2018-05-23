@@ -22,7 +22,7 @@ services:
     build:
       context: ./
     ports:
-      - 3000:3000/tcp
+      - 5000:5000/tcp
       - 8080:8080/tcp
     volumes:
       - content:/gladius/content
