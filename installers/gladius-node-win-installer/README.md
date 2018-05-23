@@ -1,4 +1,4 @@
-# Gladius Node Manager Windows Installer 🔥
+# Gladius Node Manager Windows Installer 
 
 ## About
 Here lies the source code for the Gladius Node Manager Windows Installer. This is **NOT** the right place if you just want to install the Gladius Node Manager. To install the Gladius Node Manager all you need is the `gladius setup.exe`. This page is about how to use and build our Windows installer "from scratch".
