@@ -83,7 +83,8 @@ build-all: cli networkd controld
 # you must specify the release tag for the build process
 # make docker DOCKER_RELEASE=0.2.2
 DOCKER_IMAGE ?= gladiusio/gladius-node
-DOCKER_RELEASE ?= $(shell git describe --abbrev=0 --tags)
+DOCKER_RELEASE_COMMIT := $(shell git rev-list --tags --max-count=1)
+DOCKER_RELEASE ?= $(shell git describe --tags ${DOCKER_RELEASE_COMMIT})
 
 # get the cpu architecture to choose the correct dockerfile for the build
 # https://stackoverflow.com/questions/714100/os-detecting-makefile
