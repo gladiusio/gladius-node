@@ -215,7 +215,7 @@ You can use the provided Dockerfile and docker-compose file to run the gladius n
 ### build and publish an image
 You can build and publish a docker gladius image to a registry with the two make targets
 ```bash
-# create a docker image `gladiusio/gladius-node with the latest binary (from the most current release tag in git)
+# create a docker image gladiusio/gladius-node with the latest binary (from the most current release tag in git)
 make docker_image
 # - or create a docker image with a specific release tag and image name
 make docker_image DOCKER_RELEASE=0.2.2 DOCKER_IMAGE=gladiusio/gladius-node
@@ -238,7 +238,7 @@ make docker_compose DOCKER_RELEASE=0.2.2
 ### use docker to run the gladius cli
 The image also provides the gladius cli.
 ```bash
-# build the docker image gladiusio/gladius-node with releasde 0.2.2
+# build the docker image gladiusio/gladius-node with release 0.2.2
 make docker_image DOCKER_RELEASE=0.2.2 DOCKER_IMAGE=gladiusio/gladius-node
 # use the image to run the cli
 docker run --rm -ti gladiusio/gladius-node:0.2.2 gladius --help
