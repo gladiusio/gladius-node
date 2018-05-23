@@ -25,13 +25,13 @@ LicenseFile=LICENSE.txt
 InfoAfterFile=AfterText.rtf
 OutputDir=C:\Users\gladius\Desktop
 OutputBaseFilename=gladius setup
-SetupIconFile={src}\gladius-installer-icon.ico
+SetupIconFile=gladius-installer-icon.ico
 Compression=lzma
 SolidCompression=yes
-UninstallDisplayIcon={src}\gladius-icon.ico
+UninstallDisplayIcon=gladius-icon.ico
 ChangesEnvironment=yes
-WizardSmallImageFile={src}\gladius-wizard-small-image.bmp
-WizardImageFile={src}\gladius-wizard-image.bmp
+WizardSmallImageFile=gladius-wizard-small-image.bmp
+WizardImageFile=gladius-wizard-image.bmp
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
