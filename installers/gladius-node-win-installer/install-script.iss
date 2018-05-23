@@ -21,15 +21,17 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=C:\Users\gladius\Developer\gladius-node-installer\LICENSE.txt
-InfoAfterFile=C:\Users\gladius\Developer\gladius-node-installer\AfterText.rtf
+LicenseFile=LICENSE.txt
+InfoAfterFile=AfterText.rtf
 OutputDir=C:\Users\gladius\Desktop
 OutputBaseFilename=gladius setup
-SetupIconFile=C:\Users\gladius\Developer\gladius-node-installer\gladius-installer-icon.ico
+SetupIconFile={src}\gladius-installer-icon.ico
 Compression=lzma
 SolidCompression=yes
-UninstallDisplayIcon=C:\Users\gladius\Developer\gladius-node-installer\gladius-icon.ico
+UninstallDisplayIcon={src}\gladius-icon.ico
 ChangesEnvironment=yes
+WizardSmallImageFile={src}\gladius-wizard-small-image.bmp
+WizardImageFile={src}\gladius-wizard-image.bmp
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -41,17 +43,19 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "{sd}\Users\{username}\.gladius\content"
 
 [Files]
-Source: "C:\Users\gladius\Developer\gladius-node-installer\gladius.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\gladius\Developer\gladius-node-installer\gladius-networkd.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\gladius\Developer\gladius-node-installer\gladius-controld.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\gladius\Developer\gladius-node-installer\gladius-controld.toml"; DestDir: "{sd}\Users\{username}\.gladius"; Flags: ignoreversion
-Source: "C:\Users\gladius\Developer\gladius-node-installer\gladius-networkd.toml"; DestDir: "{sd}\Users\{username}\.gladius"; Flags: ignoreversion
-Source: "C:\Users\gladius\Developer\gladius-node-installer\gladius-icon.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\gladius\Developer\gladius-node-installer\gladius-installer-icon.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\gladius\Developer\gladius-node-installer\LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\gladius\Developer\gladius-node-installer\Gladius-win32-x64\*"; DestDir: "{app}\Gladius-win32-x64"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\Users\gladius\Developer\gladius-node-installer\AfterText.rtf"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\gladius\Developer\gladius-node-installer\README.md"; DestDir: "{app}"; Flags: ignoreversion
+Source: "gladius.exe";                       DestDir: "{app}";                           Flags: ignoreversion
+Source: "gladius-networkd.exe";              DestDir: "{app}";                           Flags: ignoreversion
+Source: "gladius-controld.exe";              DestDir: "{app}";                           Flags: ignoreversion
+Source: "gladius-icon.ico";                  DestDir: "{app}";                           Flags: ignoreversion
+Source: "gladius-installer-icon.ico";        DestDir: "{app}";                           Flags: ignoreversion
+Source: "gladius-wizard-image.bmp";          DestDir: "{app}";                           Flags: ignoreversion
+Source: "gladius-wizard-small-image.bmp";    DestDir: "{app}";                           Flags: ignoreversion
+Source: "LICENSE.txt";                       DestDir: "{app}";                           Flags: ignoreversion
+Source: "AfterText.rtf";                     DestDir: "{app}";                           Flags: ignoreversion
+Source: "README.md";                         DestDir: "{app}";                           Flags: ignoreversion
+Source: "gladius-controld.toml";             DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
+Source: "gladius-networkd.toml";             DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
+Source: "Gladius-win32-x64\*";               DestDir: "{app}\Gladius-win32-x64";         Flags: ignoreversion recursesubdirs createallsubdirs
 ; Source: "C:\Users\gladius\Developer\gladius-node-installer\BeforeInfo.txt"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
