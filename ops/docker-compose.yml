@@ -1,0 +1,29 @@
+version: '3'
+
+volumes:
+  wallet:
+  keys:
+  content:
+
+services:
+  gladius-controld:
+    container_name: controld
+    build: 
+      context: ./
+    ports:
+      - 3001:3001/tcp
+    volumes:
+      - wallet:/gladius/wallet
+      - keys:/gladius/keys
+    entrypoint: gladius-controld
+
+  gladius-networkd:
+    container_name: networkd
+    build:
+      context: ./
+    ports:
+      - 5000:5000/tcp
+      - 8080:8080/tcp
+    volumes:
+      - content:/gladius/content
+    entrypoint: gladius-networkd
