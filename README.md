@@ -218,12 +218,12 @@ You can build and publish a docker gladius image to a registry with the two make
 # create a docker image `gladiusio/gladius-node with the latest binary (from the most current release tag in git)
 make docker_image
 # - or create a docker image with a specific release tag and image name
-make docker_image DOCKER_RELEASE=0.2.2 DOCKER_IMAGE=sebastianhutter/gladius-node
+make docker_image DOCKER_RELEASE=0.2.2 DOCKER_IMAGE=gladiusio/gladius-node
 
 # push the image to the docker registry
 make docker_push
 # or push a specific image
-make docker_push DOCKER_IMAGE=sebastianhutter/gladius-node
+make docker_push DOCKER_IMAGE=gladiusio/gladius-node
 ```
 
 ### use docker-compose to run gladius-controld and networkd
@@ -238,10 +238,10 @@ make docker_compose DOCKER_RELEASE=0.2.2
 ### use docker to run the gladius cli
 The image also provides the gladius cli.
 ```bash
-# build the docker image sebastianhutter/gladius-node with releasde 0.2.2 
-make docker_image DOCKER_RELEASE=0.2.2 DOCKER_IMAGE=sebastianhutter/gladius-node
+# build the docker image gladiusio/gladius-node with releasde 0.2.2
+make docker_image DOCKER_RELEASE=0.2.2 DOCKER_IMAGE=gladiusio/gladius-node
 # use the image to run the cli
-docker run --rm -ti sebastianhutter/gladius-node:0.2.2 gladius --help
+docker run --rm -ti gladiusio/gladius-node:0.2.2 gladius --help
 ```
 
 ### cleanup
@@ -251,8 +251,8 @@ make docker_compose_cleanup
 ```
 
 ### Persistent Volumes
-The docker images exposes three volumes ${GLADIUSBASE}/content, ${GLADIUSBASE}/wallet and ${GLADIUSBASE}/keys. 
+The docker images exposes three volumes ${GLADIUSBASE}/content, ${GLADIUSBASE}/wallet and ${GLADIUSBASE}/keys.
 
-If you want to keep your configuration even when you recreate the containers from the image you need to have persistent volumes defined for the volumes. 
+If you want to keep your configuration even when you recreate the containers from the image you need to have persistent volumes defined for the volumes.
 
 The docker compose file already does that so if a newer images version is used with the docker compose file the wallet, keys and content data will remain.
