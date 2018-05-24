@@ -17,7 +17,13 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
 
 ### Windows
-Native installer will come soon (you can use the step above with the Linux subsystem for Windows)
+[Download the native windows installer!]()
+
+1. Run the installer
+2. Open cmd
+3. Use `gladius <command>`!
+4. Use `Gladius Node` shortcut to access the Manager UI (optional)
+
 
 ## Usage
 
@@ -117,15 +123,16 @@ Pool: 0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4	 Status: Pending
 Use gladius edge start to start the edge node software
 ```
 
-**edge [start | stop]**
+**edge [start | stop | status]**
 
-Start or stop the edge node software
+Start/stop or check the status of the edge node software
 ```
 
 $ gladius edge start
 Edge Daemon:	 Started the server
 
 Use gladius edge stop to stop the edge node software
+Use gladius edge status to check the status of the edge node software
 ```
 
 ```
@@ -134,6 +141,16 @@ $ gladius edge stop
 Edge Daemon:	 Stopped the server
 
 Use gladius edge start to start the edge node software
+Use gladius edge status to check the status of the edge node software
+```
+
+```
+
+$ gladius edge status
+Edge Daemon:	 Server is Running
+
+Use gladius edge start to start the edge node software
+Use gladius edge stop to stop the edge node software
 ```
 
 ### Beta Node Manager
