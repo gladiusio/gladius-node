@@ -34,17 +34,17 @@ NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still hav
 
 
 ### Run networkd or controld as a service
-You can also install networkd and controld as a service.
-*Attention:* **The service implementation is not thoroughly tested, and may require root privileges.**
+You can also install networkd and controld as a system service. This should work with Windows XP+, Linux/(systemd | Upstart | SysV), and macOS/Launchd. These will then start at login.
+
 ```shell
-# install networkd as a service
-gladius-networkd install
+# install networkd or controld as a service
+gladius-<networkd|controld> install
 
-# start the networkd service
-gladius-networkd start
+# start the networkd or controld service
+gladius-<networkd|controld> start
 
-# stop the networkd service
-gladius-networkd stop
+# stop the networkd or controld service
+gladius-<networkd|controld> stop
 ```
 
 ### Run networkd or controld as a non service
