@@ -64,8 +64,8 @@
     "node",
     "utils"
   ]
-  revision = "136f24a5e97844aedb8de0888885cd03e813c184"
-  version = "0.2.5"
+  revision = "61124d25559bd06862419c20c0052f4107f8c346"
+  version = "0.3.0"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-controld"
@@ -406,6 +406,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a935e2eca01d612507ba87da05fe56bd5e540aec09e04acb7726c69bade0ebbc"
+  inputs-digest = "62ead1de450629b9fee6bafdeef74c911b0c0f68c388dc21cd1ad193d3cfd90b"
   solver-name = "gps-cdcl"
   solver-version = 1

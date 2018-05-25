@@ -66,7 +66,7 @@ $ gladius check
 
 After you are accepted into a pool, you can become an edge node:
 
-$ gladius edge start
+$ gladius node start
 
 Use the -h flag to see the help menu
 ```
@@ -114,43 +114,51 @@ Use gladius check to check your application status
 
 Check your application status to a specific pool
 ```
-
 $ gladius check
 
 [Gladius] Pool Address:  0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4
 Pool: 0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4	 Status: Pending
 
-Use gladius edge start to start the edge node software
+Use gladius node start to start the node networking software
 ```
 
-**edge [start | stop | status]**
+**node [start | stop | status]**
 
-Start/stop or check the status of the edge node software
+Start/stop or check the status of the node networking software
 ```
+$ gladius node start
+Network Daemon:	 Started the server
 
-$ gladius edge start
-Edge Daemon:	 Started the server
-
-Use gladius edge stop to stop the edge node software
-Use gladius edge status to check the status of the edge node software
-```
-
-```
-
-$ gladius edge stop
-Edge Daemon:	 Stopped the server
-
-Use gladius edge start to start the edge node software
-Use gladius edge status to check the status of the edge node software
+Use gladius node stop to stop the node networking software
+Use gladius node status to check the status of the node networking software
 ```
 
 ```
+$ gladius node stop
+Network Daemon:	 Stopped the server
 
-$ gladius edge status
-Edge Daemon:	 Server is Running
+Use gladius node start to start the node networking software
+Use gladius node status to check the status of the node networking software
+```
 
-Use gladius edge start to start the edge node software
-Use gladius edge stop to stop the edge node software
+```
+$ gladius node status
+Network Daemon:	 Server is Running
+
+Use gladius node start to start the node networking software
+Use gladius node stop to stop the node networking software
+```
+**profile**
+
+See information regarding your node
+```
+$ gladius profile
+
+Account Address: 0x8C3650F01aA308e0B56F12530378748190c6b454
+Node Address: 0xf15aea30341982b117583f36cf516f6cea5ddf91
+Node Name: Marcelo
+Node Email: marcelo@test.com
+Node IP: 12.12.123.12
 ```
 
 ### Beta Node Manager
@@ -229,7 +237,7 @@ GOOS=linux GOARCH=386 make
 ## Docker
 You can use the provided Dockerfile and docker-compose file to run the gladius networkd and controld as docker containers on your machine. The setup is tested on docker for mac and linux boxes, not yet on arm machines.
 
-### build and publish an image
+### Build and publish an image
 You can build and publish a docker gladius image to a registry with the two make targets
 ```bash
 # create a docker image gladiusio/gladius-node with the latest binary (from the most current release tag in git)
@@ -243,7 +251,7 @@ make docker_push
 make docker_push DOCKER_IMAGE=gladiusio/gladius-node
 ```
 
-### use docker-compose to run gladius-controld and networkd
+### Use docker-compose to run gladius-controld and networkd
 You can also use the provided docker compose file to build the images and run them locally
 ```bash
 # run docker compose with the latest release
@@ -252,7 +260,7 @@ make docker_compose
 # run docker compose with a specific gladius release
 make docker_compose DOCKER_RELEASE=0.2.2
 ```
-### use docker to run the gladius cli
+### Use docker to run the gladius cli
 The image also provides the gladius cli.
 ```bash
 # build the docker image gladiusio/gladius-node with release 0.2.2
@@ -261,7 +269,7 @@ make docker_image DOCKER_RELEASE=0.2.2 DOCKER_IMAGE=gladiusio/gladius-node
 docker run --rm -ti gladiusio/gladius-node:0.2.2 gladius --help
 ```
 
-### cleanup
+### Cleanup
 To remove the created docker containers, volumes and network you can execute the docker_compose_cleanup target
 ```bash
 make docker_compose_cleanup
