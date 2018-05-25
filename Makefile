@@ -128,17 +128,32 @@ else
 		DOCKER_ARCH ?= amd64
 	endif
 	# if we run linux we need to check which processor arch we run on
+	# https://serverfault.com/questions/63484/linux-what-are-the-possible-values-returned-by-uname-m-and-uname-p
+	# i386 i686 x86_64 ia64 alpha amd64 arm armeb armel hppa m32r m68k mips mipsel powerpc ppc64 s390 s390x sh3 sh3eb sh4 sh4eb sparc
 	ifeq ($(UNAME_S),Linux)
 		DOCKER_OS ?= linux
-		UNAME_R := $(shell uname -r)
-		ifneq (,$(findstring amd64,$(UNAME_R)))
+		UNAME_P := $(shell uname -p)
+		ifneq (,$(findstring amd64,$(UNAME_P)))
     		DOCKER_ARCH ?= amd64
     	endif
-    	ifneq (,$(findstring i386,$(UNAME_R)))
+    	ifneq (,$(findstring x86_64,$(UNAME_P)))
+    		DOCKER_ARCH ?= amd64
+    	endif
+    	ifneq (,$(findstring i686,$(UNAME_P)))
+    		DOCKER_ARCH ?= amd64
+    	endif
+    	ifneq (,$(findstring i386,$(UNAME_P)))
     		DOCKER_ARCH ?= 386
     	endif
-    	ifneq (,$(findstring arm,$(UNAME_R)))
+    	# arm uname -p is untested - dont have a raspberry or other arm at hand!
+    	ifneq (,$(findstring arm,$(UNAME_P)))
     		DOCKER_ARCH ?= arm
+    	endif
+    	ifneq (,$(findstring armv7,$(UNAME_P)))
+    		DOCKER_ARCH ?= arm64
+    	endif
+    	ifneq (,$(findstring armv8,$(UNAME_P)))
+    		DOCKER_ARCH ?= arm64
     	endif
     endif
 endif
