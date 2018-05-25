@@ -133,29 +133,31 @@ else
 	ifeq ($(UNAME_S),Linux)
 		DOCKER_OS ?= linux
 		UNAME_P := $(shell uname -p)
+		# check if 64bit system
 		ifneq (,$(findstring amd64,$(UNAME_P)))
-    		DOCKER_ARCH ?= amd64
-    	endif
-    	ifneq (,$(findstring x86_64,$(UNAME_P)))
-    		DOCKER_ARCH ?= amd64
-    	endif
-    	ifneq (,$(findstring i686,$(UNAME_P)))
-    		DOCKER_ARCH ?= amd64
-    	endif
-    	ifneq (,$(findstring i386,$(UNAME_P)))
-    		DOCKER_ARCH ?= 386
-    	endif
-    	# arm uname -p is untested - dont have a raspberry or other arm at hand!
-    	ifneq (,$(findstring arm,$(UNAME_P)))
-    		DOCKER_ARCH ?= arm
-    	endif
-    	ifneq (,$(findstring armv7,$(UNAME_P)))
-    		DOCKER_ARCH ?= arm64
-    	endif
-    	ifneq (,$(findstring armv8,$(UNAME_P)))
-    		DOCKER_ARCH ?= arm64
-    	endif
-    endif
+			DOCKER_ARCH ?= amd64
+		endif
+		ifneq (,$(findstring x86_64,$(UNAME_P)))
+			DOCKER_ARCH ?= amd64
+		endif
+		ifneq (,$(findstring i686,$(UNAME_P)))
+			DOCKER_ARCH ?= amd64
+		endif
+		# check if 32bit system
+		ifneq (,$(findstring i386,$(UNAME_P)))
+			DOCKER_ARCH ?= 386
+		endif
+		# arm uname -p is untested - dont have a raspberry or other arm at hand!
+		ifneq (,$(findstring arm,$(UNAME_P)))
+			DOCKER_ARCH ?= arm
+		endif
+		ifneq (,$(findstring armv7,$(UNAME_P)))
+			DOCKER_ARCH ?= arm64
+		endif
+		ifneq (,$(findstring armv8,$(UNAME_P)))
+			DOCKER_ARCH ?= arm64
+		endif
+	endif
 endif
 docker_debug:
 	@echo building docker image ${DOCKER_IMAGE} with tag ${DOCKER_RELEASE}
