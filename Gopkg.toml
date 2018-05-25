@@ -26,7 +26,7 @@
 
 
 [[constraint]]
-  version = "~0.2.0"
+  version = "~0.3.0"
   name = "github.com/gladiusio/gladius-networkd"
 
 [[constraint]]
@@ -34,7 +34,7 @@
   name = "github.com/gladiusio/gladius-cli"
 
 [[constraint]]
-  version = "~0.2.0"
+  version = "~0.3.0"
   name = "github.com/gladiusio/gladius-controld"
 
 [prune]

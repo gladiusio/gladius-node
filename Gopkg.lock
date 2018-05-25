@@ -11,13 +11,13 @@
   branch = "master"
   name = "github.com/aristanetworks/goarista"
   packages = ["monotime"]
-  revision = "b9cf994f4e477e9851834c5a9f05dd96df7439d8"
+  revision = "59652c8de980f3fef4d4f996665828d89574dbef"
 
 [[projects]]
   branch = "master"
   name = "github.com/btcsuite/btcd"
   packages = ["btcec"]
-  revision = "1432d294a5b055c297457c25434efbf13384cc46"
+  revision = "bc0944904505aab55e089371a892be2f87883161"
 
 [[projects]]
   name = "github.com/ethereum/go-ethereum"
@@ -64,8 +64,8 @@
     "node",
     "utils"
   ]
-  revision = "61124d25559bd06862419c20c0052f4107f8c346"
-  version = "0.3.0"
+  revision = "bda8579ad8d50195a8f4df63a75d08f85918b447"
+  version = "0.3.1"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-controld"
@@ -76,17 +76,19 @@
     "pkg/routing",
     "pkg/routing/handlers"
   ]
-  revision = "86751db24a98e81190c9ca1e497023c6174c11c9"
-  version = "0.2.3"
+  revision = "7a02775410483d096e7608a997c5f8b845a11330"
+  version = "0.3.0"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-networkd"
   packages = [
     "networkd",
-    "rpc-manager"
+    "networkd/server/contserver",
+    "networkd/server/rpcserver",
+    "networkd/state"
   ]
-  revision = "6a33984b24f444b99117ae90c599603435009016"
-  version = "0.2.1"
+  revision = "96d460aec0e662227d5904a03707f5aed8048616"
+  version = "0.3.0"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"
@@ -241,8 +243,8 @@
 [[projects]]
   name = "github.com/rs/cors"
   packages = ["."]
-  revision = "feef513b9575b32f84bafa580aad89b011259019"
-  version = "v1.3.0"
+  revision = "ca016a06a5753f8ba03029c0aa5e54afb1bf713f"
+  version = "v1.4.0"
 
 [[projects]]
   name = "github.com/spf13/afero"
@@ -325,13 +327,13 @@
     "pbkdf2",
     "scrypt"
   ]
-  revision = "1a580b3eff7814fc9b40602fd35256c63b50f491"
+  revision = "159ae71589f303f9fbfd7528413e0fe944b9c1cb"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
   packages = ["websocket"]
-  revision = "8e0cdda24ed423affc8f35c241e5e9b16180338e"
+  revision = "dfa909b99c79129e1100513e5cd36307665e5723"
 
 [[projects]]
   branch = "master"
@@ -344,7 +346,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "7c87d13f8e835d2fb3a70a2912c811ed0c1d241b"
+  revision = "c11f84a56e43e20a78cee75a7c034031ecf57d1f"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -367,7 +369,7 @@
     "imports",
     "internal/fastwalk"
   ]
-  revision = "28aef64757f4d432485ab970b094e1af8b301e84"
+  revision = "a5b4c53f6e8bdcafa95a94671bf2d1203365858b"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
@@ -406,6 +408,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "62ead1de450629b9fee6bafdeef74c911b0c0f68c388dc21cd1ad193d3cfd90b"
+  inputs-digest = "702aa7f22531c77a44208ab26338978142eb2ebf02abc88b8dc557c30ed0a2bb"
   solver-name = "gps-cdcl"
   solver-version = 1
