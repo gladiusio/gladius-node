@@ -17,7 +17,13 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
 
 ### Windows
-Native installer will come soon (you can use the step above with the Linux subsystem for Windows)
+[Download the native windows installer!]()
+
+1. Run the installer
+2. Open cmd
+3. Use `gladius <command>`!
+4. Use `Gladius Node` shortcut to access the Manager UI (optional)
+
 
 ## Usage
 
@@ -60,7 +66,7 @@ $ gladius check
 
 After you are accepted into a pool, you can become an edge node:
 
-$ gladius edge start
+$ gladius node start
 
 Use the -h flag to see the help menu
 ```
@@ -108,32 +114,51 @@ Use gladius check to check your application status
 
 Check your application status to a specific pool
 ```
-
 $ gladius check
 
 [Gladius] Pool Address:  0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4
 Pool: 0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4	 Status: Pending
 
-Use gladius edge start to start the edge node software
+Use gladius node start to start the node networking software
 ```
 
-**edge [start | stop]**
+**node [start | stop | status]**
 
-Start or stop the edge node software
+Start/stop or check the status of the node networking software
+```
+$ gladius node start
+Network Daemon:	 Started the server
+
+Use gladius node stop to stop the node networking software
+Use gladius node status to check the status of the node networking software
 ```
 
-$ gladius edge start
-Edge Daemon:	 Started the server
+```
+$ gladius node stop
+Network Daemon:	 Stopped the server
 
-Use gladius edge stop to stop the edge node software
+Use gladius node start to start the node networking software
+Use gladius node status to check the status of the node networking software
 ```
 
 ```
+$ gladius node status
+Network Daemon:	 Server is Running
 
-$ gladius edge stop
-Edge Daemon:	 Stopped the server
+Use gladius node start to start the node networking software
+Use gladius node stop to stop the node networking software
+```
+**profile**
 
-Use gladius edge start to start the edge node software
+See information regarding your node
+```
+$ gladius profile
+
+Account Address: 0x8C3650F01aA308e0B56F12530378748190c6b454
+Node Address: 0xf15aea30341982b117583f36cf516f6cea5ddf91
+Node Name: Marcelo
+Node Email: marcelo@test.com
+Node IP: 12.12.123.12
 ```
 
 ### Beta Node Manager
@@ -206,3 +231,53 @@ GOOS=windows GOARCH=amd64 make
 # build for linux 32bit
 GOOS=linux GOARCH=386 make
 ```
+
+---
+
+## Docker
+You can use the provided Dockerfile and docker-compose file to run the gladius networkd and controld as docker containers on your machine. The setup is tested on docker for mac and linux boxes, not yet on arm machines.
+
+### Build and publish an image
+You can build and publish a docker gladius image to a registry with the two make targets
+```bash
+# create a docker image gladiusio/gladius-node with the latest binary (from the most current release tag in git)
+make docker_image
+# - or create a docker image with a specific release tag and image name
+make docker_image DOCKER_RELEASE=0.2.2 DOCKER_IMAGE=gladiusio/gladius-node
+
+# push the image to the docker registry
+make docker_push
+# or push a specific image
+make docker_push DOCKER_IMAGE=gladiusio/gladius-node
+```
+
+### Use docker-compose to run gladius-controld and networkd
+You can also use the provided docker compose file to build the images and run them locally
+```bash
+# run docker compose with the latest release
+make docker_compose
+
+# run docker compose with a specific gladius release
+make docker_compose DOCKER_RELEASE=0.2.2
+```
+### Use docker to run the gladius cli
+The image also provides the gladius cli.
+```bash
+# build the docker image gladiusio/gladius-node with release 0.2.2
+make docker_image DOCKER_RELEASE=0.2.2 DOCKER_IMAGE=gladiusio/gladius-node
+# use the image to run the cli
+docker run --rm -ti gladiusio/gladius-node:0.2.2 gladius --help
+```
+
+### Cleanup
+To remove the created docker containers, volumes and network you can execute the docker_compose_cleanup target
+```bash
+make docker_compose_cleanup
+```
+
+### Persistent Volumes
+The docker images exposes three volumes ${GLADIUSBASE}/content, ${GLADIUSBASE}/wallet and ${GLADIUSBASE}/keys.
+
+If you want to keep your configuration even when you recreate the containers from the image you need to have persistent volumes defined for the volumes.
+
+The docker compose file already does that so if a newer images version is used with the docker compose file the wallet, keys and content data will remain.
