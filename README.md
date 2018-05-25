@@ -17,17 +17,19 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
 
 ### Windows
-[Download the native windows installer!]()
+1. [Download the native windows installer!](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/gladius-setup.exe) (includes the UI)
+2. Run the installer
 
-1. Run the installer
-2. Open cmd
-3. Use `gladius <command>`!
-4. Use `Gladius Node` shortcut to access the Manager UI (optional)
+NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still have to use the CLI to create, apply, check, etc...
+
+
 
 
 ## Usage
+**ATTENTION WINDOWS USERS:** `gladius-networkd` and `gladius-controld` are automatically added as system services. You should **NOT** attempt to run `gladius-networkd` and `gladius-controld` as commands because they are **already running**.
 
-You need to run both the Gladius Control and Gladius Network daemons and then you can interact with them through the Gladius CLI
+**ATTENTION NON WINDOWS USERS:**
+You need to run both the Gladius Control and Gladius Network daemons **and then** you can interact with them through the Gladius CLI
 
 
 ### Gladius Control Daemon
