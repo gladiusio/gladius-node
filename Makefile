@@ -157,7 +157,12 @@ else
     	endif
     endif
 endif
-docker_image:
+docker_debug:
+	@echo building docker image ${DOCKER_IMAGE} with tag ${DOCKER_RELEASE}
+	@echo detected os: ${DOCKER_OS}
+	@echo detected arch: ${DOCKER_ARCH}
+
+docker_image: docker_debug
 	docker build --tag ${DOCKER_IMAGE}:${DOCKER_RELEASE} \
 		--build-arg gladius_release=${DOCKER_RELEASE} \
 		--build-arg gladius_os=${DOCKER_OS} \
@@ -168,7 +173,7 @@ docker_push: docker_image
 	docker push ${DOCKER_IMAGE}:${DOCKER_RELEASE}
 
 # execute local docker compose for testing
-docker_compose:
+docker_compose: docker_debug
 	# build docker compose image
 	docker-compose -p gladius -f ops/docker-compose.yml build \
 		--build-arg gladius_release=${DOCKER_RELEASE} \
