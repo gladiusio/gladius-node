@@ -49,7 +49,7 @@ else
 clean:
 	rm -rf ./build/*
 	go clean
-endif 
+endif
 
 # the release target is only available on *nix like systems
 ifneq ($(OS),Windows_NT)
@@ -75,7 +75,7 @@ dependencies:
 	cp -r \
 		"${GOPATH}/src/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1" \
 		"vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/"
-endif 
+endif
 
 
 # build steps
@@ -114,7 +114,7 @@ ifeq ($(OS),Windows_NT)
 		DOCKER_ARCH ?= amd64
 	else
 		ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
-			DOCKER_ARCH ?= amd64	
+			DOCKER_ARCH ?= amd64
 		endif
 		ifeq ($(PROCESSOR_ARCHITECTURE),x86)
 			DOCKER_ARCH ?= 386
@@ -148,7 +148,7 @@ docker_image:
 		--build-arg gladius_os=${DOCKER_OS} \
 		--build-arg gladius_architecture=${DOCKER_ARCH} \
 		-f ./ops/Dockerfile ./ops
-	
+
 docker_push: docker_image
 	docker push ${DOCKER_IMAGE}:${DOCKER_RELEASE}
 
@@ -159,7 +159,7 @@ docker_compose:
 		--build-arg gladius_release=${DOCKER_RELEASE} \
 		--build-arg gladius_os=${DOCKER_OS} \
 		--build-arg gladius_architecture=${DOCKER_ARCH} \
-		
+
 	# start services
 	docker-compose -p gladius -f ops/docker-compose.yml up -d
 
