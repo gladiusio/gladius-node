@@ -32,7 +32,7 @@ RUN curl -L https://github.com/gladiusio/gladius-node/releases/download/${gladiu
   && tar -xzf /tmp/content.tar.gz -C ${GLADIUSBASE}/content/ --strip-components 1 \
   && rm -f /tmp/content.tar.gz
 # make sure all data inside the base directory belongs to the gladius user
-RUN chown -R gladius ${GLADIUSBASE} 
+RUN chown -R gladius ${GLADIUSBASE}
 
 # be sure to expose volumes for the different directories
 # inside gladius base
@@ -42,7 +42,7 @@ VOLUME ${GLADIUSBASE}/keys
 
 # expose the ports used by the different services
 # controld
-EXPOSE 3001 
+EXPOSE 3001
 # networkd
 EXPOSE 5000
 EXPOSE 8080

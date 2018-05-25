@@ -8,7 +8,7 @@ volumes:
 services:
   gladius-controld:
     container_name: controld
-    build: 
+    build:
       context: ./
     ports:
       - 3001:3001/tcp
