@@ -26,20 +26,37 @@ NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still hav
 
 
 ## Usage
-**ATTENTION WINDOWS USERS:** `gladius-networkd` and `gladius-controld` are automatically added as system services. You should **NOT** attempt to run `gladius-networkd` and `gladius-controld` as commands because they are **already running**.
+**Important notes**
 
-**ATTENTION NON WINDOWS USERS:**
-You need to run both the Gladius Control and Gladius Network daemons **and then** you can interact with them through the Gladius CLI
+*Windows users:* `gladius-networkd` and `gladius-controld` are automatically added as system services. You should **NOT** attempt to run `gladius-networkd` and `gladius-controld` as commands because they are **already running**.
+
+*Non-Windows users:* You need to run both the Gladius Control and Gladius Network daemons **and then** you can interact with them through the Gladius CLI
 
 
-### Gladius Control Daemon
+### Run networkd or controld as a service
+You can also install networkd and controld as a service.
+*Attention:* **The service implementation is not thoroughly tested, and may require root privileges.**
+```shell
+# install networkd as a service
+gladius-networkd install
+
+# start the networkd service
+gladius-networkd start
+
+# stop the networkd service
+gladius-networkd stop
+```
+
+### Run networkd or controld as a non service
+
+#### Gladius Control Daemon
 ```
 $ gladius-controld
 
 Starting server at http://localhost:3001
 ```
 
-### Gladius Networking Daemon
+#### Gladius Networking Daemon
 ```
 $ gladius-networkd
 
@@ -169,20 +186,6 @@ After you are done creating a Node you can check the status of it with our manag
 
 
 ![](https://i.imgur.com/cKl4vZ1.png)
-
-### Run networkd or controld as a service (optional)
-You can also install networkd and controld as a service.
-*Attention:* **The service implementation is not thoroughly tested, and may require root privileges.**
-```shell
-# install networkd as a service
-gladius-networkd install
-
-# start the networkd service
-gladius-networkd start
-
-# stop the networkd service
-gladius-networkd stop
-```
 
 ---
 
