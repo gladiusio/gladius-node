@@ -242,6 +242,24 @@ GOOS=linux GOARCH=386 make
 ## Docker
 You can use the provided Dockerfile and docker-compose file to run the gladius networkd and controld as docker containers on your machine. The setup is tested on docker for mac and linux boxes, not yet on arm machines.
 
+### Mac Vs. Linux Docker
+
+In macOS, most if not all packages are installed, particularly the newest version of docker_compose
+
+Linux requires some setup to get working, especially out of the box.
+
+#### Prepping Linux
+
+##### Install Docker, remove old Docker
+
+https://docs.docker.com/install/linux/docker-ce/ubuntu/#docker-ee-customers
+
+
+##### Install Docker compose. version 1.21 or newer required
+
+https://docs.docker.com/compose/install/
+
+
 ### Build and publish an image
 You can build and publish a docker gladius image to a registry with the two make targets
 ```bash
