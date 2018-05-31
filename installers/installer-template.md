@@ -25,6 +25,8 @@
 
 **Icons & Graphics: https://github.com/gladiusio/gladius-node/tree/master/installers & Gladius Resources (Google Drive)**
 
+**Binaries:** Take from latest release
+
 ## Dirs & Files
 
 ### Dirs
