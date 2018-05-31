@@ -242,6 +242,16 @@ GOOS=linux GOARCH=386 make
 ## Docker
 You can use the provided Dockerfile and docker-compose file to run the gladius networkd and controld as docker containers on your machine. The setup is tested on docker for mac and linux boxes, not yet on arm machines.
 
+
+### Clone this repository!
+```bash
+
+git clone https://github.com/gladiusio/gladius-node.git
+
+cd gladius-node
+
+```
+
 ### Mac Vs. Linux Docker
 
 In macOS, most if not all packages are installed, particularly the newest version of docker_compose
