@@ -265,7 +265,7 @@ sudo apt-get update
 sudo apt-get install docker-ce
 
 ```
-
+#### Instructions from Docker's official documentation do not currently support 18.04
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#docker-ee-customers
 
 
