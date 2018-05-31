@@ -313,7 +313,14 @@ The image also provides the gladius cli.
 # build the docker image gladiusio/gladius-node with release 0.3.0
 make docker_image DOCKER_RELEASE=0.3.0 DOCKER_IMAGE=gladiusio/gladius-node
 # use the image to run the cli
-docker run --rm -ti gladiusio/gladius-node:0.3.0 gladius --help
+docker run --rm --network host -ti gladiusio/gladius-node:0.3.0 gladius --help
+
+or
+
+docker run --rm --network host -ti gladiusio/gladius-node:0.3.0 gladius create
+
+etc...
+
 ```
 
 ### Cleanup
