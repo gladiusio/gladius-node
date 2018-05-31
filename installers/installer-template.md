@@ -81,9 +81,9 @@
 
 - create desktop icon (Windows)
 
-- create $BASE_DIR and $CONFIG_DIR
+- create `$BASE_DIR` and `$CONFIG_DIR`
 
-- add resources to $BASE_DIR and $CONFIG_DIR
+- add resources to `$BASE_DIR` and `$CONFIG_DIR`
 
 - add binaries to path/bin
 
