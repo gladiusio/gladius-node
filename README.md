@@ -252,6 +252,20 @@ Linux requires some setup to get working, especially out of the box.
 
 ##### Install Docker, remove old Docker
 
+```bash
+# "If you are used to installing Docker to your development machine with get-docker script, that won't work either. So the solution is to install Docker CE from the zesty package."
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable"
+
+sudo apt-get update
+sudo apt-get install docker-ce
+
+```
+
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#docker-ee-customers
 
 
