@@ -7,7 +7,7 @@ confinement: devmode
 
 parts:
   gladius:
-    source: ~/Developer/go/src/github.com/gladiusio/gladius-node/build/gladius-0.3.0-linux-amd64.tar.gz
+    source: https://github.com/gladiusio/gladius-node/releases/download/0.3.0/gladius-0.3.0-linux-amd64.tar.gz
 
 apps:
   gladius:
