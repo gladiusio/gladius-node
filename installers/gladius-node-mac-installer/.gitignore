@@ -1,0 +1,5 @@
+Manager/Electron/*
+!Manager/Electron/README.md
+
+Manager/Shared/*
+!Manager/Shared/README.md
