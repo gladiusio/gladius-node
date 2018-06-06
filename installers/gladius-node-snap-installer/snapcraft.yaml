@@ -1,0 +1,26 @@
+name: gladius
+version: 0.3.0
+summary: gladius node manager
+description: gladius node manager. includes cli, networkd, and controld
+
+grade: devel
+confinement: devmode
+
+parts: 
+  gladius-binaries:
+    plugin: dump
+    source: ./gladius-0.3.0-linux-amd64.tar.gz
+
+apps:
+  gladius:
+    command: gladius
+#    plugs: [home]
+  gladius-controld:
+    command: gladius-controld
+    daemon: simple
+#    plugs: [home]
+  gladius-networkd:
+    command: gladius-networkd
+    daemon: simple
+#    plugs: [home]
+ 

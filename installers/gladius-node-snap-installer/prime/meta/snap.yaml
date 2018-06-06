@@ -1,0 +1,17 @@
+name: gladius
+version: 0.3.0
+summary: gladius node manager
+description: gladius node manager. includes cli, networkd, and controld
+architectures:
+- amd64
+confinement: devmode
+grade: devel
+apps:
+  gladius:
+    command: command-gladius.wrapper
+  gladius-controld:
+    command: command-gladius-controld.wrapper
+    daemon: simple
+  gladius-networkd:
+    command: command-gladius-networkd.wrapper
+    daemon: simple
