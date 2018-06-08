@@ -11,13 +11,8 @@ import ServiceManagement
 
 let homeFolderURL = FileManager.default.homeDirectoryForCurrentUser
 
-public func shell(command: String, output: Bool, process sentProcess: Process?) -> String? {
-    let process: Process
-    if let sentProcess = sentProcess {
-        process = sentProcess
-    } else {
-        process = Process()
-    }
+public func shell(command: String, output: Bool) -> (process: Process, output: String?) {
+    let process = Process()
     
     process.launchPath = "/bin/bash"
     process.arguments = ["-c", command]
@@ -30,10 +25,10 @@ public func shell(command: String, output: Bool, process sentProcess: Process?) 
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: data, encoding: String.Encoding.utf8)
         
-        return output
+        return (process, output)
     } else {
         process.launch()
-        return nil
+        return (process, nil)
     }
 }
 
@@ -69,7 +64,9 @@ public func isInPath() -> Bool {
     }
     
     let profileExport: Bool
-    if let shellPreferences = shell(command: "cat ~/\(rcFile)", output: true, process: nil) {
+    let shellScript = shell(command: "cat ~/\(rcFile)", output: true)
+    
+    if let shellPreferences = shellScript.output {
         profileExport = shellPreferences.contains("gladius/paths")
     } else {
         profileExport = false
@@ -94,14 +91,14 @@ public func addToPath() {
             rcFile = ".bash_profile"
         }
         
-        guard let shellPreferences = shell(command: "cat ~/\(rcFile)", output: true, process: nil)
+        guard let shellPreferences = shell(command: "cat ~/\(rcFile)", output: true).output
             else {
                 return
         }
         
         if !shellPreferences.contains("gladius/paths") {
-            let _ = shell(command: "echo \"export PATH=\\$PATH:/Applications/Gladius.app/Contents/Resources\"  > ~/.config/gladius/paths", output: false, process: nil)
-            let _ = shell(command: "echo \"source ~/.config/gladius/paths\"  >> ~/\(rcFile)", output: false, process: nil)
+            let _ = shell(command: "echo \"export PATH=\\$PATH:/Applications/Gladius.app/Contents/Resources\"  > ~/.config/gladius/paths", output: false)
+            let _ = shell(command: "echo \"source ~/.config/gladius/paths\"  >> ~/\(rcFile)", output: false)
         }
     }
 }
