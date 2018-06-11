@@ -3,7 +3,16 @@
 The full suite of Gladius binaries ([controld](https://github.com/gladiusio/gladius-control-daemon), [networkd](https://github.com/gladiusio/gladius-networkd), [cli](https://github.com/gladiusio/gladius-cli)) to run a node.
 ## Install
 
-### Linux/Mac
+### macOS
+
+- Download .dmg from releases, `gladius-0.3.0-mac.dmg`
+- Click the menu bar Gladius icon in the top right
+- In Beta options
+  - Click "Add gladius to Path"
+  - Click "Open Terminal" to open the Terminal to run `gladius`
+- The Profile UI is included in this app
+
+### Linux
 
 (latest release)
 
