@@ -11,6 +11,8 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
   - Click "Add gladius to Path"
   - Click "Open Terminal" to open the Terminal to run `gladius`
 - The Profile UI is included in this app
+- Once done installing software please follow these usage guidelines [HERE](https://github.com/gladiusio/gladius-node#gladius-cli)
+
 
 ### Linux
 
