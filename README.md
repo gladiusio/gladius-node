@@ -300,24 +300,24 @@ https://docs.docker.com/compose/install/
 You can build and publish a docker gladius image to a registry with the two make targets
 ```bash
 # create a docker image gladiusio/gladius-node with the latest binary (from the most current release tag in git)
-make docker_image
+sudo make docker_image
 # - or create a docker image with a specific release tag and image name
-make docker_image DOCKER_RELEASE=0.3.0 DOCKER_IMAGE=gladiusio/gladius-node
+sudo make docker_image DOCKER_RELEASE=0.3.0 DOCKER_IMAGE=gladiusio/gladius-node
 
 # push the image to the docker registry
-make docker_push
+sudo make docker_push
 # or push a specific image
-make docker_push DOCKER_IMAGE=gladiusio/gladius-node
+sudo make docker_push DOCKER_IMAGE=gladiusio/gladius-node
 ```
 
 ### Use docker-compose to run gladius-controld and networkd
 You can also use the provided docker compose file to build the images and run them locally
 ```bash
 # run docker compose with the latest release
-make docker_compose DOCKER_ARCH=amd64
+sudo make docker_compose DOCKER_ARCH=amd64
 
 # run docker compose with a specific gladius release
-make docker_compose DOCKER_RELEASE=0.3.0 DOCKER_ARCH=amd64
+sudo make docker_compose DOCKER_RELEASE=0.3.0 DOCKER_ARCH=amd64
 ```
 ### Use docker to run the gladius cli
 The image also provides the gladius cli.
