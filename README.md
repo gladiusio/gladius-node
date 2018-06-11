@@ -242,7 +242,6 @@ GOOS=linux GOARCH=386 make
 ## Docker
 You can use the provided Dockerfile and docker-compose file to run the gladius networkd and controld as docker containers on your machine. The setup is tested on docker for mac and linux boxes, not yet on arm machines.
 
-
 ### Clone this repository!
 ```bash
 
@@ -275,6 +274,19 @@ sudo apt-get update
 sudo apt-get install docker-ce
 
 ```
+##### Install Docker-Compose
+```bash
+#Install Docker-compose to ruin docker_compose commands. Docker compose is not necessary if you dont want to have docker-compose perform the automated actions of starting networkd and controld in seperate containers on the same docker network.
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+$ docker-compose --version
+docker-compose version 1.21.2, build 1719ceb
+```
+
+
 #### Instructions from Docker's official documentation do not currently support 18.04
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#docker-ee-customers
 
