@@ -276,7 +276,7 @@ sudo apt-get install docker-ce
 ```
 ##### Install Docker-Compose
 ```bash
-#Install Docker-compose to ruin docker_compose commands. Docker compose is not necessary if you dont want to have docker-compose perform the automated actions of starting networkd and controld in seperate containers on the same docker network.
+#Install Docker-compose to run docker_compose commands. Docker compose is not necessary if you don't want to have docker-compose perform the automated actions of starting networkd and controld in separate containers on the same docker network.
 
 sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 
