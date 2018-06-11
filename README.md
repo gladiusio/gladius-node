@@ -5,7 +5,7 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
 ### macOS
 
-- Download .dmg from releases, `gladius-0.3.0-mac.dmg`
+- Download .dmg from releases, [gladius-0.3.0-mac.dmg] (https://github.com/gladiusio/gladius-node/releases/download/0.3.0/gladius-0.3.0-mac.dmg)
 - Click the menu bar Gladius icon in the top right
 - In Beta options
   - Click "Add gladius to Path"
@@ -21,8 +21,8 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
   `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
 
 - Download Profile UI (Optional)
-  - [macOS](https://github.com/gladiusio/gladius-node/releases/download/0.2.0/Gladius-darwin-x64.zip)
-  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.2.0/Gladius_Manager_1.0.0_amd64.deb)
+  - [macOS](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/Gladius-darwin-x64.zip)
+  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/Gladius_Manager_1.0.0_amd64.deb)
 
 
 ### Windows
