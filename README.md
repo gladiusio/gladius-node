@@ -24,7 +24,7 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
 - Download Profile UI (Optional)
   - [macOS](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/Gladius-darwin-x64.zip)
-  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/Gladius_Manager_1.0.0_amd64.deb)
+  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/gladius-manager-linux.deb)
 
 
 ### Windows
