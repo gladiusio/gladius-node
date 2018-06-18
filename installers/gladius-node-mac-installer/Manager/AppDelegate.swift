@@ -16,6 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         config()
         
+        content()
+        
         let controld = shell(command: Bundle.main.resourcePath! + "/gladius-controld", output: false)
         let networkd = shell(command: Bundle.main.resourcePath! + "/gladius-networkd", output: false)
         
