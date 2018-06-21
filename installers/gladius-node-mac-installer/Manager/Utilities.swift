@@ -35,7 +35,10 @@ public func shell(command: String, output: Bool) -> (process: Process, output: S
 public func config() {
     try? FileManager.default.createDirectory(at: homeFolderURL.appendingPathComponent(".config/gladius/wallet"), withIntermediateDirectories: true, attributes: nil)
     try? FileManager.default.createDirectory(at: homeFolderURL.appendingPathComponent(".config/gladius/keys"), withIntermediateDirectories: true, attributes: nil)
-    try? FileManager.default.createDirectory(at: homeFolderURL.appendingPathComponent(".config/gladius/content"), withIntermediateDirectories: true, attributes: nil)
+}
+
+public func content() {
+    try? FileManager.default.copyItem(at: URL(fileURLWithPath: Bundle.main.resourcePath! + "/content"), to: homeFolderURL.appendingPathComponent(".config/gladius/content"))
 }
 
 func update() {
