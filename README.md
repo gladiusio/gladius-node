@@ -23,7 +23,6 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
   `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
 
 - Download Profile UI (Optional)
-  - [macOS](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/Gladius-darwin-x64.zip)
   - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/gladius-manager-linux.deb)
 
 
