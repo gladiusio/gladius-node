@@ -18,6 +18,7 @@
 		43C88B6620C0630C0022E90B /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C88B6520C0630C0022E90B /* MenuBarController.swift */; };
 		43C88B6920C082360022E90B /* com.gladius.io.node-manager.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C88B6820C082360022E90B /* com.gladius.io.node-manager.plist */; };
 		43C9597620D83F28008D314B /* content in Resources */ = {isa = PBXBuildFile; fileRef = 43C9597520D83F28008D314B /* content */; };
+		43FA8DE520DC292E00040E7F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43FA8DE420DC292E00040E7F /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		43C88B6520C0630C0022E90B /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		43C88B6820C082360022E90B /* com.gladius.io.node-manager.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.gladius.io.node-manager.plist"; sourceTree = "<group>"; };
 		43C9597520D83F28008D314B /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = content; sourceTree = "<group>"; };
+		43FA8DE420DC292E00040E7F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		433CA37220AF5C1C00CCAC3E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				43FA8DE420DC292E00040E7F /* README.md */,
 				43C9597520D83F28008D314B /* content */,
 				433CA37420AF5C5500CCAC3E /* gladius */,
 				433CA37520AF5C5500CCAC3E /* gladius-controld */,
@@ -172,6 +175,7 @@
 				43C88B6420BF42B90022E90B /* Gladius.app in Resources */,
 				433CA37720AF5C5500CCAC3E /* gladius in Resources */,
 				433CA36A20AF5B8E00CCAC3E /* Main.storyboard in Resources */,
+				43FA8DE520DC292E00040E7F /* README.md in Resources */,
 				433CA37820AF5C5500CCAC3E /* gladius-controld in Resources */,
 				433CA37620AF5C5500CCAC3E /* gladius-networkd in Resources */,
 			);
