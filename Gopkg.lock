@@ -64,8 +64,8 @@
     "node",
     "utils"
   ]
-  revision = "7d44dd4b9a91d9df52fb1d3e796daf2223613110"
-  version = "0.3.2"
+  revision = "551508a09f094e6a79f2c70e57759930a2a748b1"
+  version = "0.4.0"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-controld"
@@ -76,8 +76,8 @@
     "pkg/routing",
     "pkg/routing/handlers"
   ]
-  revision = "7a02775410483d096e7608a997c5f8b845a11330"
-  version = "0.3.0"
+  revision = "699fb5f76ebe679fb365aca49618d95e3319358b"
+  version = "0.4.0"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-networkd"
@@ -88,7 +88,7 @@
     "networkd/state"
   ]
   revision = "96d460aec0e662227d5904a03707f5aed8048616"
-  version = "0.3.0"
+  version = "0.4.0"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"
@@ -408,6 +408,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "702aa7f22531c77a44208ab26338978142eb2ebf02abc88b8dc557c30ed0a2bb"
+  inputs-digest = "eb9b840f4113be64dbb3f49f82989880483f80d78f1cc8708e1370f1301d5cba"
   solver-name = "gps-cdcl"
   solver-version = 1
