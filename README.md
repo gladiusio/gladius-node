@@ -5,7 +5,7 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
 ### macOS
 
-- Download .dmg from releases, [gladius-0.3.0-mac.dmg](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/gladius-0.3.0-mac.dmg)
+- Download .dmg from releases, [gladius-0.4.0-mac.dmg](https://github.com/gladiusio/gladius-node/releases/download/0.4.0/gladius-0.4.0-mac.dmg)
 - Click the menu bar Gladius icon in the top right
 - In Beta options
   - Click "Add gladius to Path"
@@ -23,11 +23,11 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
   `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
 
 - Download Profile UI (Optional)
-  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/gladius-manager-linux.deb)
+  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.4.0/gladius-manager-linux.deb)
 
 
 ### Windows
-1. [Download the native windows installer!](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/gladius-setup.exe) (includes the UI)
+1. [Download the native windows installer!](https://github.com/gladiusio/gladius-node/releases/download/0.4.0/gladius-setup.exe) (includes the UI)
 2. Run the installer
 
 NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still have to use the CLI to create, apply, check, etc...
