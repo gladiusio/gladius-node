@@ -16,6 +16,7 @@ initArch() {
     armv5*) ARCH="arm" ;;
     armv6*) ARCH="arm" ;;
     armv7*) ARCH="arm" ;;
+    armv8*) ARCH="arm64" ;;
     aarch64) ARCH="arm64" ;;
     x86) ARCH="386" ;;
     x86_64) ARCH="amd64" ;;
