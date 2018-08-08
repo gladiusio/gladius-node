@@ -2,10 +2,10 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Gladius Node"
-#define MyAppVersion "0.2.0"
+#define MyAppVersion "0.5.0"
 #define MyAppPublisher "Gladius Network, LLC"
 #define MyAppURL "https://gladius.io"
-#define MyAppExeName "gladius_electron.exe"
+#define MyAppExeName "gladius-electron.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -54,6 +54,7 @@ Source: "LICENSE.txt";                       DestDir: "{app}";                  
 Source: "AfterText.rtf";                     DestDir: "{app}";                           Flags: ignoreversion
 Source: "README.md";                         DestDir: "{app}";                           Flags: ignoreversion
 Source: "gladius-controld.toml";             DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
+Source: "gladius-cli.toml";                  DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
 Source: "gladius-networkd.toml";             DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
 Source: "Gladius-win32-x64\*";               DestDir: "{app}\Gladius-win32-x64";         Flags: ignoreversion recursesubdirs createallsubdirs
 ; Source: "C:\Users\gladius\Developer\gladius-node-installer\BeforeInfo.txt"; DestDir: "{app}"; Flags: ignoreversion
