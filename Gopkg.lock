@@ -102,15 +102,16 @@
     "utils",
   ]
   pruneopts = "UT"
-  revision = "b372d6d4699e61b59e24fc1a94683e24145c5e93"
-  version = "0.5.2"
+  revision = "5c82b66c8c46c74cbbbd5544b78f3c6dcdc3b58b"
+  version = "0.5.4"
 
 [[projects]]
-  digest = "1:a60e4defaadfe5a2f2ad66eab7db1fc9c2c137efa5b37951a174df6d33b31bbd"
+  digest = "1:a2bf9c0518b831143704b9e7f65fd5e44ed7694d3da8a1ace80591c79b272bf8"
   name = "github.com/gladiusio/gladius-controld"
   packages = [
     "pkg/blockchain",
     "pkg/blockchain/generated",
+    "pkg/config",
     "pkg/p2p/message",
     "pkg/p2p/peer",
     "pkg/p2p/signature",
@@ -607,7 +608,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:7df92ecc6d5c8cda8ba9a86e13d253aaff0eeb36218e479eca86add31c3a3457"
+  digest = "1:9f6ed2a9dcc9fe0ddfbb390825d69628c4832a4b4ed74e32c23083d793e86c77"
   name = "golang.org/x/sys"
   packages = [
     "unix",
@@ -618,7 +619,7 @@
     "windows/svc/mgr",
   ]
   pruneopts = "UT"
-  revision = "f0d5e33068cb57c22a181f5df0ffda885309eb5a"
+  revision = "98c5dad5d1a0e8a73845ecc8897d0bd56586511d"
 
 [[projects]]
   digest = "1:8029e9743749d4be5bc9f7d42ea1659471767860f0cdc34d37c3111bd308a295"
@@ -637,7 +638,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:e1c96c8c8ce0af57da9dccb008e540b3d13b55ea04b530fb4fceb81706082bdd"
+  digest = "1:a05bd2d296bc727082abcb63ff52615b4dcc6219d8b61e99fd83d605dc779a18"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
@@ -645,10 +646,10 @@
     "internal/fastwalk",
   ]
   pruneopts = "UT"
-  revision = "4432cd1c27c82c87fe2507a05a1a940f794b617f"
+  revision = "27709f6afec43b6c6d899bd199bf0f39c731216c"
 
 [[projects]]
-  digest = "1:4a6f52efede0a24fa84fb96e4cad7cc79623e587b8c2a5009aefad7815470f64"
+  digest = "1:42763582556a1a345ad6fe11ef6a73ed706b74997fa24c648a566251c1c2255d"
   name = "gopkg.in/AlecAivazis/survey.v1"
   packages = [
     ".",
@@ -656,8 +657,8 @@
     "terminal",
   ]
   pruneopts = "UT"
-  revision = "17861e192dc11fd2f5081df1932c94cce262fa1e"
-  version = "v1.6.1"
+  revision = "e752db451e07e09c7d7dc8cada807a44bdb0fd47"
+  version = "v1.5.3"
 
 [[projects]]
   branch = "v2"
@@ -688,9 +689,9 @@
   analyzer-version = 1
   input-imports = [
     "github.com/gladiusio/gladius-cli/commands",
+    "github.com/gladiusio/gladius-controld/pkg/config",
     "github.com/gladiusio/gladius-controld/pkg/routing",
     "github.com/gladiusio/gladius-networkd/networkd",
-    "github.com/gladiusio/gladius-utils/config",
     "github.com/gladiusio/gladius-utils/init/manager",
   ]
   solver-name = "gps-cdcl"

@@ -54,6 +54,8 @@ endif
 # the release target is only available on *nix like systems
 ifneq ($(OS),Windows_NT)
 release:
+	make clean
+	make dependencies
 	sh ./ops/release-all.sh
 endif
 
