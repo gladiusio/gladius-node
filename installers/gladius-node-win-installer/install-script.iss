@@ -151,9 +151,8 @@ Filename: "{app}\Gladius-win32-x64\{#MyAppExeName}"; Description: "{cm:LaunchPro
 ; Install and start gladius-networkd and gladius-controld as services
 
 [UninstallRun]
-Filename: "{sys}\sc.exe"; Parameters: "stop ""Gladius Control Daemon""" ; Flags: runhidden
-Filename: "{sys}\sc.exe"; Parameters: "delete ""Gladius Control Daemon""" ; Flags: runhidden
-Filename: "{sys}\sc.exe"; Parameters: "stop ""Gladius Network Daemon""" ; Flags: runhidden
-Filename: "{sys}\sc.exe"; Parameters: "delete ""Gladius Network Daemon""" ; Flags: runhidden
+Filename: "{sys}\sc.exe"; Parameters: "stop ""GladiusControlDaemon""" ; Flags: runhidden
+Filename: "{sys}\sc.exe"; Parameters: "delete ""GladiusControlDaemon""" ; Flags: runhidden
+Filename: "{sys}\sc.exe"; Parameters: "stop ""GladiusNetworkDaemon""" ; Flags: runhidden
+Filename: "{sys}\sc.exe"; Parameters: "delete ""GladiusNetworkDaemon""" ; Flags: runhidden
 ; Stop and uninstall gladius-networkd and gladius-controld as services
-
