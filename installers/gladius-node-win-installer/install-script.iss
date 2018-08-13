@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Gladius Node"
-#define MyAppVersion "0.5.2"
+#define MyAppVersion "0.5.0"
 #define MyAppPublisher "Gladius Network, LLC"
 #define MyAppURL "https://gladius.io"
 #define MyAppExeName "gladius-electron.exe"

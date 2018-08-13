@@ -93,7 +93,7 @@
   revision = "f033d782cd083dbb9d8f9ca52460c58cbfb31025"
 
 [[projects]]
-  digest = "1:18e626193fb9e9b406046cffd2bc27d6a3d159ae276d539e5fefa0a91c2448fe"
+  digest = "1:4adfb32f106ad719545a6369cdf53f24e4efcd46c7985702993d722c6a137ede"
   name = "github.com/gladiusio/gladius-cli"
   packages = [
     "commands",
@@ -102,8 +102,8 @@
     "utils",
   ]
   pruneopts = "UT"
-  revision = "5c82b66c8c46c74cbbbd5544b78f3c6dcdc3b58b"
-  version = "0.5.4"
+  revision = "5865f88d3376046f790e031ef305b8fa63dc7b04"
+  version = "0.5.5"
 
 [[projects]]
   digest = "1:a2bf9c0518b831143704b9e7f65fd5e44ed7694d3da8a1ace80591c79b272bf8"
@@ -604,7 +604,7 @@
     "websocket",
   ]
   pruneopts = "UT"
-  revision = "f9ce57c11b242f0f1599cf25c89d8cb02c45295a"
+  revision = "c39426892332e1bb5ec0a434a079bf82f5d30c54"
 
 [[projects]]
   branch = "master"
@@ -646,7 +646,7 @@
     "internal/fastwalk",
   ]
   pruneopts = "UT"
-  revision = "27709f6afec43b6c6d899bd199bf0f39c731216c"
+  revision = "e10408200fe9a3b7b1d3e07bede3214d321974fe"
 
 [[projects]]
   digest = "1:42763582556a1a345ad6fe11ef6a73ed706b74997fa24c648a566251c1c2255d"
