@@ -36,6 +36,14 @@ NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still hav
 
 
 ## Usage
+
+**Ports that need to be forwarded**
+
+| Port  | Service |
+| ------------- | ------------- |
+| 8080  | Networkd - Content server  |
+| 7946  | Controld - P2P Network  |
+
 **Important notes**
 
 *Windows users:* `gladius-networkd` and `gladius-controld` are automatically added as system services. You should **NOT** attempt to run `gladius-networkd` and `gladius-controld` as commands because they are **already running**.
