@@ -30,10 +30,6 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 1. [Download the native windows installer!](https://github.com/gladiusio/gladius-node/releases/download/0.4.0/gladius-setup.exe) (includes the UI)
 2. Run the installer
 
-NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still have to use the CLI to create, apply, check, etc...
-
-
-
 
 ## Usage
 
