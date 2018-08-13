@@ -21,6 +21,18 @@ build() {
 
   mv $node_dir/gladius-controld-* $node_dir/gladius-controld$suffix
 
+  # Copy bins to Windows Installer
+  if [ $1 = "windows" ] && [ $2 = "amd64" ]
+  then
+    cp $node_dir/* "./installers/gladius-node-win-installer"
+  fi
+
+  # Copy bins to macOS Xcode Project
+  if [ $1 = "darwin" ] && [ $2 = "amd64" ]
+  then
+    cp $node_dir/* "./installers/gladius-node-mac-installer/Manager/Shared"
+  fi
+
   tar -czf "./build/gladius-$TAG-$1-$2.tar.gz" -C $RELEASE_DIR .
 
   rm -rf $RELEASE_DIR
