@@ -5,7 +5,7 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
 ### macOS
 
-- Download .dmg from releases, [gladius-0.4.0-mac.dmg](https://github.com/gladiusio/gladius-node/releases/download/0.4.0/gladius-0.4.0-mac.dmg)
+- Download .dmg from releases, [gladius-0.5.0-mac.dmg](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/gladius-0.5.0-mac.dmg)
 - Click the menu bar Gladius icon in the top right
 - In Beta options
   - Click "Add gladius to Path"
@@ -23,19 +23,23 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
   `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
 
 - Download Profile UI (Optional)
-  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.4.0/gladius-manager-linux.deb)
+  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/Gladius-0.5.0-Linux-GUI.zip)
 
 
 ### Windows
-1. [Download the native windows installer!](https://github.com/gladiusio/gladius-node/releases/download/0.4.0/gladius-setup.exe) (includes the UI)
+1. [Download the native windows installer!](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/Gladius-0.5.0-windows-setup.exe) (includes the UI)
 2. Run the installer
-
-NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still have to use the CLI to create, apply, check, etc...
-
-
 
 
 ## Usage
+
+**Ports that need to be forwarded**
+
+| Port  | Service |
+| ------------- | ------------- |
+| 8080  | Networkd - Content server  |
+| 7946  | Controld - P2P Network  |
+
 **Important notes**
 
 *Windows users:* `gladius-networkd` and `gladius-controld` are automatically added as system services. You should **NOT** attempt to run `gladius-networkd` and `gladius-controld` as commands because they are **already running**.
@@ -43,8 +47,12 @@ NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still hav
 *Non-Windows users:* You need to run both the Gladius Control and Gladius Network daemons **and then** you can interact with them through the Gladius CLI
 
 
-### Run networkd or controld as a service
+### Manually run networkd or controld as a service
 You can also install networkd and controld as a system service. This should work with Windows XP+, Linux/(systemd | Upstart | SysV), and macOS/Launchd. These will then start at login.
+
+**Important Note** The GladiusBase directory will be located under the user that
+installs the service, so issues may come up if installed from a different user
+than the one that is running the service.
 
 ```shell
 # install networkd or controld as a service
@@ -59,6 +67,9 @@ gladius-<networkd|controld> stop
 
 ### Run networkd or controld as a non service
 
+One good way to do this would be to use something like [screen](https://www.gnu.org/software/screen/manual/screen.html) to run in the
+background
+
 #### Gladius Control Daemon
 ```
 $ gladius-controld
@@ -72,7 +83,6 @@ $ gladius-networkd
 
 Loading config
 Starting...
-Started RPC server and HTTP server.
 ```
 
 ### Gladius CLI
