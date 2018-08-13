@@ -56,13 +56,13 @@ Source: "README.md";                         DestDir: "{app}";                  
 Source: "gladius-controld.toml";             DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
 Source: "gladius-cli.toml";                  DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
 Source: "gladius-networkd.toml";             DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
-Source: "Gladius-win32-x64\*";               DestDir: "{app}\Gladius-win32-x64";         Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "gladius-electron-win32-x64\*";      DestDir: "{app}\gladius-electron-win32-x64";         Flags: ignoreversion recursesubdirs createallsubdirs
 ; Source: "C:\Users\gladius\Developer\gladius-node-installer\BeforeInfo.txt"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\Gladius-win32-x64\{#MyAppExeName}"; IconFileName: "{app}\gladius-icon.ico"
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\Gladius-win32-x64\{#MyAppExeName}"; IconFileName: "{app}\gladius-icon.ico"; Tasks: desktopicon
+Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\gladius-electron-win32-x64\{#MyAppExeName}"; IconFileName: "{app}\gladius-icon.ico"
+Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\gladius-electron-win32-x64\{#MyAppExeName}"; IconFileName: "{app}\gladius-icon.ico"; Tasks: desktopicon
 
 [Registry]
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
@@ -147,7 +147,7 @@ Filename: "{app}\gladius-controld.exe"; Parameters:"install"; StatusMsg:"Install
 Filename: "{sys}\sc.exe"; Parameters: "start ""GladiusControlDaemon""" ; Flags: runhidden
 Filename: "{sys}\sc.exe"; Parameters: "start ""GladiusNetworkDaemon""" ; Flags: runhidden
 
-Filename: "{app}\Gladius-win32-x64\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\gladius-electron-win32-x64\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 ; Install and start gladius-networkd and gladius-controld as services
 
 [UninstallRun]
