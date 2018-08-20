@@ -39,7 +39,7 @@ def setupNetwork(num_of_hosts=10, bandwidth=100, latency=10):
     # seed node is always 10.0.0.1
     info("Setting up seed node\n")
     h1 = net.get('h1')
-    h1.cmd('python /vagrant/mininet/setup_seed.py ' +
+    h1.cmd('python /vagrant/tests/mininet/setup_seed.py ' +
            h1.name + ' >> /tmp/' + h1.name + '_log.out 2>&1 &')
     seed_ip = h1.IP()
 
@@ -48,7 +48,7 @@ def setupNetwork(num_of_hosts=10, bandwidth=100, latency=10):
     info("Setting up accounts\n")
     for node_num in range(1, num_of_hosts):
         h = net.get('h%s' % (node_num + 1))
-        h.cmd('python /vagrant/mininet/setup_peer.py ' +
+        h.cmd('python /vagrant/tests/mininet/setup_peer.py ' +
               h.name + ' >> /tmp/' + h.name + '_log.out 2>&1 &')
 
     sleep(25)
@@ -57,7 +57,7 @@ def setupNetwork(num_of_hosts=10, bandwidth=100, latency=10):
     for node_num in range(1, num_of_hosts):
         info("\rStarting node: %d" % node_num)
         h = net.get('h%s' % (node_num + 1))
-        h.cmd('python /vagrant/mininet/start_peer.py ' + h.name + ' ' +
+        h.cmd('python /vagrant/tests/mininet/start_peer.py ' + h.name + ' ' +
               seed_ip + ' >> /tmp/' + h.name + '_log.out 2>&1 &')
         sleep(between_nodes)
 
@@ -67,7 +67,7 @@ def setupNetwork(num_of_hosts=10, bandwidth=100, latency=10):
     info("\nRunning query on all nodes\n")
     query_node = net.get('qnode')
     result = query_node.cmd(
-        'python /vagrant/mininet/query_all.py ' + ' '.join([host.IP() for host in net.hosts[:len(net.hosts) - 1]]))
+        'python /vagrant/tests/mininet/query_all.py ' + ' '.join([host.IP() for host in net.hosts[:len(net.hosts) - 1]]))
 
     with open('/tmp/final_output.log', 'w') as f:
         f.write(result)
