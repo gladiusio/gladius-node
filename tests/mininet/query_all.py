@@ -8,7 +8,7 @@ def query_nodes(nodes):
     results = {}
     state_set = set()
     for node in nodes:
-        url = "http://%s:3001/api/p2p/state/" % node
+        url = "http://%s:3001/api/p2p/state" % node
         state = requests.get(url).text
         state_set.add(state)
         results[node] = json.loads(state)
