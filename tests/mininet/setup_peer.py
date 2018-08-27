@@ -10,8 +10,8 @@ from shutil import copyfile
 
 def setup_peer(node_name):
     # Create our config files config file
-    copyfile("/vagrant/tests/test_files/gladius-controld.toml", "/gladius/gladius-controld.toml")
-    copyfile("/vagrant/tests/test_files/gladius-networkd.toml", "/gladius/gladius-networkd.toml")
+    copyfile("/vagrant/tests/test_files/configs/gladius-controld.toml", "/gladius/gladius-controld.toml")
+    copyfile("/vagrant/tests/test_files/configs/gladius-networkd.toml", "/gladius/gladius-networkd.toml")
 
     # Start the controld in the background
     subprocess.Popen("/vagrant/build/gladius-controld >> /tmp/controld_%s.out 2>&1" % node_name,
