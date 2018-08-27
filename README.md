@@ -3,7 +3,18 @@
 The full suite of Gladius binaries ([controld](https://github.com/gladiusio/gladius-control-daemon), [networkd](https://github.com/gladiusio/gladius-networkd), [cli](https://github.com/gladiusio/gladius-cli)) to run a node.
 ## Install
 
-### Linux/Mac
+### macOS
+
+- Download .dmg from releases, [gladius-0.5.0-macOS.dmg](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/gladius-0.5.0-macOS.dmg)
+- Click the menu bar Gladius icon in the top right
+- In Beta options
+  - Click "Add gladius to Path"
+  - Click "Open Terminal" to open the Terminal to run `gladius`
+- The Profile UI is included in this app
+- Once done installing software please follow these usage guidelines [HERE](https://github.com/gladiusio/gladius-node#gladius-cli)
+
+
+### Linux
 
 (latest release)
 
@@ -12,20 +23,23 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
   `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
 
 - Download Profile UI (Optional)
-  - [macOS](https://github.com/gladiusio/gladius-node/releases/download/0.2.0/Gladius-darwin-x64.zip)
-  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.2.0/Gladius_Manager_1.0.0_amd64.deb)
+  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/Gladius-0.5.0-Linux-GUI.zip)
 
 
 ### Windows
-1. [Download the native windows installer!](https://github.com/gladiusio/gladius-node/releases/download/0.3.0/gladius-setup.exe) (includes the UI)
+1. [Download the native windows installer!](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/Gladius-0.5.0-windows-setup.exe) (includes the UI)
 2. Run the installer
-
-NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still have to use the CLI to create, apply, check, etc...
-
-
 
 
 ## Usage
+
+**Ports that need to be forwarded**
+
+| Port  | Service |
+| ------------- | ------------- |
+| 8080  | Networkd - Content server  |
+| 7946  | Controld - P2P Network  |
+
 **Important notes**
 
 *Windows users:* `gladius-networkd` and `gladius-controld` are automatically added as system services. You should **NOT** attempt to run `gladius-networkd` and `gladius-controld` as commands because they are **already running**.
@@ -33,8 +47,12 @@ NOTE: The `Gladius Node` desktop shortcut links to the Manager UI. You still hav
 *Non-Windows users:* You need to run both the Gladius Control and Gladius Network daemons **and then** you can interact with them through the Gladius CLI
 
 
-### Run networkd or controld as a service
+### Manually run networkd or controld as a service
 You can also install networkd and controld as a system service. This should work with Windows XP+, Linux/(systemd | Upstart | SysV), and macOS/Launchd. These will then start at login.
+
+**Important Note** The GladiusBase directory will be located under the user that
+installs the service, so issues may come up if installed from a different user
+than the one that is running the service.
 
 ```shell
 # install networkd or controld as a service
@@ -49,6 +67,9 @@ gladius-<networkd|controld> stop
 
 ### Run networkd or controld as a non service
 
+One good way to do this would be to use something like [screen](https://www.gnu.org/software/screen/manual/screen.html) to run in the
+background
+
 #### Gladius Control Daemon
 ```
 $ gladius-controld
@@ -62,7 +83,6 @@ $ gladius-networkd
 
 Loading config
 Starting...
-Started RPC server and HTTP server.
 ```
 
 ### Gladius CLI
@@ -242,7 +262,6 @@ GOOS=linux GOARCH=386 make
 ## Docker
 You can use the provided Dockerfile and docker-compose file to run the gladius networkd and controld as docker containers on your machine. The setup is tested on docker for mac and linux boxes, not yet on arm machines.
 
-
 ### Clone this repository!
 ```bash
 
@@ -275,6 +294,19 @@ sudo apt-get update
 sudo apt-get install docker-ce
 
 ```
+##### Install Docker-Compose
+```bash
+#Install Docker-compose to run docker_compose commands. Docker compose is not necessary if you don't want to have docker-compose perform the automated actions of starting networkd and controld in separate containers on the same docker network.
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+$ docker-compose --version
+docker-compose version 1.21.2, build 1719ceb
+```
+
+
 #### Instructions from Docker's official documentation do not currently support 18.04
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#docker-ee-customers
 
@@ -288,24 +320,24 @@ https://docs.docker.com/compose/install/
 You can build and publish a docker gladius image to a registry with the two make targets
 ```bash
 # create a docker image gladiusio/gladius-node with the latest binary (from the most current release tag in git)
-make docker_image
+sudo make docker_image
 # - or create a docker image with a specific release tag and image name
-make docker_image DOCKER_RELEASE=0.3.0 DOCKER_IMAGE=gladiusio/gladius-node
+sudo make docker_image DOCKER_RELEASE=0.3.0 DOCKER_IMAGE=gladiusio/gladius-node
 
 # push the image to the docker registry
-make docker_push
+sudo make docker_push
 # or push a specific image
-make docker_push DOCKER_IMAGE=gladiusio/gladius-node
+sudo make docker_push DOCKER_IMAGE=gladiusio/gladius-node
 ```
 
 ### Use docker-compose to run gladius-controld and networkd
 You can also use the provided docker compose file to build the images and run them locally
 ```bash
 # run docker compose with the latest release
-make docker_compose DOCKER_ARCH=amd64
+sudo make docker_compose DOCKER_ARCH=amd64
 
 # run docker compose with a specific gladius release
-make docker_compose DOCKER_RELEASE=0.3.0 DOCKER_ARCH=amd64
+sudo make docker_compose DOCKER_RELEASE=0.3.0 DOCKER_ARCH=amd64
 ```
 ### Use docker to run the gladius cli
 The image also provides the gladius cli.

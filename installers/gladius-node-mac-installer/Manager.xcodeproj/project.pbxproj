@@ -1,0 +1,390 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4326466920BEF168009A7FCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4326466820BEF168009A7FCD /* Assets.xcassets */; };
+		433CA36320AF5B8D00CCAC3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433CA36220AF5B8D00CCAC3E /* AppDelegate.swift */; };
+		433CA36A20AF5B8E00CCAC3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433CA36820AF5B8E00CCAC3E /* Main.storyboard */; };
+		433CA37620AF5C5500CCAC3E /* gladius-networkd in Resources */ = {isa = PBXBuildFile; fileRef = 433CA37320AF5C5500CCAC3E /* gladius-networkd */; };
+		433CA37720AF5C5500CCAC3E /* gladius in Resources */ = {isa = PBXBuildFile; fileRef = 433CA37420AF5C5500CCAC3E /* gladius */; };
+		433CA37820AF5C5500CCAC3E /* gladius-controld in Resources */ = {isa = PBXBuildFile; fileRef = 433CA37520AF5C5500CCAC3E /* gladius-controld */; };
+		4345DB6320C82BB10028AB11 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4345DB6220C82BB10028AB11 /* Utilities.swift */; };
+		43C88B6420BF42B90022E90B /* Gladius.app in Resources */ = {isa = PBXBuildFile; fileRef = 43C88B6320BF402C0022E90B /* Gladius.app */; };
+		43C88B6620C0630C0022E90B /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C88B6520C0630C0022E90B /* MenuBarController.swift */; };
+		43C88B6920C082360022E90B /* com.gladius.io.node-manager.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C88B6820C082360022E90B /* com.gladius.io.node-manager.plist */; };
+		43C9597620D83F28008D314B /* content in Resources */ = {isa = PBXBuildFile; fileRef = 43C9597520D83F28008D314B /* content */; };
+		43FA8DE520DC292E00040E7F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43FA8DE420DC292E00040E7F /* README.md */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4326466820BEF168009A7FCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		433CA35F20AF5B8D00CCAC3E /* Gladius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gladius.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		433CA36220AF5B8D00CCAC3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		433CA36920AF5B8E00CCAC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		433CA36B20AF5B8E00CCAC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		433CA36C20AF5B8E00CCAC3E /* Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Manager.entitlements; sourceTree = "<group>"; };
+		433CA37320AF5C5500CCAC3E /* gladius-networkd */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "gladius-networkd"; sourceTree = "<group>"; };
+		433CA37420AF5C5500CCAC3E /* gladius */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = gladius; sourceTree = "<group>"; };
+		433CA37520AF5C5500CCAC3E /* gladius-controld */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "gladius-controld"; sourceTree = "<group>"; };
+		4345DB6220C82BB10028AB11 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		43C88B6320BF402C0022E90B /* Gladius.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = Gladius.app; sourceTree = "<group>"; };
+		43C88B6520C0630C0022E90B /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		43C88B6820C082360022E90B /* com.gladius.io.node-manager.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "com.gladius.io.node-manager.plist"; sourceTree = "<group>"; };
+		43C9597520D83F28008D314B /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = content; sourceTree = "<group>"; };
+		43FA8DE420DC292E00040E7F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		433CA35C20AF5B8D00CCAC3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		433CA35620AF5B8C00CCAC3E = {
+			isa = PBXGroup;
+			children = (
+				433CA36120AF5B8D00CCAC3E /* Manager */,
+				433CA36020AF5B8D00CCAC3E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		433CA36020AF5B8D00CCAC3E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				433CA35F20AF5B8D00CCAC3E /* Gladius.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		433CA36120AF5B8D00CCAC3E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				43C88B6720C082220022E90B /* LaunchAgents */,
+				43C88B6220BF3D450022E90B /* Electron */,
+				433CA37220AF5C1C00CCAC3E /* Shared */,
+				433CA36220AF5B8D00CCAC3E /* AppDelegate.swift */,
+				43C88B6520C0630C0022E90B /* MenuBarController.swift */,
+				4345DB6220C82BB10028AB11 /* Utilities.swift */,
+				433CA36820AF5B8E00CCAC3E /* Main.storyboard */,
+				4326466820BEF168009A7FCD /* Assets.xcassets */,
+				433CA36B20AF5B8E00CCAC3E /* Info.plist */,
+				433CA36C20AF5B8E00CCAC3E /* Manager.entitlements */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		433CA37220AF5C1C00CCAC3E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				43FA8DE420DC292E00040E7F /* README.md */,
+				43C9597520D83F28008D314B /* content */,
+				433CA37420AF5C5500CCAC3E /* gladius */,
+				433CA37520AF5C5500CCAC3E /* gladius-controld */,
+				433CA37320AF5C5500CCAC3E /* gladius-networkd */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		43C88B6220BF3D450022E90B /* Electron */ = {
+			isa = PBXGroup;
+			children = (
+				43C88B6320BF402C0022E90B /* Gladius.app */,
+			);
+			path = Electron;
+			sourceTree = "<group>";
+		};
+		43C88B6720C082220022E90B /* LaunchAgents */ = {
+			isa = PBXGroup;
+			children = (
+				43C88B6820C082360022E90B /* com.gladius.io.node-manager.plist */,
+			);
+			path = LaunchAgents;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		433CA35E20AF5B8D00CCAC3E /* Gladius */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 433CA36F20AF5B8E00CCAC3E /* Build configuration list for PBXNativeTarget "Gladius" */;
+			buildPhases = (
+				433CA35B20AF5B8D00CCAC3E /* Sources */,
+				433CA35C20AF5B8D00CCAC3E /* Frameworks */,
+				433CA35D20AF5B8D00CCAC3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gladius;
+			productName = Manager;
+			productReference = 433CA35F20AF5B8D00CCAC3E /* Gladius.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		433CA35720AF5B8D00CCAC3E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Nathan Feldsien";
+				TargetAttributes = {
+					433CA35E20AF5B8D00CCAC3E = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 433CA35A20AF5B8D00CCAC3E /* Build configuration list for PBXProject "Manager" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 433CA35620AF5B8C00CCAC3E;
+			productRefGroup = 433CA36020AF5B8D00CCAC3E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				433CA35E20AF5B8D00CCAC3E /* Gladius */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		433CA35D20AF5B8D00CCAC3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4326466920BEF168009A7FCD /* Assets.xcassets in Resources */,
+				43C88B6920C082360022E90B /* com.gladius.io.node-manager.plist in Resources */,
+				43C9597620D83F28008D314B /* content in Resources */,
+				43C88B6420BF42B90022E90B /* Gladius.app in Resources */,
+				433CA37720AF5C5500CCAC3E /* gladius in Resources */,
+				433CA36A20AF5B8E00CCAC3E /* Main.storyboard in Resources */,
+				43FA8DE520DC292E00040E7F /* README.md in Resources */,
+				433CA37820AF5C5500CCAC3E /* gladius-controld in Resources */,
+				433CA37620AF5C5500CCAC3E /* gladius-networkd in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		433CA35B20AF5B8D00CCAC3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4345DB6320C82BB10028AB11 /* Utilities.swift in Sources */,
+				43C88B6620C0630C0022E90B /* MenuBarController.swift in Sources */,
+				433CA36320AF5B8D00CCAC3E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		433CA36820AF5B8E00CCAC3E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				433CA36920AF5B8E00CCAC3E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		433CA36D20AF5B8E00CCAC3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		433CA36E20AF5B8E00CCAC3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		433CA37020AF5B8E00CCAC3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Manager/Manager.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4A6Y3LCD29;
+				INFOPLIST_FILE = Manager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gladius.io.temp.node-manager";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		433CA37120AF5B8E00CCAC3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Manager/Manager.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4A6Y3LCD29;
+				INFOPLIST_FILE = Manager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gladius.io.temp.node-manager";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		433CA35A20AF5B8D00CCAC3E /* Build configuration list for PBXProject "Manager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				433CA36D20AF5B8E00CCAC3E /* Debug */,
+				433CA36E20AF5B8E00CCAC3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		433CA36F20AF5B8E00CCAC3E /* Build configuration list for PBXNativeTarget "Gladius" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				433CA37020AF5B8E00CCAC3E /* Debug */,
+				433CA37120AF5B8E00CCAC3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 433CA35720AF5B8D00CCAC3E /* Project object */;
+}
