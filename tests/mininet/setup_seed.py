@@ -4,26 +4,16 @@ import sys
 import requests
 import json
 from time import sleep
-import shutil
+from distutils.dir_util import copy_tree
 
-
-def copyDirectory(src, dest):
-    try:
-        shutil.copytree(src, dest)
-    # Directories are the same
-    except shutil.Error as e:
-        print('Directory not copied. Error: %s' % e)
-    # Any error saying that the directory doesn't exist
-    except OSError as e:
-        print('Directory not copied. Error: %s' % e)
 
 def setup_seed(node_name):
     # Setup our pool manager wallet
-    copyDirectory("/vagrant/tests/test_files/wallet", "/gladius/wallet")
+    copy_tree("/vagrant/tests/test_files/wallet", "/gladius/wallet")
 
     # Copy the test content files to our content folder
-    copyDirectory("/vagrant/tests/test_files/content_files/honest_files", "/gladius/content")
-    copyDirectory("/vagrant/tests/test_files/content_files/bad_files", "/gladius/content")
+    copy_tree("/vagrant/tests/test_files/content_files/honest_files", "/gladius/content")
+    copy_tree("/vagrant/tests/test_files/content_files/bad_files", "/gladius/content")
 
     # Start the controld in the background
     subprocess.Popen("/vagrant/build/gladius-controld >> /tmp/controld_%s.out 2>&1" % node_name,
