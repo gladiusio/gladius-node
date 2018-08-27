@@ -23,7 +23,7 @@
   branch = "master"
   name = "github.com/btcsuite/btcd"
   packages = ["btcec"]
-  revision = "f899737d7f2764dc13e4d01ff00108ec58f766a9"
+  revision = "79e00513b1011888b1e675157ab89f527f901cae"
 
 [[projects]]
   branch = "master"
@@ -64,8 +64,8 @@
     "rpc",
     "trie"
   ]
-  revision = "225171a4bfcc16bd12a1906b1e0d43d0b18c353b"
-  version = "v1.8.13"
+  revision = "316fc7ecfc10d06603f1358c1f4c1020ec36dd2a"
+  version = "v1.8.14"
 
 [[projects]]
   name = "github.com/fsnotify/fsnotify"
@@ -80,7 +80,7 @@
     "pkg/controller",
     "pkg/db/models"
   ]
-  revision = "e4aeae9f23b473714cfac98f1978ba55f7f1de16"
+  revision = "3fbac6ea93474113d34c3c58e1532916fef1caf7"
 
 [[projects]]
   branch = "develop"
@@ -108,7 +108,7 @@
     "pkg/routing/handlers",
     "pkg/routing/response"
   ]
-  revision = "02c54ae460a4e5105234f496d1ab5bf3b27803d6"
+  revision = "63ea4a213d7b920ecc00a9c4b196f5c7015b18ce"
 
 [[projects]]
   branch = "develop"
@@ -133,8 +133,8 @@
 [[projects]]
   name = "github.com/go-stack/stack"
   packages = ["."]
-  revision = "259ab82a6cad3992b4e21ff5cac294ccb06474bc"
-  version = "v1.7.0"
+  revision = "2fee6af1a9795aafbe0253a0cfbdf668e1fb8a9a"
+  version = "v1.8.0"
 
 [[projects]]
   branch = "master"
@@ -151,20 +151,20 @@
 [[projects]]
   name = "github.com/gorilla/handlers"
   packages = ["."]
-  revision = "7e0847f9db758cdebd26c149d0ae9d5d0b9c98ce"
-  version = "v1.4.0"
+  revision = "90663712d74cb411cbef281bc1e08c19d1a76145"
+  version = "v1.3.0"
 
 [[projects]]
   name = "github.com/gorilla/mux"
   packages = ["."]
-  revision = "e3702bed27f0d39777b0b37b664b6280e8ef8fbf"
-  version = "v1.6.2"
+  revision = "53c1911da2b537f792e7cafcb446b05ffe33b996"
+  version = "v1.6.1"
 
 [[projects]]
-  branch = "master"
   name = "github.com/hashicorp/errwrap"
   packages = ["."]
-  revision = "d6c0cd88035724dd42e0f335ae30161c20575ecc"
+  revision = "8a6fb523712970c966eefc6b39ed2c5e74880354"
+  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
@@ -179,10 +179,10 @@
   revision = "fa3f63826f7c23912c15263591e65d54d080b458"
 
 [[projects]]
-  branch = "master"
   name = "github.com/hashicorp/go-multierror"
   packages = ["."]
-  revision = "3d5d8f294aa03d8e98859feac328afbdf1ae0703"
+  revision = "886a7fbe3eb1c874d46f623bfa70af45f425b3d1"
+  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
@@ -197,7 +197,6 @@
   revision = "0fb14efe8c47ae851c0034ed7a448854d3d34cf3"
 
 [[projects]]
-  branch = "master"
   name = "github.com/hashicorp/hcl"
   packages = [
     ".",
@@ -211,7 +210,8 @@
     "json/scanner",
     "json/token"
   ]
-  revision = "ef8a98b0bbce4a65b5aa4c368430a80ddc533168"
+  revision = "8cb6e5b959231cc1119e43259c4a608f9c51a241"
+  version = "v1.0.0"
 
 [[projects]]
   name = "github.com/hashicorp/memberlist"
@@ -256,7 +256,7 @@
   branch = "master"
   name = "github.com/kardianos/service"
   packages = ["."]
-  revision = "4cdeddd6f419cb717c4234a9566405565fcfcae7"
+  revision = "8f267d80f2eb68998661a325c0e53fca4485e626"
 
 [[projects]]
   name = "github.com/klauspost/compress"
@@ -311,10 +311,10 @@
   version = "v1.0.8"
 
 [[projects]]
-  branch = "master"
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
-  revision = "f15292f7a699fcc1a38a80977f80a046874ba8ac"
+  revision = "fa473d140ef3c6adf42d6b391fe76707f1f243c8"
+  version = "v1.0.0"
 
 [[projects]]
   name = "github.com/pborman/uuid"
@@ -480,7 +480,7 @@
     "ipv6",
     "websocket"
   ]
-  revision = "922f4815f713f213882e8ef45e0d315b164d705c"
+  revision = "8a410e7b638dca158bf9e766925842f6651ff828"
 
 [[projects]]
   branch = "master"
@@ -493,7 +493,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "3b58ed4ad3395d483fc92d5d14123ce2c3581fec"
+  revision = "4910a1d54f876d7b22162a85f4d066d3ee649450"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -516,7 +516,7 @@
     "imports",
     "internal/fastwalk"
   ]
-  revision = "5fad05c81888302518e9dfb20b55b3e1790c7a11"
+  revision = "f6ba5742950514ddd66494151ed5498ed77969ca"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
