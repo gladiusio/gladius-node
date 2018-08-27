@@ -4,9 +4,27 @@ import sys
 import requests
 import json
 from time import sleep
+import shutil
 
 
-def setup_peer(node_name):
+def copyDirectory(src, dest):
+    try:
+        shutil.copytree(src, dest)
+    # Directories are the same
+    except shutil.Error as e:
+        print('Directory not copied. Error: %s' % e)
+    # Any error saying that the directory doesn't exist
+    except OSError as e:
+        print('Directory not copied. Error: %s' % e)
+
+def setup_seed(node_name):
+    # Setup our pool manager wallet
+    copyDirectory("/vagrant/tests/test_files/wallet", "/gladius/wallet")
+
+    # Copy the test content files to our content folder
+    copyDirectory("/vagrant/tests/test_files/content_files/honest_files", "/gladius/content")
+    copyDirectory("/vagrant/tests/test_files/content_files/bad_files", "/gladius/content")
+
     # Start the controld in the background
     subprocess.Popen("/vagrant/build/gladius-controld >> /tmp/controld_%s.out 2>&1" % node_name,
                      env={"GLADIUSBASE": "/gladius"},
@@ -14,13 +32,6 @@ def setup_peer(node_name):
 
     # Wait for controld to start
     sleep(1)
-
-    # Create an account
-    url = "http://localhost:3001/api/keystore/account/create"
-    data = '''{"passphrase":"password"}'''
-    response = requests.post(url, data=data).text
-
-    print "account: " + response
 
     url = "http://localhost:3001/api/keystore/account/open"
     data = '''{"passphrase":"password"}'''
@@ -48,4 +59,4 @@ def setup_peer(node_name):
     print "push: " + response
 
 if __name__ == "__main__":
-    setup_peer(sys.argv[1])
+    setup_seed(sys.argv[1])
