@@ -97,6 +97,7 @@
   branch = "develop"
   name = "github.com/gladiusio/gladius-controld"
   packages = [
+    "controld",
     "pkg/blockchain",
     "pkg/blockchain/generated",
     "pkg/config",
@@ -108,7 +109,7 @@
     "pkg/routing/handlers",
     "pkg/routing/response"
   ]
-  revision = "63ea4a213d7b920ecc00a9c4b196f5c7015b18ce"
+  revision = "7c246946d1d2efce9ce09e2b500449633bd4097e"
 
 [[projects]]
   branch = "develop"
@@ -119,7 +120,7 @@
     "networkd/server/contserver",
     "networkd/state"
   ]
-  revision = "4049d6f0cf52257f1d59314cf94746535c563135"
+  revision = "6b3e88b5fb9b26af7bf30069b3ac794ced7b5353"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"
@@ -127,8 +128,8 @@
     "config",
     "init/manager"
   ]
-  revision = "563c83e7e92bcdd1322616a70d139865ba1efb78"
-  version = "0.3.5"
+  revision = "9ab431d232e7950de753c3cfa307b73fa726cbfa"
+  version = "0.3.6"
 
 [[projects]]
   name = "github.com/go-stack/stack"
@@ -229,6 +230,7 @@
   name = "github.com/jinzhu/gorm"
   packages = [
     ".",
+    "dialects/postgres",
     "dialects/sqlite"
   ]
   revision = "6ed508ec6a4ecb3531899a69cbc746ccf65a4166"
@@ -273,6 +275,16 @@
   packages = ["."]
   revision = "ae7887de9fa5d2db4eaa8174a7eff2c1ac00f2da"
   version = "v1.1"
+
+[[projects]]
+  name = "github.com/lib/pq"
+  packages = [
+    ".",
+    "hstore",
+    "oid"
+  ]
+  revision = "4ded0e9383f75c197b3a2aaa6d590ac52df6fd79"
+  version = "v1.0.0"
 
 [[projects]]
   name = "github.com/magiconair/properties"
@@ -549,6 +561,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6194909c3a5983de7e3deada65a2d194f075c7482f300481b9f80ecfd904a972"
+  inputs-digest = "6ce28fe8bf4a82c70c3e705d57cc7986f8e74dddb2c7d037905bc1a53f5f3ae5"
   solver-name = "gps-cdcl"
   solver-version = 1
