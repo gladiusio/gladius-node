@@ -1,3 +1,6 @@
+# Electron Build
+installers/gladius-node-win-installer/gladius-electron-win32-x64
+
 # Binaries for programs and plugins
 *.exe
 *.dll

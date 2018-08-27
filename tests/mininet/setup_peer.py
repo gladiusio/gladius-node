@@ -4,9 +4,15 @@ import sys
 import requests
 import json
 from time import sleep
+from shutil import copyfile
+
 
 
 def setup_peer(node_name):
+    # Create our config files config file
+    copyfile("/vagrant/tests/configs/gladius-controld.toml", "/gladius/gladius-controld.toml")
+    copyfile("/vagrant/tests/configs/gladius-networkd.toml", "/gladius/gladius-networkd.toml")
+
     # Start the controld in the background
     subprocess.Popen("/vagrant/build/gladius-controld >> /tmp/controld_%s.out 2>&1" % node_name,
                      env={"GLADIUSBASE": "/gladius"},

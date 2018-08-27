@@ -12,6 +12,7 @@ services:
       context: ./
     ports:
       - 3001:3001/tcp
+      - 7946:7946
     volumes:
       - wallet:/gladius/wallet
       - keys:/gladius/keys

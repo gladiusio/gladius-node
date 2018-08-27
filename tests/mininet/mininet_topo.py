@@ -45,7 +45,7 @@ def setupNetwork(num_of_hosts=10, bandwidth=100, latency=10):
 
     sleep(20)
 
-    info("Setting up accounts\n")
+    info("Setting up accounts and configs\n")
     for node_num in range(1, num_of_hosts):
         h = net.get('h%s' % (node_num + 1))
         h.cmd('python /vagrant/tests/mininet/setup_peer.py ' +

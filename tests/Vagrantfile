@@ -8,6 +8,7 @@ pip install requests
 SCRIPT
 
 Vagrant.configure("2") do |config|
+  config.vm.synced_folder "../", "/vagrant"
   config.vm.provider "virtualbox" do |v|
     v.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
     v.memory = 16384
