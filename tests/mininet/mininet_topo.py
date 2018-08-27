@@ -62,7 +62,7 @@ def setupNetwork(num_of_hosts=10, bandwidth=100, latency=10):
         sleep(between_nodes)
 
     # Wait for the network to reach equalibrium
-    sleep(200)
+    sleep(60)
 
     info("\nRunning query on all nodes\n")
     query_node = net.get('qnode')
