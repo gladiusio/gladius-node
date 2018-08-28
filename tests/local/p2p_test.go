@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"os"
+	"os/exec"
 	"strconv"
 	"testing"
 )
@@ -82,7 +84,25 @@ func (pt *p2pTester) deleteGladiusBases() {
 
 // Start the daemons
 func (pt *p2pTester) startDaemons() {
-	for i := 0; i < pt.numOfNodes; i++ {
+
+	for i := 0; i < 10; i++ {
+		// Setup controld
+		go func(n int) {
+			controld := exec.Command("/bin/sh", "-c", "../../build/gladius-controld")
+			controldEnv := []string{
+				fmt.Sprintf("GLADIUSBASE=\"./bases/g%d\"", n),
+				"CONTROLD_P2P_BINDPORT=" + strconv.Itoa(pt.p2pPorts[n]),
+				"CONTROLD_NODEMANAGER_CONFIG_PORT=" + strconv.Itoa(pt.controlPorts[n]),
+			}
+			controld.Env = controldEnv
+			pt.t.Errorf(controld.Start().Error())
+
+			// err := controld.Start()
+			// if err != nil {
+			// 	pt.t.Error("Can't start daemons", err)
+			// }
+			// fmt.Println(controld.Process.Pid)
+		}(i)
 	}
 }
 
