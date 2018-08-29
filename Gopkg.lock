@@ -26,12 +26,11 @@
   revision = "f899737d7f2764dc13e4d01ff00108ec58f766a9"
 
 [[projects]]
-  branch = "master"
-  digest = "1:ad90cbfaeb74563adf5a06cd662036d2abcdc65984ddb2ba327f2de754c83421"
+  digest = "1:35ac403a135b8a138870950720be1f0399e0a48387d4b5cca841b0ed8cf7a40b"
   name = "github.com/buger/jsonparser"
   packages = ["."]
   pruneopts = "UT"
-  revision = "f4dd9f5a6b441265aefc1d44872a6f8c10f42b37"
+  revision = "2cac668e8456b4284edb0715e17e2af02d3ec993"
 
 [[projects]]
   digest = "1:c166378e8ab0f794f293dfb941d250dd70b035b05dec58879f717621d0fe1714"
@@ -106,7 +105,7 @@
   version = "0.5.5"
 
 [[projects]]
-  digest = "1:a2bf9c0518b831143704b9e7f65fd5e44ed7694d3da8a1ace80591c79b272bf8"
+  digest = "1:4b83f4f85fbfc77573bf2454e336c33b3918eb37035ecec1de8a6d71d356df89"
   name = "github.com/gladiusio/gladius-controld"
   packages = [
     "pkg/blockchain",
@@ -121,8 +120,8 @@
     "pkg/routing/response",
   ]
   pruneopts = "UT"
-  revision = "53f5c1858e3a2a38c8929dce51fe004c7354b237"
-  version = "0.5.2"
+  revision = "ac3c5317219244a14a3c69bd0f8118cacc2a4a62"
+  version = "0.6.0"
 
 [[projects]]
   digest = "1:00966911c5af67ca07658f5ab9d1c721193680b2d0325111fdf85460e8f47354"
@@ -173,20 +172,20 @@
   version = "v1.1.1"
 
 [[projects]]
-  digest = "1:664d37ea261f0fc73dd17f4a1f5f46d01fbb0b0d75f6375af064824424109b7d"
+  digest = "1:185a43b59a1f4e7ad4e7ccafb8a1538193d897a2a75be16dda093ec42ad231cf"
   name = "github.com/gorilla/handlers"
   packages = ["."]
   pruneopts = "UT"
-  revision = "7e0847f9db758cdebd26c149d0ae9d5d0b9c98ce"
-  version = "v1.4.0"
+  revision = "90663712d74cb411cbef281bc1e08c19d1a76145"
+  version = "v1.3.0"
 
 [[projects]]
-  digest = "1:e73f5b0152105f18bc131fba127d9949305c8693f8a762588a82a48f61756f5f"
+  digest = "1:88aa9e326e2bd6045a46e00a922954b3e1a9ac5787109f49ac85366df370e1e5"
   name = "github.com/gorilla/mux"
   packages = ["."]
   pruneopts = "UT"
-  revision = "e3702bed27f0d39777b0b37b664b6280e8ef8fbf"
-  version = "v1.6.2"
+  revision = "53c1911da2b537f792e7cafcb446b05ffe33b996"
+  version = "v1.6.1"
 
 [[projects]]
   branch = "master"
