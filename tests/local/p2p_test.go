@@ -25,25 +25,24 @@ func TestP2P(t *testing.T) {
 	tester := newP2PTester(numToTest, t)
 	tester.createGladiusBases()
 	tester.startDaemons()
-	time.Sleep(10 * time.Second)
+	time.Sleep(20 * time.Second)
 	// This is where we would run some tests
 
 	tester.stopDaemons()
 	tester.deleteGladiusBases()
 
-	time.Sleep(10 * time.Second)
+	time.Sleep(2 * time.Second)
 
 }
 
 type p2pTester struct {
-	mux              *sync.Mutex
-	numOfNodes       int           // How many nodes to start
-	t                *testing.T    // So we can run tests
-	contentPorts     []int         // The range of networkd ports
-	controlPorts     []int         // The range of controld ports
-	p2pPorts         []int         // P2P port range
-	contentProcesses []*os.Process // Networkd PIDs (so we can kill them)
-	controlProcesses []*os.Process // Cotnrold PIDs (so we can kill them)
+	mux          *sync.Mutex
+	numOfNodes   int           // How many nodes to start
+	t            *testing.T    // So we can run tests
+	contentPorts []int         // The range of networkd ports
+	controlPorts []int         // The range of controld ports
+	p2pPorts     []int         // P2P port range
+	processes    []*os.Process // List of all spawned processes so we can cleanup
 }
 
 // Take in a testing object and a number of nodes and create a tester
@@ -54,14 +53,13 @@ func newP2PTester(numOfNodes int, t *testing.T) *p2pTester {
 
 	// Create a tester to return
 	tester := &p2pTester{
-		t:                t,
-		mux:              &sync.Mutex{},
-		numOfNodes:       numOfNodes,
-		contentProcesses: make([]*os.Process, numOfNodes),
-		controlProcesses: make([]*os.Process, numOfNodes),
-		contentPorts:     make([]int, numOfNodes),
-		p2pPorts:         make([]int, numOfNodes),
-		controlPorts:     make([]int, numOfNodes),
+		t:            t,
+		mux:          &sync.Mutex{},
+		numOfNodes:   numOfNodes,
+		processes:    make([]*os.Process, 0),
+		contentPorts: make([]int, numOfNodes),
+		p2pPorts:     make([]int, numOfNodes),
+		controlPorts: make([]int, numOfNodes),
 	}
 
 	// Setup our ports
@@ -94,11 +92,32 @@ func (pt *p2pTester) deleteGladiusBases() {
 	}
 }
 
-func (pt *p2pTester) createSeedNetworkd() {
-	// Setup networkd
-	networkd := exec.Command("../../build/gladius-networkd")
+func (pt *p2pTester) spawnProcess(location string, env []string) {
+	p := exec.Command(location)
+	p.Env = env
+
+	// Start the process and keep track of the output by logging to a file
+	go func(proc *exec.Cmd) {
+		stdoutStderr, err := proc.CombinedOutput()
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("%s\n", stdoutStderr)
+	}(p)
+
+	// Wait for the process to start
+	time.Sleep(1 * time.Second)
+
 	pt.mux.Lock()
-	controldEnv := []string{
+	// Add to the list of processes that we started
+	pt.processes = append(pt.processes, p.Process)
+	pt.mux.Unlock()
+}
+
+func (pt *p2pTester) createSeedNetworkd() {
+
+	pt.mux.Lock()
+	seedEnv := []string{
 		"GLADIUSBASE=" + createBaseDir(0),
 		"CONTENTD_OVERRIDEIP=localhost",
 		"CONTENTD_DISABLEHEARTBEAT=true",
@@ -108,76 +127,35 @@ func (pt *p2pTester) createSeedNetworkd() {
 		"CONTENTD_CONTROLDPORT=" + strconv.Itoa(pt.controlPorts[0]),
 	}
 	pt.mux.Unlock()
-	networkd.Env = controldEnv
-	go func(nd *exec.Cmd) {
-		stdoutStderr, err := nd.CombinedOutput()
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Printf("%s\n", stdoutStderr)
-	}(networkd)
 
-	time.Sleep(500 * time.Millisecond)
-	networkd.Start()
-	time.Sleep(1 * time.Second)
-
-	pt.mux.Lock()
-	// Add each one of these to the list of conrolds that we started
-	pt.contentProcesses[0] = networkd.Process
-	pt.mux.Unlock()
+	pt.spawnProcess("../../build/gladius-networkd", seedEnv)
 }
 
-func (pt *p2pTester) createNetword(n int) {
-
-	// Setup networkd
-	networkd := exec.Command("../../build/gladius-networkd")
+func (pt *p2pTester) createNetworkd(n int) {
 	pt.mux.Lock()
-	controldEnv := []string{
+	networkEnv := []string{
 		"GLADIUSBASE=" + createBaseDir(n),
 		"CONTENTD_OVERRIDEIP=localhost",
-		"CONTENTD_DISABLEHEARTBEAT=false",
+		"CONTENTD_DISABLEHEARTBEAT=true",
 		"CONTENTD_CONTENTPORT=" + strconv.Itoa(pt.contentPorts[n]),
 		"CONTENTD_P2PSEEDNODEADDRESS=localhost:7946",
 		"CONTENTD_LOGLEVEL=debug",
 		"CONTENTD_CONTROLDPORT=" + strconv.Itoa(pt.controlPorts[n]),
 	}
 	pt.mux.Unlock()
-	networkd.Env = controldEnv
-	go func(nd *exec.Cmd) {
-		stdoutStderr, err := nd.CombinedOutput()
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Printf("%s\n", stdoutStderr)
-	}(networkd)
 
-	time.Sleep(500 * time.Millisecond)
-	time.Sleep(1 * time.Second)
-
-	pt.mux.Lock()
-	// Add each one of these to the list of conrolds that we started
-	pt.contentProcesses[n] = networkd.Process
-	pt.mux.Unlock()
+	pt.spawnProcess("../../build/gladius-networkd", networkEnv)
 }
 
 func (pt *p2pTester) createControld(n int) {
-	// Setup controld
-	controld := exec.Command("../../build/gladius-controld")
 	controldEnv := []string{
 		fmt.Sprintf("GLADIUSBASE=./bases/g%d", n),
 		"CONTROLD_P2P_BINDPORT=" + strconv.Itoa(pt.p2pPorts[n]),
 		"CONTROLD_P2P_ADVERTISEPORT=" + strconv.Itoa(pt.p2pPorts[n]),
 		"CONTROLD_NODEMANAGER_CONFIG_PORT=" + strconv.Itoa(pt.controlPorts[n]),
 	}
-	controld.Env = controldEnv
-	go func(cd *exec.Cmd) {
-		stdoutStderr, err := cd.CombinedOutput()
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Printf("%s\n", stdoutStderr)
-	}(controld)
-	time.Sleep(1 * time.Second)
+
+	pt.spawnProcess("../../build/gladius-controld", controldEnv)
 
 	_, err := postToControld("/api/keystore/account/create", strconv.Itoa(pt.controlPorts[n]), `{"passphrase":"password"}`)
 	if err != nil {
@@ -188,11 +166,6 @@ func (pt *p2pTester) createControld(n int) {
 	if err != nil {
 		pt.t.Error("Error unlocking account", err)
 	}
-
-	pt.mux.Lock()
-	// Add each one of these to the list of conrolds that we started
-	pt.controlProcesses[n] = controld.Process
-	pt.mux.Unlock()
 }
 
 // Start the daemons
@@ -201,28 +174,21 @@ func (pt *p2pTester) startDaemons() {
 	time.Sleep(2 * time.Second)
 	pt.createSeedNetworkd()
 	for i := 1; i < pt.numOfNodes; i++ {
-		time.Sleep(100 * time.Millisecond)
+		time.Sleep(3 * time.Second)
 		go func(n int) {
 			pt.createControld(n)
 			time.Sleep(2 * time.Second)
-			pt.createNetword(n)
+			pt.createNetworkd(n)
 		}(i)
 	}
 }
 
 // Stop the daemons
 func (pt *p2pTester) stopDaemons() {
-	for _, p := range pt.controlProcesses {
+	for _, p := range pt.processes {
 		err := p.Signal(os.Interrupt)
 		if err != nil {
-			pt.t.Log("Oh boy the test didn't go so well, we couldn't kill one of the test controlds", err)
-			pt.t.Fail()
-		}
-	}
-	for _, p := range pt.contentProcesses {
-		err := p.Signal(os.Interrupt)
-		if err != nil {
-			pt.t.Log("Oh boy the test didn't go so well, we couldn't kill one of the test networkds", err)
+			pt.t.Log("Oh boy the test didn't go so well, we couldn't kill one of the processes.", err)
 			pt.t.Fail()
 		}
 	}
