@@ -109,18 +109,19 @@
     "pkg/routing/handlers",
     "pkg/routing/response"
   ]
-  revision = "7c246946d1d2efce9ce09e2b500449633bd4097e"
+  revision = "a6436e5313eb9e058397939bfb555993a269e57d"
 
 [[projects]]
   branch = "develop"
   name = "github.com/gladiusio/gladius-networkd"
   packages = [
     "networkd",
+    "networkd/defaults",
     "networkd/p2p/handler",
     "networkd/server/contserver",
     "networkd/state"
   ]
-  revision = "6b3e88b5fb9b26af7bf30069b3ac794ced7b5353"
+  revision = "dad806aae5a3f827357a26152eb84ed94b669f78"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"
@@ -505,7 +506,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "4910a1d54f876d7b22162a85f4d066d3ee649450"
+  revision = "d99a578cf41bfccdeaf48b0845c823a4b8b0ad5e"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -528,7 +529,7 @@
     "imports",
     "internal/fastwalk"
   ]
-  revision = "f6ba5742950514ddd66494151ed5498ed77969ca"
+  revision = "6cd1fcedba52a3e8045a1c96970cec308e4a632c"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
