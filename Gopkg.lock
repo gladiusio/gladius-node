@@ -11,7 +11,7 @@
   branch = "master"
   name = "github.com/aristanetworks/goarista"
   packages = ["monotime"]
-  revision = "18b896026201d8e1758468d9c5d5a558c69c5e9b"
+  revision = "602babfda73b0e88f5d5a2463d2d5addfbc8d666"
 
 [[projects]]
   branch = "master"
@@ -64,8 +64,8 @@
     "rpc",
     "trie"
   ]
-  revision = "316fc7ecfc10d06603f1358c1f4c1020ec36dd2a"
-  version = "v1.8.14"
+  revision = "89451f7c382ad2185987ee369f16416f89c28a7d"
+  version = "v1.8.15"
 
 [[projects]]
   name = "github.com/fsnotify/fsnotify"
@@ -109,7 +109,7 @@
     "pkg/routing/handlers",
     "pkg/routing/response"
   ]
-  revision = "a6436e5313eb9e058397939bfb555993a269e57d"
+  revision = "8658fe748edb9375a42d3193ad312a5f0f0fe614"
 
 [[projects]]
   branch = "develop"
@@ -121,7 +121,7 @@
     "networkd/server/contserver",
     "networkd/state"
   ]
-  revision = "dad806aae5a3f827357a26152eb84ed94b669f78"
+  revision = "9af90a7fba8e78c0bada3cbcbbc06f645b717f47"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"

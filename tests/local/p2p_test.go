@@ -94,14 +94,48 @@ func (pt *p2pTester) deleteGladiusBases() {
 	}
 }
 
+func (pt *p2pTester) createSeedNetworkd() {
+	// Setup networkd
+	networkd := exec.Command("../../build/gladius-networkd")
+	pt.mux.Lock()
+	controldEnv := []string{
+		"GLADIUSBASE=" + createBaseDir(0),
+		"CONTENTD_OVERRIDEIP=localhost",
+		"CONTENTD_DISABLEHEARTBEAT=true",
+		"CONTENTD_DISABLEAUTOJOIN=true",
+		"CONTENTD_CONTENTPORT=" + strconv.Itoa(pt.contentPorts[0]),
+		"CONTENTD_LOGLEVEL=debug",
+		"CONTENTD_CONTROLDPORT=" + strconv.Itoa(pt.controlPorts[0]),
+	}
+	pt.mux.Unlock()
+	networkd.Env = controldEnv
+	go func(nd *exec.Cmd) {
+		stdoutStderr, err := nd.CombinedOutput()
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("%s\n", stdoutStderr)
+	}(networkd)
+
+	time.Sleep(500 * time.Millisecond)
+	networkd.Start()
+	time.Sleep(1 * time.Second)
+
+	pt.mux.Lock()
+	// Add each one of these to the list of conrolds that we started
+	pt.contentProcesses[0] = networkd.Process
+	pt.mux.Unlock()
+}
+
 func (pt *p2pTester) createNetword(n int) {
-	// Setup controld
+
+	// Setup networkd
 	networkd := exec.Command("../../build/gladius-networkd")
 	pt.mux.Lock()
 	controldEnv := []string{
 		"GLADIUSBASE=" + createBaseDir(n),
-		"CONTENTD_DISABLEIPDISCOVERY=true",
-		"CONTENTD_DISABLEHEARTBEAT=true",
+		"CONTENTD_OVERRIDEIP=localhost",
+		"CONTENTD_DISABLEHEARTBEAT=false",
 		"CONTENTD_CONTENTPORT=" + strconv.Itoa(pt.contentPorts[n]),
 		"CONTENTD_P2PSEEDNODEADDRESS=localhost:7946",
 		"CONTENTD_LOGLEVEL=debug",
@@ -116,8 +150,8 @@ func (pt *p2pTester) createNetword(n int) {
 		}
 		fmt.Printf("%s\n", stdoutStderr)
 	}(networkd)
+
 	time.Sleep(500 * time.Millisecond)
-	networkd.Start()
 	time.Sleep(1 * time.Second)
 
 	pt.mux.Lock()
@@ -132,25 +166,22 @@ func (pt *p2pTester) createControld(n int) {
 	controldEnv := []string{
 		fmt.Sprintf("GLADIUSBASE=./bases/g%d", n),
 		"CONTROLD_P2P_BINDPORT=" + strconv.Itoa(pt.p2pPorts[n]),
+		"CONTROLD_P2P_ADVERTISEPORT=" + strconv.Itoa(pt.p2pPorts[n]),
 		"CONTROLD_NODEMANAGER_CONFIG_PORT=" + strconv.Itoa(pt.controlPorts[n]),
 	}
 	controld.Env = controldEnv
-
-	err := controld.Start()
-	if err != nil {
-		pt.t.Error("Oh boy the test didn't go so well, we couldn't start one of the test controlds", err)
-	}
-
+	go func(cd *exec.Cmd) {
+		stdoutStderr, err := cd.CombinedOutput()
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("%s\n", stdoutStderr)
+	}(controld)
 	time.Sleep(1 * time.Second)
 
-	_, err = postToControld("/api/keystore/account/create", strconv.Itoa(pt.controlPorts[n]), `{"passphrase":"password"}`)
+	_, err := postToControld("/api/keystore/account/create", strconv.Itoa(pt.controlPorts[n]), `{"passphrase":"password"}`)
 	if err != nil {
 		pt.t.Error("Error creating account", err)
-	}
-
-	_, err = postToControld("/api/keystore/account/open", strconv.Itoa(pt.controlPorts[n]), `{"passphrase":"password"}`)
-	if err != nil {
-		pt.t.Error("Error unlocking account", err)
 	}
 
 	_, err = postToControld("/api/keystore/account/open", strconv.Itoa(pt.controlPorts[n]), `{"passphrase":"password"}`)
@@ -166,13 +197,15 @@ func (pt *p2pTester) createControld(n int) {
 
 // Start the daemons
 func (pt *p2pTester) startDaemons() {
-	for i := 0; i < pt.numOfNodes; i++ {
+	pt.createControld(0)
+	time.Sleep(2 * time.Second)
+	pt.createSeedNetworkd()
+	for i := 1; i < pt.numOfNodes; i++ {
+		time.Sleep(100 * time.Millisecond)
 		go func(n int) {
 			pt.createControld(n)
 			time.Sleep(2 * time.Second)
 			pt.createNetword(n)
-			// Start networkds
-
 		}(i)
 	}
 }
