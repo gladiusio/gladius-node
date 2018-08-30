@@ -33,5 +33,11 @@ def start_peer(node_name, discovery_ip):
     response = requests.post(url, data=data).text
     print "push: " + response
 
+    # Start the networkd in the background
+    subprocess.Popen("/vagrant/build/gladius-networkd >> /tmp/networkd_%s.out 2>&1" % node_name,
+                     env={"GLADIUSBASE": "/gladius"},
+                     shell=True)
+
+
 if __name__ == "__main__":
     start_peer(sys.argv[1], sys.argv[2])

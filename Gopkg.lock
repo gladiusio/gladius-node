@@ -11,7 +11,7 @@
   branch = "master"
   name = "github.com/aristanetworks/goarista"
   packages = ["monotime"]
-  revision = "18b896026201d8e1758468d9c5d5a558c69c5e9b"
+  revision = "4dd728aa987e9168a1e609e4919921dbfac9bd7f"
 
 [[projects]]
   branch = "master"
@@ -64,8 +64,8 @@
     "rpc",
     "trie"
   ]
-  revision = "316fc7ecfc10d06603f1358c1f4c1020ec36dd2a"
-  version = "v1.8.14"
+  revision = "89451f7c382ad2185987ee369f16416f89c28a7d"
+  version = "v1.8.15"
 
 [[projects]]
   name = "github.com/fsnotify/fsnotify"
@@ -74,13 +74,13 @@
   version = "v1.4.7"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gladiusio/gladius-application-server"
   packages = [
     "pkg/controller",
     "pkg/db/models"
   ]
-  revision = "3fbac6ea93474113d34c3c58e1532916fef1caf7"
+  revision = "89d8ec205fb04de81dc030a75f204730ac367015"
+  version = "0.1.1"
 
 [[projects]]
   branch = "develop"
@@ -97,6 +97,7 @@
   branch = "develop"
   name = "github.com/gladiusio/gladius-controld"
   packages = [
+    "controld",
     "pkg/blockchain",
     "pkg/blockchain/generated",
     "pkg/config",
@@ -108,18 +109,19 @@
     "pkg/routing/handlers",
     "pkg/routing/response"
   ]
-  revision = "63ea4a213d7b920ecc00a9c4b196f5c7015b18ce"
+  revision = "9bd0acb7a1bff05c7a51ffc88cd5c571f0d1d83c"
 
 [[projects]]
   branch = "develop"
   name = "github.com/gladiusio/gladius-networkd"
   packages = [
     "networkd",
+    "networkd/defaults",
     "networkd/p2p/handler",
     "networkd/server/contserver",
     "networkd/state"
   ]
-  revision = "4049d6f0cf52257f1d59314cf94746535c563135"
+  revision = "39bc8cc6bce40f9d35f6b18ec8bd434cad03a08a"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"
@@ -127,8 +129,8 @@
     "config",
     "init/manager"
   ]
-  revision = "563c83e7e92bcdd1322616a70d139865ba1efb78"
-  version = "0.3.5"
+  revision = "9ab431d232e7950de753c3cfa307b73fa726cbfa"
+  version = "0.3.6"
 
 [[projects]]
   name = "github.com/go-stack/stack"
@@ -167,10 +169,10 @@
   version = "v1.0.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/hashicorp/go-immutable-radix"
   packages = ["."]
-  revision = "7f3cd4390caab3250a57f30efdb2a65dd7649ecf"
+  revision = "27df80928bb34bb1b0d6d0e01b9e679902e7a6b5"
+  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
@@ -191,10 +193,10 @@
   revision = "6d291a969b86c4b633730bfc6b8b9d64c3aafed9"
 
 [[projects]]
-  branch = "master"
   name = "github.com/hashicorp/golang-lru"
   packages = ["simplelru"]
-  revision = "0fb14efe8c47ae851c0034ed7a448854d3d34cf3"
+  revision = "20f1fb78b0740ba8c3cb143a61e86ba5c8669768"
+  version = "v0.5.0"
 
 [[projects]]
   name = "github.com/hashicorp/hcl"
@@ -229,6 +231,7 @@
   name = "github.com/jinzhu/gorm"
   packages = [
     ".",
+    "dialects/postgres",
     "dialects/sqlite"
   ]
   revision = "6ed508ec6a4ecb3531899a69cbc746ccf65a4166"
@@ -273,6 +276,16 @@
   packages = ["."]
   revision = "ae7887de9fa5d2db4eaa8174a7eff2c1ac00f2da"
   version = "v1.1"
+
+[[projects]]
+  name = "github.com/lib/pq"
+  packages = [
+    ".",
+    "hstore",
+    "oid"
+  ]
+  revision = "4ded0e9383f75c197b3a2aaa6d590ac52df6fd79"
+  version = "v1.0.0"
 
 [[projects]]
   name = "github.com/magiconair/properties"
@@ -343,8 +356,8 @@
 [[projects]]
   name = "github.com/rjeczalik/notify"
   packages = ["."]
-  revision = "52ae50d8490436622a8941bd70c3dbe0acdd4bbf"
-  version = "v0.9.0"
+  revision = "0f065fa99b48b842c3fd3e2c8b194c6f2b69f6b8"
+  version = "v0.9.1"
 
 [[projects]]
   name = "github.com/rs/cors"
@@ -467,7 +480,7 @@
     "scrypt",
     "ssh/terminal"
   ]
-  revision = "614d502a4dac94afa3a6ce146bd1736da82514c6"
+  revision = "182538f80094b6a8efaade63a8fd8e0d9d5843dd"
 
 [[projects]]
   branch = "master"
@@ -493,7 +506,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "4910a1d54f876d7b22162a85f4d066d3ee649450"
+  revision = "49385e6e15226593f68b26af201feec29d5bba22"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -516,7 +529,7 @@
     "imports",
     "internal/fastwalk"
   ]
-  revision = "f6ba5742950514ddd66494151ed5498ed77969ca"
+  revision = "4bc20fc7916bc21abba37451a6923cffa9a2cd3f"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
@@ -549,6 +562,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6194909c3a5983de7e3deada65a2d194f075c7482f300481b9f80ecfd904a972"
+  inputs-digest = "84fa813cb950022fd38782d662e1f69d804729e8982677ab652ea215b85ce601"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -1,9 +1,8 @@
 $init = <<SCRIPT
 sudo apt-get -y update
 sudo apt-get -y install python-pip python-dev git jq xauth
-cd /home/vagrant && git clone https://github.com/mininet/mininet.git
+cd /home/vagrant && git clone https://github.com/mininet/mininet.git && cd mininet && git checkout 2.2.2
 cd /home/vagrant && sudo mininet/util/install.sh
-sudo mkdir /gladius/
 pip install requests
 SCRIPT
 

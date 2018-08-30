@@ -15,13 +15,10 @@ class SingleSwitchTopo(Topo):
     "Single switch connected to n hosts."
 
     def build(self, n=2, bw=100, lat=10):
-        total_nodes = 0
         switch = self.addSwitch('s0')
         for h in range(n):
-            host = self.addHost('h%s' % (total_nodes + 1),
-                                privateDirs=['/gladius'])
+            host = self.addHost('h%s' % (h + 1), privateDirs=['/gladius'])
             self.addLink(host, switch)
-            total_nodes += 1
 
         query = self.addHost('qnode')
         self.addLink("s0", "qnode")
@@ -62,7 +59,7 @@ def setupNetwork(num_of_hosts=10, bandwidth=100, latency=10):
         sleep(between_nodes)
 
     # Wait for the network to reach equalibrium
-    sleep(200)
+    sleep(60)
 
     info("\nRunning query on all nodes\n")
     query_node = net.get('qnode')
