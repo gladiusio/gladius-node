@@ -3,12 +3,14 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"sync"
 	"testing"
 	"time"
@@ -19,6 +21,7 @@ const (
 	controlStartPort = 3001
 	contentStartPort = 8080
 	p2pStartPort     = 7946
+	logFile          = "./test_output.log"
 )
 
 func TestP2P(t *testing.T) {
@@ -26,11 +29,12 @@ func TestP2P(t *testing.T) {
 	tester.createGladiusBases()
 	tester.startDaemons()
 	time.Sleep(20 * time.Second)
+
 	// This is where we would run some tests
 
 	tester.stopDaemons()
 	tester.deleteGladiusBases()
-
+	tester.writeLog(logFile)
 	time.Sleep(2 * time.Second)
 
 }
@@ -43,6 +47,7 @@ type p2pTester struct {
 	controlPorts []int         // The range of controld ports
 	p2pPorts     []int         // P2P port range
 	processes    []*os.Process // List of all spawned processes so we can cleanup
+	log          []string
 }
 
 // Take in a testing object and a number of nodes and create a tester
@@ -60,6 +65,7 @@ func newP2PTester(numOfNodes int, t *testing.T) *p2pTester {
 		contentPorts: make([]int, numOfNodes),
 		p2pPorts:     make([]int, numOfNodes),
 		controlPorts: make([]int, numOfNodes),
+		log:          make([]string, 0),
 	}
 
 	// Setup our ports
@@ -102,7 +108,9 @@ func (pt *p2pTester) spawnProcess(location string, env []string) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("%s\n", stdoutStderr)
+		pt.mux.Lock()
+		pt.log = append(pt.log, string(stdoutStderr))
+		pt.mux.Unlock()
 	}(p)
 
 	// Wait for the process to start
@@ -115,7 +123,6 @@ func (pt *p2pTester) spawnProcess(location string, env []string) {
 }
 
 func (pt *p2pTester) createSeedNetworkd() {
-
 	pt.mux.Lock()
 	seedEnv := []string{
 		"GLADIUSBASE=" + createBaseDir(0),
@@ -174,7 +181,7 @@ func (pt *p2pTester) startDaemons() {
 	time.Sleep(2 * time.Second)
 	pt.createSeedNetworkd()
 	for i := 1; i < pt.numOfNodes; i++ {
-		time.Sleep(3 * time.Second)
+		time.Sleep(3 * time.Second) // Sleep to give it a break
 		go func(n int) {
 			pt.createControld(n)
 			time.Sleep(2 * time.Second)
@@ -191,6 +198,13 @@ func (pt *p2pTester) stopDaemons() {
 			pt.t.Log("Oh boy the test didn't go so well, we couldn't kill one of the processes.", err)
 			pt.t.Fail()
 		}
+	}
+}
+
+func (pt *p2pTester) writeLog(logFile string) {
+	err := ioutil.WriteFile(logFile, []byte(strings.Join(pt.log, "\n")), 0644)
+	if err != nil {
+		pt.t.Error(err)
 	}
 }
 
