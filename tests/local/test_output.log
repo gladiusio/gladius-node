@@ -1,489 +1,483 @@
-time="2018-08-30T19:16:28-04:00" level=info msg="Loading config"
-2018/08/30 19:16:28 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]". Using defaults
-time="2018-08-30T19:16:28-04:00" level=info msg="Starting content server on port: 8084"
-2018/08/30 19:16:28 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]"
-time="2018-08-30T19:16:28-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:28-04:00" level=info msg="Started HTTP server."
-time="2018-08-30T19:16:35-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8082/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:35-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:35-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8082/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:35-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:35-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:35-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:35-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:36-04:00" level=info msg="Loading config"
+2018/08/30 19:28:36 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]". Using defaults
+time="2018-08-30T19:28:36-04:00" level=info msg="Starting content server on port: 8085"
+2018/08/30 19:28:36 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]"
+time="2018-08-30T19:28:36-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:36-04:00" level=info msg="Started HTTP server."
+time="2018-08-30T19:28:44-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:44-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:44-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:44-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:44-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:44-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:44-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:44-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:44-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
 
 Stopping....
 
-time="2018-08-30T19:16:31-04:00" level=info msg="Loading config"
-2018/08/30 19:16:31 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]". Using defaults
-time="2018-08-30T19:16:31-04:00" level=info msg="Starting content server on port: 8085"
-2018/08/30 19:16:31 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]"
-time="2018-08-30T19:16:31-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:31-04:00" level=info msg="Started HTTP server."
-time="2018-08-30T19:16:33-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:33-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:33-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:33-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:33-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:27-04:00" level=info msg="Loading config"
+2018/08/30 19:28:27 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2]". Using defaults
+time="2018-08-30T19:28:27-04:00" level=info msg="Starting content server on port: 8082"
+2018/08/30 19:28:27 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2]"
+time="2018-08-30T19:28:27-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:27-04:00" level=info msg="Started HTTP server."
+time="2018-08-30T19:28:37-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:37-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:37-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:37-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:37-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:37-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:37-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
 
 Stopping....
 
-time="2018-08-30T19:16:37-04:00" level=info msg="Loading config"
-2018/08/30 19:16:37 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7]". Using defaults
-time="2018-08-30T19:16:37-04:00" level=info msg="Starting content server on port: 8087"
-2018/08/30 19:16:37 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7]"
-time="2018-08-30T19:16:37-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:37-04:00" level=info msg="Started HTTP server."
-time="2018-08-30T19:16:45-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:45-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:45-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:45-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:45-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:45-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:45-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:30-04:00" level=info msg="Loading config"
+2018/08/30 19:28:30 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]". Using defaults
+time="2018-08-30T19:28:30-04:00" level=info msg="Starting content server on port: 8083"
+2018/08/30 19:28:30 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]"
+time="2018-08-30T19:28:30-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:30-04:00" level=info msg="Started HTTP server."
+time="2018-08-30T19:28:33-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:33-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
 
 Stopping....
 
-time="2018-08-30T19:16:22-04:00" level=info msg="Loading config"
-2018/08/30 19:16:22 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2]". Using defaults
-time="2018-08-30T19:16:22-04:00" level=info msg="Starting content server on port: 8082"
-2018/08/30 19:16:22 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2]"
-time="2018-08-30T19:16:22-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:22-04:00" level=info msg="Started HTTP server."
-time="2018-08-30T19:16:32-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8081/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:32-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:32-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8081/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:32-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:32-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:32-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:32-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-
-Stopping....
-
-time="2018-08-30T19:16:34-04:00" level=info msg="Loading config"
-2018/08/30 19:16:34 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6]". Using defaults
-time="2018-08-30T19:16:34-04:00" level=info msg="Starting content server on port: 8086"
-2018/08/30 19:16:34 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6]"
-time="2018-08-30T19:16:34-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:34-04:00" level=info msg="Started HTTP server."
-time="2018-08-30T19:16:37-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8085/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:37-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:37-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8085/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:37-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:37-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:37-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:37-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-
-Stopping....
-
-time="2018-08-30T19:16:19-04:00" level=info msg="Loading config"
-2018/08/30 19:16:19 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]". Using defaults
-time="2018-08-30T19:16:19-04:00" level=info msg="Starting content server on port: 8081"
-2018/08/30 19:16:19 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]"
-time="2018-08-30T19:16:19-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:19-04:00" level=info msg="Started HTTP server."
-time="2018-08-30T19:16:26-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:26-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:26-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:26-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:26-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:26-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:26-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:26-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:26-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-
-Stopping....
-
-time="2018-08-30T19:16:43-04:00" level=info msg="Loading config"
-2018/08/30 19:16:43 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]". Using defaults
-time="2018-08-30T19:16:43-04:00" level=info msg="Starting content server on port: 8089"
-2018/08/30 19:16:43 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]"
-time="2018-08-30T19:16:43-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:43-04:00" level=info msg="Started HTTP server."
-time="2018-08-30T19:16:50-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8083/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:50-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8083/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:50-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:50-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:50-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:50-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:50-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:50-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-
-Stopping....
-
-2018/08/30 19:16:09 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]". Using defaults
-2018/08/30 19:16:09 
-
-Unable to find gladius-controld.toml in project root, or default directories below.
-
-Error: 
-Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]"
-2018/08/30 19:16:09 
-
-Using Default Node Manager Configuration
-2018/08/30 19:16:09 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]"
-Starting API at http://localhost:3001
-2018/08/30 19:16:19 [DEBUG] memberlist: Stream connection from=127.0.0.1:38832
-2018/08/30 19:16:22 [DEBUG] memberlist: Stream connection from=127.0.0.1:38844
-2018/08/30 19:16:25 [DEBUG] memberlist: Stream connection from=127.0.0.1:38854
-2018/08/30 19:16:28 [DEBUG] memberlist: Stream connection from=127.0.0.1:38866
-2018/08/30 19:16:31 [DEBUG] memberlist: Stream connection from=127.0.0.1:38878
-2018/08/30 19:16:34 [DEBUG] memberlist: Stream connection from=127.0.0.1:38892
-2018/08/30 19:16:36 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
-2018/08/30 19:16:37 [DEBUG] memberlist: Stream connection from=127.0.0.1:38908
-2018/08/30 19:16:40 [DEBUG] memberlist: Stream connection from=127.0.0.1:38932
-2018/08/30 19:16:43 [DEBUG] memberlist: Stream connection from=127.0.0.1:38946
-2018/08/30 19:16:51 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
-2018/08/30 19:16:56 [DEBUG] memberlist: Stream connection from=192.168.2.27:50638
-2018/08/30 19:17:01 [DEBUG] memberlist: Stream connection from=192.168.2.27:50642
-2018/08/30 19:17:02 [DEBUG] memberlist: Stream connection from=192.168.2.27:50644
-2018/08/30 19:17:02 [DEBUG] memberlist: Stream connection from=192.168.2.27:50646
-2018/08/30 19:17:06 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
-2018/08/30 19:17:21 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:17:36 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:17:51 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
-2018/08/30 19:18:06 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:18:21 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:18:32 [DEBUG] memberlist: Stream connection from=192.168.2.27:50766
-2018/08/30 19:18:36 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-
-Stopping....
-
-time="2018-08-30T19:16:12-04:00" level=info msg="Loading config"
-2018/08/30 19:16:12 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]". Using defaults
-time="2018-08-30T19:16:12-04:00" level=info msg="Starting content server on port: 8080"
-time="2018-08-30T19:16:12-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:12-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:12-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-2018/08/30 19:16:12 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]"
-time="2018-08-30T19:16:12-04:00" level=info msg="Started HTTP server."
-
-Stopping....
-
-time="2018-08-30T19:16:25-04:00" level=info msg="Loading config"
-2018/08/30 19:16:25 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]". Using defaults
-time="2018-08-30T19:16:25-04:00" level=info msg="Starting content server on port: 8083"
-2018/08/30 19:16:25 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]"
-time="2018-08-30T19:16:25-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:25-04:00" level=info msg="Started HTTP server."
-time="2018-08-30T19:16:36-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8082/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:36-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:36-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8082/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:36-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:36-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:36-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:36-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-
-Stopping....
-
-time="2018-08-30T19:16:40-04:00" level=info msg="Loading config"
-2018/08/30 19:16:40 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]". Using defaults
-time="2018-08-30T19:16:40-04:00" level=info msg="Starting content server on port: 8088"
-2018/08/30 19:16:40 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]"
-time="2018-08-30T19:16:40-04:00" level=debug msg="Started heartbeat"
-time="2018-08-30T19:16:40-04:00" level=info msg="Started HTTP server."
-time="2018-08-30T19:16:43-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8083/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:43-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:43-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8083/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
-time="2018-08-30T19:16:43-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:43-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:43-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:43-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-time="2018-08-30T19:16:43-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
-time="2018-08-30T19:16:43-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
-
-Stopping....
-
-2018/08/30 19:16:16 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]". Using defaults
-2018/08/30 19:16:16 
-
-Unable to find gladius-controld.toml in project root, or default directories below.
-
-Error: 
-Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]"
-2018/08/30 19:16:16 
-
-Using Default Node Manager Configuration
-2018/08/30 19:16:16 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]"
-Starting API at http://localhost:3002
-2018/08/30 19:16:19 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
-2018/08/30 19:16:38 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
-2018/08/30 19:16:53 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:16:57 [DEBUG] memberlist: Stream connection from=192.168.2.27:33408
-2018/08/30 19:17:04 [DEBUG] memberlist: Stream connection from=192.168.2.27:33416
-2018/08/30 19:17:08 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
-2018/08/30 19:17:12 [DEBUG] memberlist: Stream connection from=192.168.2.27:33428
-2018/08/30 19:17:23 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:17:38 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
-2018/08/30 19:17:53 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
-2018/08/30 19:18:02 [DEBUG] memberlist: Stream connection from=192.168.2.27:33492
-2018/08/30 19:18:08 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:18:11 [DEBUG] memberlist: Stream connection from=192.168.2.27:33506
-2018/08/30 19:18:23 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
-2018/08/30 19:18:26 [DEBUG] memberlist: Stream connection from=192.168.2.27:33526
-2018/08/30 19:18:34 [DEBUG] memberlist: Stream connection from=192.168.2.27:33536
-2018/08/30 19:18:38 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
-
-Stopping....
-
-2018/08/30 19:16:22 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]". Using defaults
-2018/08/30 19:16:22 
-
-Unable to find gladius-controld.toml in project root, or default directories below.
-
-Error: 
-Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]"
-2018/08/30 19:16:22 
-
-Using Default Node Manager Configuration
-2018/08/30 19:16:22 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]"
-Starting API at http://localhost:3004
-2018/08/30 19:16:25 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
-2018/08/30 19:16:36 [DEBUG] memberlist: Stream connection from=192.168.2.27:49206
-2018/08/30 19:16:46 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:17:01 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
-2018/08/30 19:17:06 [DEBUG] memberlist: Stream connection from=192.168.2.27:49284
-2018/08/30 19:17:16 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:17:27 [DEBUG] memberlist: Stream connection from=192.168.2.27:49314
-2018/08/30 19:17:31 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:17:34 [DEBUG] memberlist: Stream connection from=192.168.2.27:49322
-2018/08/30 19:17:38 [DEBUG] memberlist: Stream connection from=192.168.2.27:49328
-2018/08/30 19:17:46 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:17:47 [DEBUG] memberlist: Stream connection from=192.168.2.27:49338
-2018/08/30 19:17:52 [DEBUG] memberlist: Stream connection from=192.168.2.27:49346
-2018/08/30 19:18:01 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
-2018/08/30 19:18:16 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:18:22 [DEBUG] memberlist: Stream connection from=192.168.2.27:49386
-2018/08/30 19:18:27 [DEBUG] memberlist: Stream connection from=192.168.2.27:49394
-2018/08/30 19:18:31 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:18:32 [DEBUG] memberlist: Stream connection from=192.168.2.27:49398
-
-Stopping....
-
-2018/08/30 19:16:28 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]". Using defaults
-2018/08/30 19:16:28 
-
-Unable to find gladius-controld.toml in project root, or default directories below.
-
-Error: 
-Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]"
-2018/08/30 19:16:28 
-
-Using Default Node Manager Configuration
-2018/08/30 19:16:28 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]"
-Starting API at http://localhost:3006
-2018/08/30 19:16:31 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
-2018/08/30 19:16:49 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
-2018/08/30 19:16:53 [DEBUG] memberlist: Stream connection from=192.168.2.27:45394
-2018/08/30 19:17:04 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7947
-2018/08/30 19:17:11 [DEBUG] memberlist: Stream connection from=192.168.2.27:45418
-2018/08/30 19:17:19 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:17:23 [DEBUG] memberlist: Stream connection from=192.168.2.27:45434
-2018/08/30 19:17:32 [DEBUG] memberlist: Stream connection from=192.168.2.27:45446
-2018/08/30 19:17:34 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
-2018/08/30 19:17:36 [DEBUG] memberlist: Stream connection from=192.168.2.27:45450
-2018/08/30 19:17:46 [DEBUG] memberlist: Stream connection from=192.168.2.27:45462
-2018/08/30 19:17:49 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
-2018/08/30 19:17:55 [DEBUG] memberlist: Stream connection from=192.168.2.27:45476
-2018/08/30 19:18:04 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:18:08 [DEBUG] memberlist: Stream connection from=192.168.2.27:45494
-2018/08/30 19:18:10 [DEBUG] memberlist: Stream connection from=192.168.2.27:45496
-2018/08/30 19:18:19 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
-2018/08/30 19:18:31 [DEBUG] memberlist: Stream connection from=192.168.2.27:45522
-2018/08/30 19:18:34 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7947
-
-Stopping....
-
-2018/08/30 19:16:40 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]". Using defaults
-2018/08/30 19:16:40 
-
-Unable to find gladius-controld.toml in project root, or default directories below.
-
-Error: 
-Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]"
-2018/08/30 19:16:40 
-
-Using Default Node Manager Configuration
-2018/08/30 19:16:40 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]"
-Starting API at http://localhost:3010
-2018/08/30 19:16:43 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
-2018/08/30 19:16:52 [DEBUG] memberlist: Stream connection from=192.168.2.27:57890
-2018/08/30 19:16:56 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
-2018/08/30 19:17:11 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:17:16 [DEBUG] memberlist: Stream connection from=192.168.2.27:57920
-2018/08/30 19:17:17 [DEBUG] memberlist: Stream connection from=192.168.2.27:57922
-2018/08/30 19:17:17 [DEBUG] memberlist: Stream connection from=192.168.2.27:57924
-2018/08/30 19:17:19 [DEBUG] memberlist: Stream connection from=192.168.2.27:57926
-2018/08/30 19:17:25 [DEBUG] memberlist: Stream connection from=192.168.2.27:57934
-2018/08/30 19:17:26 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:17:41 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
-2018/08/30 19:17:56 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
-2018/08/30 19:18:06 [DEBUG] memberlist: Stream connection from=192.168.2.27:57988
-2018/08/30 19:18:11 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7947
-2018/08/30 19:18:16 [DEBUG] memberlist: Stream connection from=192.168.2.27:58000
-2018/08/30 19:18:17 [DEBUG] memberlist: Stream connection from=192.168.2.27:58002
-2018/08/30 19:18:17 [DEBUG] memberlist: Stream connection from=192.168.2.27:58004
-2018/08/30 19:18:26 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7947
-2018/08/30 19:18:36 [DEBUG] memberlist: Stream connection from=192.168.2.27:58028
-2018/08/30 19:18:37 [DEBUG] memberlist: Stream connection from=192.168.2.27:58030
-
-Stopping....
-
-2018/08/30 19:16:37 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]". Using defaults
-2018/08/30 19:16:37 
-
-Unable to find gladius-controld.toml in project root, or default directories below.
-
-Error: 
-Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]"
-2018/08/30 19:16:37 
-
-Using Default Node Manager Configuration
-2018/08/30 19:16:37 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]"
-Starting API at http://localhost:3009
-2018/08/30 19:16:40 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
-2018/08/30 19:16:49 [DEBUG] memberlist: Stream connection from=192.168.2.27:53700
-2018/08/30 19:16:51 [DEBUG] memberlist: Stream connection from=192.168.2.27:53704
-2018/08/30 19:17:02 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
-2018/08/30 19:17:17 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:17:22 [DEBUG] memberlist: Stream connection from=192.168.2.27:53746
-2018/08/30 19:17:32 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:17:42 [DEBUG] memberlist: Stream connection from=192.168.2.27:53774
-2018/08/30 19:17:47 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
-2018/08/30 19:17:49 [DEBUG] memberlist: Stream connection from=192.168.2.27:53782
-2018/08/30 19:17:53 [DEBUG] memberlist: Stream connection from=192.168.2.27:53788
-2018/08/30 19:17:57 [DEBUG] memberlist: Stream connection from=192.168.2.27:53794
-2018/08/30 19:18:02 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
-2018/08/30 19:18:17 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:18:19 [DEBUG] memberlist: Stream connection from=192.168.2.27:53822
-2018/08/30 19:18:32 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
-
-Stopping....
-
-2018/08/30 19:16:25 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]". Using defaults
-2018/08/30 19:16:25 
-
-Unable to find gladius-controld.toml in project root, or default directories below.
-
-Error: 
-Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]"
-2018/08/30 19:16:25 
-
-Using Default Node Manager Configuration
-2018/08/30 19:16:25 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]"
-Starting API at http://localhost:3005
-2018/08/30 19:16:28 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
-2018/08/30 19:16:38 [DEBUG] memberlist: Stream connection from=192.168.2.27:41056
-2018/08/30 19:16:42 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:16:55 [DEBUG] memberlist: Stream connection from=192.168.2.27:41108
-2018/08/30 19:16:57 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7947
-2018/08/30 19:17:10 [DEBUG] memberlist: Stream connection from=192.168.2.27:41128
-2018/08/30 19:17:12 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7947
-2018/08/30 19:17:27 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
-2018/08/30 19:17:40 [DEBUG] memberlist: Stream connection from=192.168.2.27:41168
-2018/08/30 19:17:42 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
-2018/08/30 19:17:57 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
-2018/08/30 19:18:12 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
-2018/08/30 19:18:27 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
-2018/08/30 19:18:40 [DEBUG] memberlist: Stream connection from=192.168.2.27:41248
-
-Stopping....
-
-2018/08/30 19:16:31 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6]". Using defaults
-2018/08/30 19:16:31 
+2018/08/30 19:28:35 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6]". Using defaults
+2018/08/30 19:28:35 
 
 Unable to find gladius-controld.toml in project root, or default directories below.
 
 Error: 
 Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6]"
-2018/08/30 19:16:31 
+2018/08/30 19:28:35 
 
 Using Default Node Manager Configuration
-2018/08/30 19:16:31 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6]"
+2018/08/30 19:28:35 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6]"
 Starting API at http://localhost:3007
-2018/08/30 19:16:34 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
-2018/08/30 19:16:40 [DEBUG] memberlist: Stream connection from=192.168.2.27:56210
-2018/08/30 19:16:42 [DEBUG] memberlist: Stream connection from=192.168.2.27:56222
-2018/08/30 19:16:46 [DEBUG] memberlist: Stream connection from=192.168.2.27:56236
-2018/08/30 19:16:52 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:17:07 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
-2018/08/30 19:17:21 [DEBUG] memberlist: Stream connection from=192.168.2.27:56282
-2018/08/30 19:17:22 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
-2018/08/30 19:17:26 [DEBUG] memberlist: Stream connection from=192.168.2.27:56290
-2018/08/30 19:17:31 [DEBUG] memberlist: Stream connection from=192.168.2.27:56294
-2018/08/30 19:17:32 [DEBUG] memberlist: Stream connection from=192.168.2.27:56296
-2018/08/30 19:17:37 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
-2018/08/30 19:17:52 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
-2018/08/30 19:18:04 [DEBUG] memberlist: Stream connection from=192.168.2.27:56340
-2018/08/30 19:18:07 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
-2018/08/30 19:18:21 [DEBUG] memberlist: Stream connection from=192.168.2.27:56362
-2018/08/30 19:18:22 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
-2018/08/30 19:18:25 [DEBUG] memberlist: Stream connection from=192.168.2.27:56368
-2018/08/30 19:18:37 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:28:39 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
+2018/08/30 19:28:55 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+2018/08/30 19:29:10 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
+2018/08/30 19:29:25 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:29:27 [DEBUG] memberlist: Stream connection from=192.168.2.27:56684
+2018/08/30 19:29:34 [DEBUG] memberlist: Stream connection from=192.168.2.27:56694
+2018/08/30 19:29:40 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:29:55 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:30:04 [DEBUG] memberlist: Stream connection from=192.168.2.27:56736
+2018/08/30 19:30:10 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+2018/08/30 19:30:25 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+2018/08/30 19:30:40 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
 
 Stopping....
 
-2018/08/30 19:16:19 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2]". Using defaults
-2018/08/30 19:16:19 
+time="2018-08-30T19:28:16-04:00" level=info msg="Loading config"
+2018/08/30 19:28:16 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]". Using defaults
+time="2018-08-30T19:28:16-04:00" level=info msg="Starting content server on port: 8080"
+time="2018-08-30T19:28:16-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:16-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:16-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+2018/08/30 19:28:16 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]"
+time="2018-08-30T19:28:16-04:00" level=info msg="Started HTTP server."
+
+Stopping....
+
+time="2018-08-30T19:28:39-04:00" level=info msg="Loading config"
+2018/08/30 19:28:39 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6]". Using defaults
+time="2018-08-30T19:28:39-04:00" level=info msg="Starting content server on port: 8086"
+2018/08/30 19:28:39 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6]"
+time="2018-08-30T19:28:39-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:39-04:00" level=info msg="Started HTTP server."
+time="2018-08-30T19:28:42-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8082/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:42-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:42-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g6/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8082/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:42-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:42-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:42-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:42-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+
+Stopping....
+
+time="2018-08-30T19:28:24-04:00" level=info msg="Loading config"
+2018/08/30 19:28:24 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]". Using defaults
+time="2018-08-30T19:28:24-04:00" level=info msg="Starting content server on port: 8081"
+2018/08/30 19:28:24 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]"
+time="2018-08-30T19:28:24-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:24-04:00" level=info msg="Started HTTP server."
+time="2018-08-30T19:28:33-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:33-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:33-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+
+Stopping....
+
+2018/08/30 19:28:23 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2]". Using defaults
+2018/08/30 19:28:23 
 
 Unable to find gladius-controld.toml in project root, or default directories below.
 
 Error: 
 Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2]"
-2018/08/30 19:16:19 
+2018/08/30 19:28:23 
 
 Using Default Node Manager Configuration
-2018/08/30 19:16:19 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2]"
+2018/08/30 19:28:23 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g2]"
 Starting API at http://localhost:3003
-2018/08/30 19:16:22 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
-2018/08/30 19:16:40 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:16:55 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
-2018/08/30 19:17:10 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
-2018/08/30 19:17:25 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:17:37 [DEBUG] memberlist: Stream connection from=192.168.2.27:45374
-2018/08/30 19:17:40 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
-2018/08/30 19:17:41 [DEBUG] memberlist: Stream connection from=192.168.2.27:45380
-2018/08/30 19:17:51 [DEBUG] memberlist: Stream connection from=192.168.2.27:45392
-2018/08/30 19:17:55 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:17:56 [DEBUG] memberlist: Stream connection from=192.168.2.27:45400
-2018/08/30 19:18:10 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
-2018/08/30 19:18:12 [DEBUG] memberlist: Stream connection from=192.168.2.27:45422
-2018/08/30 19:18:23 [DEBUG] memberlist: Stream connection from=192.168.2.27:45436
-2018/08/30 19:18:25 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:18:38 [DEBUG] memberlist: Stream connection from=192.168.2.27:45456
-2018/08/30 19:18:40 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
+2018/08/30 19:28:27 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
+2018/08/30 19:28:42 [DEBUG] memberlist: Stream connection from=192.168.2.27:45672
+2018/08/30 19:28:49 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:28:57 [DEBUG] memberlist: Stream connection from=192.168.2.27:45710
+2018/08/30 19:29:04 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
+2018/08/30 19:29:06 [DEBUG] memberlist: Stream connection from=192.168.2.27:45722
+2018/08/30 19:29:19 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7947
+2018/08/30 19:29:25 [DEBUG] memberlist: Stream connection from=192.168.2.27:45750
+2018/08/30 19:29:25 [DEBUG] memberlist: Stream connection from=192.168.2.27:45752
+2018/08/30 19:29:34 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
+2018/08/30 19:29:38 [DEBUG] memberlist: Stream connection from=192.168.2.27:45768
+2018/08/30 19:29:40 [DEBUG] memberlist: Stream connection from=192.168.2.27:45772
+2018/08/30 19:29:45 [DEBUG] memberlist: Stream connection from=192.168.2.27:45778
+2018/08/30 19:29:49 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
+2018/08/30 19:29:51 [DEBUG] memberlist: Stream connection from=192.168.2.27:45788
+2018/08/30 19:30:03 [DEBUG] memberlist: Stream connection from=192.168.2.27:45802
+2018/08/30 19:30:04 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
+2018/08/30 19:30:15 [DEBUG] memberlist: Stream connection from=192.168.2.27:45820
+2018/08/30 19:30:19 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+2018/08/30 19:30:34 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
 
 Stopping....
 
-2018/08/30 19:16:34 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7]". Using defaults
-2018/08/30 19:16:34 
+time="2018-08-30T19:28:33-04:00" level=info msg="Loading config"
+2018/08/30 19:28:33 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]". Using defaults
+time="2018-08-30T19:28:33-04:00" level=info msg="Starting content server on port: 8084"
+2018/08/30 19:28:33 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]"
+time="2018-08-30T19:28:33-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:33-04:00" level=info msg="Started HTTP server."
+time="2018-08-30T19:28:41-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8082/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:41-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:41-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8082/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:41-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:41-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:41-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:41-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+
+Stopping....
+
+2018/08/30 19:28:44 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]". Using defaults
+2018/08/30 19:28:44 
+
+Unable to find gladius-controld.toml in project root, or default directories below.
+
+Error: 
+Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]"
+2018/08/30 19:28:44 
+
+Using Default Node Manager Configuration
+2018/08/30 19:28:44 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]"
+Starting API at http://localhost:3010
+2018/08/30 19:28:48 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
+2018/08/30 19:28:55 [DEBUG] memberlist: Stream connection from=192.168.2.27:58282
+2018/08/30 19:29:03 [DEBUG] memberlist: Stream connection from=192.168.2.27:58294
+2018/08/30 19:29:06 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:29:18 [DEBUG] memberlist: Stream connection from=192.168.2.27:58316
+2018/08/30 19:29:21 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+2018/08/30 19:29:30 [DEBUG] memberlist: Stream connection from=192.168.2.27:58334
+2018/08/30 19:29:33 [DEBUG] memberlist: Stream connection from=192.168.2.27:58336
+2018/08/30 19:29:36 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
+2018/08/30 19:29:40 [DEBUG] memberlist: Stream connection from=192.168.2.27:58350
+2018/08/30 19:29:51 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:29:54 [DEBUG] memberlist: Stream connection from=192.168.2.27:58368
+2018/08/30 19:29:55 [DEBUG] memberlist: Stream connection from=192.168.2.27:58370
+2018/08/30 19:29:55 [DEBUG] memberlist: Stream connection from=192.168.2.27:58372
+2018/08/30 19:30:06 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+2018/08/30 19:30:12 [DEBUG] memberlist: Stream connection from=192.168.2.27:58394
+2018/08/30 19:30:21 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
+2018/08/30 19:30:24 [DEBUG] memberlist: Stream connection from=192.168.2.27:58408
+2018/08/30 19:30:36 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+
+Stopping....
+
+2018/08/30 19:28:26 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]". Using defaults
+2018/08/30 19:28:26 
+
+Unable to find gladius-controld.toml in project root, or default directories below.
+
+Error: 
+Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]"
+2018/08/30 19:28:26 
+
+Using Default Node Manager Configuration
+2018/08/30 19:28:26 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]"
+Starting API at http://localhost:3004
+2018/08/30 19:28:30 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
+2018/08/30 19:28:48 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
+2018/08/30 19:29:00 [DEBUG] memberlist: Stream connection from=192.168.2.27:49666
+2018/08/30 19:29:03 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
+2018/08/30 19:29:10 [DEBUG] memberlist: Stream connection from=192.168.2.27:49682
+2018/08/30 19:29:18 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
+2018/08/30 19:29:23 [DEBUG] memberlist: Stream connection from=192.168.2.27:49698
+2018/08/30 19:29:33 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:29:36 [DEBUG] memberlist: Stream connection from=192.168.2.27:49718
+2018/08/30 19:29:48 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
+2018/08/30 19:30:03 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:30:18 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:30:23 [DEBUG] memberlist: Stream connection from=192.168.2.27:49782
+2018/08/30 19:30:33 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+
+Stopping....
+
+time="2018-08-30T19:28:48-04:00" level=info msg="Loading config"
+2018/08/30 19:28:48 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]". Using defaults
+time="2018-08-30T19:28:48-04:00" level=info msg="Starting content server on port: 8089"
+2018/08/30 19:28:48 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]"
+time="2018-08-30T19:28:48-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:48-04:00" level=info msg="Started HTTP server."
+time="2018-08-30T19:28:59-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8085/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:59-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:59-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8085/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:59-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:59-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:59-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:59-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+
+Stopping....
+
+2018/08/30 19:28:20 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]". Using defaults
+2018/08/30 19:28:20 
+
+Unable to find gladius-controld.toml in project root, or default directories below.
+
+Error: 
+Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]"
+2018/08/30 19:28:20 
+
+Using Default Node Manager Configuration
+2018/08/30 19:28:20 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g1]"
+Starting API at http://localhost:3002
+2018/08/30 19:28:24 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
+2018/08/30 19:28:42 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:28:57 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:29:12 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+2018/08/30 19:29:19 [DEBUG] memberlist: Stream connection from=192.168.2.27:33828
+2018/08/30 19:29:27 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
+2018/08/30 19:29:42 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
+2018/08/30 19:29:57 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:30:12 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:30:25 [DEBUG] memberlist: Stream connection from=192.168.2.27:33920
+2018/08/30 19:30:27 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
+2018/08/30 19:30:42 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
+
+Stopping....
+
+2018/08/30 19:28:41 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]". Using defaults
+2018/08/30 19:28:41 
+
+Unable to find gladius-controld.toml in project root, or default directories below.
+
+Error: 
+Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]"
+2018/08/30 19:28:41 
+
+Using Default Node Manager Configuration
+2018/08/30 19:28:41 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]"
+Starting API at http://localhost:3009
+2018/08/30 19:28:45 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
+2018/08/30 19:29:03 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:29:10 [DEBUG] memberlist: Stream connection from=192.168.2.27:54120
+2018/08/30 19:29:18 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:29:33 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+2018/08/30 19:29:48 [DEBUG] memberlist: Stream connection from=192.168.2.27:54172
+2018/08/30 19:29:48 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:29:49 [DEBUG] memberlist: Stream connection from=192.168.2.27:54176
+2018/08/30 19:29:53 [DEBUG] memberlist: Stream connection from=192.168.2.27:54182
+2018/08/30 19:30:03 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
+2018/08/30 19:30:10 [DEBUG] memberlist: Stream connection from=192.168.2.27:54206
+2018/08/30 19:30:18 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
+2018/08/30 19:30:33 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:30:34 [DEBUG] memberlist: Stream connection from=192.168.2.27:54238
+2018/08/30 19:30:39 [DEBUG] memberlist: Stream connection from=192.168.2.27:54244
+2018/08/30 19:30:42 [DEBUG] memberlist: Stream connection from=192.168.2.27:54250
+
+Stopping....
+
+2018/08/30 19:28:32 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]". Using defaults
+2018/08/30 19:28:32 
+
+Unable to find gladius-controld.toml in project root, or default directories below.
+
+Error: 
+Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]"
+2018/08/30 19:28:32 
+
+Using Default Node Manager Configuration
+2018/08/30 19:28:32 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g5]"
+Starting API at http://localhost:3006
+2018/08/30 19:28:36 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
+2018/08/30 19:28:55 [DEBUG] memberlist: Stream connection from=192.168.2.27:45786
+2018/08/30 19:29:00 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
+2018/08/30 19:29:08 [DEBUG] memberlist: Stream connection from=192.168.2.27:45802
+2018/08/30 19:29:12 [DEBUG] memberlist: Stream connection from=192.168.2.27:45812
+2018/08/30 19:29:15 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
+2018/08/30 19:29:21 [DEBUG] memberlist: Stream connection from=192.168.2.27:45822
+2018/08/30 19:29:30 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:29:33 [DEBUG] memberlist: Stream connection from=192.168.2.27:45840
+2018/08/30 19:29:45 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:30:00 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:30:06 [DEBUG] memberlist: Stream connection from=192.168.2.27:45886
+2018/08/30 19:30:10 [DEBUG] memberlist: Stream connection from=192.168.2.27:45894
+2018/08/30 19:30:15 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:30:19 [DEBUG] memberlist: Stream connection from=192.168.2.27:45904
+2018/08/30 19:30:25 [DEBUG] memberlist: Stream connection from=192.168.2.27:45914
+2018/08/30 19:30:30 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
+2018/08/30 19:30:33 [DEBUG] memberlist: Stream connection from=192.168.2.27:45920
+
+Stopping....
+
+2018/08/30 19:28:13 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]". Using defaults
+2018/08/30 19:28:13 
+
+Unable to find gladius-controld.toml in project root, or default directories below.
+
+Error: 
+Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]"
+2018/08/30 19:28:13 
+
+Using Default Node Manager Configuration
+2018/08/30 19:28:13 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]"
+Starting API at http://localhost:3001
+2018/08/30 19:28:24 [DEBUG] memberlist: Stream connection from=127.0.0.1:39242
+2018/08/30 19:28:27 [DEBUG] memberlist: Stream connection from=127.0.0.1:39254
+2018/08/30 19:28:30 [DEBUG] memberlist: Stream connection from=127.0.0.1:39264
+2018/08/30 19:28:33 [DEBUG] memberlist: Stream connection from=127.0.0.1:39274
+2018/08/30 19:28:36 [DEBUG] memberlist: Stream connection from=127.0.0.1:39288
+2018/08/30 19:28:39 [DEBUG] memberlist: Stream connection from=127.0.0.1:39300
+2018/08/30 19:28:40 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
+2018/08/30 19:28:42 [DEBUG] memberlist: Stream connection from=127.0.0.1:39314
+2018/08/30 19:28:45 [DEBUG] memberlist: Stream connection from=127.0.0.1:39330
+2018/08/30 19:28:48 [DEBUG] memberlist: Stream connection from=127.0.0.1:39340
+2018/08/30 19:28:49 [DEBUG] memberlist: Stream connection from=192.168.2.27:51018
+2018/08/30 19:28:54 [DEBUG] memberlist: Stream connection from=192.168.2.27:51022
+2018/08/30 19:28:55 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:29:09 [DEBUG] memberlist: Stream connection from=192.168.2.27:51044
+2018/08/30 19:29:10 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
+2018/08/30 19:29:24 [DEBUG] memberlist: Stream connection from=192.168.2.27:51066
+2018/08/30 19:29:25 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:29:40 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:29:48 [DEBUG] memberlist: Stream connection from=192.168.2.27:51100
+2018/08/30 19:29:55 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:29:57 [DEBUG] memberlist: Stream connection from=192.168.2.27:51116
+2018/08/30 19:30:00 [DEBUG] memberlist: Stream connection from=192.168.2.27:51118
+2018/08/30 19:30:09 [DEBUG] memberlist: Stream connection from=192.168.2.27:51130
+2018/08/30 19:30:10 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
+2018/08/30 19:30:18 [DEBUG] memberlist: Stream connection from=192.168.2.27:51140
+2018/08/30 19:30:25 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7947
+2018/08/30 19:30:33 [DEBUG] memberlist: Stream connection from=192.168.2.27:51162
+2018/08/30 19:30:36 [DEBUG] memberlist: Stream connection from=192.168.2.27:51166
+2018/08/30 19:30:38 [DEBUG] memberlist: Stream connection from=192.168.2.27:51168
+2018/08/30 19:30:40 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
+
+Stopping....
+
+time="2018-08-30T19:28:45-04:00" level=info msg="Loading config"
+2018/08/30 19:28:45 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]". Using defaults
+time="2018-08-30T19:28:45-04:00" level=info msg="Starting content server on port: 8088"
+2018/08/30 19:28:45 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]"
+time="2018-08-30T19:28:45-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:45-04:00" level=info msg="Started HTTP server."
+time="2018-08-30T19:28:48-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8083/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:48-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8083/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:48-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:48-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:48-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:48-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:48-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:48-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+
+Stopping....
+
+2018/08/30 19:28:38 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7]". Using defaults
+2018/08/30 19:28:38 
 
 Unable to find gladius-controld.toml in project root, or default directories below.
 
 Error: 
 Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7]"
-2018/08/30 19:16:34 
+2018/08/30 19:28:38 
 
 Using Default Node Manager Configuration
-2018/08/30 19:16:34 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7]"
+2018/08/30 19:28:38 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7]"
 Starting API at http://localhost:3008
-2018/08/30 19:16:37 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
-2018/08/30 19:17:02 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
-2018/08/30 19:17:07 [DEBUG] memberlist: Stream connection from=192.168.2.27:55956
-2018/08/30 19:17:08 [DEBUG] memberlist: Stream connection from=192.168.2.27:55958
-2018/08/30 19:17:17 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:17:32 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7952
-2018/08/30 19:17:47 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
-2018/08/30 19:17:47 [DEBUG] memberlist: Stream connection from=192.168.2.27:56010
-2018/08/30 19:18:01 [DEBUG] memberlist: Stream connection from=192.168.2.27:56026
-2018/08/30 19:18:02 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7947
-2018/08/30 19:18:02 [DEBUG] memberlist: Stream connection from=192.168.2.27:56030
-2018/08/30 19:18:07 [DEBUG] memberlist: Stream connection from=192.168.2.27:56036
-2018/08/30 19:18:17 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
-2018/08/30 19:18:32 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
+2018/08/30 19:28:42 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
+2018/08/30 19:28:48 [DEBUG] memberlist: Stream connection from=192.168.2.27:56320
+2018/08/30 19:29:04 [DEBUG] memberlist: Stream connection from=192.168.2.27:56342
+2018/08/30 19:29:08 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7951
+2018/08/30 19:29:15 [DEBUG] memberlist: Stream connection from=192.168.2.27:56358
+2018/08/30 19:29:18 [DEBUG] memberlist: Stream connection from=192.168.2.27:56360
+2018/08/30 19:29:23 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
+2018/08/30 19:29:38 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7948
+2018/08/30 19:29:39 [DEBUG] memberlist: Stream connection from=192.168.2.27:56392
+2018/08/30 19:29:53 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
+2018/08/30 19:30:08 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7950
+2018/08/30 19:30:21 [DEBUG] memberlist: Stream connection from=192.168.2.27:56450
+2018/08/30 19:30:23 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7949
+2018/08/30 19:30:30 [DEBUG] memberlist: Stream connection from=192.168.2.27:56462
+2018/08/30 19:30:38 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+
+Stopping....
+
+time="2018-08-30T19:28:42-04:00" level=info msg="Loading config"
+2018/08/30 19:28:42 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7]". Using defaults
+time="2018-08-30T19:28:42-04:00" level=info msg="Starting content server on port: 8087"
+2018/08/30 19:28:42 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7]"
+time="2018-08-30T19:28:42-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T19:28:42-04:00" level=info msg="Started HTTP server."
+time="2018-08-30T19:28:51-04:00" level=debug msg="Downloading file from peer" url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:51-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:51-04:00" level=debug msg="A new file was downloaded from a peer" filename=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 path=/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g7/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87 url="http://localhost:8080/content?asset=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87&website=blog.gladius.io"
+time="2018-08-30T19:28:51-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:51-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+time="2018-08-30T19:28:51-04:00" level=debug msg="Loading website: blog.gladius.io" website=blog.gladius.io
+time="2018-08-30T19:28:51-04:00" level=debug msg="Loaded new asset" asset_name=5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87
+
+Stopping....
+
+2018/08/30 19:28:29 Cannot find config file: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]". Using defaults
+2018/08/30 19:28:29 
+
+Unable to find gladius-controld.toml in project root, or default directories below.
+
+Error: 
+Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]"
+2018/08/30 19:28:29 
+
+Using Default Node Manager Configuration
+2018/08/30 19:28:29 error: Config File "gladius-controld" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g4]"
+Starting API at http://localhost:3005
+2018/08/30 19:28:33 [DEBUG] memberlist: Initiating push/pull sync with: 127.0.0.1:7946
+2018/08/30 19:28:40 [DEBUG] memberlist: Stream connection from=192.168.2.27:41450
+2018/08/30 19:28:54 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:29:03 [DEBUG] memberlist: Stream connection from=192.168.2.27:41506
+2018/08/30 19:29:09 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:29:24 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:29:39 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7953
+2018/08/30 19:29:42 [DEBUG] memberlist: Stream connection from=192.168.2.27:41566
+2018/08/30 19:29:54 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:30:03 [DEBUG] memberlist: Stream connection from=192.168.2.27:41594
+2018/08/30 19:30:08 [DEBUG] memberlist: Stream connection from=192.168.2.27:41600
+2018/08/30 19:30:09 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7946
+2018/08/30 19:30:18 [DEBUG] memberlist: Stream connection from=192.168.2.27:41614
+2018/08/30 19:30:24 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7955
+2018/08/30 19:30:27 [DEBUG] memberlist: Stream connection from=192.168.2.27:41628
+2018/08/30 19:30:39 [DEBUG] memberlist: Initiating push/pull sync with: 192.168.2.27:7954
+2018/08/30 19:30:40 [DEBUG] memberlist: Stream connection from=192.168.2.27:41644
+2018/08/30 19:30:40 [DEBUG] memberlist: Stream connection from=192.168.2.27:41646
 
 Stopping....

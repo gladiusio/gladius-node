@@ -99,7 +99,11 @@ func TestNodeHasFullInformation(t *testing.T) {
 }
 
 func TestContentFilesCopied(t *testing.T) {
-
+	for i := 0; i < tester.numOfNodes; i++ {
+		if _, err := os.Stat("./bases/g" + strconv.Itoa(i) + "/content/blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87"); os.IsNotExist(err) {
+			t.Errorf("File wasn't copied to host %d", i)
+		}
+	}
 }
 
 func TestCorrectNumberOfNodes(t *testing.T) {
