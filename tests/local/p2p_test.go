@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -16,6 +17,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/buger/jsonparser"
 	"github.com/tdewolff/minify"
 	mjson "github.com/tdewolff/minify/json"
 )
@@ -46,21 +48,53 @@ func TestStateEquality(t *testing.T) {
 			if err != nil {
 				panic(err)
 			}
-			fmt.Println("----------------------------------")
-			fmt.Println(stateMin)
 			stateMap[stateMin] = true
 		} else {
 			t.Errorf("Node %d had a 0 length state", i)
 		}
 	}
 
-	if len(stateMap) > 0 {
+	if len(stateMap) > 1 {
 		t.Errorf("There were %d different final states.", len(stateMap))
 	}
 }
 
-func TestNodeHasFullInformation(t *testing.T) {
+func checkValue(val string, err error) error {
+	if val == "" {
+		return errors.New("Value was empty")
+	}
+	return err
+}
 
+func TestNodeHasFullInformation(t *testing.T) {
+	stateArray, err := tester.getStateOfEachNode()
+	if err != nil {
+		t.Error(err)
+	}
+
+	for i, state := range stateArray {
+		if len(state) > 0 {
+			err := jsonparser.ObjectEach([]byte(state), func(key []byte, value []byte, dataType jsonparser.ValueType, offset int) error {
+				err := checkValue(jsonparser.GetString(value, "ip_address", "data"))
+				if err != nil {
+					t.Errorf("Node %d had issues with it's ip address. The error was: %s", i, err.Error())
+				}
+
+				err = checkValue(jsonparser.GetString(value, "content_port", "data"))
+				if err != nil {
+					t.Errorf("Node %d had issues with it's content_port. The error was: %s", i, err.Error())
+				}
+
+				return nil
+			}, "response", "node_data_map")
+
+			if err != nil {
+				t.Errorf("Node %d had issues with it's state. The error was: %s", i, err.Error())
+			}
+		} else {
+			t.Errorf("Node %d had a 0 length state", i)
+		}
+	}
 }
 
 func TestContentFilesCopied(t *testing.T) {
@@ -68,7 +102,15 @@ func TestContentFilesCopied(t *testing.T) {
 }
 
 func TestCorrectNumberOfNodes(t *testing.T) {
-
+	stateArray, err := tester.getStateOfEachNode()
+	if err != nil {
+		t.Error(err)
+	}
+	if len(stateArray) != tester.numOfNodes {
+		t.Errorf("There were supposed to be %d nodes, but we only had %d.",
+			tester.numOfNodes,
+			len(stateArray))
+	}
 }
 
 func TestMain(m *testing.M) {
@@ -80,9 +122,9 @@ func TestMain(m *testing.M) {
 	// Run the tests
 	retCode := m.Run()
 
-	time.Sleep(10 * time.Second)
 	// Teardown
 	tester.stopDaemons()
+	time.Sleep(1 * time.Second)
 	tester.deleteGladiusBases()
 	tester.writeLog(logFile)
 
@@ -238,7 +280,7 @@ func (pt *p2pTester) startDaemonsAndWait() {
 		}(i)
 	}
 
-	time.Sleep(60 * time.Second)
+	time.Sleep(40 * time.Second)
 }
 
 // Stop the daemons

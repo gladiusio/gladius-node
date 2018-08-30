@@ -121,7 +121,7 @@
     "networkd/server/contserver",
     "networkd/state"
   ]
-  revision = "dfbc897881cc654cac5f93102f7ec4e760772430"
+  revision = "5b131c2041fe712c80ed6cf1feb252b054b13451"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"
