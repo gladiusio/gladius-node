@@ -27,6 +27,7 @@ const (
 	controlStartPort = 3001
 	contentStartPort = 8080
 	p2pStartPort     = 7946
+	contentFile      = "5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87"
 	logFile          = "./test_output.log"
 )
 
@@ -177,6 +178,14 @@ func (pt *p2pTester) createGladiusBases() {
 			log.Fatal(err)
 		}
 	}
+	err := os.MkdirAll("./bases/g0/content/blog.gladius.io", os.ModePerm)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = os.Link("./test_files/"+contentFile, "./bases/g0/content/blog.gladius.io/"+contentFile)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // Clean the whole "./bases directory"
@@ -197,6 +206,7 @@ func (pt *p2pTester) spawnProcess(location string, env []string) {
 	go func(proc *exec.Cmd) {
 		stdoutStderr, err := proc.CombinedOutput()
 		if err != nil {
+			fmt.Println(string(stdoutStderr))
 			log.Fatal("Couldn't spawn process " + err.Error())
 		}
 		pt.mux.Lock()
@@ -251,6 +261,7 @@ func (pt *p2pTester) createControld(n int) {
 		"CONTROLD_P2P_BINDPORT=" + strconv.Itoa(pt.p2pPorts[n]),
 		"CONTROLD_P2P_ADVERTISEPORT=" + strconv.Itoa(pt.p2pPorts[n]),
 		"CONTROLD_NODEMANAGER_CONFIG_PORT=" + strconv.Itoa(pt.controlPorts[n]),
+		"CONTROLD_BLOCKCHAIN_POOLMANAGERADDRESS=0x6531a634Bbb040B00f32718fa8d9Fa197274f1D0",
 	}
 
 	pt.spawnProcess("../../build/gladius-controld", controldEnv)
@@ -266,9 +277,33 @@ func (pt *p2pTester) createControld(n int) {
 	}
 }
 
+func (pt *p2pTester) postRequiredFiles() {
+	_, err := postToControld("/api/p2p/state/push_message",
+		strconv.Itoa(pt.controlPorts[0]),
+		`{
+		"message": {
+			"content": {
+				"pool": {
+					"required_content": [
+						"blog.gladius.io/5573edfbcfb09f07956702f07f21ea2b24ba1dc98f3f09e21815d8219d1ebd87"
+					]
+				}
+			},
+			"timestamp": 1535656897
+		},
+		"hash": "K3Uw+UAdQeTDnzTWe4FXWja0rs2NsHWBU/vrPa0CP3Y=",
+		"signature": "C8V7yPF0mnnKgUdWP3OLA7go1EZSidTvqJ7nh6d7R+4tlnVmuFbTdTg4Jgcn1O0diIJO9e/uC+eczH4vKR/AMwA=",
+		"address": "0x6531a634Bbb040B00f32718fa8d9Fa197274f1D0"
+	}`)
+	if err != nil {
+		log.Fatal("Error unlocking account", err)
+	}
+}
+
 // Start the daemons
 func (pt *p2pTester) startDaemonsAndWait() {
 	pt.createControld(0)
+	pt.postRequiredFiles()
 	time.Sleep(2 * time.Second)
 	pt.createSeedNetworkd()
 	for i := 1; i < pt.numOfNodes; i++ {
@@ -280,7 +315,7 @@ func (pt *p2pTester) startDaemonsAndWait() {
 		}(i)
 	}
 
-	time.Sleep(40 * time.Second)
+	time.Sleep(120 * time.Second)
 }
 
 // Stop the daemons
