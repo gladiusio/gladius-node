@@ -74,13 +74,13 @@
   version = "v1.4.7"
 
 [[projects]]
-  branch = "master"
   name = "github.com/gladiusio/gladius-application-server"
   packages = [
     "pkg/controller",
     "pkg/db/models"
   ]
-  revision = "3fbac6ea93474113d34c3c58e1532916fef1caf7"
+  revision = "0aec01387c04d17be4006cae45b6b615f1f09644"
+  version = "0.1.0"
 
 [[projects]]
   branch = "develop"
@@ -109,7 +109,7 @@
     "pkg/routing/handlers",
     "pkg/routing/response"
   ]
-  revision = "ca0eec835384b024e6030e2eafddac7e93ca02d7"
+  revision = "bccfcdfbc7e1716993d05307a67dd852be6cfffd"
 
 [[projects]]
   branch = "develop"
@@ -121,7 +121,7 @@
     "networkd/server/contserver",
     "networkd/state"
   ]
-  revision = "0e1d9d4d41378451fffd52547195bdeba4c097e2"
+  revision = "dfbc897881cc654cac5f93102f7ec4e760772430"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"
@@ -169,10 +169,10 @@
   version = "v1.0.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/hashicorp/go-immutable-radix"
   packages = ["."]
-  revision = "7f3cd4390caab3250a57f30efdb2a65dd7649ecf"
+  revision = "27df80928bb34bb1b0d6d0e01b9e679902e7a6b5"
+  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
@@ -193,10 +193,10 @@
   revision = "6d291a969b86c4b633730bfc6b8b9d64c3aafed9"
 
 [[projects]]
-  branch = "master"
   name = "github.com/hashicorp/golang-lru"
   packages = ["simplelru"]
-  revision = "0fb14efe8c47ae851c0034ed7a448854d3d34cf3"
+  revision = "20f1fb78b0740ba8c3cb143a61e86ba5c8669768"
+  version = "v0.5.0"
 
 [[projects]]
   name = "github.com/hashicorp/hcl"
@@ -356,8 +356,8 @@
 [[projects]]
   name = "github.com/rjeczalik/notify"
   packages = ["."]
-  revision = "52ae50d8490436622a8941bd70c3dbe0acdd4bbf"
-  version = "v0.9.0"
+  revision = "0f065fa99b48b842c3fd3e2c8b194c6f2b69f6b8"
+  version = "v0.9.1"
 
 [[projects]]
   name = "github.com/rs/cors"
@@ -506,7 +506,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "d99a578cf41bfccdeaf48b0845c823a4b8b0ad5e"
+  revision = "49385e6e15226593f68b26af201feec29d5bba22"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -562,6 +562,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6ce28fe8bf4a82c70c3e705d57cc7986f8e74dddb2c7d037905bc1a53f5f3ae5"
+  inputs-digest = "5d99841bb0b8771387b37636b856f145ea49a292a759b5838ccf931793b7f346"
   solver-name = "gps-cdcl"
   solver-version = 1

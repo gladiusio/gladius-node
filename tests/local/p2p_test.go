@@ -9,11 +9,15 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/tdewolff/minify"
+	mjson "github.com/tdewolff/minify/json"
 )
 
 const (
@@ -24,25 +28,71 @@ const (
 	logFile          = "./test_output.log"
 )
 
-func TestP2P(t *testing.T) {
-	tester := newP2PTester(numToTest, t)
+var tester *p2pTester
+
+func TestStateEquality(t *testing.T) {
+	stateArray, err := tester.getStateOfEachNode()
+	if err != nil {
+		t.Error(err)
+	}
+
+	stateMap := make(map[string]bool)
+	for i, state := range stateArray {
+		if len(state) > 0 {
+			s := string(state)
+			m := minify.New()
+			m.AddFuncRegexp(regexp.MustCompile("[/+]json$"), mjson.Minify)
+			stateMin, err := m.String("text/json", s)
+			if err != nil {
+				panic(err)
+			}
+			fmt.Println("----------------------------------")
+			fmt.Println(stateMin)
+			stateMap[stateMin] = true
+		} else {
+			t.Errorf("Node %d had a 0 length state", i)
+		}
+	}
+
+	if len(stateMap) > 0 {
+		t.Errorf("There were %d different final states.", len(stateMap))
+	}
+}
+
+func TestNodeHasFullInformation(t *testing.T) {
+
+}
+
+func TestContentFilesCopied(t *testing.T) {
+
+}
+
+func TestCorrectNumberOfNodes(t *testing.T) {
+
+}
+
+func TestMain(m *testing.M) {
+	// Setup
+	tester = newP2PTester(numToTest)
 	tester.createGladiusBases()
-	tester.startDaemons()
-	time.Sleep(20 * time.Second)
+	tester.startDaemonsAndWait()
 
-	// This is where we would run some tests
+	// Run the tests
+	retCode := m.Run()
 
+	time.Sleep(10 * time.Second)
+	// Teardown
 	tester.stopDaemons()
 	tester.deleteGladiusBases()
 	tester.writeLog(logFile)
-	time.Sleep(2 * time.Second)
 
+	// Exit with the test status
+	os.Exit(retCode)
 }
 
 type p2pTester struct {
 	mux          *sync.Mutex
 	numOfNodes   int           // How many nodes to start
-	t            *testing.T    // So we can run tests
 	contentPorts []int         // The range of networkd ports
 	controlPorts []int         // The range of controld ports
 	p2pPorts     []int         // P2P port range
@@ -51,14 +101,13 @@ type p2pTester struct {
 }
 
 // Take in a testing object and a number of nodes and create a tester
-func newP2PTester(numOfNodes int, t *testing.T) *p2pTester {
+func newP2PTester(numOfNodes int) *p2pTester {
 	if numOfNodes < 2 {
-		t.Error("Need at least 2 nodes to run test!")
+		log.Fatal("Need at least 2 nodes to run test!")
 	}
 
 	// Create a tester to return
 	tester := &p2pTester{
-		t:            t,
 		mux:          &sync.Mutex{},
 		numOfNodes:   numOfNodes,
 		processes:    make([]*os.Process, 0),
@@ -83,7 +132,7 @@ func (pt *p2pTester) createGladiusBases() {
 	for i := 0; i < pt.numOfNodes; i++ {
 		err := os.MkdirAll("./bases/g"+strconv.Itoa(i)+"/content", os.ModePerm)
 		if err != nil {
-			pt.t.Error(err)
+			log.Fatal(err)
 		}
 	}
 }
@@ -93,7 +142,7 @@ func (pt *p2pTester) deleteGladiusBases() {
 	for i := 0; i < pt.numOfNodes; i++ {
 		err := os.RemoveAll("./bases/g" + strconv.Itoa(i))
 		if err != nil {
-			pt.t.Error(err)
+			log.Fatal(err)
 		}
 	}
 }
@@ -106,7 +155,7 @@ func (pt *p2pTester) spawnProcess(location string, env []string) {
 	go func(proc *exec.Cmd) {
 		stdoutStderr, err := proc.CombinedOutput()
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal("Couldn't spawn process " + err.Error())
 		}
 		pt.mux.Lock()
 		pt.log = append(pt.log, string(stdoutStderr))
@@ -166,17 +215,17 @@ func (pt *p2pTester) createControld(n int) {
 
 	_, err := postToControld("/api/keystore/account/create", strconv.Itoa(pt.controlPorts[n]), `{"passphrase":"password"}`)
 	if err != nil {
-		pt.t.Error("Error creating account", err)
+		log.Fatal("Error creating account", err)
 	}
 
 	_, err = postToControld("/api/keystore/account/open", strconv.Itoa(pt.controlPorts[n]), `{"passphrase":"password"}`)
 	if err != nil {
-		pt.t.Error("Error unlocking account", err)
+		log.Fatal("Error unlocking account", err)
 	}
 }
 
 // Start the daemons
-func (pt *p2pTester) startDaemons() {
+func (pt *p2pTester) startDaemonsAndWait() {
 	pt.createControld(0)
 	time.Sleep(2 * time.Second)
 	pt.createSeedNetworkd()
@@ -188,6 +237,8 @@ func (pt *p2pTester) startDaemons() {
 			pt.createNetworkd(n)
 		}(i)
 	}
+
+	time.Sleep(60 * time.Second)
 }
 
 // Stop the daemons
@@ -195,22 +246,46 @@ func (pt *p2pTester) stopDaemons() {
 	for _, p := range pt.processes {
 		err := p.Signal(os.Interrupt)
 		if err != nil {
-			pt.t.Log("Oh boy the test didn't go so well, we couldn't kill one of the processes.", err)
-			pt.t.Fail()
+			log.Fatal("Oh boy the test didn't go so well, we couldn't kill one of the processes.", err)
 		}
 	}
 }
 
 func (pt *p2pTester) writeLog(logFile string) {
-	err := ioutil.WriteFile(logFile, []byte(strings.Join(pt.log, "\n")), 0644)
+	f, err := os.Create(logFile)
 	if err != nil {
-		pt.t.Error(err)
+		log.Fatal(err)
 	}
+	_, err = f.Write([]byte(strings.Join(pt.log, "\n")))
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func (pt *p2pTester) getStateOfEachNode() ([]string, error) {
+	toReturn := make([]string, pt.numOfNodes)
+	for i := 0; i < pt.numOfNodes; i++ {
+		resp, err := getFromControld("/api/p2p/state", strconv.Itoa(pt.controlPorts[i]))
+		if err != nil {
+			return []string{}, err
+		}
+		bodyBytes, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			return []string{}, err
+		}
+		toReturn[i] = string(bodyBytes)
+	}
+
+	return toReturn, nil
 }
 
 func postToControld(endpoint, port, message string) (*http.Response, error) {
 	byteMessage := []byte(message)
 	return http.Post("http://localhost:"+port+endpoint, "application/json", bytes.NewBuffer(byteMessage))
+}
+
+func getFromControld(endpoint, port string) (*http.Response, error) {
+	return http.Get("http://localhost:" + port + endpoint)
 }
 
 func createBaseDir(n int) string {

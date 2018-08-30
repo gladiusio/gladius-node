@@ -1,0 +1,35 @@
+time="2018-08-30T13:05:26-04:00" level=info msg="Loading config"
+2018/08/30 13:05:26 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]". Using defaults
+time="2018-08-30T13:05:26-04:00" level=info msg="Starting content server on port: 8088"
+2018/08/30 13:05:26 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g8]"
+time="2018-08-30T13:05:26-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T13:05:26-04:00" level=info msg="Started HTTP server."
+
+Stopping....
+
+time="2018-08-30T13:05:29-04:00" level=info msg="Loading config"
+2018/08/30 13:05:29 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]". Using defaults
+time="2018-08-30T13:05:29-04:00" level=info msg="Starting content server on port: 8089"
+2018/08/30 13:05:29 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g9]"
+time="2018-08-30T13:05:29-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T13:05:29-04:00" level=info msg="Started HTTP server."
+
+Stopping....
+
+time="2018-08-30T13:05:11-04:00" level=info msg="Loading config"
+2018/08/30 13:05:11 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]". Using defaults
+time="2018-08-30T13:05:11-04:00" level=info msg="Starting content server on port: 8083"
+2018/08/30 13:05:11 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g3]"
+time="2018-08-30T13:05:11-04:00" level=debug msg="Started heartbeat"
+time="2018-08-30T13:05:11-04:00" level=info msg="Started HTTP server."
+
+Stopping....
+
+time="2018-08-30T13:04:58-04:00" level=info msg="Loading config"
+2018/08/30 13:04:58 Cannot find config file: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]". Using defaults
+time="2018-08-30T13:04:58-04:00" level=info msg="Starting content server on port: 8080"
+time="2018-08-30T13:04:58-04:00" level=debug msg="Started heartbeat"
+2018/08/30 13:04:58 error: Config File "gladius-networkd" Not Found in "[/home/alex/go/src/github.com/gladiusio/gladius-node/tests/local /home/alex/go/src/github.com/gladiusio/gladius-node/tests/local/bases/g0]"
+time="2018-08-30T13:04:58-04:00" level=info msg="Started HTTP server."
+
+Stopping....
