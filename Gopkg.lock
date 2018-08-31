@@ -90,18 +90,18 @@
   version = "v1.4.7"
 
 [[projects]]
-  branch = "master"
-  digest = "1:895a3ac24dd84e12b0ef31bb55cb3eb9b71bfe9c382dd1ee98b8068232f2d46d"
+  digest = "1:745ef30c6de72348c039cf4be59d285476caaebc1a1e62eeaac6b6546a888ad1"
   name = "github.com/gladiusio/gladius-application-server"
   packages = [
     "pkg/controller",
     "pkg/db/models",
   ]
   pruneopts = "UT"
-  revision = "890173f7c00ea9e8fcfa8708db0dfb0dc5958a36"
+  revision = "75ec8b96baa3438e94d9911c8415cfa41e1bec1b"
+  version = "0.1.2"
 
 [[projects]]
-  digest = "1:4adfb32f106ad719545a6369cdf53f24e4efcd46c7985702993d722c6a137ede"
+  digest = "1:854e41a0af8c29af65af5bf34180bdb21263708f359619866fe0a9c4fdda9aec"
   name = "github.com/gladiusio/gladius-cli"
   packages = [
     "commands",
@@ -110,11 +110,11 @@
     "utils",
   ]
   pruneopts = "UT"
-  revision = "5865f88d3376046f790e031ef305b8fa63dc7b04"
-  version = "0.5.5"
+  revision = "283e3c80a6d0e27fdc679c7fdbdf24fa6ff3412f"
+  version = "0.6.0"
 
 [[projects]]
-  digest = "1:fb8df4787b697d4721dd3d80572d45a25057b96e64d0f46314bc2ec564aa8584"
+  digest = "1:6d192e2396ad35c734cfd472440318d48565641bf3cb834c4f2646a6ee0fd227"
   name = "github.com/gladiusio/gladius-controld"
   packages = [
     "controld",
@@ -131,8 +131,8 @@
     "pkg/utils",
   ]
   pruneopts = "UT"
-  revision = "b2f05f3850a8917ede42ea4187a9ff5bbbd5b6ab"
-  version = "0.6.5"
+  revision = "27dd1f187840b85d6c2fc3e6d63758ae19511798"
+  version = "0.6.9"
 
 [[projects]]
   digest = "1:7964a5e1e7295a9bf77a6cfab22e595ac9c9763c085a6842db4d617cb5438615"
