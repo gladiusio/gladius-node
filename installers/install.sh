@@ -13,9 +13,10 @@ fail() {
 initArch() {
   ARCH=$(uname -m)
   case $ARCH in
-    armv5*) ARCH="armv5" ;;
-    armv6*) ARCH="armv6" ;;
-    armv7*) ARCH="armv7" ;;
+    armv5*) ARCH="arm" ;;
+    armv6*) ARCH="arm" ;;
+    armv7*) ARCH="arm" ;;
+    armv8*) ARCH="arm64" ;;
     aarch64) ARCH="arm64" ;;
     x86) ARCH="386" ;;
     x86_64) ARCH="amd64" ;;
@@ -118,6 +119,15 @@ installFile() {
   tar xf "$GLADIUS_TMP_CONTENT_FILE" -C "$GLADIUS_TEMP"
   GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME"
   GLADIUS_TMP_CONTENT="$GLADIUS_TEMP/content"
+
+
+  read -p "Is this install location ok "$INSTALL_BIN"? (y/n)" -n 1 CHANGE_BIN
+  echo
+  if [[ $CHANGE_BIN =~ ^[Nn]$ ]]; then
+    read -p "Enter a new install location: " NEW_BIN
+    echo
+    INSTALL_BIN=$NEW_BIN
+  fi
 
   # Check if the install bin exists, then copy the files to it.
   mkdir -p $INSTALL_BIN

@@ -1,0 +1,4 @@
+DisableIPDiscovery = true # So we don't discover our public IP and instead use the one from our test scripts
+DisableHeartbeat = true # So we can avoid potential inconsistencies accross the network (making our test non-deterministic)
+LogLevel = "debug"
+DisableAutoJoin = true # So we can manually join for testing

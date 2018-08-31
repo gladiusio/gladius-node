@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Gladius Node"
-#define MyAppVersion "0.5.0"
+#define MyAppVersion "0.6.0"
 #define MyAppPublisher "Gladius Network, LLC"
 #define MyAppURL "https://gladius.io"
 #define MyAppExeName "gladius-electron.exe"
@@ -53,7 +53,6 @@ Source: "gladius-wizard-small-image.bmp";    DestDir: "{app}";                  
 Source: "LICENSE.txt";                       DestDir: "{app}";                           Flags: ignoreversion
 Source: "AfterText.rtf";                     DestDir: "{app}";                           Flags: ignoreversion
 Source: "README.md";                         DestDir: "{app}";                           Flags: ignoreversion
-Source: "gladius-controld.toml";             DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
 Source: "gladius-cli.toml";                  DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
 Source: "gladius-networkd.toml";             DestDir: "{sd}\Users\{username}\.gladius";  Flags: ignoreversion
 Source: "gladius-electron-win32-x64\*";      DestDir: "{app}\gladius-electron-win32-x64";         Flags: ignoreversion recursesubdirs createallsubdirs
@@ -142,17 +141,17 @@ end;
 
 [Run]
 Filename: "{app}\gladius-networkd.exe"; Parameters:"install"; StatusMsg:"Installing GladiusNetworkDaemon as a service"; Flags: runascurrentuser runhidden
-Filename: "{app}\gladius-controld.exe"; Parameters:"install"; StatusMsg:"Installing GladiusControlDaemon as a service"; Flags: runascurrentuser runhidden
+Filename: "{app}\gladius-controld.exe"; Parameters:"install"; StatusMsg:"Installing GladiusNodeControlDaemon as a service"; Flags: runascurrentuser runhidden
 
-Filename: "{sys}\sc.exe"; Parameters: "start ""GladiusControlDaemon""" ; Flags: runhidden
+Filename: "{sys}\sc.exe"; Parameters: "start ""GladiusNodeControlDaemon""" ; Flags: runhidden
 Filename: "{sys}\sc.exe"; Parameters: "start ""GladiusNetworkDaemon""" ; Flags: runhidden
 
 Filename: "{app}\gladius-electron-win32-x64\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 ; Install and start gladius-networkd and gladius-controld as services
 
 [UninstallRun]
-Filename: "{sys}\sc.exe"; Parameters: "stop ""GladiusControlDaemon""" ; Flags: runhidden
-Filename: "{sys}\sc.exe"; Parameters: "delete ""GladiusControlDaemon""" ; Flags: runhidden
+Filename: "{sys}\sc.exe"; Parameters: "stop ""GladiusNodeControlDaemon""" ; Flags: runhidden
+Filename: "{sys}\sc.exe"; Parameters: "delete ""GladiusNodeControlDaemon""" ; Flags: runhidden
 Filename: "{sys}\sc.exe"; Parameters: "stop ""GladiusNetworkDaemon""" ; Flags: runhidden
 Filename: "{sys}\sc.exe"; Parameters: "delete ""GladiusNetworkDaemon""" ; Flags: runhidden
 ; Stop and uninstall gladius-networkd and gladius-controld as services
