@@ -11,7 +11,7 @@
   branch = "master"
   name = "github.com/aristanetworks/goarista"
   packages = ["monotime"]
-  revision = "4dd728aa987e9168a1e609e4919921dbfac9bd7f"
+  revision = "fb622b9b46608fdb39d36447f4d8ef52fe37fc3d"
 
 [[projects]]
   branch = "master"
@@ -74,13 +74,13 @@
   version = "v1.4.7"
 
 [[projects]]
+  branch = "master"
   name = "github.com/gladiusio/gladius-application-server"
   packages = [
     "pkg/controller",
     "pkg/db/models"
   ]
-  revision = "89d8ec205fb04de81dc030a75f204730ac367015"
-  version = "0.1.1"
+  revision = "890173f7c00ea9e8fcfa8708db0dfb0dc5958a36"
 
 [[projects]]
   branch = "develop"
@@ -109,7 +109,7 @@
     "pkg/routing/handlers",
     "pkg/routing/response"
   ]
-  revision = "9bd0acb7a1bff05c7a51ffc88cd5c571f0d1d83c"
+  revision = "ee0d79fe829218aeb2af3ffaafce1cbdeed372c1"
 
 [[projects]]
   branch = "develop"
@@ -121,7 +121,7 @@
     "networkd/server/contserver",
     "networkd/state"
   ]
-  revision = "39bc8cc6bce40f9d35f6b18ec8bd434cad03a08a"
+  revision = "26e68d4e3794c1f62272899e290a859b13c24cbc"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"
@@ -302,8 +302,8 @@
 [[projects]]
   name = "github.com/mattn/go-isatty"
   packages = ["."]
-  revision = "0360b2af4f38e8d38c7fce2a9f4e702702d73a39"
-  version = "v0.0.3"
+  revision = "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
+  version = "v0.0.4"
 
 [[projects]]
   name = "github.com/mattn/go-sqlite3"
@@ -506,7 +506,7 @@
     "windows/svc/eventlog",
     "windows/svc/mgr"
   ]
-  revision = "49385e6e15226593f68b26af201feec29d5bba22"
+  revision = "fa5fdf94c78965f1aa8423f0cc50b8b8d728b05a"
 
 [[projects]]
   name = "golang.org/x/text"

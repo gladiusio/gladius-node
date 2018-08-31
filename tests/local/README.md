@@ -9,3 +9,5 @@ running on the development branch, you shuld run `dep ensure -update` first to
 make sure you're at the most recent development branch for all services.
 ### Testing
 run `go test` in this directory
+*note* the test for state equality may not pass, this is due to heartbeat and
+propagation times in the network.
