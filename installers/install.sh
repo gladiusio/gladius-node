@@ -100,7 +100,7 @@ setupConfig(){
 
   cp -a $GLADIUS_TMP_CONTENT/* $CONTENT_DIR
 
-  CONFIG_FILE1="$CONFIG_DIR/gladius-networkd.toml"
+  CONFIG_FILE1="$CONFIG_DIR/gladius-cli.toml"
   CONFIG_FILE2="$CONFIG_DIR/gladius-controld.toml"
 
   touch $CONFIG_FILE1
