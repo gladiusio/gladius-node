@@ -5,12 +5,12 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
 ### macOS
 
-- Download .dmg from releases: [gladius-0.5.0-macOS.dmg](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/gladius-0.5.0-macOS.dmg)
+- Download .dmg from releases: [gladius-0.6.0-macOS.dmg](https://github.com/gladiusio/gladius-node/releases/download/0.6.0/gladius-0.6.0-macOS.dmg)
 - Double click and drag the App to your Applications folder
 
 ### Windows
 
-- Download .exe from releases: [gladius-0.5.0-windows-setup.exe](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/Gladius-0.5.0-windows-setup.exe)
+- Download .exe from releases: [gladius-0.6.0-windows-setup.exe](https://github.com/gladiusio/gladius-node/releases/download/0.6.0/gladius-0.6.0-windows-setup.exe)
 - Double click and go through the installer
 - Add it to your desktop!
 
