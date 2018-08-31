@@ -20,9 +20,6 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 
   `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
 
-- Download GUI (Optional)
-  - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/Gladius-0.5.0-Linux-GUI.zip)
-
 ## Usage
 
 **Ports that need to be forwarded**
