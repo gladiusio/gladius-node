@@ -1,35 +1,27 @@
-# Gladius Node (Golang version)
+# Gladius Node
 
 The full suite of Gladius binaries ([controld](https://github.com/gladiusio/gladius-control-daemon), [networkd](https://github.com/gladiusio/gladius-networkd), [cli](https://github.com/gladiusio/gladius-cli)) to run a node.
 ## Install
 
 ### macOS
 
-- Download .dmg from releases, [gladius-0.5.0-macOS.dmg](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/gladius-0.5.0-macOS.dmg)
-- Click the menu bar Gladius icon in the top right
-- In Beta options
-  - Click "Add gladius to Path"
-  - Click "Open Terminal" to open the Terminal to run `gladius`
-- The Profile UI is included in this app
-- Once done installing software please follow these usage guidelines [HERE](https://github.com/gladiusio/gladius-node#gladius-cli)
+- Download .dmg from releases: [gladius-0.5.0-macOS.dmg](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/gladius-0.5.0-macOS.dmg)
+- Double click and drag the App to your Applications folder
 
+### Windows
 
-### Linux
+- Download .exe from releases: [gladius-0.5.0-windows-setup.exe](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/Gladius-0.5.0-windows-setup.exe)
+- Double click and go through the installer
+- Add it to your desktop!
 
-(latest release)
+### Linux (latest release)
 
 - Run this in the terminal
 
   `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
 
-- Download Profile UI (Optional)
+- Download GUI (Optional)
   - [Debian (Ubuntu)](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/Gladius-0.5.0-Linux-GUI.zip)
-
-
-### Windows
-1. [Download the native windows installer!](https://github.com/gladiusio/gladius-node/releases/download/0.5.0/Gladius-0.5.0-windows-setup.exe) (includes the UI)
-2. Run the installer
-
 
 ## Usage
 
@@ -40,15 +32,28 @@ The full suite of Gladius binaries ([controld](https://github.com/gladiusio/glad
 | 8080  | Networkd - Content server  |
 | 7946  | Controld - P2P Network  |
 
-**Important notes**
+### Using Node Manager UI
+Use the Gladius Node Manager UI to go through onboarding and apply to a pool. No ether needed!
+![](https://image.ibb.co/gokiUe/Screen_Shot_2018_08_03_at_1_56_08_PM.png)
 
-*Windows users:* `gladius-networkd` and `gladius-controld` are automatically added as system services. You should **NOT** attempt to run `gladius-networkd` and `gladius-controld` as commands because they are **already running**.
+Once you applied to a pool wait for the Pool Manager to accept your application. Once you've been accepted you're done! Your computer will automatically download and serve files. *You can monitor blockchain transactions on your account in the `Transactions` page.*
 
-*Non-Windows users:* You need to run both the Gladius Control and Gladius Network daemons **and then** you can interact with them through the Gladius CLI
+![](https://image.ibb.co/kNjXNz/Screen_Shot_2018_08_03_at_1_57_50_PM.png)
+
+### Using CLI
+**IMPORTANT NOTES**
+
+*Windows and macOS users:* If you installed through the `.exe` or `.dmg` in the releases section, `gladius-networkd` and `gladius-controld` are automatically added as system services. You should **NOT** attempt to run `gladius-networkd` and `gladius-controld` as commands because they are **already running**.
+
+*Linux users:* You need to run both the Gladius Control and Gladius Network daemons **and then** you can interact with them through the Gladius CLI. Scroll down to learn how to add the modules as services.
+
+#### CLI Commands
+
+[**CLICK HERE TO FOR THE LATEST CLI COMMANDS LOCATED IN THE README OF GLADIUS-CLI**](https://github.com/gladiusio/gladius-cli/blob/master/README.md)
 
 
-### Manually run networkd or controld as a service
-You can also install networkd and controld as a system service. This should work with Windows XP+, Linux/(systemd | Upstart | SysV), and macOS/Launchd. These will then start at login.
+#### Manually run networkd or controld as a service
+You can install networkd and controld as a system service. See **IMPORTANT NOTES** above to see if this is an option for you. This should work with Windows XP+, Linux/(systemd | Upstart | SysV), and macOS/Launchd. These will then start at login.
 
 **Important Note** The GladiusBase directory will be located under the user that
 installs the service, so issues may come up if installed from a different user
@@ -65,19 +70,19 @@ gladius-<networkd|controld> start
 gladius-<networkd|controld> stop
 ```
 
-### Run networkd or controld as a non service
+#### Run networkd or controld as a non service
 
 One good way to do this would be to use something like [screen](https://www.gnu.org/software/screen/manual/screen.html) to run in the
 background
 
-#### Gladius Control Daemon
+**Gladius Control Daemon**
 ```
 $ gladius-controld
 
 Starting server at http://localhost:3001
 ```
 
-#### Gladius Networking Daemon
+**Gladius Networking Daemon**
 ```
 $ gladius-networkd
 
@@ -85,127 +90,10 @@ Loading config
 Starting...
 ```
 
-### Gladius CLI
-
-Use `--help` on the base command to see the help menu. Use `--help` any other command for a description of that command
-
-#### Full list of commands (in order of usage)
-
-**base**
+**Gladius CLI**
 ```
-$ gladius
-
-Welcome to the Gladius CLI!
-
-Here are the commands to create a node and apply to a pool in order:
-
-$ gladius create
-$ gladius apply
-$ gladius check
-
-After you are accepted into a pool, you can become an edge node:
-
-$ gladius node start
-
-Use the -h flag to see the help menu
+$ gladius --help
 ```
-
-**create**
-
-Deploys a new Gladius Node smart contract containing the encrypted version of the data you submitted. If you enter in the wrong information you can just run the command again to make a new node.
-```
-$ gladius create
-
-[Gladius] What is your name? Marcelo Test
-[Gladius] What is your email? email@test.com
-[Gladius] Please type your password:  ********
-
-Tx: 0xb37a017d2877ab7350e0c7199326bc97bda32e4d8ae46c6aaecc2f9b0cd3b133	 Status: Pending...
-Tx: 0xb37a017d2877ab7350e0c7199326bc97bda32e4d8ae46c6aaecc2f9b0cd3b133	 Status: Successful
-Node created!
-
-Tx: 0x6931f0394684ebef6c0fa9c83ccf1ae7fa2811b93b4480fcf0ba163e8eb03ff6	 Status: Pending...
-Tx: 0x6931f0394684ebef6c0fa9c83ccf1ae7fa2811b93b4480fcf0ba163e8eb03ff6	 Status: Successful
-Node data set!
-
-Node Address: 0xb04578990b1cbb515b8764ca8778e5ba7f6eb8e5
-
-Use gladius apply to apply to a pool
-```
-
-**apply**
-
-Submits the data to a specific pool, allowing them to accept or reject you to become a part of the pool
-```
-$ gladius apply
-
-[Gladius] Pool Address:  0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4
-[Gladius] Please type your password:  ********
-
-Tx: 0x14e796ce7939c035586ff2b6f26e1ad9db71be7a760715debbad68b4cb9d9496	 Status: Pending
-Tx: 0x14e796ce7939c035586ff2b6f26e1ad9db71be7a760715debbad68b4cb9d9496	 Status: Successful
-
-Application sent to pool!
-Use gladius check to check your application status
-```
-
-**check**
-
-Check your application status to a specific pool
-```
-$ gladius check
-
-[Gladius] Pool Address:  0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4
-Pool: 0xC88a29cf8F0Baf07fc822DEaA24b383Fc30f27e4	 Status: Pending
-
-Use gladius node start to start the node networking software
-```
-
-**node [start | stop | status]**
-
-Start/stop or check the status of the node networking software
-```
-$ gladius node start
-Network Daemon:	 Started the server
-
-Use gladius node stop to stop the node networking software
-Use gladius node status to check the status of the node networking software
-```
-
-```
-$ gladius node stop
-Network Daemon:	 Stopped the server
-
-Use gladius node start to start the node networking software
-Use gladius node status to check the status of the node networking software
-```
-
-```
-$ gladius node status
-Network Daemon:	 Server is Running
-
-Use gladius node start to start the node networking software
-Use gladius node stop to stop the node networking software
-```
-**profile**
-
-See information regarding your node
-```
-$ gladius profile
-
-Account Address: 0x8C3650F01aA308e0B56F12530378748190c6b454
-Node Address: 0xf15aea30341982b117583f36cf516f6cea5ddf91
-Node Name: Marcelo
-Node Email: marcelo@test.com
-Node IP: 12.12.123.12
-```
-
-### Beta Node Manager
-After you are done creating a Node you can check the status of it with our manager app. This displays your node information from the blockchain and is what's sent to the pool manager. You can find a link to install it in the install section.
-
-
-
-![](https://i.imgur.com/cKl4vZ1.png)
 
 ---
 
