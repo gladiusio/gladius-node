@@ -105,7 +105,7 @@
     "pkg/routing/response",
     "pkg/utils"
   ]
-  revision = "b0aec1f4aaaad820de21d4ece52e0067eb0923f4"
+  revision = "92db16d461b390b33321c39a1676c83d3519d9dd"
 
 [[projects]]
   branch = "develop"
@@ -117,7 +117,7 @@
     "networkd/server/contserver",
     "networkd/state"
   ]
-  revision = "c3488c57b9f463741002aa5c4183d2e9201af996"
+  revision = "6955a5069c9b394f39e4db182d93e0d944af0aab"
 
 [[projects]]
   name = "github.com/gladiusio/gladius-utils"

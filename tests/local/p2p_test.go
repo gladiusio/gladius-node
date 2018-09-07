@@ -86,6 +86,15 @@ func TestNodeHasFullInformation(t *testing.T) {
 					t.Errorf("Node %d had issues with it's content_port. The error was: %s", i, err.Error())
 				}
 
+				num := 0
+				jsonparser.ArrayEach(value, func(v []byte, dataType jsonparser.ValueType, offset int, err error) {
+					num++
+				})
+
+				if num == 0 {
+					t.Errorf("Node %d didn't have any disk content.", i)
+				}
+
 				return nil
 			}, "response", "node_data_map")
 
