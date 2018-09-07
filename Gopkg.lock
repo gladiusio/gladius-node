@@ -105,7 +105,7 @@
     "pkg/routing/response",
     "pkg/utils"
   ]
-  revision = "92db16d461b390b33321c39a1676c83d3519d9dd"
+  revision = "2c73386daffb936c305119d5fd3210b73a8cfd18"
 
 [[projects]]
   branch = "develop"
