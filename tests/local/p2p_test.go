@@ -250,7 +250,7 @@ func (pt *p2pTester) createNetworkd(n int) {
 		"CONTENTD_OVERRIDEIP=localhost",
 		"CONTENTD_DISABLEHEARTBEAT=true",
 		"CONTENTD_CONTENTPORT=" + strconv.Itoa(pt.contentPorts[n]),
-		"CONTENTD_P2PSEEDNODEADDRESS=localhost:7946",
+		"CONTENTD_P2PSEEDNODEADDRESS=127.0.0.1",
 		"CONTENTD_LOGLEVEL=debug",
 		"CONTENTD_CONTROLDPORT=" + strconv.Itoa(pt.controlPorts[n]),
 	}
@@ -261,9 +261,10 @@ func (pt *p2pTester) createNetworkd(n int) {
 
 func (pt *p2pTester) createControld(n int) {
 	controldEnv := []string{
+		"CONTROLD_P2P_VERIFYOVERRIDE=true",
 		fmt.Sprintf("GLADIUSBASE=./bases/g%d", n),
 		"CONTROLD_P2P_BINDPORT=" + strconv.Itoa(pt.p2pPorts[n]),
-		"CONTROLD_P2P_ADVERTISEPORT=" + strconv.Itoa(pt.p2pPorts[n]),
+		"CONTROLD_P2P_BINDADDRESS=127.0.0.1",
 		"CONTROLD_NODEMANAGER_CONFIG_PORT=" + strconv.Itoa(pt.controlPorts[n]),
 		"CONTROLD_BLOCKCHAIN_POOLMANAGERADDRESS=0x6531a634Bbb040B00f32718fa8d9Fa197274f1D0",
 	}
@@ -311,7 +312,7 @@ func (pt *p2pTester) startDaemonsAndWait() {
 	time.Sleep(2 * time.Second)
 	pt.createSeedNetworkd()
 	for i := 1; i < pt.numOfNodes; i++ {
-		time.Sleep(3 * time.Second) // Sleep to give it a break
+		time.Sleep(100 * time.Millisecond) // Sleep to give it a break
 		go func(n int) {
 			pt.createControld(n)
 			time.Sleep(2 * time.Second)
@@ -319,7 +320,7 @@ func (pt *p2pTester) startDaemonsAndWait() {
 		}(i)
 	}
 
-	time.Sleep(120 * time.Second)
+	time.Sleep(15 * time.Second)
 }
 
 // Stop the daemons
