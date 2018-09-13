@@ -1,5 +1,6 @@
 What are you installing?
 ========================
 
-Below are guides on installing the services that allow you to become a node in
-the Gladius network.
+The installers will add the ``gladius-controld`` the ``gladius-networkd`` and
+the ``gladius-cli`` to your system, as well as setup service management and the
+user interface. 
