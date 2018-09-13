@@ -6,7 +6,6 @@ Will installing an update erase my previous wallet?
 No, our installer will only create a wallet directory if one doesn't already
 exist.
 
-
 .. note:: If you find any issues, let us know and we'll add them here!
 
 
