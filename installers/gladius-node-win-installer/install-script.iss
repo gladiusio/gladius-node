@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Gladius Node"
-#define MyAppVersion "0.6.0"
+#define MyAppVersion "0.6.1"
 #define MyAppPublisher "Gladius Network, LLC"
 #define MyAppURL "https://gladius.io"
 #define MyAppExeName "gladius-electron.exe"
@@ -143,15 +143,15 @@ end;
 Filename: "{app}\gladius-networkd.exe"; Parameters:"install"; StatusMsg:"Installing GladiusNetworkDaemon as a service"; Flags: runascurrentuser runhidden
 Filename: "{app}\gladius-controld.exe"; Parameters:"install"; StatusMsg:"Installing GladiusNodeControlDaemon as a service"; Flags: runascurrentuser runhidden
 
-Filename: "{sys}\sc.exe"; Parameters: "start ""GladiusNodeControlDaemon""" ; Flags: runhidden
-Filename: "{sys}\sc.exe"; Parameters: "start ""GladiusNetworkDaemon""" ; Flags: runhidden
+Filename: "{sys}\sc.exe"; Parameters: "start ""GladiusNodeControlDaemon""" ; Flags: runascurrentuser runhidden
+Filename: "{sys}\sc.exe"; Parameters: "start ""GladiusNetworkDaemon""" ; Flags: runascurrentuser runhidden
 
 Filename: "{app}\gladius-electron-win32-x64\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 ; Install and start gladius-networkd and gladius-controld as services
 
 [UninstallRun]
-Filename: "{sys}\sc.exe"; Parameters: "stop ""GladiusNodeControlDaemon""" ; Flags: runhidden
-Filename: "{sys}\sc.exe"; Parameters: "delete ""GladiusNodeControlDaemon""" ; Flags: runhidden
-Filename: "{sys}\sc.exe"; Parameters: "stop ""GladiusNetworkDaemon""" ; Flags: runhidden
-Filename: "{sys}\sc.exe"; Parameters: "delete ""GladiusNetworkDaemon""" ; Flags: runhidden
+Filename: "{sys}\sc.exe"; Parameters: "stop ""GladiusNodeControlDaemon""" ; Flags: runascurrentuser runhidden
+Filename: "{sys}\sc.exe"; Parameters: "delete ""GladiusNodeControlDaemon""" ; Flags: runascurrentuser runhidden
+Filename: "{sys}\sc.exe"; Parameters: "stop ""GladiusNetworkDaemon""" ; Flags: runascurrentuser runhidden
+Filename: "{sys}\sc.exe"; Parameters: "delete ""GladiusNetworkDaemon""" ; Flags: runascurrentuser runhidden
 ; Stop and uninstall gladius-networkd and gladius-controld as services
