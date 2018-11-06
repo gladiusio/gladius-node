@@ -15,11 +15,11 @@ build() {
     suffix=".exe"
   fi
 
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius-networkd$suffix" "./cmd/gladius-networkd"
-  GOOS=$1 GOARCH=$2 go build -o "$node_dir/gladius$suffix" "./cmd/gladius-cli"
-  xgo --targets="$1/$2" --out="gladius-controld" --dest="$node_dir" "./cmd/gladius-controld"
+  GOOS=$1 GOARCH=$2 vgo build -o "$node_dir/gladius-edged$suffix" "./cmd/gladius-edged"
+  GOOS=$1 GOARCH=$2 vgo build -o "$node_dir/gladius$suffix" "./cmd/gladius-cli"
+  xgo --targets="$1/$2" --out="gladius-network-gateway" --dest="$node_dir" "./cmd/gladius-network-gateway"
 
-  mv $node_dir/gladius-controld-* $node_dir/gladius-controld$suffix
+  mv $node_dir/gladius-network-gateway-* $node_dir/gladius-network-gateway$suffix
 
   # Copy bins to Windows Installer
   if [ $1 = "windows" ] && [ $2 = "amd64" ]

@@ -18,20 +18,25 @@ ifeq ($(GOOS),windows)
 endif
 
 # code source and build directories
-SRC_DIR=./cmd
+SRC_DIR=./src
 DST_DIR=./build
 
 CLI_SRC=$(SRC_DIR)/gladius-cli
-NET_SRC=$(SRC_DIR)/gladius-networkd
-CTL_SRC=$(SRC_DIR)/gladius-controld
+NET_SRC=$(SRC_DIR)/gladius-edged
+CTL_SRC=$(SRC_DIR)/gladius-network-gateway
+GUARD_SRC=$(SRC_DIR)/gladius-guardian
 
 CLI_DEST=$(DST_DIR)/gladius$(BINARY_SUFFIX)
-NET_DEST=$(DST_DIR)/gladius-networkd$(BINARY_SUFFIX)
-CTL_DEST=$(DST_DIR)/gladius-controld$(BINARY_SUFFIX)
+NET_DEST=$(DST_DIR)/gladius-edged$(BINARY_SUFFIX)
+CTL_DEST=$(DST_DIR)/gladius-network-gateway$(BINARY_SUFFIX)
+GUARD_DEST=$(DST_DIR)/gladius-guardian$(BINARY_SUFFIX)
+
+NET_CMD=$(CTL_SRC)/cmd/main.go
+GUARD_CMD=$(GUARD_SRC)/main.go
 
 # commands for go
-GOBUILD=go build
-GOTEST=go test
+GOBUILD=vgo build
+GOTEST=vgo test
 ##
 # MAKE TARGETS
 ##
@@ -39,14 +44,25 @@ GOTEST=go test
 # general make targets
 all: build-all
 
+# clone repositories
+repos:
+	# sources
+	git clone git@github.com:gladiusio/gladius-guardian.git src/gladius-guardian
+	git clone git@github.com:gladiusio/gladius-network-gateway.git src/gladius-network-gateway
+	# installers
+	git clone git@github.com:gladiusio/gladius-node-installer-macos.git installers/gladius-node-mac-installer
+	git clone git@github.com:gladiusio/gladius-node-installer-windows.git installers/gladius-node-win-installer
+
 # define cleanup target for windows and *nix
 ifeq ($(OS),Windows_NT)
 clean:
+	del /Q /F .\\installers\\gladius-node-*\\*
 	del /Q /F .\\build\\*
 	go clean
 
 else
 clean:
+	rm -rf installers/gladius-node-*
 	rm -rf ./build/*
 	go clean
 endif
@@ -88,19 +104,22 @@ test-cli: $(CLI_SRC)
 cli: test-cli
 	$(GOBUILD) -o $(CLI_DEST) $(CLI_SRC)
 
-test-networkd: $(NET_SRC)
+test-edged: $(NET_SRC)
 	$(GOTEST) $(NET_SRC)
 
-networkd: test-networkd
+edged: test-edged
 	$(GOBUILD) -o $(NET_DEST) $(NET_SRC)
 
-test-controld: $(CTL_SRC)
-	$(GOTEST) $(CTL_SRC)
+guardian:
+	$(GOBUILD) -o $(GUARD_DEST) $(GUARD_CMD)
 
-controld: test-controld
-	$(GOBUILD) -o $(CTL_DEST) $(CTL_SRC)
+test-network-gateway: $(CTL_SRC)
+	$(GOTEST) $(NET_CMD)
 
-build-all: cli networkd controld
+network-gateway:
+	$(GOBUILD) -o $(CTL_DEST) $(NET_CMD)
+
+build-all: guardian cli edged network-gateway
 
 # docker build based on releases
 # you must specify the release tag for the build process
