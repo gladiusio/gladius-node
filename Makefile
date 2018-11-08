@@ -22,21 +22,20 @@ SRC_DIR=./src
 DST_DIR=./build
 
 CLI_SRC=$(SRC_DIR)/gladius-cli
-NET_SRC=$(SRC_DIR)/gladius-edged
-CTL_SRC=$(SRC_DIR)/gladius-network-gateway
+EDGED_SRC=$(SRC_DIR)/gladius-edged
+GATEWAY_SRC=$(SRC_DIR)/gladius-network-gateway
 GUARD_SRC=$(SRC_DIR)/gladius-guardian
 
+CLI_BUILD=$(SRC_DIR)/gladius-cli/build
+EDGED_BUILD=$(SRC_DIR)/gladius-edged/build
+GATEWAY_BUILD=$(GATEWAY_SRC)/build
+GUARD_BUILD=$(GUARD_SRC)/build
+
 CLI_DEST=$(DST_DIR)/gladius$(BINARY_SUFFIX)
-NET_DEST=$(DST_DIR)/gladius-edged$(BINARY_SUFFIX)
-CTL_DEST=$(DST_DIR)/gladius-network-gateway$(BINARY_SUFFIX)
+EDGED_DEST=$(DST_DIR)/gladius-edged$(BINARY_SUFFIX)
+GATEWAY_DEST=$(DST_DIR)/gladius-network-gateway$(BINARY_SUFFIX)
 GUARD_DEST=$(DST_DIR)/gladius-guardian$(BINARY_SUFFIX)
 
-NET_CMD=$(CTL_SRC)/cmd/main.go
-GUARD_CMD=$(GUARD_SRC)/main.go
-
-# commands for go
-GOBUILD=vgo build
-GOTEST=vgo test
 ##
 # MAKE TARGETS
 ##
@@ -49,6 +48,9 @@ repos:
 	# sources
 	git clone git@github.com:gladiusio/gladius-guardian.git src/gladius-guardian
 	git clone git@github.com:gladiusio/gladius-network-gateway.git src/gladius-network-gateway
+	git clone git@github.com:gladiusio/gladius-edged.git src/gladius-edged
+	git clone git@github.com:gladiusio/gladius-cli.git src/gladius-cli
+
 	# installers
 	git clone git@github.com:gladiusio/gladius-node-installer-macos.git installers/gladius-node-mac-installer
 	git clone git@github.com:gladiusio/gladius-node-installer-windows.git installers/gladius-node-win-installer
@@ -58,68 +60,51 @@ ifeq ($(OS),Windows_NT)
 clean:
 	del /Q /F .\\installers\\gladius-node-*\\*
 	del /Q /F .\\build\\*
-	go clean
-
 else
 clean:
 	rm -rf installers/gladius-node-*
 	rm -rf ./build/*
-	go clean
 endif
 
 # the release target is only available on *nix like systems
 ifneq ($(OS),Windows_NT)
 release:
-	rm -f Gopkg.lock
 	make clean
-	make dependencies
 	sh ./ops/release-all.sh
 endif
 
-
-# dependency management
-ifeq ($(OS),Windows_NT)
-dependencies:
-	dep ensure
-	rem the go-etherum installation on windows fails atm
-	rem go get github.com/ethereum/go-ethereum
-	rem xcopy \
-		"%GOPATH%\\src\\github.com\\ethereum\\go-ethereum\\crypto\\secp256k1\\libsecp256k1" \
-		"vendor\\github.com\\ethereum\\go-ethereum\\crypto\\secp256k1\\"
-
-else
-dependencies:
-	dep ensure
-	go get github.com/ethereum/go-ethereum
-	cp -r \
-		"${GOPATH}/src/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1" \
-		"vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/"
-endif
-
-
 # build steps
-test-cli: $(CLI_SRC)
+test-cli:# $(CLI_SRC)
 	$(GOTEST) $(CLI_SRC)
 
-cli: test-cli
-	$(GOBUILD) -o $(CLI_DEST) $(CLI_SRC)
+cli:# test-cli
+	cd $(CLI_SRC) && $(MAKE)
+	cp $(CLI_BUILD)/* $(CLI_DEST)
 
-test-edged: $(NET_SRC)
-	$(GOTEST) $(NET_SRC)
+test-edged:# $(EDGED_SRC)
+	cd $(EDGED_SRC) && $(MAKE) 
 
-edged: test-edged
-	$(GOBUILD) -o $(NET_DEST) $(NET_SRC)
+edged:# test-edged
+	cd $(EDGED_SRC) && $(MAKE)
+	cp $(EDGED_BUILD)/* $(EDGED_DEST)
 
 guardian:
-	$(GOBUILD) -o $(GUARD_DEST) $(GUARD_CMD)
+	cd $(GUARD_SRC) && $(MAKE)
+	cp $(GUARD_BUILD)/* $(GUARD_DEST)
 
-test-network-gateway: $(CTL_SRC)
-	$(GOTEST) $(NET_CMD)
+test-network-gateway: $(GATEWAY_SRC)
+	$(GOTEST) $(EDGED_CMD)
 
 network-gateway:
-	$(GOBUILD) -o $(CTL_DEST) $(NET_CMD)
+	cd $(GATEWAY_SRC) && $(MAKE)
+	cp $(GATEWAY_BUILD)/* $(GATEWAY_DEST)
 
-build-all: guardian cli edged network-gateway
+build-all: 
+	make clean
+	make cli
+	make edged
+	make guardian 
+	make network-gateway
 
 # docker build based on releases
 # you must specify the release tag for the build process
