@@ -26,8 +26,8 @@ EDGED_SRC=$(SRC_DIR)/gladius-edged
 GATEWAY_SRC=$(SRC_DIR)/gladius-network-gateway
 GUARD_SRC=$(SRC_DIR)/gladius-guardian
 
-CLI_BUILD=$(SRC_DIR)/gladius-cli/build
-EDGED_BUILD=$(SRC_DIR)/gladius-edged/build
+CLI_BUILD=$(CLI_SRC)/build
+EDGED_BUILD=$(EDGED_SRC)/build
 GATEWAY_BUILD=$(GATEWAY_SRC)/build
 GUARD_BUILD=$(GUARD_SRC)/build
 
