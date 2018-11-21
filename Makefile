@@ -58,12 +58,22 @@ repos:
 # define cleanup target for windows and *nix
 ifeq ($(OS),Windows_NT)
 clean:
-	del /Q /F .\\installers\\gladius-node-*\\*
 	del /Q /F .\\build\\*
 else
 clean:
-	rm -rf installers/gladius-node-*
 	rm -rf ./build/*
+endif
+
+ifeq ($(OS),Windows_NT)
+clean-repos:
+	del /Q /F .\\installers\\gladius-node-*\\*
+	del /Q /F .\\src\\*
+	make repos
+else
+clean-repos:
+	rm -rf installers/gladius-node-*
+	rm -rf ./src/*
+	make repos
 endif
 
 # the release target is only available on *nix like systems
@@ -99,12 +109,15 @@ network-gateway:
 	cd $(GATEWAY_SRC) && $(MAKE)
 	cp $(GATEWAY_BUILD)/* $(GATEWAY_DEST)
 
-build-all: 
+build-all:
 	make clean
+	make clean-repos
 	make cli
 	make edged
 	make guardian 
 	make network-gateway
+
+# Below needs updating, proceed at your own risk
 
 # docker build based on releases
 # you must specify the release tag for the build process
