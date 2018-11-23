@@ -1,5 +1,11 @@
 language: go
+go: 
+  - "1.11.x"
+
+# Use sed to replace the SSH URL with the public URL
+before_install:
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' Makefile
 
 install:
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-  - make dependencies
+  - make

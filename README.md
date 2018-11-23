@@ -1,6 +1,13 @@
 # Gladius Node
 
-The full suite of Gladius binaries ([controld](https://github.com/gladiusio/gladius-control-daemon), [networkd](https://github.com/gladiusio/gladius-networkd), [cli](https://github.com/gladiusio/gladius-cli)) to run a node.
+The full suite of Gladius binaries ([Network Gateway](https://github.com/gladiusio/gladius-network-gateway), [EdgeD](https://github.com/gladiusio/gladius-edged), [CLI](https://github.com/gladiusio/gladius-cli), and [Guardian](https://github.com/gladiusio/gladius-guardian)) to run a node.
+
+Current Build Status
+* [![Build Status](https://travis-ci.com/gladiusio/gladius-node.svg?branch=master)](https://travis-ci.com/gladiusio/gladius-node) - Node
+* [![Build Status](https://travis-ci.com/gladiusio/gladius-network-gateway.svg?branch=master)](https://travis-ci.com/gladiusio/gladius-network-gateway) - Network Gateway
+* [![Build Status](https://travis-ci.com/gladiusio/gladius-edged.svg?branch=master)](https://travis-ci.com/gladiusio/gladius-edged) - EdgeD
+* [![Build Status](https://travis-ci.com/gladiusio/gladius-cli.svg?branch=master)](https://travis-ci.com/gladiusio/gladius-cli) - CLI
+
 
 ## Documentation
 Check out our full documentation [here](https://gladius-node.readthedocs.io/en/latest/)
