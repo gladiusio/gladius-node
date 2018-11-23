@@ -2,7 +2,7 @@ language: go
 
 # Use sed to replace the SSH URL with the public URL, then initialize submodules
 before_install:
-  - sed -i 's/git@github.com:/https:\/\/github.com\//' makefile
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' Makefile
 
 install:
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
