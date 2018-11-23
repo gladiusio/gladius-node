@@ -1,4 +1,6 @@
 language: go
+go: 
+  - "1.11.x"
 
 # Use sed to replace the SSH URL with the public URL, then initialize submodules
 before_install:
