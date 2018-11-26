@@ -120,6 +120,7 @@ build-all:
 # Install gcc cross compilers for macOS
 # `brew install mingw-w64` - windows
 # `brew install FiloSottile/musl-cross/musl-cross` - linux
+# `brew install wine` - for compiling electron-ui for windows
 release-all:
 	make clean
 	make clean-repos
