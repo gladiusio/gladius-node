@@ -20,6 +20,7 @@ endif
 # code source and build directories
 SRC_DIR=./src
 DST_DIR=./build
+RELEASE_DIR=$(DST_DIR)/release
 
 CLI_SRC=$(SRC_DIR)/gladius-cli
 EDGED_SRC=$(SRC_DIR)/gladius-edged
@@ -36,10 +37,6 @@ EDGED_DEST=$(DST_DIR)/gladius-edged$(BINARY_SUFFIX)
 GATEWAY_DEST=$(DST_DIR)/gladius-network-gateway$(BINARY_SUFFIX)
 GUARD_DEST=$(DST_DIR)/gladius-guardian$(BINARY_SUFFIX)
 
-##
-# MAKE TARGETS
-##
-
 # general make targets
 all: build-all
 
@@ -50,6 +47,7 @@ repos:
 	git clone git@github.com:gladiusio/gladius-network-gateway.git src/gladius-network-gateway
 	git clone git@github.com:gladiusio/gladius-edged.git src/gladius-edged
 	git clone git@github.com:gladiusio/gladius-cli.git src/gladius-cli
+	git clone git@github.com:gladiusio/gladius-node-ui.git src/gladius-node-ui
 
 	# installers
 	git clone git@github.com:gladiusio/gladius-node-installer-macos.git installers/gladius-node-mac-installer
@@ -111,13 +109,30 @@ network-gateway:
 
 build-all:
 	make clean
-	make clean-repos
 	make cli
 	make edged
 	make guardian 
 	make network-gateway
 
+release-all:
+	make clean
+	make clean-repos
+
+	cd $(CLI_SRC) && $(MAKE) release
+	rsync -a $(CLI_BUILD)/release/ $(RELEASE_DIR)/
+
+	cd $(EDGED_SRC) && $(MAKE) release
+	rsync -a $(EDGED_BUILD)/release/ $(RELEASE_DIR)/
+
+	cd $(GUARD_SRC) && $(MAKE) release
+	rsync -a $(GUARD_BUILD)/release/ $(RELEASE_DIR)/
+
+	cd $(GATEWAY_SRC) && $(MAKE) release
+	rsync -a $(GATEWAY_BUILD)/release/ $(RELEASE_DIR)/
+
+# ##################################################
 # Below needs updating, proceed at your own risk
+# ##################################################
 
 # docker build based on releases
 # you must specify the release tag for the build process

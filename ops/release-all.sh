@@ -4,6 +4,7 @@ RELEASE_DIR="./build/release"
 
 mkdir -p $RELEASE_DIR
 
+# Arguments build($dist $arch)
 build() {
   node_dir=$RELEASE_DIR/gladius-node
   mkdir -p $node_dir
