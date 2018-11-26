@@ -26,11 +26,13 @@ CLI_SRC=$(SRC_DIR)/gladius-cli
 EDGED_SRC=$(SRC_DIR)/gladius-edged
 GATEWAY_SRC=$(SRC_DIR)/gladius-network-gateway
 GUARD_SRC=$(SRC_DIR)/gladius-guardian
+UI_SRC=$(SRC_DIR)/gladius-node-ui
 
 CLI_BUILD=$(CLI_SRC)/build
 EDGED_BUILD=$(EDGED_SRC)/build
 GATEWAY_BUILD=$(GATEWAY_SRC)/build
 GUARD_BUILD=$(GUARD_SRC)/build
+UI_BUILD=$(UI_SRC)/build
 
 CLI_DEST=$(DST_DIR)/gladius$(BINARY_SUFFIX)
 EDGED_DEST=$(DST_DIR)/gladius-edged$(BINARY_SUFFIX)
@@ -114,6 +116,10 @@ build-all:
 	make guardian 
 	make network-gateway
 
+# Made for macOS at the moment
+# Install gcc cross compilers for macOS
+# `brew install mingw-w64` - windows
+# `brew install FiloSottile/musl-cross/musl-cross` - linux
 release-all:
 	make clean
 	make clean-repos
@@ -129,6 +135,17 @@ release-all:
 
 	cd $(GATEWAY_SRC) && $(MAKE) release
 	rsync -a $(GATEWAY_BUILD)/release/ $(RELEASE_DIR)/
+
+	# Copy Go Binaries to Installers
+	cp build/release/macos/* installers/gladius-node-mac-installer/Manager/Shared/
+	cp build/release/windows/* installers/gladius-node-win-installer/
+
+	cd $(UI_SRC) && npm run package
+	rsync -a $(UI_BUILD)/release/ $(RELEASE_DIR)/
+
+	# Copy Electron app to Installers
+	cp -r build/release/macos/Gladius-darwin-x64/Gladius.app installers/gladius-node-mac-installer/Manager/Electron/Gladius.app
+	cp build/release/windows/gladius-electron-win32-x64/gladius-electron.exe installers/gladius-node-win-installer/gladius-electron.exe
 
 # ##################################################
 # Below needs updating, proceed at your own risk
