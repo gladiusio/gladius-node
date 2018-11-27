@@ -111,6 +111,7 @@ network-gateway:
 
 build-all:
 	make clean
+	-make repos
 	make cli
 	make edged
 	make guardian 
@@ -140,6 +141,8 @@ release-all:
 	# Copy Go Binaries to Installers
 	cp build/release/macos/* installers/gladius-node-mac-installer/Manager/Shared/
 	cp build/release/windows/* installers/gladius-node-win-installer/
+
+	# tar -czf "./build/gladius-$TAG-$1-$2.tar.gz" -C $RELEASE_DIR .
 
 	cd $(UI_SRC) && npm run package
 	rsync -a $(UI_BUILD)/release/ $(RELEASE_DIR)/
