@@ -149,7 +149,7 @@ release-all:
 
 	# Copy Electron app to Installers
 	cp -r build/release/macos/Gladius-darwin-x64/Gladius.app installers/gladius-node-mac-installer/Manager/Electron/Gladius.app
-	cp build/release/windows/gladius-electron-win32-x64/gladius-electron.exe installers/gladius-node-win-installer/gladius-electron.exe
+	cp -r build/release/windows/gladius-electron-win32-x64 installers/gladius-node-win-installer/gladius-electron-win32-x64
 
 # ##################################################
 # Below needs updating, proceed at your own risk
