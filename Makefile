@@ -144,11 +144,38 @@ release-all:
 
 	# tar -czf "./build/gladius-$TAG-$1-$2.tar.gz" -C $RELEASE_DIR .
 
-	cd $(UI_SRC) && npm run package
+	cd $(UI_SRC) && npm install && npm run build && npm run package
 	rsync -a $(UI_BUILD)/release/ $(RELEASE_DIR)/
 
 	# Copy Electron app to Installers
 	cp -r build/release/macos/Gladius-darwin-x64/Gladius.app installers/gladius-node-mac-installer/Manager/Electron/Gladius.app
+	cp -r build/release/windows/gladius-electron-win32-x64 installers/gladius-node-win-installer/gladius-electron-win32-x64
+
+release-win:
+	make clean
+	make clean-repos
+
+	cd $(CLI_SRC) && $(MAKE) release-win
+	rsync -a $(CLI_BUILD)/release/ $(RELEASE_DIR)/
+
+	cd $(EDGED_SRC) && $(MAKE) release-win
+	rsync -a $(EDGED_BUILD)/release/ $(RELEASE_DIR)/
+
+	cd $(GUARD_SRC) && $(MAKE) release-win
+	rsync -a $(GUARD_BUILD)/release/ $(RELEASE_DIR)/
+
+	cd $(GATEWAY_SRC) && $(MAKE) release-win
+	rsync -a $(GATEWAY_BUILD)/release/ $(RELEASE_DIR)/
+
+	# Copy Go Binaries to Installers
+	cp build/release/windows/* installers/gladius-node-win-installer/
+
+	# tar -czf "./build/gladius-$TAG-$1-$2.tar.gz" -C $RELEASE_DIR .
+
+	cd $(UI_SRC) && npm install && npm run build && npm run package-win
+	rsync -a $(UI_BUILD)/release/ $(RELEASE_DIR)/
+
+	# Copy Electron app to Installers
 	cp -r build/release/windows/gladius-electron-win32-x64 installers/gladius-node-win-installer/gladius-electron-win32-x64
 
 # ##################################################
