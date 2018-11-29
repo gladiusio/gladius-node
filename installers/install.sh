@@ -91,7 +91,7 @@ downloadFile() {
 }
 
 setupConfig(){
-  CONFIG_DIR="$HOME/.config/gladius"
+  CONFIG_DIR="$HOME/.gladius"
   CONTENT_DIR="$CONFIG_DIR/content/"
 
   echo -e "\nCreating files in: $CONFIG_DIR"
@@ -100,16 +100,6 @@ setupConfig(){
   mkdir -p "$CONTENT_DIR"
 
   cp -a $GLADIUS_TMP_CONTENT/* $CONTENT_DIR
-
-  CONFIG_FILE1="$CONFIG_DIR/gladius-networkd.toml"
-  CONFIG_FILE2="$CONFIG_DIR/gladius-cli.toml"
-
-  touch $CONFIG_FILE1
-  touch $CONFIG_FILE2
-
-  echo "# See the configurable values at github.com/gladiusio/gladius-node" >> $CONFIG_FILE1
-  echo "# See the configurable values at github.com/gladiusio/gladius-node" >> $CONFIG_FILE2
-
 }
 
 installFile() {
