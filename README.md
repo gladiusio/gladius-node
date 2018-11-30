@@ -8,54 +8,45 @@ Current Build Status
 * [![Build Status](https://travis-ci.com/gladiusio/gladius-edged.svg?branch=master)](https://travis-ci.com/gladiusio/gladius-edged) - EdgeD
 * [![Build Status](https://travis-ci.com/gladiusio/gladius-cli.svg?branch=master)](https://travis-ci.com/gladiusio/gladius-cli) - CLI
 
+## Download and Installation
 
-## Documentation
-Check out our full documentation [here](https://gladius-node.readthedocs.io/en/latest/)
+**Windows/macOS :** https://gladius.io/download
+- **Windows:** Open `gladius setup.exe` and use the installer
+- **macOS:** Open the DMG and drag `Gladius` to the Applications folder
+
+**Linux :** `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
+
+## Use
+**Windows/macOS**
+1. Download and install (see above)
+2. Open the application
+3. Follow the instructions inside
+4. You can close the application and it will run in the background
+
+*Windows: To turn off the application completely use the task manager (Kill gladius-guardian/edged/network-gateway) this will be changed in next release.*
+
+*macOS: To turn off the application completely use the menu bar (Right click Gladius -> Quit all)*
+
+**Linux**
+1. `sudo gladius-guardian install` (Install guardian as service)
+2. `sudo gladius-guardian start` (Start it as a service. It will start up automatically on reboot)
+3. `gladius` Use the CLI!
+
+*NOTE: You don't have to use the guardian as a service you can just call `gladius-guardian` (SKIP STEPS 1 & 2) BUT this will require another window or screen session and will not start up on reboot*
 
 ## Development
-If you want to contribute to the project, please clone, modify, and make a pull request to the respective [controld](https://github.com/gladiusio/gladius-control-daemon), [networkd](https://github.com/gladiusio/gladius-networkd), [cli](https://github.com/gladiusio/gladius-cli) repositories
-### Dependencies
-To test and build the gladius binaries you need go, go-dep and the make on your machine.
+If you would like to contribute to the project:
+1. `git clone`
+2. `make repos` (will clone all the modules into the `./src` directory)
+3. Code!
+4. Make a PR in the respective repo (probably not this one)
+5. Send an email to cla@gladius.io to sign our Contributor Licensing Agreement
 
-- Install [go](https://golang.org/doc/install)
-- Install [go-dep](https://golang.github.io/dep/docs/installation.html)
-- *Mac Users:* Install xcode for make `xcode-select --install`
-- *Windows Users:* Install [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-
-### Install dependencies
-We use [go-dep](https://golang.github.io/dep/docs/installation.html) to manage the go dependencies.
-To install the dependencies you need to execute the `dependencies` target.
-
-```shell
-# install depdencies for the project with go-dep
-make dependencies
-```
-This will also configure the Ethereum bindings to work with go-dep.
+### Go
+- Using `Go 1.11.1`
+- Using go modules
 
 ### Build
-To build all binaries for your current os and architecture simply execute `make`.
-After the build process you will find all binaries in *./build/*.
-
-#### Build specific binary
-The Makefile can build single binaries too.
-```shell
-# build only the cli
-make cli
-
-# build the network daemon
-make networkd
-
-# build the control daemon
-make controld
-```
-
-#### Build for a different platform
-*Attention: There will be issues cross compiling the controld for other systems due to the go-ethereum CGO bindings, you can try using [xgo](https://github.com/karalabe/xgo) to work around the issues though*
-To build for a different platform specify toe GOOS and GOARCH variable.
-```shell
-# build for windows 64bit
-GOOS=windows GOARCH=amd64 make
-
-# build for linux 32bit
-GOOS=linux GOARCH=386 make
-```
+- `make`: builds for your architecture and places binaries in `./build`
+- You can go into `./src/gladius-(repo)` and call `make` to build that repo only.
+It will place the bin in `./src/gladius-(repo)/build`
