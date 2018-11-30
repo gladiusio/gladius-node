@@ -46,9 +46,6 @@ cli:# test-cli
 	cd $(CLI_SRC) && $(MAKE)
 	cp $(CLI_BUILD)/* $(CLI_DEST)
 
-test-edged:# $(EDGED_SRC)
-	cd $(EDGED_SRC) && $(MAKE) 
-
 edged:# test-edged
 	cd $(EDGED_SRC) && $(MAKE)
 	cp $(EDGED_BUILD)/* $(EDGED_DEST)
@@ -56,9 +53,6 @@ edged:# test-edged
 guardian:
 	cd $(GUARD_SRC) && $(MAKE)
 	cp $(GUARD_BUILD)/* $(GUARD_DEST)
-
-test-network-gateway: $(GATEWAY_SRC)
-	$(GOTEST) $(EDGED_CMD)
 
 network-gateway:
 	cd $(GATEWAY_SRC) && $(MAKE)
@@ -139,7 +133,7 @@ release-linux:
 	cp $(RELEASE_DIR)/linux/* installers/gladius-node-mac-installer/Manager/Shared/
 
 	# Create tarballs
-	cd build/release/linux && tar -czf "gladius-$(VERSION)-darwin-amd64.tar.gz" gladius*
+	cd build/release/linux && tar -czf "gladius-$(VERSION)-linux-amd64.tar.gz" gladius*
 
 release-linux-with-ui:
 	cd $(UI_SRC) && npm install && npm run build && npm run package-linux
@@ -163,6 +157,9 @@ release-windows:
 
 	# Copy Go Binaries to Installers
 	cp build/release/windows/* installers/gladius-node-win-installer/
+
+	# Create tarballs
+	cd build/release/windows && tar -czf "gladius-$(VERSION)-windows-amd64.tar.gz" gladius*
 
 release-windows-with-ui: release-windows
 	cd $(UI_SRC) && npm install && npm run build && npm run package-win
