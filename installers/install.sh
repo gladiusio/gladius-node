@@ -83,10 +83,7 @@ downloadFile() {
     fail "You can build one for your system with the instructions here: https://github.com/gladiusio/gladius-node"
   else
     echo "Downloading $DOWNLOAD_URL..."
-    echo "Downloading content..."
-
     getFile "$DOWNLOAD_URL" "$GLIDE_TMP_FILE"
-    getFile "$CONTENT_URL" "$GLADIUS_TMP_CONTENT_FILE"
   fi
 }
 
