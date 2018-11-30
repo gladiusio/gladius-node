@@ -98,7 +98,7 @@ installFile() {
   GLADIUS_TEMP="/tmp/$PROJECT_NAME"
   mkdir -p "$GLADIUS_TEMP"
   tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
-  GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME"
+  GLADIUS_TMP_BIN="$GLADIUS_TEMP"
 
   read -p "Is this install location ok "$INSTALL_BIN"? (y/n)" -n 1 CHANGE_BIN
   echo
