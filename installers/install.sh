@@ -70,10 +70,7 @@ downloadFile() {
   echo "Expected tarball is: $GLADIUS_DIST"
   DOWNLOAD_URL="https://github.com/gladiusio/gladius-node/releases/download/$TAG/$GLADIUS_DIST"
 
-  CONTENT_URL="https://github.com/gladiusio/gladius-node/releases/download/$TAG/content.tar.gz"
-
   GLADIUS_TMP_FILE="/tmp/$GLADIUS_DIST"
-  GLADIUS_TMP_CONTENT_FILE="/tmp/content.tar.gz"
 
   echo "Attempting to download $DOWNLOAD_URL to $GLADIUS_DIST"
   httpStatusCode=$(getFile "$DOWNLOAD_URL" "$GLADIUS_TMP_FILE")
@@ -95,18 +92,13 @@ setupConfig(){
 
   mkdir -p "$CONFIG_DIR"
   mkdir -p "$CONTENT_DIR"
-
-  cp -a $GLADIUS_TMP_CONTENT/* $CONTENT_DIR
 }
 
 installFile() {
   GLADIUS_TEMP="/tmp/$PROJECT_NAME"
   mkdir -p "$GLADIUS_TEMP"
   tar xf "$GLADIUS_TMP_FILE" -C "$GLADIUS_TEMP"
-  tar xf "$GLADIUS_TMP_CONTENT_FILE" -C "$GLADIUS_TEMP"
   GLADIUS_TMP_BIN="$GLADIUS_TEMP/$PROJECT_NAME"
-  GLADIUS_TMP_CONTENT="$GLADIUS_TEMP/content"
-
 
   read -p "Is this install location ok "$INSTALL_BIN"? (y/n)" -n 1 CHANGE_BIN
   echo
