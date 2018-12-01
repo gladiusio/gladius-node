@@ -30,7 +30,8 @@ Current Build Status
 **Linux**
 1. `sudo gladius-guardian install` (Install guardian as service)
 2. `sudo gladius-guardian start` (Start it as a service. It will start up automatically on reboot)
-3. `gladius` Use the CLI!
+3. `gladius start` (Instruct Guardian to start gladius services. This needs to be done after reboot)
+4. `gladius` Use the CLI!
 
 *NOTE: You don't have to use the guardian as a service you can just call `gladius-guardian` (SKIP STEPS 1 & 2) BUT this will require another window or screen session and will not start up on reboot*
 
