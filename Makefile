@@ -1,6 +1,11 @@
 #!make
 include .env
 
+# Check if required executables are in the path
+EXECUTABLES = xgo docker git poop
+K := $(foreach exec,$(EXECUTABLES),\
+        $(if $(shell which $(exec)),some string,$(error "You need $(exec) in PATH to build")))
+
 # general make targets
 all: build-all
 
