@@ -1,5 +1,5 @@
 #!make
-include .env
+include .config
 
 # Check if required executables are in the path
 EXECUTABLES = xgo docker git
@@ -7,44 +7,31 @@ K := $(foreach exec,$(EXECUTABLES),\
         $(if $(shell which $(exec)),some string,$(error "You need $(exec) in PATH to build")))
 
 # Make folders we need if they don't already exist
-F := $(shell mkdir -p installers src build)
+F := $(shell mkdir -p ./src ./build)
 
 # general make targets
 all: build-all
 
-# clone repositories
+# clone and checkout the right tag on each repo
 repos:
-	# sources
-	git clone git@github.com:gladiusio/gladius-guardian.git src/gladius-guardian
-	git clone git@github.com:gladiusio/gladius-network-gateway.git src/gladius-network-gateway
-	git clone git@github.com:gladiusio/gladius-edged.git src/gladius-edged
-	git clone git@github.com:gladiusio/gladius-cli.git src/gladius-cli
-	git clone git@github.com:gladiusio/gladius-node-ui.git src/gladius-node-ui
+	@git clone $(GUARDIAN_URL) ./src/gladius-guardian
+	@git clone $(GATEWAY_URL) ./src/gladius-network-gateway
+	@git clone $(EDGED_URL) ./src/gladius-edged
+	@git clone $(CLI_URL) ./src/gladius-cli
+	@git clone $(UI_URL) ./src/gladius-node-ui
 
-	# installers
-	git clone git@github.com:gladiusio/gladius-node-installer-macos.git installers/gladius-node-mac-installer
-	git clone git@github.com:gladiusio/gladius-node-installer-windows.git installers/gladius-node-win-installer
+	@git -C ./src/gladius-guardian checkout $(GUARDIAN_VERSION)
+	@git -C ./src/gladius-network-gateway checkout $(GATEWAY_VERSION)
+	@git -C ./src/gladius-edged checkout $(EDGED_VERSION)
+	@git -C ./src/gladius-cli checkout $(CLI_VERSION)
+	@git -C ./src/gladius-node-ui checkout $(UI_VERSION)
 
-# define cleanup target for windows and *nix
-ifeq ($(OS),Windows_NT)
 clean:
-	del /Q /F .\\build\\*
-else
-clean:
-	rm -rf ./build/*
-endif
+	@rm -rf ./build/*
 
-ifeq ($(OS),Windows_NT)
 clean-repos:
-	del /Q /F .\\installers\\gladius-node-*\\*
-	del /Q /F .\\src\\*
+	@rm -rf ./src/*
 	make repos
-else
-clean-repos:
-	rm -rf installers/gladius-node-*
-	rm -rf ./src/*
-	make repos
-endif
 
 # build steps
 test-cli:# $(CLI_SRC)
