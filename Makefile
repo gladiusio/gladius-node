@@ -2,7 +2,7 @@
 include .env
 
 # Check if required executables are in the path
-EXECUTABLES = xgo docker git poop
+EXECUTABLES = xgo docker git
 K := $(foreach exec,$(EXECUTABLES),\
         $(if $(shell which $(exec)),some string,$(error "You need $(exec) in PATH to build")))
 
