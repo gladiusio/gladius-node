@@ -6,6 +6,9 @@ EXECUTABLES = xgo docker git
 K := $(foreach exec,$(EXECUTABLES),\
         $(if $(shell which $(exec)),some string,$(error "You need $(exec) in PATH to build")))
 
+# Make folders we need if they don't already exist
+F := $(shell mkdir -p installers src build)
+
 # general make targets
 all: build-all
 

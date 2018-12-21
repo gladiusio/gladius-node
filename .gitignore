@@ -1,6 +1,5 @@
 
 # Ignore files we add during build
-installers/
 build/
 src/
 
