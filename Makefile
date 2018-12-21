@@ -14,17 +14,17 @@ all: build-all
 
 # clone and checkout the right tag on each repo
 repos:
-	@git clone $(GUARDIAN_URL) ./src/gladius-guardian
-	@git clone $(GATEWAY_URL) ./src/gladius-network-gateway
-	@git clone $(EDGED_URL) ./src/gladius-edged
-	@git clone $(CLI_URL) ./src/gladius-cli
-	@git clone $(UI_URL) ./src/gladius-node-ui
+	@git clone $(GUARDIAN_URL) $(GUARIDAN_SRC)
+	@git clone $(GATEWAY_URL) $(GATEWAY_SRC)
+	@git clone $(EDGED_URL) $(EDGED_SRC)
+	@git clone $(CLI_URL) $(CLI_SRC)
+	@git clone $(UI_URL) $(UI_SRC)
 
-	@git -C ./src/gladius-guardian checkout $(GUARDIAN_VERSION)
-	@git -C ./src/gladius-network-gateway checkout $(GATEWAY_VERSION)
-	@git -C ./src/gladius-edged checkout $(EDGED_VERSION)
-	@git -C ./src/gladius-cli checkout $(CLI_VERSION)
-	@git -C ./src/gladius-node-ui checkout $(UI_VERSION)
+	@git -C $(GUARIDAN_SRC) checkout $(GUARDIAN_VERSION)
+	@git -C $(GATEWAY_SRC) checkout $(GATEWAY_VERSION)
+	@git -C $(EDGED_SRC) checkout $(EDGED_VERSION)
+	@git -C $(CLI_SRC) checkout $(CLI_VERSION)
+	@git -C $(UI_SRC) checkout $(UI_VERSION)
 
 clean:
 	@rm -rf ./build/*
