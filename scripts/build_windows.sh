@@ -10,4 +10,4 @@ export GOOS=windows
 export GOARCH=amd64
 
 echo "Building $TARGET"
-go build -o "${TARGET}" --ldflags "${LDFLAGS}" "${SOURCE}"
+go build -o "${TARGET}" "${SOURCE}"

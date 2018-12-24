@@ -9,30 +9,13 @@ K := $(foreach exec,$(EXECUTABLES),\
 F := $(shell mkdir -p ./build)
 
 # general make targets
-all: build-all
+all: binaries
 
 clean:
 	@rm -rf ./build/*
 
-clean-repos:
-	@rm -rf ./src/*
-	make repos
-
-
-build-all:
-	make clean
-	-make repos
-	make cli
-	make edged
-	make guardian 
-	make network-gateway
+binaries: binaries-windows binaries-mac binaries-linux
 
 binaries-windows:
-	@TARGET=gladius.exe SOURCE=./src/gladius-cli/cmd/main.go ./scripts/build_windows.sh
-	@TARGET=gladius-edged.exe SOURCE=./src/gladius-edged/cmd/ ./scritps/build_windows.sh
-
-binaries-mac:
-
-binaries-linux:
-
-release-binaries: release-mac release-linux release-windows
+	@docker run -it -e "TARGET=/build/gladius.exe" -e "SOURCE=./cmd/main.go" "cd /src/gladius-cli; ./scripts/build_windows.sh"
+	@docker cp builder_windows:/build/gladius.exe ./build/gladius.exe

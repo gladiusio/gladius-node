@@ -10,16 +10,19 @@ export GATEWAY_SRC=${SRC_DIR}/gladius-network-gateway
 export GUARDIAN_SRC=${SRC_DIR}/gladius-guardian
 
 # Git URLs
-export GUARDIAN_URL=git@github.com:gladiusio/gladius-guardian.git
-export GATEWAY_URL=git@github.com:gladiusio/gladius-network-gateway.git
-export EDGED_URL=git@github.com:gladiusio/gladius-edged.git
-export CLI_URL=git@github.com:gladiusio/gladius-cli.git
+export GUARDIAN_URL=https://github.com/gladiusio/gladius-guardian.git
+export GATEWAY_URL=https://github.com/gladiusio/gladius-network-gateway.git
+export EDGED_URL=https://github.com/gladiusio/gladius-edged.git
+export CLI_URL=https://github.com/gladiusio/gladius-cli.git
 
 # Which tags to checkout
 export EDGED_VERSION=0.7.1
 export GUARDIAN_VERSION=0.7.1
 export GATEWAY_VERSION=0.7.1
 export CLI_VERSION=0.7.1
+
+# Make the src dir if it doesn't exist
+mkdir -p ${SRC_DIR}
 
 # Clone the gladius go repos we need to run a node
 git clone ${GUARDIAN_URL} ${GUARDIAN_SRC}
