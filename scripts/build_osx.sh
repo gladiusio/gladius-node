@@ -13,4 +13,5 @@ export LDFLAGS="$LDFLAGS -linkmode external -s"
 export LDFLAGS_STATIC_DOCKER='-extld='${CC}
 
 echo "Building $TARGET"
+cd ${PROJECT_ROOT}
 go build -o "${TARGET}" --ldflags "${LDFLAGS}" "${SOURCE}"

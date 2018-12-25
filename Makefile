@@ -17,5 +17,10 @@ clean:
 binaries: binaries-windows binaries-mac binaries-linux
 
 binaries-windows:
-	@docker run -it -e "TARGET=/build/gladius.exe" -e "SOURCE=./cmd/main.go" "cd /src/gladius-cli; ./scripts/build_windows.sh"
-	@docker cp builder_windows:/build/gladius.exe ./build/gladius.exe
+	@mkdir -p ./build/windows
+
+	@echo "Building windows binaries"
+	@docker run --name node-builder -it -e "TARGET=/build/gladius.exe" -e "SOURCE=/src/gladius-cli/cmd/main.go" -e "PROJECT_ROOT=/src/gladius-cli" gladiusio/node "/scripts/build_windows.sh"
+	
+	@docker cp node-builder:/build/ ./build/windows
+	@docker rm node-builder

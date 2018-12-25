@@ -10,4 +10,5 @@ export GOOS=windows
 export GOARCH=amd64
 
 echo "Building $TARGET"
+cd ${PROJECT_ROOT}
 go build -o "${TARGET}" "${SOURCE}"
