@@ -20,7 +20,23 @@ binaries-windows:
 	@mkdir -p ./build/windows
 
 	@echo "Building windows binaries"
-	@docker run --name node-builder -it -e "TARGET=/build/gladius.exe" -e "SOURCE=/src/gladius-cli/cmd/main.go" -e "PROJECT_ROOT=/src/gladius-cli" gladiusio/node "/scripts/build_windows.sh"
+	@docker run --name node-builder gladiusio/node "/scripts/build_windows.sh"
 	
-	@docker cp node-builder:/build/ ./build/windows
+	@docker cp node-builder:/build/. ./build/windows/
+	@docker rm node-builder
+
+binaries-mac:
+	@mkdir -p ./build/mac	
+	@echo "Building mac binaries"
+	@docker run --name node-builder gladiusio/node "/scripts/build_osx.sh"
+	
+	@docker cp node-builder:/build/. ./build/mac/
+	@docker rm node-builder
+
+binaries-linux:
+	@mkdir -p ./build/linux	
+	@echo "Building linux binaries"
+	@docker run --name node-builder gladiusio/node "/scripts/build_linux.sh"
+	
+	@docker cp node-builder:/build/. ./build/linux/
 	@docker rm node-builder

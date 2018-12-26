@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 #
-# Build a windows binary from linux
+# Build all windows binaries
 
-set -eu -o pipefail
-
-export CC=x86_64-w64-mingw32-gcc
-export CGO_ENABLED=1
-export GOOS=windows
-export GOARCH=amd64
-
-echo "Building $TARGET"
-cd ${PROJECT_ROOT}
-go build -o "${TARGET}" "${SOURCE}"
+TARGET=/build/gladius.exe SOURCE=/src/gladius-cli/cmd/main.go PROJECT_ROOT=/src/gladius-cli /scripts/go_windows.sh
+TARGET=/build/gladius-edged.exe SOURCE=/src/gladius-edged/cmd/gladius-edged/main.go PROJECT_ROOT=/src/gladius-edged /scripts/go_windows.sh
+TARGET=/build/gladius-network-gateway.exe SOURCE=/src/gladius-network-gateway/cmd/main.go PROJECT_ROOT=/src/gladius-cli /scripts/go_windows.sh
+TARGET=/build/gladius-guardian.exe SOURCE=/src/gladius-guardian/main.go PROJECT_ROOT=/src/gladius-guardian /scripts/go_windows.sh
