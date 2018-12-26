@@ -18,7 +18,7 @@ export CLI_URL=https://github.com/gladiusio/gladius-cli.git
 # Which tags to checkout
 export EDGED_VERSION=0.7.1
 export GUARDIAN_VERSION=0.7.1
-export GATEWAY_VERSION=0.7.1
+export GATEWAY_VERSION=0.7.2
 export CLI_VERSION=0.7.1
 
 # Make the src dir if it doesn't exist

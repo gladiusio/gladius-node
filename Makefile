@@ -13,6 +13,9 @@ all: binaries
 
 clean:
 	@rm -rf ./build/*
+	@docker rm node-builder
+
+releases: binaries tar-binaries
 
 binaries: binaries-windows binaries-mac binaries-linux
 
@@ -43,3 +46,8 @@ binaries-linux:
 
 docker-image:
 	@docker build -t gladiusio/node-env .
+
+tar-binaries:
+	@find ./build/* -type d -exec ``tar -C {} -cvf {}.tar . \;``
+	@mkdir -p ./build/releases
+	@mv ./build/*.tar ./build/releases
