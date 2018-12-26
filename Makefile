@@ -20,7 +20,7 @@ binaries-windows:
 	@mkdir -p ./build/windows
 
 	@echo "Building windows binaries"
-	@docker run --name node-builder gladiusio/node "/scripts/build_windows.sh"
+	@docker run --name node-builder gladiusio/node-env "/scripts/build_windows.sh"
 	
 	@docker cp node-builder:/build/. ./build/windows/
 	@docker rm node-builder
@@ -28,7 +28,7 @@ binaries-windows:
 binaries-mac:
 	@mkdir -p ./build/mac	
 	@echo "Building mac binaries"
-	@docker run --name node-builder gladiusio/node "/scripts/build_osx.sh"
+	@docker run --name node-builder gladiusio/node-env "/scripts/build_osx.sh"
 	
 	@docker cp node-builder:/build/. ./build/mac/
 	@docker rm node-builder
@@ -36,7 +36,10 @@ binaries-mac:
 binaries-linux:
 	@mkdir -p ./build/linux	
 	@echo "Building linux binaries"
-	@docker run --name node-builder gladiusio/node "/scripts/build_linux.sh"
+	@docker run --name node-builder gladiusio/node-env "/scripts/build_linux.sh"
 	
 	@docker cp node-builder:/build/. ./build/linux/
 	@docker rm node-builder
+
+docker-image:
+	@docker build -t gladiusio/node-env .

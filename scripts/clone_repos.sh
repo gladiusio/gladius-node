@@ -2,7 +2,7 @@
 #
 
 # Setup our variables
-export SRC_DIR=./src
+export SRC_DIR=/src
 
 export CLI_SRC=${SRC_DIR}/gladius-cli
 export EDGED_SRC=${SRC_DIR}/gladius-edged
@@ -35,3 +35,9 @@ git -C ${GUARDIAN_SRC} checkout ${GUARDIAN_VERSION}
 git -C ${GATEWAY_SRC} checkout ${GATEWAY_VERSION}
 git -C ${EDGED_SRC} checkout ${EDGED_VERSION}
 git -C ${CLI_SRC} checkout ${CLI_VERSION}
+
+# Cache the dependencies in the image so builds are faster
+cd ${CLI_SRC} && go mod download
+cd ${EDGED_SRC} && go mod download
+cd ${GATEWAY_SRC} && go mod download
+cd ${GUARDIAN_SRC} && go mod download
