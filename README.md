@@ -44,9 +44,10 @@ If you would like to contribute to the project:
 
 ### Building the Gladius Node from source
 Our builds are done inside containers to allow easier cross platform CGO development, so you will need [docker](https://docs.docker.com/install/) to build the binaries.
-
-- `make` to build binaries for all supported operating systems
-- `make binaries-<os>` to build for a specific OS
-- `make releases` to build all release tarballs
+- First run `make docker-image` or `docker pull gladiusio/node-env`
+- To build
+    - `make` to build binaries for all supported operating systems
+    - `make binaries-<os>` to build for a specific OS
+    - `make releases` to build all release tarballs
 
 All output will be placed in `./build`
