@@ -1,5 +1,7 @@
-# Electron Build
-installers/gladius-node-win-installer/gladius-electron-win32-x64
+
+# Ignore files we add during build
+build/
+src/
 
 # Binaries for programs and plugins
 *.exe

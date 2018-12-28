@@ -1,4 +1,0 @@
-# Use this branches version in a merge, so that we can have the most recent
-# development in the development branch, and tagged versions in master.
-Gopkg.toml merge=ours
-Gopkg.lock merge=ours

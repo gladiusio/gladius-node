@@ -1,169 +1,63 @@
 #!make
-include .env
+
+# Check if required executables are in the path
+EXECUTABLES = docker tar
+K := $(foreach exec,$(EXECUTABLES),\
+        $(if $(shell which $(exec)),some string,$(error "You need $(exec) in PATH to build")))
+
+# Make folders we need if they don't already exist
+F := $(shell mkdir -p ./build)
+
+RELEASE_VERSION := $(shell git describe --tags)
 
 # general make targets
-all: build-all
+all: binaries
 
-# clone repositories
-repos:
-	# sources
-	git clone git@github.com:gladiusio/gladius-guardian.git src/gladius-guardian
-	git clone git@github.com:gladiusio/gladius-network-gateway.git src/gladius-network-gateway
-	git clone git@github.com:gladiusio/gladius-edged.git src/gladius-edged
-	git clone git@github.com:gladiusio/gladius-cli.git src/gladius-cli
-	git clone git@github.com:gladiusio/gladius-node-ui.git src/gladius-node-ui
-
-	# installers
-	git clone git@github.com:gladiusio/gladius-node-installer-macos.git installers/gladius-node-mac-installer
-	git clone git@github.com:gladiusio/gladius-node-installer-windows.git installers/gladius-node-win-installer
-
-# define cleanup target for windows and *nix
-ifeq ($(OS),Windows_NT)
 clean:
-	del /Q /F .\\build\\*
-else
-clean:
-	rm -rf ./build/*
-endif
+	@rm -rf ./build/*
+	-@docker rm node-builder
 
-ifeq ($(OS),Windows_NT)
-clean-repos:
-	del /Q /F .\\installers\\gladius-node-*\\*
-	del /Q /F .\\src\\*
-	make repos
-else
-clean-repos:
-	rm -rf installers/gladius-node-*
-	rm -rf ./src/*
-	make repos
-endif
+releases: binaries tar-binaries
 
-# build steps
-test-cli:# $(CLI_SRC)
-	$(GOTEST) $(CLI_SRC)
+binaries: binaries-windows binaries-mac binaries-linux binaries-arm-linux
 
-cli:# test-cli
-	cd $(CLI_SRC) && $(MAKE)
-	cp $(CLI_BUILD)/* $(CLI_DEST)
+binaries-windows:
+	@mkdir -p ./build/gladius-$(RELEASE_VERSION)-windows-amd64/
 
-edged:# test-edged
-	cd $(EDGED_SRC) && $(MAKE)
-	cp $(EDGED_BUILD)/* $(EDGED_DEST)
+	@echo "Building windows binaries"
+	@docker run --name node-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_windows.sh"
+	
+	@docker cp node-builder:/build/. ./build/gladius-$(RELEASE_VERSION)-windows-amd64/
+	@docker rm node-builder
 
-guardian:
-	cd $(GUARD_SRC) && $(MAKE)
-	cp $(GUARD_BUILD)/* $(GUARD_DEST)
+binaries-mac:
+	@mkdir -p ./build/gladius-$(RELEASE_VERSION)-darwin-amd64/	
+	@echo "Building mac binaries"
+	@docker run --name node-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_osx.sh"
+	
+	@docker cp node-builder:/build/. ./build/gladius-$(RELEASE_VERSION)-darwin-amd64/
+	@docker rm node-builder
 
-network-gateway:
-	cd $(GATEWAY_SRC) && $(MAKE)
-	cp $(GATEWAY_BUILD)/* $(GATEWAY_DEST)
+binaries-linux:
+	@mkdir -p ./build/gladius-$(RELEASE_VERSION)-linux-amd64/
+	@echo "Building linux binaries"
+	@docker run --name node-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_linux.sh"
+	
+	@docker cp node-builder:/build/. ./build/gladius-$(RELEASE_VERSION)-linux-amd64/
+	@docker rm node-builder
 
-build-all:
-	make clean
-	-make repos
-	make cli
-	make edged
-	make guardian 
-	make network-gateway
+binaries-arm-linux:
+	@mkdir -p ./build/gladius-$(RELEASE_VERSION)-linux-arm/
+	@echo "Building arm-linux binaries"
+	@docker run --name node-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_arm_linux.sh"
+	
+	@docker cp node-builder:/build/. ./build/gladius-$(RELEASE_VERSION)-linux-arm/
+	@docker rm node-builder
 
-# Made for macOS at the moment
-# Install gcc cross compilers for macOS
-# `brew install mingw-w64` - windows
-# `brew install FiloSottile/musl-cross/musl-cross` - linux
-# `brew install wine` - for compiling electron-ui for windows
+docker-image:
+	@docker build -t gladiusio/node-env .
 
-release-binaries: release-mac release-linux release-windows
-
-release-clean: clean clean-repos release-binaries
-
-release-ui: release-mac-with-ui release-linux-with-ui release-windows-with-ui
-
-release-clean-ui: release-clean release-ui
-
-# Full cleaned release with binaries and UI for all platforms
-release: release-clean-ui
-
-release-mac:
-	rm -rf $(RELEASE_DIR)/macos
-	mkdir -p $(RELEASE_DIR)/macos
-
-	cd $(CLI_SRC) && $(MAKE) release-mac
-	cp $(CLI_BUILD)/release/macos/* $(RELEASE_DIR)/macos/
-
-	cd $(EDGED_SRC) && $(MAKE) release-mac
-	cp $(EDGED_BUILD)/release/macos/* $(RELEASE_DIR)/macos/
-
-	cd $(GUARD_SRC) && $(MAKE) release-mac
-	cp $(GUARD_BUILD)/release/macos/* $(RELEASE_DIR)/macos/
-
-	cd $(GATEWAY_SRC) && $(MAKE) release-mac
-	cp $(GATEWAY_BUILD)/release/macos/* $(RELEASE_DIR)/macos/
-
-	# Copy Go Binaries to Installers
-	cp $(RELEASE_DIR)/macos/* installers/gladius-node-mac-installer/Manager/Shared/
-
-	# Create tarballs
-	cd build/release/macos && tar -czf "gladius-$(VERSION)-darwin-amd64.tar.gz" gladius*
-
-release-mac-with-ui: release-mac
-	cd $(UI_SRC) && npm install && npm run build && npm run package-mac
-	cp -r $(UI_BUILD)/release/macos/* $(RELEASE_DIR)/macos/
-
-	# Copy Electron app to Installers
-	rm -rf installers/gladius-node-mac-installer/Manager/Electron/Gladius.app
-	cp -r build/release/macos/Gladius-darwin-x64/Gladius.app installers/gladius-node-mac-installer/Manager/Electron/Gladius.app
-
-release-linux:
-	rm -rf $(RELEASE_DIR)/linux
-	mkdir -p $(RELEASE_DIR)/linux
-
-	cd $(CLI_SRC) && $(MAKE) release-linux
-	cp $(CLI_BUILD)/release/linux/* $(RELEASE_DIR)/linux/
-
-	cd $(EDGED_SRC) && $(MAKE) release-linux
-	cp $(EDGED_BUILD)/release/linux/* $(RELEASE_DIR)/linux/
-
-	cd $(GUARD_SRC) && $(MAKE) release-linux
-	cp $(GUARD_BUILD)/release/linux/* $(RELEASE_DIR)/linux/
-
-	cd $(GATEWAY_SRC) && $(MAKE) release-linux
-	cp $(GATEWAY_BUILD)/release/linux/* $(RELEASE_DIR)/linux/
-
-	# Copy Go Binaries to Installers
-	cp $(RELEASE_DIR)/linux/* installers/gladius-node-mac-installer/Manager/Shared/
-
-	# Create tarballs
-	cd build/release/linux && tar -czf "gladius-$(VERSION)-linux-amd64.tar.gz" gladius*
-
-release-linux-with-ui:
-	cd $(UI_SRC) && npm install && npm run build && npm run package-linux
-	cp -r $(UI_BUILD)/release/linux/* $(RELEASE_DIR)/linux/
-
-release-windows:
-	rm -rf $(RELEASE_DIR)/windows
-	mkdir -p $(RELEASE_DIR)/windows
-
-	cd $(CLI_SRC) && $(MAKE) release-win
-	cp $(CLI_BUILD)/release/windows/* $(RELEASE_DIR)/windows/
-
-	cd $(EDGED_SRC) && $(MAKE) release-win
-	cp $(EDGED_BUILD)/release/windows/* $(RELEASE_DIR)/windows/
-
-	cd $(GUARD_SRC) && $(MAKE) release-win
-	cp $(GUARD_BUILD)/release/windows/* $(RELEASE_DIR)/windows/
-
-	cd $(GATEWAY_SRC) && $(MAKE) release-win
-	cp $(GATEWAY_BUILD)/release/windows/* $(RELEASE_DIR)/windows/
-
-	# Copy Go Binaries to Installers
-	cp build/release/windows/* installers/gladius-node-win-installer/
-
-	# Create tarballs
-	cd build/release/windows && tar -czf "gladius-$(VERSION)-windows-amd64.tar.gz" gladius*
-
-release-windows-with-ui: release-windows
-	cd $(UI_SRC) && npm install && npm run build && npm run package-win
-	cp -r $(UI_BUILD)/release/windows/* $(RELEASE_DIR)/windows/
-
-	# Copy Electron app to Installers
-	cp -r build/release/windows/gladius-electron-win32-x64 installers/gladius-node-win-installer/gladius-electron-win32-x64
+tar-binaries:
+	@find ./build/* -type d -exec ``tar -C {} -czvf {}.tar.gz . \;``
+	@mkdir -p ./build/releases
+	@mv ./build/*.tar.gz ./build/releases
