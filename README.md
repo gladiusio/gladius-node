@@ -45,7 +45,7 @@ If you would like to contribute to the project:
 ### Building the Gladius Node from source
 Our builds are done inside containers to allow easier cross platform CGO development, so you will need [docker](https://docs.docker.com/install/) to build the binaries.
 
-To change the git version (or gir URL) that is checked out, modify the `.env` file. If you modify the directories or the URLs, you will want to run `make docker-image` to update it.
+To change the git version (or git URL) that is checked out, modify the `.env` file. If you modify the directories or the URLs, you will want to run `make docker-image` to update the image.
 
 - First run `make docker-image` or `docker pull gladiusio/node-env`
 - To build
@@ -53,4 +53,4 @@ To change the git version (or gir URL) that is checked out, modify the `.env` fi
     - `make binaries-<os>` to build for a specific OS
     - `make releases` to build all release tarballs
 
-All output will be placed in `./build`
+All output will be placed in your local `./build`
