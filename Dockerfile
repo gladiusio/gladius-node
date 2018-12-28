@@ -5,6 +5,7 @@ WORKDIR /
 
 # Copy our build scripts into the image
 COPY scripts /scripts
+COPY .env .env
 
-# Clone our repositories
-RUN /scripts/clone_repos.sh
+# Clone our repositories (export twice for hacky enviroment variable fix)
+RUN /bin/bash -c "export $(grep -v '^#' .env | xargs); export $(grep -v '^#' .env | xargs); /scripts/clone_repos.sh"

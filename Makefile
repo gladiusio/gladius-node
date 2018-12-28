@@ -1,12 +1,14 @@
 #!make
 
 # Check if required executables are in the path
-EXECUTABLES = docker
+EXECUTABLES = docker tar
 K := $(foreach exec,$(EXECUTABLES),\
         $(if $(shell which $(exec)),some string,$(error "You need $(exec) in PATH to build")))
 
 # Make folders we need if they don't already exist
 F := $(shell mkdir -p ./build)
+
+RELEASE_VERSION := $(shell git describe --tags)
 
 # general make targets
 all: binaries
@@ -20,28 +22,28 @@ releases: binaries tar-binaries
 binaries: binaries-windows binaries-mac binaries-linux
 
 binaries-windows:
-	@mkdir -p ./build/windows
+	@mkdir -p ./build/gladius-$(RELEASE_VERSION)-windows-amd64/
 
 	@echo "Building windows binaries"
-	@docker run --name node-builder gladiusio/node-env "/scripts/build_windows.sh"
+	@docker run --name node-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_windows.sh"
 	
-	@docker cp node-builder:/build/. ./build/windows/
+	@docker cp node-builder:/build/. ./build/gladius-$(RELEASE_VERSION)-windows-amd64/
 	@docker rm node-builder
 
 binaries-mac:
-	@mkdir -p ./build/mac	
+	@mkdir -p ./build/gladius-$(RELEASE_VERSION)-darwin-amd64/	
 	@echo "Building mac binaries"
-	@docker run --name node-builder gladiusio/node-env "/scripts/build_osx.sh"
+	@docker run --name node-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_osx.sh"
 	
-	@docker cp node-builder:/build/. ./build/mac/
+	@docker cp node-builder:/build/. ./build/gladius-$(RELEASE_VERSION)-darwin-amd64/
 	@docker rm node-builder
 
 binaries-linux:
-	@mkdir -p ./build/linux	
+	@mkdir -p ./build/gladius-$(RELEASE_VERSION)-linux-amd64/
 	@echo "Building linux binaries"
-	@docker run --name node-builder gladiusio/node-env "/scripts/build_linux.sh"
+	@docker run --name node-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_linux.sh"
 	
-	@docker cp node-builder:/build/. ./build/linux/
+	@docker cp node-builder:/build/. ./build/gladius-$(RELEASE_VERSION)-linux-amd64/
 	@docker rm node-builder
 
 docker-image:
