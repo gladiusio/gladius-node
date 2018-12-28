@@ -3,12 +3,9 @@ go:
 - 1.11.4
 services:
 - docker
-before_install:
-- sed -i 's/git@github.com:/https:\/\/github.com\//' Makefile
-- docker build -t gladiusio/node-env .
 install:
-- curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-- make releases
+- docker build -t gladiusio/node-env .
+script: make releases
 deploy:
   provider: releases
   api_key:
