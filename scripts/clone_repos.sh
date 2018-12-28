@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #
 # Make the src dir if it doesn't exist
-env 
 mkdir -p ${SRC_DIR}
 
 # Clone the gladius go repos we need to run a node

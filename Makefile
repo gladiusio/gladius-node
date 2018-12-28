@@ -15,11 +15,11 @@ all: binaries
 
 clean:
 	@rm -rf ./build/*
-	@docker rm node-builder
+	-@docker rm node-builder
 
 releases: binaries tar-binaries
 
-binaries: binaries-windows binaries-mac binaries-linux
+binaries: binaries-windows binaries-mac binaries-linux binaries-arm-linux
 
 binaries-windows:
 	@mkdir -p ./build/gladius-$(RELEASE_VERSION)-windows-amd64/
@@ -44,6 +44,14 @@ binaries-linux:
 	@docker run --name node-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_linux.sh"
 	
 	@docker cp node-builder:/build/. ./build/gladius-$(RELEASE_VERSION)-linux-amd64/
+	@docker rm node-builder
+
+binaries-arm-linux:
+	@mkdir -p ./build/gladius-$(RELEASE_VERSION)-linux-arm/
+	@echo "Building arm-linux binaries"
+	@docker run --name node-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_arm_linux.sh"
+	
+	@docker cp node-builder:/build/. ./build/gladius-$(RELEASE_VERSION)-linux-arm/
 	@docker rm node-builder
 
 docker-image:
