@@ -1,12 +1,13 @@
 language: go
 go:
 - 1.11.4
+dist: xenial
 services:
 - docker
 install:
 - docker build -t gladiusio/node-env .
 script: 
-  - make -j 4 -O # Run 4 jobs at a time, and sync the output
+  - make -j 4 --output-sync # Run 4 jobs at a time, and sync the output
   - make tar-binaries # Tar the output and make releases
 deploy:
   provider: releases
