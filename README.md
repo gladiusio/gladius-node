@@ -48,9 +48,11 @@ Our builds are done inside containers to allow easier cross platform CGO develop
 To change the git version (or git URL) that is checked out, modify the `.env` file. If you modify the directories or the URLs, you will want to run `make docker-image` to update the image.
 
 - First run `make docker-image` or `docker pull gladiusio/node-env`
-- To build
+- To build (run with `-j 4` to run these jobs in parallel)
     - `make` to build binaries for all supported operating systems
     - `make binaries-<os>` to build for a specific OS
+    
+- To release
     - `make releases` to build all release tarballs
 
 All output will be placed in your local `./build`
