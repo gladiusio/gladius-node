@@ -6,17 +6,27 @@ services:
 - docker
 install:
 - docker build -t gladiusio/node-env .
-script: 
-  - make -j 4 --output-sync # Run 4 jobs at a time, and sync the output
-  - make tar-binaries # Tar the output and make releases
-deploy:
-  provider: releases
-  api_key:
-    secure: m+k41uNmipwTwsqXor9aX8kFYmp8ua3KB4JFlYJ3mip3ct/gYzwQ75Qt9E1Mv0ebTKM1jjZuJ5IkuxBExzi4b11hvh7OX1t90UTm/eRq73MA0AM3YaS8CFFOU2fVfb7HnqTp8ZPE9WiPRLdzoMNIc4OLg6dm5VIHJnTzVco+DTxEbZV3OHty7Wwdafpc5mE5l56pfdNSJXCO7eTt6E+2+HB5+0U6wYaWuAzXPRpoPUg4hDmTLNlpDK2omgcXjCSifFJTg8qrDt3/E8WE87UDwY7uqnJKYLcA8XArz/zfHsfP3O0jWxB510uQvieL9XC005Cw4P9X6K4vP0Xl9HnFMR/KHe22pckEca1w151o5jR2n1p26L1/CmLKDNmu2DutyQB3OxX4pZ+QCrcuspme7Xpr/Az1ZZj6NVf/4xsaBpilwXX5x4Y05lCLGCjlMITr8eq2Z3uhBXZ1O5LxYN6vR5HU7cHy1zoGbFt78K+/uBfSKrFj6GVeJAJZFWdpT+qBFpq/bjea5MEDTEA1Dgv4EOZxv8HwD/Zjjm8wEckXNr0EZhM+zoVhdAMuFHG4hjKO7PY43SsrXRgsFs9WJ3BzhHuUlXRcYYq+FpEt5DP9I9QWFVs9Db1FJ8vB7F2q1GZCaPxuzNk0SEXHAov3JgIoxfCalLc8JcVxQvWoAGiaTtg=
-  file: build/releases/*
-  file_glob: true
-  skip_cleanup: true
-  draft: true
-  name: "Gladius Node Beta $TRAVIS_TAG"
-  on:
-    tags: true
+
+
+jobs:
+  include:
+    - stage: build binaries
+      dist: xenial
+      services:
+        - docker
+      install:
+        - docker build -t gladiusio/node-env .
+      script: 
+        - make -j 4 --output-sync # Run 4 jobs at a time, and sync the output
+        - make tar-binaries # Tar the output and make releases
+      deploy:
+        provider: releases
+        api_key:
+          secure: m+k41uNmipwTwsqXor9aX8kFYmp8ua3KB4JFlYJ3mip3ct/gYzwQ75Qt9E1Mv0ebTKM1jjZuJ5IkuxBExzi4b11hvh7OX1t90UTm/eRq73MA0AM3YaS8CFFOU2fVfb7HnqTp8ZPE9WiPRLdzoMNIc4OLg6dm5VIHJnTzVco+DTxEbZV3OHty7Wwdafpc5mE5l56pfdNSJXCO7eTt6E+2+HB5+0U6wYaWuAzXPRpoPUg4hDmTLNlpDK2omgcXjCSifFJTg8qrDt3/E8WE87UDwY7uqnJKYLcA8XArz/zfHsfP3O0jWxB510uQvieL9XC005Cw4P9X6K4vP0Xl9HnFMR/KHe22pckEca1w151o5jR2n1p26L1/CmLKDNmu2DutyQB3OxX4pZ+QCrcuspme7Xpr/Az1ZZj6NVf/4xsaBpilwXX5x4Y05lCLGCjlMITr8eq2Z3uhBXZ1O5LxYN6vR5HU7cHy1zoGbFt78K+/uBfSKrFj6GVeJAJZFWdpT+qBFpq/bjea5MEDTEA1Dgv4EOZxv8HwD/Zjjm8wEckXNr0EZhM+zoVhdAMuFHG4hjKO7PY43SsrXRgsFs9WJ3BzhHuUlXRcYYq+FpEt5DP9I9QWFVs9Db1FJ8vB7F2q1GZCaPxuzNk0SEXHAov3JgIoxfCalLc8JcVxQvWoAGiaTtg=
+        file: build/releases/*
+        file_glob: true
+        skip_cleanup: true
+        draft: true
+        name: "Gladius Node Beta $TRAVIS_TAG"
+        on:
+          tags: true
