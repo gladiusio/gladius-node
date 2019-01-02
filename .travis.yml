@@ -23,6 +23,8 @@ jobs:
         skip_cleanup: true
         upload-dir: $TRAVIS_TAG
         bucket: gladius-deploy-versions
+        on:
+          branch: feature/ui_building
         # on:
         #   tags: true
     # - stage: build installers
