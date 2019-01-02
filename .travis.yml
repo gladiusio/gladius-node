@@ -1,13 +1,10 @@
-dist: xenial
-services:
-- docker
-install:
-- docker build -t gladiusio/node-env .
-
 jobs:
   include:
     - stage: build binaries
       dist: xenial
+      language: minimal
+      install:
+        - docker build -t gladiusio/node-env .
       services:
         - docker
       install:
@@ -27,7 +24,9 @@ jobs:
         on:
           tags: true
     - stage: build installers
+      language: minimal
       script: echo "Building installers"
     - stage: deploy to github
+      language: minimal
       script: echo "Deploying to github"
 
