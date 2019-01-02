@@ -61,7 +61,7 @@ docker-image:
 	@docker build -t gladiusio/node-env .
 
 tar-binaries:
+	pwd
 	@find ./build/* -type d -exec ``tar -C {} -czf {}.tar.gz . \;``
 	@mkdir -p ./build/releases
-	@mv ./build/*.tar.gz ./build/releases &
-	@wait
+	@mv ./build/*.tar.gz ./build/releases
