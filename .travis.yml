@@ -1,12 +1,8 @@
-language: go
-go:
-- 1.11.4
 dist: xenial
 services:
 - docker
 install:
 - docker build -t gladiusio/node-env .
-
 
 jobs:
   include:
@@ -17,7 +13,7 @@ jobs:
       install:
         - docker build -t gladiusio/node-env .
       script: 
-        - make -j 4 --output-sync # Run 4 jobs at a time, and sync the output
+        - make -j 2 --output-sync # Run 4 jobs at a time, and sync the output
         - make tar-binaries # Tar the output and make releases
       deploy:
         provider: releases
@@ -30,3 +26,8 @@ jobs:
         name: "Gladius Node Beta $TRAVIS_TAG"
         on:
           tags: true
+    - stage: build installers
+      script: echo "Building installers"
+    - stage: deploy to github
+      script: echo "Deploying to github"
+
