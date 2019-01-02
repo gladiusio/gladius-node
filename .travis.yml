@@ -21,7 +21,8 @@ jobs:
           secure: "gKxOsn9wSyXlQhjJVKb82MMrceBHiJ0BZ+22FCelU7vAT2NkWdeec6kMQfX9Jb+B/XXCP//RRSevCVUaoaMrcIlCe7pY4czjsuL9sVsq2n6Lt8OomtKP9dzHtoIQJ2/enn+DwM65Ub+em6FIUpTlRk/34aBzV9sqV0KHX/Y3jOZ9HUiCCXtEQCwlPdNkTjKHRFqjq2Z27WYbXXWTE9u2Iwddh78M/HgafK27p2V+pIGtkfLFf5dWJ8ubIAS++My2pAOR6Dr/tKZ4JbjU+ixJgrm30Wg1ecb01lylRRj6TuqTeGviabobeLHBdEpLZcN5YrFCUC5Bt4KzOa0VhlAXeAqDR0vYc2WiDwd32FVitgmiL7+F513TQC2cfhetwVFRrdMreJr/6y+ErxtF9J74JNTyA2XNty72j3eXFh45A/xnxOCrBnSM7wZOhpKdCztzK6kb0f/LI7Cow2ohkyVAD1tmqNmr5d9mRNxUIQj4rLqc5xVuDJkiNZAZcae2w8vdwFH7VShk3aXqfrJ9bxonuyFLMb1zsBw/K9EdZYxDe8MtL/c190zWc28B1PJ7VAB6tqe0M1Vvza7rhRxKb2dN3gU78UDlDGN8TbvGcwhqUjF2FI+EVGRw97SxlNUuUY/kIYlzkTYKiV6+mvrVGaBo6sNEWdYOq4S4GH1Va1FV9qA=" 
         local_dir: build/releases/
         skip_cleanup: true
-        upload-dir: $TRAVIS_TAG
+        #upload-dir: $TRAVIS_TAG
+        upload-dir: test-dir # Replace with above when not testing
         bucket: gladius-deploy-versions
         on:
           branch: feature/ui_building
