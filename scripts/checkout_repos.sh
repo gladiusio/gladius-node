@@ -23,8 +23,17 @@ if [[ -z "${UI_VERSION}" ]]; then
 fi
 
 # Checkout the right versions
+git -C $(eval "echo $GUARDIAN_SRC") pull
 git -C $(eval "echo $GUARDIAN_SRC") checkout --quiet ${GUARDIAN_VERSION}
+
+git -C $(eval "echo $GATEWAY_SRC") pull
 git -C $(eval "echo $GATEWAY_SRC") checkout --quiet ${GATEWAY_VERSION}
+
+git -C $(eval "echo $EDGED_SRC") pull
 git -C $(eval "echo $EDGED_SRC") checkout --quiet ${EDGED_VERSION}
+
+git -C $(eval "echo $CLI_SRC") pull
 git -C $(eval "echo $CLI_SRC") checkout --quiet ${CLI_VERSION}
+
+git -C $(eval "echo $UI_SRC") pull
 git -C $(eval "echo $UI_SRC") checkout --quiet ${UI_VERSION}
