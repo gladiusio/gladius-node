@@ -19,4 +19,4 @@ deploy:
   draft: true
   name: "Gladius Node Beta "
   on:
-    repo: gladiusio/gladius-node 
+    tags: true
