@@ -27,13 +27,14 @@ build-uis:
 	@echo "Building UIs"
 	@docker run --name node-ui-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_ui.sh"
 	
-	@docker cp node-ui-builder:/src/gladius-node-ui/build/release/macos/Gladius-darwin-x64/Gladius.app ./build/gladius-$(RELEASE_VERSION)-mac.app
-	@docker cp node-ui-builder:/src/gladius-node-ui/build/release/windows/gladius-electron-win32-x64 ./build/gladius-$(RELEASE_VERSION)-windows
+	@docker cp node-ui-builder:/src/gladius-node-ui/build/release/macos/Gladius-darwin-x64/Gladius.app ./build/gladius-$(RELEASE_VERSION)-mac-ui.app
+	@docker cp node-ui-builder:/src/gladius-node-ui/build/release/windows/gladius-electron-win32-x64 ./build/gladius-$(RELEASE_VERSION)-windows-ui
 
 	@docker rm node-ui-builder
 
 setup-installers:
-	@
+	@echo "Copying binaries and UIs into installers"
+	@cp 
 
 binaries: binaries-windows binaries-mac binaries-linux binaries-arm-linux
 
@@ -77,3 +78,4 @@ tar-binaries:
 	@find ./build/* -type d -exec ``tar -C {} -czf {}.tar.gz . \;``
 	@mkdir -p ./build/releases
 	@mv ./build/*.tar.gz ./build/releases
+	@tar
