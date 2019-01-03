@@ -1,18 +1,16 @@
 jobs:
   include:
-    - stage: build binaries
+    - stage: Build binaries
       dist: xenial
       language: minimal
       services:
         - docker
-      # install:
-      #   - docker build -t gladiusio/node-env .
+      install:
+        - docker pull gladiusio/node-env
       script: 
-        # - make -j 2 --output-sync # Run 4 jobs at a time, and sync the output
-        # - make tar-binaries # Tar the output and make releases
-        - mkdir -p build/releases
-        - touch build/releases/fake_binary.tar.gz
-      deploy:
+        - make -j 2 --output-sync # Run 4 jobs at a time, and sync the output
+        - make tar-binaries # Tar the output and make releases
+      deploy: # Upload binaries to digitalocean
         provider: s3
         endpoint: https://sfo2.digitaloceanspaces.com 
         access_key_id:
@@ -24,14 +22,39 @@ jobs:
         #upload-dir: $TRAVIS_TAG
         upload-dir: test-dir # Replace with above when not testing
         bucket: gladius-deploy-versions
+        # Replace when done testing
         on:
           branch: feature/ui_building
         # on:
         #   tags: true
-    # - stage: build installers
-    #   language: minimal
-    #   script: echo "Building installers"
-    # - stage: deploy to github
-    #   language: minimal
-    #   script: echo "Deploying to Github"
+
+    - stage: Build apps/installers
+      language: minimal
+      - script: echo "Building UIs"
+        name: macOS
+      - script: echo "Building UIs"
+        name: windows
+      # TODO: add linux
+
+      deploy: # Upload apps to digitalocean
+        provider: s3
+        endpoint: https://sfo2.digitaloceanspaces.com 
+        access_key_id:
+          secure: "Ctwl9z3kdn7KNCizfKsyQFY0U40V3KSkKTnosE6/e3u7WlvoURafA0Us7Vrx4AnMUO6SUsPPvYnLVZB0o9eW12ZmN5s4wBLF7NknuXMgiY9k/EzTDusCh9OVfHn7fEt7tDUO06k7Mj4REclBaAi9mCPjRp0zC6Iv8g/+ZsM1ixcvz2kvM0PSJKs6Cj72bSHUO/u6d4/R3ByPLa3TjrXF5fnBe8nDBezovHoZr6WD2h5yKHd6KMMB+iUeC0J9XaqDZYc90AoYIYSDxIjzRJvCm3MiWxrc0TCjrA97T9IPj9Uv0kSyDo1p4Y0SokXwqyaZubnZJJECnvneYQQ/yBm1uU6XpKs/7VbBq9H/uV3M7Wrt0usmjpb2PJB68Jmsb0eaeXIBK/gFU2KJI0838hQOmhcUpP9ycBtJcz6cpnhNs+NEUZgyggL7mWoqFgOWnNTeItBHzVGvxYZKR/NvM1J6qjyyf/v/ajCDLLp4Tmng5CYeRmMwFfQ+5p+CofoLhBqClWtiNV4uPOrPGPi4zXpugIka+vK33dg0tJBXrJ7l/zr315Gck5hzhCXMkWcI7aDgQVj5hOyrF5Axr1bvwrIw9avDsTys01/3oX7Mb49piJHbh9vXhs++3eNU94E+POhNeHPfo6L5rNc0PfrBicd0wxBwKaNhyX5/bOk0xMSp95E="
+        secret_access_key: 
+          secure: "gKxOsn9wSyXlQhjJVKb82MMrceBHiJ0BZ+22FCelU7vAT2NkWdeec6kMQfX9Jb+B/XXCP//RRSevCVUaoaMrcIlCe7pY4czjsuL9sVsq2n6Lt8OomtKP9dzHtoIQJ2/enn+DwM65Ub+em6FIUpTlRk/34aBzV9sqV0KHX/Y3jOZ9HUiCCXtEQCwlPdNkTjKHRFqjq2Z27WYbXXWTE9u2Iwddh78M/HgafK27p2V+pIGtkfLFf5dWJ8ubIAS++My2pAOR6Dr/tKZ4JbjU+ixJgrm30Wg1ecb01lylRRj6TuqTeGviabobeLHBdEpLZcN5YrFCUC5Bt4KzOa0VhlAXeAqDR0vYc2WiDwd32FVitgmiL7+F513TQC2cfhetwVFRrdMreJr/6y+ErxtF9J74JNTyA2XNty72j3eXFh45A/xnxOCrBnSM7wZOhpKdCztzK6kb0f/LI7Cow2ohkyVAD1tmqNmr5d9mRNxUIQj4rLqc5xVuDJkiNZAZcae2w8vdwFH7VShk3aXqfrJ9bxonuyFLMb1zsBw/K9EdZYxDe8MtL/c190zWc28B1PJ7VAB6tqe0M1Vvza7rhRxKb2dN3gU78UDlDGN8TbvGcwhqUjF2FI+EVGRw97SxlNUuUY/kIYlzkTYKiV6+mvrVGaBo6sNEWdYOq4S4GH1Va1FV9qA=" 
+        local_dir: build/
+        skip_cleanup: true
+        #upload-dir: $TRAVIS_TAG
+        upload-dir: test-dir # Replace with above when not testing
+        bucket: gladius-deploy-versions
+        # Replace when done testing
+        on:
+          branch: feature/ui_building
+        # on:
+        #   tags: true
+
+    - stage: Deploy to Github
+      language: minimal
+      script: echo "Deploying to Github"
 

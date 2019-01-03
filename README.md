@@ -53,6 +53,6 @@ To change the git version (or git URL) that is checked out, modify the `.env` fi
     - `make binaries-<os>` to build for a specific OS
     
 - To release
-    - `make releases` to build all release tarballs
+    - `make release-binaries` to build all release tarballs
 
 All output will be placed in your local `./build`

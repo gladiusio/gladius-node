@@ -20,7 +20,7 @@ clean:
 	-@docker rm node-linux-builder
 	-@docker rm node-arm-builder
 
-releases: binaries tar-binaries
+release-binaries: binaries tar-binaries
 
 binaries: binaries-windows binaries-mac binaries-linux binaries-arm-linux
 
