@@ -11,7 +11,7 @@ F := $(shell mkdir -p ./build)
 RELEASE_VERSION := $(shell git describe --tags)
 
 # general make targets
-all: binaries
+all: binaries build-uis
 
 clean:
 	@rm -rf ./build/*
@@ -19,10 +19,21 @@ clean:
 	-@docker rm node-windows-builder
 	-@docker rm node-linux-builder
 	-@docker rm node-arm-builder
+	-@docker rm node-ui-builder
 
 release-binaries: binaries tar-binaries
 
-build-ui: binaries-mac
+build-uis:
+	@echo "Building UIs"
+	@docker run --name node-ui-builder --env-file .env gladiusio/node-env /bin/bash -c "/scripts/checkout_repos.sh; /scripts/build_ui.sh"
+	
+	@docker cp node-ui-builder:/src/gladius-node-ui/build/release/macos/Gladius-darwin-x64/Gladius.app ./build/gladius-$(RELEASE_VERSION)-mac.app
+	@docker cp node-ui-builder:/src/gladius-node-ui/build/release/windows/gladius-electron-win32-x64 ./build/gladius-$(RELEASE_VERSION)-windows
+
+	@docker rm node-ui-builder
+
+setup-installers:
+	@
 
 binaries: binaries-windows binaries-mac binaries-linux binaries-arm-linux
 

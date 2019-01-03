@@ -7,9 +7,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libc6-dev-armhf-cross \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Install node
+
+# Install node and wine for the UI
+RUN dpkg --add-architecture i386 && apt-get update && apt-get -y install wine32
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash
-RUN apt-get install nodejs
+RUN apt-get install -y nodejs
 
 WORKDIR /
 
