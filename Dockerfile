@@ -1,10 +1,15 @@
 # Get the cross compilation files for windows and mac
 FROM dockercore/golang-cross
 
+# Install our arm bindings
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		gcc-arm-linux-gnueabihf \
 		libc6-dev-armhf-cross \
 	&& rm -rf /var/lib/apt/lists/*
+
+# Install node
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash
+RUN apt-get install nodejs
 
 WORKDIR /
 

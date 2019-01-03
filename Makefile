@@ -22,6 +22,8 @@ clean:
 
 release-binaries: binaries tar-binaries
 
+build-ui: binaries-mac
+
 binaries: binaries-windows binaries-mac binaries-linux binaries-arm-linux
 
 binaries-windows:
