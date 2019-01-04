@@ -30,13 +30,16 @@ jobs:
     
     - stage: Build apps and installers
       script: 
+        - ./scripts/download_release test-dir # Change to travis tag later
         - make build-windows-installer
       name: windows
+      language: minimal
+      dist: xenial
       addons:
-      apt:
-        packages:
-        - wine
-      deploy: # Upload binaries to digitalocean
+        apt:
+          packages:
+            - wine
+      deploy: # Upload windows installer to digitalocean
         provider: s3
         endpoint: https://sfo2.digitaloceanspaces.com 
         access_key_id:
