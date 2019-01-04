@@ -5,6 +5,12 @@ EXECUTABLES = docker tar
 K := $(foreach exec,$(EXECUTABLES),\
         $(if $(shell which $(exec)),some string,$(error "You need $(exec) in PATH to build")))
 
+# Wine is only needed for building windows installer
+DOT := $(shell command -v dot 2> /dev/null)
+
+# Detect our OS
+OS := $(shell uname)
+
 # Make folders we need if they don't already exist
 F := $(shell mkdir -p ./build)
 
@@ -32,9 +38,43 @@ build-uis:
 
 	@docker rm node-ui-builder
 
-setup-installers:
-	@echo "Copying binaries and UIs into installers"
-	@cp 
+build-windows-installer:
+ifeq (, $(shell which wine))
+	$(error "No wine in $(PATH), consider doing apt-get install wine")
+endif
+ifeq (,$(wildcard ./build/gladius-$(RELEASE_VERSION)-windows-amd64))
+	$(error "No windows binaries found, run make binaries-windows to build them")
+endif
+ifeq (,$(wildcard ./build/gladius-$(RELEASE_VERSION)-windows-ui))
+	$(error "No windows UI found, run make build-uis to build it")
+endif
+	
+	@echo "Building windows installer from binaries and ui"
+
+	@echo "Cloning windows installer source"
+	@mkdir -p ./src
+	-@git clone https://github.com/gladiusio/gladius-node-installer-windows.git ./src/gladius-node-installer-windows
+	
+	@echo "Copying build files into installer"
+	@cp -r ./build/gladius-$(RELEASE_VERSION)-windows-amd64/* ./src/gladius-node-installer-windows
+	@mkdir -p ./src/gladius-node-installer-windows/gladius-electron-win32-x64
+	@cp -r ./build/gladius-$(RELEASE_VERSION)-windows-ui/* ./src/gladius-node-installer-windows/gladius-electron-win32-x64
+
+
+	@echo "Downloading and extracting innosetup binaries"
+	@curl -o ./src/innosetup.tar.gz https://gladius-development-assets.sfo2.digitaloceanspaces.com/innosetup.tar.gz
+	@tar -xzf ./src/innosetup.tar.gz -C ./src
+
+	@echo "Building installer"
+	@wine ./src/innosetup/ISCC.exe ./src/gladius-node-installer-windows/install-script.iss
+
+build-mac-app:
+ifeq ($(OS), Darwin)
+	@echo "macOS detected, building..."
+else
+	$(error "$(OS) detected - must be macOS for code signing")
+endif
+
 
 binaries: binaries-windows binaries-mac binaries-linux binaries-arm-linux
 
