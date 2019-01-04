@@ -43,10 +43,10 @@ ifeq (, $(shell which wine))
 	$(error "No wine in $(PATH), consider doing apt-get install wine")
 endif
 ifeq (,$(wildcard ./build/gladius-$(RELEASE_VERSION)-windows-amd64))
-	$(error "No windows binaries found, run make binaries-windows to build them")
+	$(error "No recent (this git tag) windows binaries found, run make binaries-windows to build them")
 endif
 ifeq (,$(wildcard ./build/gladius-$(RELEASE_VERSION)-windows-ui))
-	$(error "No windows UI found, run make build-uis to build it")
+	$(error "No recent (this git tag) windows UI found, run make build-uis to build it")
 endif
 	
 	@echo "Building windows installer from binaries and ui"
