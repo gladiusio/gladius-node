@@ -52,6 +52,7 @@ jobs:
     
     - script: echo "Building UIs"
       name: mac
+      os: osx
 
     - stage: Deploy to Github
       language: minimal
