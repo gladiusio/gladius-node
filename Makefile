@@ -113,9 +113,9 @@ binaries-arm-linux:
 
 docker-image:
 	@docker build -t gladiusio/node-env .
+	@docker push gladiusio/node-env:latest
 
 tar-binaries:
 	@find ./build/* -type d -exec ``tar -C {} -czf {}.tar.gz . \;``
 	@mkdir -p ./build/releases
 	@mv ./build/*.tar.gz ./build/releases
-	@tar

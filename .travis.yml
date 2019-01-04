@@ -1,6 +1,6 @@
 jobs:
   include:
-    - stage: Build binaries
+    - stage: Build binaries and UI
       dist: xenial
       language: minimal
       services:
@@ -28,10 +28,14 @@ jobs:
         # on:
         #   tags: true
     
-    - stage: "Build apps and installers"
+    - stage: Build apps and installers
       script: 
         - make build-windows-installer
       name: windows
+      addons:
+      apt:
+        packages:
+        - wine
       deploy: # Upload binaries to digitalocean
         provider: s3
         endpoint: https://sfo2.digitaloceanspaces.com 
