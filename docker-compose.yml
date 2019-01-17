@@ -6,7 +6,8 @@ services:
       - "3001:3001"
       - "7947:7947"
     networks:
-      - gladius
+      gladius:
+        ipv4_address: 172.16.238.10
     deploy:
       restart_policy:
         condition: on-failure
@@ -17,7 +18,8 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - gladius
+      gladius:
+        ipv4_address: 172.16.238.11
     deploy:
       restart_policy:
         condition: on-failure
@@ -25,6 +27,10 @@ services:
       - "gladius:/root/.gladius"
 networks:
   gladius:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.16.238.0/24
 volumes:
   gladius:
     driver: local
