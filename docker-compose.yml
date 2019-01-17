@@ -1,0 +1,34 @@
+version: '3'
+services:
+  network-gateway:
+    image: gladiusio/network-gateway:latest
+    ports:
+      - "3001:3001"
+      - "7947:7947"
+    networks:
+      - gladius
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - "gladius:/root/.gladius"
+  edged:
+    image: gladiusio/edged:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - gladius
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - "gladius:/root/.gladius"
+networks:
+  gladius:
+volumes:
+  gladius:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "${PWD}/gladius"
