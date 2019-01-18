@@ -16,6 +16,8 @@ Current Build Status
 
 **Linux :** `curl -s https://raw.githubusercontent.com/gladiusio/gladius-node/master/installers/install.sh | sudo bash`
 
+**Forward Ports :** All platforms by default need ports 8080 and 7947 forwarded to the node
+
 ## Use
 **Windows and macOS**
 1. Download and install (see above)
