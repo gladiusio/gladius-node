@@ -33,6 +33,13 @@ Current Build Status
 3. `gladius start` (Instruct Guardian to start Gladius services. This needs to be done after reboot)
 4. `gladius` Use the CLI!
 
+**Docker**
+1. Clone this repo, `git clone git@github.com:gladiusio/gladius-node.git`
+2. Navigate to the `gladius-node` directory
+3. Run `docker-compose up` to start services
+
+*Services via Docker should now be running. You will have to create / open a wallet before use via curl*
+
 *NOTE: All install does is create a systemd service for the guardian, if you don't want to do that you can run it in a seperate window by calling `gladius-guardian`*
 
 ## Development and Contributions
